@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 건설안전 — 오늘</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#08090B">
+<link rel="icon" href="icons/favicon.png">
+<style>
+/* 색은 변수만 쓴다. 직접 박으면 스킨이 깨진다. */
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 96px}
+.top{display:flex;align-items:baseline;justify-content:space-between;margin:8px 0 18px}
+.brand{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.brand small{font-weight:600;color:var(--ink-3);font-size:12px;margin-left:8px}
+.dday{font-variant-numeric:tabular-nums;color:var(--red-2);font-weight:800;font-size:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--ink-4);font-weight:700;text-transform:uppercase}
+h2{font-size:17px;margin:6px 0 2px;color:var(--ink);letter-spacing:-.01em}
+.say{color:var(--ink-3);font-size:13px;margin:2px 0 14px;line-height:1.6}
+.bar{height:10px;border-radius:6px;background:var(--surface-2);overflow:hidden;border:1px solid var(--line)}
+.bar > i{display:block;height:100%;background:var(--red);transition:width .4s}
+.nums{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-top:8px;
+      font-variant-numeric:tabular-nums}
+.big{font-size:34px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.go{display:block;width:100%;margin-top:14px;padding:14px;border-radius:12px;border:0;cursor:pointer;
+    background:var(--red);color:#fff;font-size:15px;font-weight:800;letter-spacing:-.01em}
+.go.sub{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line-2);margin-top:8px}
+.rows{display:flex;flex-direction:column;gap:10px}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;
+     padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-2)}
+.row b{font-weight:700;font-size:14px;color:var(--ink)}
+.row .sub{display:block;font-size:11px;color:var(--ink-4);margin-top:3px;font-variant-numeric:tabular-nums}
+.pct{font-variant-numeric:tabular-nums;font-weight:800;font-size:15px;color:var(--ink-2)}
+.pct.low{color:var(--red-2)}
+.streak{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:var(--ink-3);
+        border:1px solid var(--line-2);border-radius:99px;padding:4px 10px}
+.tabs{position:fixed;top:auto;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);
+     background:var(--nav-bg,var(--surface));border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+.tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+.hero{width:100%;border-radius:12px;border:1px solid var(--line);display:block;margin-bottom:12px}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">모두의 건설안전<small>건설안전기사 필기</small></div>
+    <div class="dday" id="dday"></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">오늘</div>
+    <h2 id="ttl">오늘 몫</h2>
+    <div class="say" id="say"></div>
+    <div class="big" id="big"></div>
+    <div class="bar" style="margin-top:12px"><i id="bar" style="width:0%"></i></div>
+    <div class="nums"><span id="n1"></span><span id="n2"></span></div>
+    <button class="go" id="start">오늘 문제 풀기</button>
+    <button class="go sub" id="killer">틀린 것만 다시</button>
+    <div style="margin-top:12px"><span class="streak" id="streak"></span></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">과목</div>
+    <h2>어디가 약한지</h2>
+    <div class="say">정답률이 낮은 과목부터 문제가 나옵니다.</div>
+    <div class="rows" id="subs"></div>
+  </div>
+</div>
+
+<nav class="tabs">
+  <a href="index.html" class="on">오늘</a>
+  <a href="study.html">문제</a>
+  <a href="skilltree.html">진행</a>
+  <a href="settings.html">설정</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notify.js"></script>
+<script>
+(function(){
+  var r=T.루틴(), dd=T.디데이();
+  document.getElementById('dday').textContent = dd>0? ('D-'+dd) : (dd===0?'D-DAY':'시험일 지남');
+  var m=T.알림문구();
+  document.getElementById('ttl').textContent=m.t;
+  document.getElementById('say').textContent=m.b;
+  document.getElementById('big').textContent=r.푼수+' / '+r.목표;
+  document.getElementById('bar').style.width=Math.min(100,r.푼수*100/r.목표)+'%';
+  document.getElementById('n1').textContent='맞은 '+r.맞은수+'개';
+  document.getElementById('n2').textContent=r.끝?'오늘 몫 끝':(r.남은+'개 남음');
+  document.getElementById('streak').textContent='연속 '+r.연속+'일';
+  document.getElementById('start').onclick=function(){location.href='study.html?mode=today';};
+  document.getElementById('killer').onclick=function(){location.href='study.html?mode=wrong';};
+
+  var 성적=T.과목성적(), box=document.getElementById('subs');
+  (G.과목||[]).forEach(function(s){
+    var g=성적[s.n], el=document.createElement('div'); el.className='row';
+    var 율 = g.율==null? '—' : g.율+'%';
+    el.innerHTML='<div><b>'+s.name+'</b><span class="sub">'+g.푼+' / '+g.전체+'문항 풀었음</span></div>'+
+      '<div class="pct'+((g.율!=null&&g.율<60)?' low':'')+'">'+율+'</div>';
+    el.onclick=function(){location.href='study.html?subject='+s.n;};
+    box.appendChild(el);
+  });
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
+</body></html>

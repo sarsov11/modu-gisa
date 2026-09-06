@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 건설안전 — 설정</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#08090B">
+<link rel="icon" href="icons/favicon.png">
+<style>
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 96px}
+.brand{font-size:19px;font-weight:800;color:var(--ink);margin:6px 0 16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--ink-4);font-weight:700;margin-bottom:10px}
+.f{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;
+   border-bottom:1px solid var(--line)}
+.f:last-child{border-bottom:0}
+.f b{font-size:14px;color:var(--ink);font-weight:600}
+.f small{display:block;font-size:11px;color:var(--ink-4);margin-top:3px;line-height:1.5}
+input,select{background:var(--bg-2);border:1px solid var(--line-2);color:var(--ink);
+  border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;min-width:120px}
+button{padding:11px 14px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface-2);
+  color:var(--ink-2);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+button.red{background:var(--red);border-color:var(--red);color:#fff}
+.note{font-size:11px;color:var(--ink-4);line-height:1.7;margin-top:12px}
+.tabs{position:fixed;top:auto;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);
+     background:var(--nav-bg,var(--surface));border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="brand">설정</div>
+
+  <div class="card">
+    <div class="eyebrow">매일 루틴</div>
+    <div class="f"><div><b>시험일</b><small>남은 날짜를 홈에 띄웁니다</small></div>
+      <input type="date" id="exam"></div>
+    <div class="f"><div><b>하루 목표</b><small>문항 수. 10문제면 5분입니다</small></div>
+      <select id="goal"><option>10</option><option>20</option><option>30</option><option>50</option></select></div>
+    <div class="f"><div><b>알림 시각</b><small>이 시각에 오늘 몫을 알려줍니다</small></div>
+      <input type="time" id="at"></div>
+    <div class="f"><div><b>알림 받기</b><small id="permnote"></small></div>
+      <button id="perm">켜기</button></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">보기</div>
+    <div class="f"><div><b>스킨</b><small>색만 바뀌고 내용은 같습니다</small></div>
+      <select id="skin"><option value="">밤</option><option value="diary">다이어리</option></select></div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">기록</div>
+    <div class="f"><div><b>푼 기록</b><small id="stat"></small></div>
+      <button id="reset">초기화</button></div>
+    <div class="note" id="note"></div>
+  </div>
+</div>
+<nav class="tabs">
+  <a href="index.html">오늘</a><a href="study.html">문제</a>
+  <a href="skilltree.html">진행</a><a href="settings.html" class="on">설정</a>
+</nav>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/notify.js"></script>
+<script>
+(function(){
+  var S=T.S;
+  var exam=document.getElementById('exam'), goal=document.getElementById('goal'),
+      at=document.getElementById('at'), skin=document.getElementById('skin');
+  exam.value=S.설정.시험일; goal.value=String(S.설정.하루목표);
+  at.value=S.설정.알림시각; skin.value=S.설정.스킨||'';
+  exam.onchange=function(){S.설정.시험일=exam.value;T.저장();};
+  goal.onchange=function(){S.설정.하루목표=parseInt(goal.value,10);T.저장();};
+  at.onchange=function(){S.설정.알림시각=at.value;T.저장();
+    try{localStorage.setItem('terra.notify.at',at.value);}catch(e){}};
+  skin.onchange=function(){S.설정.스킨=skin.value;T.저장();
+    if(skin.value)document.documentElement.setAttribute('data-skin',skin.value);
+    else document.documentElement.removeAttribute('data-skin');};
+
+  var 푼=Object.keys(S.푼것).length, 날=Object.keys(S.날).length;
+  document.getElementById('stat').textContent='문항 '+푼+'개 · '+날+'일치';
+  document.getElementById('reset').onclick=function(){
+    if(!confirm('푼 기록을 전부 지웁니다. 되돌릴 수 없습니다.')) return;
+    S.푼것={}; S.날={}; T.저장(); location.reload();
+  };
+
+  var b=document.getElementById('perm'), n=document.getElementById('permnote');
+  function 상태(){
+    if(!('Notification' in window)){ b.disabled=true; n.textContent='이 브라우저는 알림을 지원하지 않습니다'; return; }
+    if(Notification.permission==='granted'){ b.textContent='켜짐'; n.textContent='앱을 홈 화면에 설치하면 닫혀 있어도 울립니다(안드로이드·크롬)'; }
+    else if(Notification.permission==='denied'){ b.textContent='차단됨'; n.textContent='브라우저 설정에서 이 사이트의 알림을 허용해 주세요'; }
+    else { b.textContent='켜기'; n.textContent='허용하면 매일 이 시각에 알려줍니다'; }
+  }
+  b.onclick=function(){ if(!('Notification' in window))return;
+    Notification.requestPermission().then(function(){ S.설정.알림=1; T.저장();
+      try{localStorage.setItem('terra.notify.on','1');
+          localStorage.setItem('terra.notify.at',S.설정.알림시각);}catch(e){}
+      상태(); }); };
+  상태();
+
+  document.getElementById('note').innerHTML=
+    '문항 '+ (G.문항||[]).length +'개 · '+ (G.과목||[]).length +'과목<br>'+
+    '개념 갈래는 큐넷 출제기준 '+(G.적용||'')+' 기준입니다.<br>'+
+    '기록은 이 브라우저에만 저장됩니다. 서버로 보내지 않습니다.';
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
+</body></html>

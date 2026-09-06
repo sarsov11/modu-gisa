@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 건축설비 — 강의</title>
+<link rel="stylesheet" href="css/base.css">
+<meta name="theme-color" content="#08090B">
+<style>
+/* 강의 화면 — '읽는 곳'이다. 문항 화면과 결이 달라야 한다.
+   등급·회당 출제수는 실측값이라 화면에서 제일 먼저 보이게 둔다. */
+body{margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:0 0 96px}
+.hd{padding:14px 16px 0}
+.back{display:inline-block;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.figwrap{position:relative;margin:12px 0 0}
+.fig{width:100%;height:190px;object-fit:cover;object-position:50% 40%;display:block;background:#fff}
+.figveil{position:absolute;left:0;right:0;bottom:0;height:70%;
+  background:linear-gradient(180deg,rgba(8,9,11,0),var(--bg) 92%)}
+.tt{padding:0 16px;margin-top:-34px;position:relative;z-index:2}
+.gradeline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gr{font-size:12px;font-weight:900;color:#fff;border-radius:7px;padding:3px 9px;letter-spacing:.04em}
+.gr.S{background:#ff3b30}.gr.A{background:#ff8f0a}.gr.B{background:#3d7dff}.gr.C{background:#5b6472}
+.freq{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+h1{font-size:22px;margin:9px 0 4px;letter-spacing:-.02em;color:var(--ink);line-height:1.3}
+.one{font-size:13px;color:var(--ink-3);margin:0 0 4px}
+.why{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--red);
+  border-radius:10px;padding:12px 13px;margin:14px 0 0;font-size:13px;color:var(--ink-2);line-height:1.65}
+.sec{padding:0 16px}
+.step{margin:22px 0 0;border-top:1px solid var(--line);padding-top:18px}
+.step:first-of-type{border-top:0}
+.stepno{font-size:11px;font-weight:900;color:var(--red-2);letter-spacing:.1em}
+.step h2{font-size:17px;margin:5px 0 7px;color:var(--ink);letter-spacing:-.01em}
+.step p{margin:0;font-size:14px;line-height:1.78;color:var(--ink-2)}
+.memo{margin-top:11px;background:var(--bg-2);border:1px solid var(--line-2);border-radius:11px;padding:11px 12px}
+.memo b{display:block;font-size:10px;letter-spacing:.14em;color:var(--red-2);font-weight:900;margin-bottom:7px}
+.memo li{font-size:13.5px;color:var(--ink);line-height:1.62;margin:0 0 4px;list-style:none;
+  padding-left:15px;position:relative;font-weight:600}
+.memo li:before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:2px;background:var(--red)}
+.memo ul{margin:0;padding:0}
+/* 표가 넓으면 페이지 전체가 가로로 밀려 본문까지 잘린다. 표만 안에서 스크롤시킨다 */
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:12px}
+table{width:100%;min-width:420px;border-collapse:collapse;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;color:var(--ink-2);vertical-align:top}
+th{background:var(--surface-2);color:var(--ink);font-weight:800;font-size:11.5px}
+.tblhd{font-size:11px;letter-spacing:.12em;color:var(--ink-4);font-weight:800;margin-top:22px}
+.trap{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.trap b{display:block;font-size:11px;letter-spacing:.13em;color:#ff8f0a;font-weight:900;margin-bottom:9px}
+.trap li{font-size:13.5px;color:var(--ink-2);line-height:1.66;margin-bottom:6px;list-style:none;
+  padding-left:17px;position:relative}
+.trap li:before{content:"!";position:absolute;left:2px;top:0;color:#ff8f0a;font-weight:900;font-size:12px}
+.trap ul{margin:0;padding:0}
+.asks{margin-top:18px;display:flex;flex-wrap:wrap;gap:7px}
+.ask{font-size:12px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);
+  border-radius:99px;padding:6px 11px}
+.go{display:block;width:calc(100% - 32px);margin:24px 16px 0;padding:16px;border-radius:14px;border:0;
+  cursor:pointer;background:var(--red);color:#fff;font-size:15px;font-weight:800;text-align:center;
+  text-decoration:none}
+.none{padding:60px 20px;text-align:center;color:var(--ink-4);font-size:13px;line-height:1.8}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--surface);border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style></head><body>
+<div class="wrap">
+  <div class="hd"><a class="back" href="skilltree.html">← 진행</a></div>
+  <div id="body"></div>
+</div>
+<nav class="tabs">
+  <a href="index.html">오늘</a><a href="study.html">문제</a>
+  <a href="skilltree.html">진행</a><a href="settings.html">설정</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function(){
+  var code=new URLSearchParams(location.search).get('code')||'';
+  var L=(G.강의||{})[code];
+  var box=document.getElementById('body');
+  function esc(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  if(!L){
+    box.innerHTML='<div class="none">이 파트는 강의가 아직 없습니다.<br>'+
+      '기출이 적은 파트는 강의를 만들지 않습니다.</div>';
+    return;
+  }
+  var 갈래=code.split('.').slice(0,2).join('.');
+  var 그림=(G.삽화||{})[갈래];
+  var h='';
+  if(그림) h+='<div class="figwrap"><img class="fig" src="img/'+그림+'" alt=""><div class="figveil"></div></div>';
+  h+='<div class="tt"><div class="gradeline">'+
+     '<span class="gr '+esc(L.등급)+'">'+esc(L.등급)+'급</span>'+
+     '<span class="freq">회차당 '+L.회당+'문항 · '+L.회차수+'회차에서 '+L.문항수+'문항'+
+     (L.정답률!=null? ' · 평균 정답률 '+L.정답률+'%':'')+'</span></div>'+
+     '<h1>'+esc(L.세부)+'</h1><p class="one">'+esc(L.한줄)+'</p>'+
+     '<div class="why">'+esc(L.왜중요)+'</div></div>';
+
+  h+='<div class="sec">';
+  (L.흐름||[]).forEach(function(s,i){
+    h+='<div class="step"><div class="stepno">STEP '+(i+1)+'</div>'+
+       '<h2>'+esc(s.소제목)+'</h2><p>'+esc(s.설명)+'</p>';
+    if(s.암기&&s.암기.length){
+      h+='<div class="memo"><b>이건 외웁니다</b><ul>';
+      s.암기.forEach(function(m){h+='<li>'+esc(m)+'</li>';});
+      h+='</ul></div>';
+    }
+    h+='</div>';
+  });
+  var T2=L.표;
+  if(T2&&T2.머리&&T2.줄&&T2.줄.length){
+    h+='<div class="tblhd">'+esc(T2.제목||'정리표')+'</div><div class="tblwrap"><table><thead><tr>';
+    T2.머리.forEach(function(c){h+='<th>'+esc(c)+'</th>';});
+    h+='</tr></thead><tbody>';
+    T2.줄.forEach(function(r){h+='<tr>';r.forEach(function(c){h+='<td>'+esc(c)+'</td>';});h+='</tr>';});
+    h+='</tbody></table></div>';
+  }
+  if(L.함정&&L.함정.length){
+    h+='<div class="trap"><b>여기서 낚입니다</b><ul>';
+    L.함정.forEach(function(x){h+='<li>'+esc(x)+'</li>';});
+    h+='</ul></div>';
+  }
+  if(L.자주묻는것&&L.자주묻는것.length){
+    h+='<div class="tblhd">반복 출제</div><div class="asks">';
+    L.자주묻는것.forEach(function(x){h+='<span class="ask">'+esc(x)+'</span>';});
+    h+='</div>';
+  }
+  h+='</div><a class="go" href="study.html?code='+encodeURIComponent(code)+'">이 파트 문제 풀기</a>';
+  box.innerHTML=h;
+})();
+</script>
+</body></html>

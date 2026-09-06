@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 소방기계 — 세트 파훼</title>
+<link rel="stylesheet" href="css/base.css">
+<meta name="theme-color" content="#08090B">
+<style>
+/* 실기 파훼 화면 — 읽는 곳이 아니라 **외우는 곳**이다.
+   문장을 길게 늘어놓지 않는다. 단계는 손 순서, 키워드는 시험장에 들고 갈 것. */
+body{margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:14px 16px 96px}
+.back{font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.hd{margin:14px 0 0}
+.gline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gr{font-size:12px;font-weight:900;color:#fff;border-radius:7px;padding:3px 9px}
+.gr.S{background:#ff3b30}.gr.A{background:#ff8f0a}.gr.B{background:#3d7dff}.gr.C{background:#5b6472}
+.kind{font-size:11px;font-weight:800;color:var(--ink-3);border:1px solid var(--line-2);
+  border-radius:99px;padding:3px 9px}
+.freq{font-size:12px;color:var(--ink-4);font-variant-numeric:tabular-nums}
+h1{font-size:23px;margin:10px 0 6px;letter-spacing:-.02em;color:var(--ink)}
+.one{font-size:14px;color:var(--red-2);font-weight:700;margin:0 0 2px}
+
+.sig{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px}
+.sig b{display:block;font-size:10px;letter-spacing:.15em;color:var(--red-2);font-weight:900;margin-bottom:9px}
+.sigs{display:flex;flex-wrap:wrap;gap:6px}
+.sigs span{font-size:12.5px;color:var(--ink);background:var(--bg-2);border:1px solid var(--line-2);
+  border-radius:8px;padding:6px 10px;font-weight:600}
+
+.map{margin-top:12px;background:var(--bg-2);border:1px solid var(--line-2);border-left:3px solid var(--red);
+  border-radius:11px;padding:13px;font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+.map b{display:block;font-size:10px;letter-spacing:.15em;color:var(--ink-4);font-weight:900;margin-bottom:7px}
+
+.sechd{font-size:11px;letter-spacing:.15em;color:var(--ink-4);font-weight:900;margin:26px 0 12px}
+.step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;margin-bottom:14px}
+.num{width:34px;height:34px;border-radius:11px;background:var(--red);color:#fff;font-weight:900;
+  font-size:15px;display:flex;align-items:center;justify-content:center}
+/* 그리드 칸은 기본이 min-width:auto 라 안의 nowrap 수식이 칸을 통째로 밀어낸다.
+   0 으로 눌러야 수식만 안에서 스크롤된다(2026-09-02 — 화면 오른쪽이 잘렸다). */
+.sbody{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:13px 14px;min-width:0}
+.sbody .do{font-size:15px;font-weight:800;color:var(--ink);line-height:1.45}
+.kw{display:inline-block;margin-top:9px;font-size:14px;font-weight:900;color:#0b0d10;
+  background:#ffd166;border-radius:8px;padding:5px 11px;letter-spacing:-.01em}
+.fx{margin-top:9px;font-size:13px;color:var(--ink-2);background:var(--bg-2);border:1px solid var(--line-2);
+  border-radius:9px;padding:9px 11px;font-family:ui-monospace,Menlo,Consolas,monospace;
+  overflow-x:auto;white-space:nowrap}
+.memo{margin-top:8px;font-size:12.5px;color:var(--ink-3);line-height:1.6}
+
+.mem{margin-top:8px;background:linear-gradient(180deg,var(--surface),var(--bg-2));
+  border:1px solid var(--line-2);border-radius:13px;padding:15px}
+.mem b{display:block;font-size:10px;letter-spacing:.15em;color:#ffd166;font-weight:900;margin-bottom:10px}
+.mem li{list-style:none;font-size:15px;font-weight:800;color:var(--ink);line-height:1.5;
+  padding-left:16px;position:relative;margin-bottom:7px}
+.mem li:before{content:"";position:absolute;left:2px;top:9px;width:6px;height:6px;border-radius:2px;background:#ffd166}
+.mem ul{margin:0;padding:0}
+
+.cut{margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px}
+.cut b{display:block;font-size:10px;letter-spacing:.15em;color:#ff8f0a;font-weight:900;margin-bottom:9px}
+.cut li{list-style:none;font-size:13.5px;color:var(--ink-2);line-height:1.65;margin-bottom:6px;
+  padding-left:17px;position:relative}
+.cut li:before{content:"−";position:absolute;left:3px;top:0;color:#ff8f0a;font-weight:900}
+.cut ul{margin:0;padding:0}
+.none{padding:60px 20px;text-align:center;color:var(--ink-4);font-size:13px}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);
+  background:var(--surface);border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:11.5px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style></head><body>
+<div class="wrap">
+  <a class="back" href="practical.html">← 실기 유형</a>
+  <div id="body"></div>
+</div>
+<nav class="tabs">
+  <a href="index.html">오늘</a><a href="study.html">문제</a>
+  <a href="skilltree.html">진행</a><a href="practical.html" class="on">실기</a>
+  <a href="settings.html">설정</a>
+</nav>
+<script src="js/data.js"></script>
+<script>
+(function(){
+  var code=new URLSearchParams(location.search).get('code')||'';
+  var P=(G.파훼||{})[code], box=document.getElementById('body');
+  function esc(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  if(!P){ box.innerHTML='<div class="none">이 유형은 파훼법이 아직 없습니다.</div>'; return; }
+  var h='<div class="hd"><div class="gline">'+
+    '<span class="gr '+esc(P.등급)+'">'+esc(P.등급)+'급</span>'+
+    '<span class="kind">'+esc(P.분류)+'</span>'+
+    '<span class="freq">'+P.회차수+'회차에서 '+P.문항수+'문항 · 회차당 '+P.회당+'</span>'+
+    '</div><h1>'+esc(P.이름)+'</h1>'+
+    '<p class="one">'+esc(P.한줄정리)+'</p></div>';
+
+  if((P.발문신호||[]).length){
+    h+='<div class="sig"><b>이 말이 보이면 이 유형</b><div class="sigs">';
+    P.발문신호.forEach(function(s){h+='<span>'+esc(s)+'</span>';});
+    h+='</div></div>';
+  }
+  if(P.세트지도) h+='<div class="map"><b>세트가 흐르는 길</b>'+esc(P.세트지도)+'</div>';
+
+  h+='<div class="sechd">손 순서</div>';
+  (P.단계||[]).forEach(function(s){
+    h+='<div class="step"><div class="num">'+(s.n||'')+'</div><div class="sbody">'+
+       '<div class="do">'+esc(s.할일)+'</div>';
+    if(s.키워드) h+='<span class="kw">'+esc(s.키워드)+'</span>';
+    if(s.식) h+='<div class="fx">'+esc(s.식)+'</div>';
+    if(s.메모) h+='<div class="memo">'+esc(s.메모)+'</div>';
+    h+='</div></div>';
+  });
+
+  if((P.외울것||[]).length){
+    h+='<div class="sechd">시험장에 들고 갈 것</div><div class="mem"><b>이것만 외웁니다</b><ul>';
+    P.외울것.forEach(function(x){h+='<li>'+esc(x)+'</li>';});
+    h+='</ul></div>';
+  }
+  if((P.감점||[]).length){
+    h+='<div class="cut"><b>답 맞고도 잃는 자리</b><ul>';
+    P.감점.forEach(function(x){h+='<li>'+esc(x)+'</li>';});
+    h+='</ul></div>';
+  }
+  box.innerHTML=h;
+})();
+</script>
+</body></html>

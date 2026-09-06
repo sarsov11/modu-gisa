@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 건축기사 — 오늘 (A안)</title>
+<link rel="stylesheet" href="css/base.css">
+<meta name="theme-color" content="#08090B">
+<style>
+/* A안 — 표지를 대문으로. 앱을 열면 '이 시험을 치는 사람'이라는 기분부터 든다. */
+body{margin:0}
+.hero{position:relative;height:230px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(8,9,11,.15) 0%,rgba(8,9,11,.75) 62%,var(--bg) 100%)}
+.heroTx{position:absolute;left:16px;right:16px;bottom:46px;z-index:2}
+.heroTx .kicker{font-size:11px;letter-spacing:.16em;color:var(--ink-3);font-weight:700}
+.heroTx h1{margin:4px 0 0;font-size:26px;letter-spacing:-.02em;color:#fff}
+.heroTx .dd{position:absolute;right:0;bottom:4px;font-size:13px;font-weight:800;
+  color:var(--red-2);font-variant-numeric:tabular-nums}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 96px}
+/* 배지를 표지 위로 겹치되 제목을 덮지 않게 — 제목은 bottom:46px 로 올려 뒀다 */
+.tierbar{display:flex;align-items:center;gap:14px;margin:-30px 0 0;position:relative;z-index:3}
+.badge{width:74px;height:74px;border-radius:16px;object-fit:cover;flex:0 0 auto;
+  border:1px solid var(--line-2);box-shadow:0 6px 22px rgba(0,0,0,.5)}
+.tierinfo{flex:1;min-width:0;padding-bottom:4px}
+.tiername{font-size:16px;font-weight:800;color:var(--ink)}
+.tiernext{font-size:11px;color:var(--ink-4);margin-top:2px}
+.tprog{height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-top:7px;
+  border:1px solid var(--line)}
+.tprog>i{display:block;height:100%;background:linear-gradient(90deg,var(--red),#ffb020)}
+.ring{display:flex;align-items:center;gap:16px;margin-top:22px}
+.ring svg{flex:0 0 auto}
+.ringtx b{display:block;font-size:30px;font-weight:800;color:var(--ink);
+  font-variant-numeric:tabular-nums;line-height:1.05}
+.ringtx span{display:block;font-size:12px;color:var(--ink-3);margin-top:4px}
+.go{display:block;width:100%;margin-top:18px;padding:15px;border-radius:13px;border:0;cursor:pointer;
+  background:var(--red);color:#fff;font-size:15px;font-weight:800}
+.go.sub{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line-2);margin-top:8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.eyebrow{font-size:11px;letter-spacing:.14em;color:var(--ink-4);font-weight:700}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;
+  padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-2)}
+.row b{font-size:14px;color:var(--ink)}
+.row .s{display:block;font-size:11px;color:var(--ink-4);margin-top:3px}
+.pct{font-weight:800;font-size:15px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.pct.low{color:var(--red-2)}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--surface);border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style></head><body>
+
+<div class="hero">
+  <img id="cover" alt="">
+  <div class="heroTx">
+    <div class="kicker">오늘의 훈련</div>
+    <h1>모두의 건축기사</h1>
+    <div class="dd" id="dday"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="tierbar">
+    <img class="badge" id="badge" alt="">
+    <div class="tierinfo">
+      <div class="tiername" id="tname"></div>
+      <div class="tiernext" id="tnext"></div>
+      <div class="tprog"><i id="tbar" style="width:0%"></i></div>
+    </div>
+  </div>
+
+  <div class="ring">
+    <svg width="86" height="86" viewBox="0 0 86 86">
+      <circle cx="43" cy="43" r="36" fill="none" stroke="var(--surface-2)" stroke-width="9"></circle>
+      <circle id="arc" cx="43" cy="43" r="36" fill="none" stroke="var(--red)" stroke-width="9"
+              stroke-linecap="round" transform="rotate(-90 43 43)"
+              stroke-dasharray="226" stroke-dashoffset="226"></circle>
+    </svg>
+    <div class="ringtx">
+      <b id="big"></b>
+      <span id="say"></span>
+    </div>
+  </div>
+
+  <button class="go" id="start">오늘 문제 풀기</button>
+  <button class="go sub" id="killer">틀린 것만 다시</button>
+
+  <div class="card">
+    <div class="eyebrow">과목</div>
+    <div class="rows" id="subs"></div>
+  </div>
+</div>
+
+<nav class="tabs">
+  <a href="index.html">오늘</a><a href="study.html">문제</a>
+  <a href="skilltree.html">진행</a><a href="settings.html">설정</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function(){
+  var r=T.루틴(), dd=T.디데이(), ti=T.티어(), m=T.알림문구();
+  document.getElementById('cover').src='img/'+(G.표지||'');
+  document.getElementById('dday').textContent = dd>0? ('D-'+dd) : (dd===0?'D-DAY':'');
+  document.getElementById('badge').src='img/'+ti.배지;
+  document.getElementById('tname').textContent=ti.이름;
+  document.getElementById('tnext').textContent = ti.다음이름
+      ? (ti.다음이름+'까지 '+ti.남은점수+'점') : '최고 티어';
+  document.getElementById('tbar').style.width=ti.진행+'%';
+  document.getElementById('big').textContent=r.푼수+' / '+r.목표;
+  document.getElementById('say').textContent = r.끝? '오늘 몫 끝냈어요' : (m.t);
+  var 비=Math.min(1,r.푼수/r.목표);
+  document.getElementById('arc').setAttribute('stroke-dashoffset', 226*(1-비));
+  document.getElementById('start').onclick=function(){location.href='study.html?mode=today';};
+  document.getElementById('killer').onclick=function(){location.href='study.html?mode=wrong';};
+  var 성적=T.과목성적(), box=document.getElementById('subs');
+  (G.과목||[]).forEach(function(s){
+    var g=성적[s.n], el=document.createElement('div'); el.className='row';
+    el.innerHTML='<div><b>'+s.name+'</b><span class="s">'+g.푼+' / '+g.전체+'문항</span></div>'+
+      '<div class="pct'+((g.율!=null&&g.율<60)?' low':'')+'">'+(g.율==null?'—':g.율+'%')+'</div>';
+    el.onclick=function(){location.href='study.html?subject='+s.n;};
+    box.appendChild(el);
+  });
+})();
+</script>
+</body></html>

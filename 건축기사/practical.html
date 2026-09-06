@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 건축기사 — 실기</title>
+<link rel="stylesheet" href="css/base.css">
+<meta name="theme-color" content="#08090B">
+<style>
+/* 실기 유형 목록 — 등급 순으로 쌓는다. 위에서부터 하면 기출의 몇 %를 덮는지 보인다. */
+body{margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 96px}
+h1{font-size:21px;margin:4px 0 2px;letter-spacing:-.02em;color:var(--ink)}
+.sub{font-size:12.5px;color:var(--ink-4);margin:0 0 18px;line-height:1.6}
+.cov{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px;margin-bottom:20px}
+.cov b{display:block;font-size:10px;letter-spacing:.15em;color:var(--ink-4);font-weight:900;margin-bottom:9px}
+.covbar{height:9px;border-radius:5px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.covbar i{display:block;height:100%}
+.covleg{display:flex;gap:12px;margin-top:9px;font-size:11px;color:var(--ink-3);flex-wrap:wrap}
+.covleg span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}
+.lS:before{background:#ff3b30}.lA:before{background:#ff8f0a}.lB:before{background:#3d7dff}.lC:before{background:#5b6472}
+.gtitle{font-size:11px;letter-spacing:.15em;color:var(--ink-4);font-weight:900;margin:22px 0 10px}
+.row{display:grid;grid-template-columns:38px 1fr auto;gap:11px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 13px;
+  margin-bottom:8px;text-decoration:none;color:inherit}
+.badge{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:14px;color:#fff}
+.S{background:#ff3b30}.A{background:#ff8f0a}.B{background:#3d7dff}.C{background:#5b6472}
+.row b{display:block;font-size:15px;color:var(--ink);letter-spacing:-.01em}
+.row small{display:block;font-size:11.5px;color:var(--ink-4);margin-top:3px}
+.cnt{text-align:right;font-variant-numeric:tabular-nums}
+.cnt em{display:block;font-style:normal;font-size:15px;font-weight:800;color:var(--ink-2)}
+.cnt span{display:block;font-size:10.5px;color:var(--ink-4);margin-top:2px}
+.nog{opacity:.55}
+.none{padding:60px 20px;text-align:center;color:var(--ink-4);font-size:13px;line-height:1.8}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);
+  background:var(--surface);border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:11.5px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style></head><body>
+<div class="wrap">
+  <h1>실기 세트 파훼</h1>
+  <p class="sub" id="sub"></p>
+  <div class="cov">
+    <b>어디까지 하면 얼마나 덮이나</b>
+    <div class="covbar" id="covbar"></div>
+    <div class="covleg">
+      <span class="lS">S — 위에서부터 기출 30%</span>
+      <span class="lA">A — 60%</span>
+      <span class="lB">B — 85%</span>
+      <span class="lC">C — 나머지</span>
+    </div>
+  </div>
+  <div id="list"></div>
+</div>
+<nav class="tabs" id="tabs"></nav>
+<script src="js/data.js"></script>
+<script>
+(function(){
+  var U=G.실기||{}, 유형=U.유형||[], 파훼=G.파훼||{};
+  function esc(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+
+  /* 탭 — 실기 자료가 있는 종목만 5칸(skilltree.html 과 같은 규칙) */
+  var 탭=[['index.html','오늘'],['study.html','문제'],['skilltree.html','진행']];
+  if(유형.length) 탭.push(['practical.html','실기']);
+  탭.push(['settings.html','설정']);
+  var tb=document.getElementById('tabs');
+  tb.style.gridTemplateColumns='repeat('+탭.length+',1fr)';
+  tb.innerHTML=탭.map(function(t){
+    return '<a href="'+t[0]+'"'+(t[1]==='실기'?' class="on"':'')+'>'+t[1]+'</a>';}).join('');
+
+  /* 자료가 없으면 0 을 찍지 않는다. 0회차 0문항은 화면이 깨진 것처럼 보인다.
+     강의 화면이 "왜 없는지"까지 말해 주므로 실기도 같은 수준으로 맞춘다(2026-09-03). */
+  if(!유형.length){
+    document.querySelector('.cov').remove();
+    document.getElementById('sub').textContent='';
+    document.getElementById('list').innerHTML=
+      '<div class="none">이 종목은 실기 파훼가 아직 없습니다.<br>'+
+      '필기를 먼저 세우고 실기는 그다음에 붙입니다.<br>'+
+      '지금은 <b>소방설비기사(기계분야)</b> 하나만 나와 있습니다.</div>';
+    return;
+  }
+
+  document.getElementById('sub').textContent =
+    (U.회차수||0)+'회차 '+(U.문항수||0)+'문항을 '+유형.length+'개 유형으로 갈랐습니다. '+
+    '유형마다 발문신호 · 손 순서 · 외울 것이 붙어 있습니다.';
+  var 총=유형.reduce(function(a,t){return a+t.문항수;},0)||1;
+  var 색={S:'#ff3b30',A:'#ff8f0a',B:'#3d7dff',C:'#5b6472'}, bar='';
+  ['S','A','B','C'].forEach(function(g){
+    var n=유형.filter(function(t){return t.등급===g;}).reduce(function(a,t){return a+t.문항수;},0);
+    if(n) bar+='<i style="width:'+(n*100/총)+'%;background:'+색[g]+'"></i>';
+  });
+  document.getElementById('covbar').innerHTML=bar;
+
+  var box=document.getElementById('list'), 현재='';
+  유형.forEach(function(t){
+    if(t.등급!==현재){
+      현재=t.등급;
+      var 라벨={S:'먼저 이것부터',A:'그다음',B:'여유 있으면',C:'버려도 되는 자리'}[현재]||현재;
+      box.insertAdjacentHTML('beforeend','<div class="gtitle">'+현재+'급 · '+라벨+'</div>');
+    }
+    var 있음=!!파훼[t.코드];
+    var a=document.createElement(있음?'a':'div');
+    a.className='row'+(있음?'':' nog');
+    if(있음) a.href='파훼.html?code='+encodeURIComponent(t.코드);
+    a.innerHTML='<div class="badge '+esc(t.등급)+'">'+esc(t.등급)+'</div>'+
+      '<div><b>'+esc(t.이름)+'</b><small>'+esc(t.분류)+' · '+esc(t.한줄||'')+'</small></div>'+
+      '<div class="cnt"><em>'+t.문항수+'</em><span>회당 '+t.회당+'</span></div>';
+    box.appendChild(a);
+  });
+})();
+</script>
+</body></html>

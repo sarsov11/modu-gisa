@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 소방기계 — 오늘 (C안)</title>
+<link rel="stylesheet" href="css/base.css">
+<meta name="theme-color" content="#08090B">
+<style>
+/* C안 — 게임 대시보드. 타일 격자에 티어·진도·연속·약점을 한 화면에 깐다. */
+body{margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:14px 14px 96px}
+.top{display:flex;align-items:center;justify-content:space-between;margin:2px 2px 12px}
+.brand{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.dd{font-size:12px;font-weight:800;color:var(--red-2);font-variant-numeric:tabular-nums;
+  border:1px solid var(--line-2);border-radius:99px;padding:4px 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative;overflow:hidden}
+.tile .lab{font-size:10px;letter-spacing:.16em;color:var(--ink-4);font-weight:800}
+.tile .val{font-size:26px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;
+  line-height:1.1;margin-top:6px}
+.tile .sub{font-size:11px;color:var(--ink-4);margin-top:4px}
+.tier{grid-column:span 2;display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,var(--surface),var(--bg-2))}
+.tier img{width:82px;height:82px;border-radius:16px;object-fit:cover;border:1px solid var(--line-2);
+  box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.tier .ti{flex:1;min-width:0}
+.tier .tn{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.tier .tx{font-size:11px;color:var(--ink-4);margin-top:3px}
+.tbar{height:7px;border-radius:5px;background:var(--surface-2);overflow:hidden;margin-top:9px;border:1px solid var(--line)}
+.tbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--red),#ffb020)}
+.ring{position:absolute;right:10px;top:50%;transform:translateY(-50%);opacity:.9}
+.go{display:block;width:100%;margin-top:12px;padding:16px;border-radius:14px;border:0;cursor:pointer;
+  background:var(--red);color:#fff;font-size:16px;font-weight:800}
+.go.sub{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line-2);
+  margin-top:8px;padding:13px;font-size:14px}
+.sechd{font-size:11px;letter-spacing:.16em;color:var(--ink-4);font-weight:800;margin:22px 2px 10px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wt{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2);
+  text-decoration:none;color:inherit;display:block}
+.wt img{width:100%;height:86px;object-fit:cover;display:block;background:#fff}
+.wt .wx{padding:9px 10px 11px}
+.wt b{display:block;font-size:12px;color:var(--ink);line-height:1.35}
+.wt em{display:block;font-style:normal;font-size:10px;color:var(--ink-4);margin-top:4px;
+  font-variant-numeric:tabular-nums}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--surface);border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style></head><body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand">모두의 소방기계</div>
+    <div class="dd" id="dday"></div>
+  </div>
+
+  <div class="grid">
+    <div class="tile tier">
+      <img id="badge" alt="">
+      <div class="ti">
+        <div class="tn" id="tname"></div>
+        <div class="tx" id="tnext"></div>
+        <div class="tbar"><i id="tbar" style="width:0%"></i></div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="lab">오늘</div>
+      <div class="val" id="today"></div>
+      <div class="sub" id="todaysub"></div>
+      <svg class="ring" width="54" height="54" viewBox="0 0 54 54">
+        <circle cx="27" cy="27" r="22" fill="none" stroke="var(--surface-2)" stroke-width="6"></circle>
+        <circle id="arc" cx="27" cy="27" r="22" fill="none" stroke="var(--red)" stroke-width="6"
+          stroke-linecap="round" transform="rotate(-90 27 27)"
+          stroke-dasharray="138" stroke-dashoffset="138"></circle>
+      </svg>
+    </div>
+
+    <div class="tile">
+      <div class="lab">연속</div>
+      <div class="val" id="streak"></div>
+      <div class="sub" id="acc"></div>
+    </div>
+  </div>
+
+  <button class="go" id="start">오늘 문제 풀기</button>
+  <button class="go sub" id="killer">틀린 것만 다시</button>
+
+  <div class="sechd">여기가 약합니다</div>
+  <div class="wgrid" id="weak"></div>
+</div>
+
+<nav class="tabs">
+  <a href="index.html">오늘</a><a href="study.html">문제</a>
+  <a href="skilltree.html">진행</a><a href="settings.html">설정</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function(){
+  var r=T.루틴(), dd=T.디데이(), ti=T.티어();
+  document.getElementById('dday').textContent = dd>0? ('D-'+dd) : (dd===0?'D-DAY':'');
+  document.getElementById('badge').src='img/'+ti.배지;
+  document.getElementById('tname').textContent=ti.이름;
+  document.getElementById('tnext').textContent= ti.다음이름
+      ? (ti.다음이름+'까지 '+ti.남은점수+'점 · 지금 '+ti.점수) : ('최고 티어 · '+ti.점수);
+  document.getElementById('tbar').style.width=ti.진행+'%';
+  document.getElementById('today').textContent=r.푼수+'/'+r.목표;
+  document.getElementById('todaysub').textContent = r.끝?'끝냈어요':(r.남은+'개 남음');
+  document.getElementById('arc').setAttribute('stroke-dashoffset',138*(1-Math.min(1,r.푼수/r.목표)));
+  document.getElementById('streak').textContent=r.연속+'일';
+  document.getElementById('acc').textContent= ti.율==null? '아직 기록 없음' : ('전체 정답률 '+ti.율+'%');
+  document.getElementById('start').onclick=function(){location.href='study.html?mode=today';};
+  document.getElementById('killer').onclick=function(){location.href='study.html?mode=wrong';};
+
+  var 갈래={};
+  (G.문항||[]).forEach(function(q){
+    if(!q.k) return; var k=q.k.split('.').slice(0,2).join('.');
+    var v=갈래[k]=갈래[k]||{n:0,푼:0,맞:0}; v.n++;
+    var rec=T.S.푼것[q.i]; if(rec){v.푼++; if(rec.o) v.맞++;}
+  });
+  var 이름={};
+  (G.트리||[]).forEach(function(n){ 이름[n.k.split('.').slice(0,2).join('.')]=n.m; });
+  var 목록=Object.keys(갈래).filter(function(k){return (G.삽화||{})[k];})
+    .map(function(k){var v=갈래[k];return {k:k,율:v.푼?v.맞/v.푼:0,푼:v.푼,n:v.n};})
+    .sort(function(a,b){return (a.푼?a.율:-1)-(b.푼?b.율:-1);}).slice(0,4);
+  var box=document.getElementById('weak');
+  목록.forEach(function(x){
+    var a=document.createElement('a'); a.className='wt';
+    a.href='study.html?code='+encodeURIComponent(x.k);
+    a.innerHTML='<img src="img/'+(G.삽화||{})[x.k]+'" alt="" loading="lazy">'+
+      '<div class="wx"><b>'+(이름[x.k]||x.k)+'</b><em>'+
+      (x.푼? '정답률 '+Math.round(x.율*100)+'% · ':'아직 안 품 · ')+x.n+'문항</em></div>';
+    box.appendChild(a);
+  });
+})();
+</script>
+</body></html>

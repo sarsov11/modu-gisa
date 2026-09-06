@@ -1,0 +1,428 @@
+/* ═══════════════════════════════════════════════
+   모두의 통과 — 디자인 시스템 (테라러닝)
+
+   스킨 두 벌. 내용은 같고 옷만 갈아입는다.
+     밤       data-skin 없음 — 검정 바탕, 회색 계단, 빨강은 강조에만
+     다이어리 data-skin="diary" — 연핑크 종이, 손글씨 제목, 파스텔 계단
+   화면 코드는 늘 변수만 쓴다. 색을 직접 박으면 한쪽 스킨이 깨진다.
+   ═══════════════════════════════════════════════ */
+
+:root{
+  /* 바탕 */
+  --bg:#08090B;
+  --bg-2:#0C0E11;
+  --surface:#121418;
+  --surface-2:#171A1F;
+  --surface-3:#1E222833;
+
+  /* 선 */
+  --line:#22262D;
+  --line-2:#2E343C;
+  --line-3:#3D444E;
+
+  /* 글자 */
+  --ink:#F3F5F8;
+  --ink-2:#AFB7C2;
+  --ink-3:#79818C;
+  --ink-4:#545B64;
+
+  /* 강조 — 빨강은 지금·중요·오답에만 */
+  --red:#E5484D;
+  --red-2:#FF6369;
+  --red-3:#B0353A;
+  --red-soft:rgba(229,72,77,.13);
+  --red-line:rgba(229,72,77,.36);
+
+  /* 성취 — 밝기 계단 */
+  --lv3:#EDF1F6;   /* 완성 임박 */
+  --lv2:#8A929C;   /* 진행 중 */
+  --lv1:#3A4048;   /* 미착수 */
+
+  /* 등급 */
+  --core:#E5484D;  /* 핵심 */
+  --deep:#9AA3AE;  /* 심화 */
+  --ref:#5A616A;   /* 참고 */
+
+  /* 갈래 — 물·화·생·지 넷. 스킬트리·차트가 함께 쓴다
+     (모두의 통사의 지리·일반사회·윤리 셋을 넷으로 늘린 것이다) */
+  --fam-phy:#4FC3E8;
+  --fam-chem:#F5CC4A;
+  --fam-earth:#B48CF2;
+  --fam-bio:#5BD98A;
+  --mint:#2FE0CE;
+
+  /* 무대 — 스킬트리 밤하늘, 지도 바탕 */
+  --stage:#070B14;
+  --stage-2:#0C1424;
+  --stage-line:#2B3D5C;
+  --stage-ink:#DEE8F8;
+  --stage-ink-2:#A9BEDF;
+  --star:#CFE0FF;
+  --neb-1:rgba(66,110,190,.18);
+  --neb-2:rgba(150,80,200,.14);
+  --core-glow:#4E7BD6;      /* 무대 한가운데 빛. 빨강은 강조색이라 여기 쓰지 않는다 */
+  --crop:#EDE9E3;          /* 기출 크롭(흰 종이)이 화면에서 튀지 않게 깔아 주는 바탕 */
+  --nav-bg:rgba(8,9,11,.86);
+
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px;
+
+  --kr:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --title:var(--kr);
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --tw:900;          /* 제목 굵기 */
+  --tls:-.045em;     /* 제목 자간 */
+  --r1:10px; --r2:14px; --r3:20px;   /* 모서리 */
+  --wrap:1360px;
+  --nav-h:62px;
+  --shadow:0 1px 2px rgba(0,0,0,.6), 0 18px 46px -22px rgba(0,0,0,.9);
+  --paper:none;      /* 다이어리에서만 종이 무늬가 깔린다 */
+}
+
+/* ═══ 스킨 네 벌 ═══
+   밤(기본) · note 모눈 노트 · jelly 젤리 파스텔 · white 화이트 미니멀
+   화면 코드는 늘 변수만 쓴다. 색을 직접 박으면 세 벌이 깨진다. */
+
+/* ── 모눈 노트 — 크림 종이에 잉크 한 색 ── */
+:root[data-skin="note"]{
+  --bg:#F6F2E7; --bg-2:#EFEADC; --surface:#FFFDF7; --surface-2:#F7F3E7;
+  --surface-3:#EDE7D5;
+  --line:#DED6C1; --line-2:#CDC3A9; --line-3:#B5A987;
+  --ink:#1F2B44; --ink-2:#3D4A63; --ink-3:#6E7488; --ink-4:#95998F;
+
+  --red:#C2452F; --red-2:#A93A26; --red-3:#8C2F1E;
+  --red-soft:rgba(194,69,47,.10); --red-line:rgba(194,69,47,.38);
+
+  --lv3:#2F5AA8; --lv2:#7C93BE; --lv1:#D8D2C0;
+  --core:#C2452F; --deep:#5B6B8C; --ref:#95998F;
+
+  --fam-phy:#2F5AA8; --fam-chem:#B07A1E; --fam-earth:#6B4E9E; --mint:#2E7D6B; --fam-bio:#2F7A46;
+
+  --stage:#FBF8EF; --stage-2:#FFFDF7; --stage-line:#CFC6AE;
+  --stage-ink:#1F2B44; --stage-ink-2:#6E7488; --star:#CFC6AE;
+  --neb-1:rgba(47,90,168,.05); --neb-2:rgba(107,78,158,.045);
+  --core-glow:#2F5AA8;
+  --crop:#F1ECDD;
+  --nav-bg:rgba(246,242,231,.92);
+
+  --kr:"Gowun Dodum","Noto Sans KR",system-ui,sans-serif;
+  --title:"Gaegu","Gowun Dodum",cursive;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --tw:700; --tls:-.01em;
+  --r1:7px; --r2:11px; --r3:15px;
+  --shadow:0 1px 0 rgba(120,110,85,.18), 0 10px 26px -20px rgba(80,70,45,.5);
+  /* 공책 모눈 */
+  --paper:linear-gradient(var(--bg) 0 0) padding-box,
+          repeating-linear-gradient(0deg,transparent 0 21px,rgba(120,110,85,.13) 21px 22px),
+          repeating-linear-gradient(90deg,transparent 0 21px,rgba(120,110,85,.09) 21px 22px);
+}
+
+/* ── 젤리 파스텔 — 연하되 흐리지 않게 ── */
+:root[data-skin="jelly"]{
+  --bg:#FFF6FA; --bg-2:#FFECF4; --surface:#FFFFFF; --surface-2:#FFF4F9;
+  --surface-3:#FFE4EF;
+  --line:#F6D6E4; --line-2:#EFB9D0; --line-3:#E294B6;
+  --ink:#33232C; --ink-2:#57414E; --ink-3:#8B7280; --ink-4:#A88F9C;
+
+  --red:#F0417E; --red-2:#DC2E6C; --red-3:#C22159;
+  --red-soft:rgba(240,65,126,.11); --red-line:rgba(240,65,126,.42);
+
+  --lv3:#F0417E; --lv2:#F79CC0; --lv1:#F3DCE5;
+  --core:#F0417E; --deep:#8E62D8; --ref:#A88F9C;
+
+  --fam-phy:#20BCD4; --fam-chem:#FFAE2B; --fam-earth:#9B63EE; --mint:#19B79B; --fam-bio:#3FD08A;
+
+  --stage:#FFFAFC; --stage-2:#FFFFFF; --stage-line:#F0C4D8;
+  --stage-ink:#33232C; --stage-ink-2:#8B7280; --star:#F9BAD4;
+  --neb-1:rgba(255,150,190,.18); --neb-2:rgba(150,190,255,.16);
+  --core-glow:#7FB2F0;
+  --crop:#FBF3F6;
+  --nav-bg:rgba(255,246,250,.92);
+
+  --kr:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --title:"Jua","Noto Sans KR",sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --tw:400; --tls:-.015em;
+  --r1:15px; --r2:21px; --r3:28px;
+  --shadow:0 3px 0 rgba(226,148,182,.35), 0 16px 34px -20px rgba(200,110,150,.5);
+  --paper:none;
+}
+
+/* ── 화이트 미니멀 — 백지에 얇은 선, 강조는 빨강 하나 ── */
+:root[data-skin="white"]{
+  --bg:#FFFFFF; --bg-2:#FAFAFB; --surface:#FFFFFF; --surface-2:#F7F8FA;
+  --surface-3:#EFF1F4;
+  --line:#E6E8EC; --line-2:#D3D7DD; --line-3:#B4BAC3;
+  --ink:#111419; --ink-2:#333941; --ink-3:#6B717A; --ink-4:#949AA3;
+
+  --red:#E5202E; --red-2:#C8101D; --red-3:#A50C17;
+  --red-soft:rgba(229,32,46,.07); --red-line:rgba(229,32,46,.40);
+
+  --lv3:#E5202E; --lv2:#9AA1AB; --lv1:#E6E8EC;
+  --core:#E5202E; --deep:#6B717A; --ref:#949AA3;
+
+  /* 흑백에 빨강 하나. 갈래는 색이 아니라 그 빨강의 진하기로 가른다. */
+  --fam-phy:#E5202E; --fam-chem:#8E1420; --fam-earth:#FF6A74; --mint:#E5202E; --fam-bio:#C2545C;
+
+  --stage:#FFFFFF; --stage-2:#FFFFFF; --stage-line:#DEE1E6;
+  --stage-ink:#111419; --stage-ink-2:#6B717A; --star:#E6E8EC;
+  --neb-1:rgba(229,32,46,.07); --neb-2:rgba(17,20,25,.03);
+  --core-glow:#E5202E;
+  --crop:#F4F4F6;
+  --nav-bg:rgba(255,255,255,.92);
+
+  --kr:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --title:var(--kr);
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --tw:900; --tls:-.05em;
+  --r1:5px; --r2:8px; --r3:12px;
+  --shadow:0 1px 2px rgba(17,20,25,.05), 0 10px 24px -18px rgba(17,20,25,.28);
+  --paper:none;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink-2);
+  background-image:var(--paper);background-size:14px 14px;
+  font-family:var(--kr);font-size:16px;line-height:1.68;font-weight:400;
+  -webkit-font-smoothing:antialiased;word-break:keep-all}
+h1,h2,h3,h4{margin:0;color:var(--ink);font-family:var(--title);font-weight:var(--tw);
+  letter-spacing:var(--tls);line-height:1.18;text-wrap:balance}
+h1{font-weight:var(--tw)}
+/* 손글씨 서체는 획이 가늘어 작은 글씨가 흐려진다 → 한 급 키운다 */
+:root[data-skin="diary"] body{font-size:17px;line-height:1.75}
+:root[data-skin="diary"] .mono{letter-spacing:.02em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+img{max-width:100%}
+::selection{background:var(--red-soft)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s3)}
+
+/* ═══ 네비 ═══ */
+.nav{position:sticky;top:0;z-index:60;height:var(--nav-h);
+  background:var(--nav-bg);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:var(--s4);height:100%}
+.logo{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:900;
+  color:var(--ink);letter-spacing:-.05em;flex:0 0 auto}
+.logo .dot{width:9px;height:9px;background:var(--red);border-radius:2px;
+  box-shadow:0 0 0 4px var(--red-soft)}
+.logo small{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-4);
+  letter-spacing:.12em;margin-left:2px}
+.navlinks{display:flex;gap:var(--s3);margin-left:auto}
+.navlinks a{font-size:15px;font-weight:700;color:var(--ink-3);padding:6px 0;
+  position:relative;transition:color .16s;white-space:nowrap}
+.navlinks a:hover{color:var(--ink)}
+.navlinks a.on{color:var(--ink)}
+.navlinks a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:var(--red);border-radius:1px}
+.navact{display:flex;align-items:center;gap:10px;flex:0 0 auto;margin-left:var(--s3)}
+/* 폰 — 네비를 두 줄로 접는다. 한 줄에 다 넣으면 링크가 화면 밖으로 나가
+   '킬러 / 준킬러'를 아예 누를 수 없다(2026-08-30 실측: 가로 376px 넘침). */
+@media(max-width:880px){
+  .nav{height:auto}
+  .nav .wrap{flex-wrap:wrap;gap:10px;height:auto;padding-top:10px;padding-bottom:0;
+    align-items:center}
+  .logo{flex:1 1 auto;font-size:17px}
+  .navact{margin-left:0;flex:0 0 auto;gap:7px}
+  .navlinks{order:3;flex:0 0 100%;margin-left:0;gap:18px;overflow-x:auto;
+    padding:0 0 9px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{white-space:nowrap;font-size:14.5px;padding:4px 0}
+  .hide-sm{display:none}
+}
+@media(max-width:520px){
+  .navlinks{gap:15px}
+  .navlinks a{font-size:14px}
+  .logo small{display:none}
+}
+
+/* ═══ 버튼 ═══ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:15px;font-weight:700;letter-spacing:-.02em;padding:12px 22px;
+  border-radius:var(--r1);border:1px solid var(--red);background:var(--red);color:#fff;
+  cursor:pointer;transition:transform .14s,filter .14s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn:focus-visible{outline:2px solid var(--red-2);outline-offset:3px}
+.btn.sm{font-size:13.5px;padding:9px 15px;border-radius:8px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn.ghost:hover{background:var(--surface-2);border-color:var(--line-3)}
+.btn.quiet{background:var(--surface-2);color:var(--ink-2);border-color:var(--line)}
+.btn.quiet:hover{background:var(--surface-3);color:var(--ink)}
+.btn[disabled]{opacity:.4;pointer-events:none}
+
+/* ═══ 카드 ═══ */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r2)}
+.card .hd{display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:15px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.card .hd h3{font-size:17px;font-weight:800;letter-spacing:-.035em}
+.card .bd{padding:18px 20px}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-4)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;
+  font-weight:700;letter-spacing:.06em;padding:4px 9px;border-radius:5px;
+  border:1px solid var(--line-2);color:var(--ink-3)}
+.chip.hot{border-color:var(--red-line);color:var(--red-2);background:var(--red-soft)}
+.tag{display:inline-block;font-size:12.5px;padding:4px 10px;border-radius:6px;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2)}
+
+/* ═══ 수치 타일 ═══ */
+.stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(132px,1fr))}
+.stat{border:1px solid var(--line);border-radius:11px;padding:14px 16px;background:var(--surface)}
+.stat b{display:block;font-family:var(--mono);font-size:27px;font-weight:600;color:var(--ink);
+  letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1.15}
+.stat span{font-size:12.5px;color:var(--ink-4);font-weight:500}
+.stat.hot b{color:var(--red-2)}
+.stat.dim b{color:var(--ink-3)}
+
+/* ═══ 진행 막대 ═══ */
+.track{display:block;height:6px;border-radius:99px;background:var(--lv1);overflow:hidden}
+.track i{display:block;height:100%;border-radius:99px;background:var(--lv3);
+  transition:width .45s cubic-bezier(.2,.7,.3,1)}
+.track.red i{background:var(--red)}
+
+/* ═══ 알림 ═══ */
+.notice{display:flex;gap:13px;align-items:flex-start;padding:14px 16px;border-radius:11px;
+  border:1px solid var(--line-2);background:var(--surface);font-size:14.5px;color:var(--ink-2)}
+.notice .ic{flex:0 0 24px;width:24px;height:24px;border-radius:7px;display:flex;
+  align-items:center;justify-content:center;font-size:13px;font-weight:800;
+  background:var(--surface-3);color:var(--ink-2)}
+.notice b{color:var(--ink)}
+.notice.hot{border-color:var(--red-line);background:linear-gradient(180deg,var(--red-soft),transparent)}
+.notice.hot .ic{background:var(--red);color:#fff}
+
+.srcflag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-4);
+  border:1px dashed var(--line-2);border-radius:5px;padding:3px 8px}
+
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s3)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
+@media(max-width:980px){.grid2,.grid3{grid-template-columns:1fr}}
+
+
+/* ═══ 페이지 머리 — 모든 화면이 같은 구조를 쓴다 ═══ */
+.phead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s4);
+  align-items:end;padding:52px 0 28px;border-bottom:1px solid var(--line)}
+@media(max-width:900px){.phead{grid-template-columns:1fr}}
+.phead .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);
+  font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--ink-4)}
+.phead .kicker i{width:22px;height:1px;background:var(--red);display:block;flex:0 0 22px}
+.phead h1{font-size:clamp(32px,4.2vw,52px);margin-top:14px;letter-spacing:-.055em}
+.phead h1 em{font-style:normal;color:var(--red-2)}
+.phead .sub{font-size:15.5px;color:var(--ink-3);margin-top:13px;max-width:58ch}
+.pheadact{display:flex;flex-direction:column;gap:12px;align-items:flex-end;justify-content:flex-end}
+@media(max-width:900px){.pheadact{align-items:flex-start}}
+
+/* 화면 전환 탭 — 킬러 트레이닝 종목, 앞으로 스킬트리 권 전환에도 쓴다 */
+.segs{display:flex;gap:6px;flex-wrap:wrap}
+.segs button{font-family:inherit;font-size:14px;font-weight:700;padding:11px 17px;
+  border-radius:10px;border:1px solid var(--line);background:var(--surface);
+  color:var(--ink-3);cursor:pointer;transition:.15s}
+.segs button:hover{color:var(--ink);border-color:var(--line-3)}
+.segs button[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+
+/* 세트 진행 — 칸·점수·남은 시간 */
+.setbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 20px;
+  border-bottom:1px solid var(--line);background:var(--bg-2)}
+.pips{display:flex;gap:5px}
+.pips i{width:22px;height:6px;border-radius:99px;background:var(--lv1);display:block;
+  transition:background .2s}
+.pips i.ok{background:#2FE0CE}
+.pips i.no{background:var(--red)}
+.pips i.now{background:var(--ink-2)}
+.setscore{font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.setscore b{color:var(--ink);font-size:21px;font-weight:600;letter-spacing:-.03em}
+.timer{margin-left:auto;display:flex;align-items:center;gap:10px}
+.timer .num{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--ink);
+  letter-spacing:-.04em;font-variant-numeric:tabular-nums;min-width:34px;text-align:right}
+.timer.hot .num{color:var(--red-2)}
+.tbar{width:150px;height:6px;border-radius:99px;background:var(--lv1);overflow:hidden}
+.tbar i{display:block;height:100%;background:var(--ink-2);border-radius:99px}
+.timer.hot .tbar i{background:var(--red)}
+@media(max-width:640px){.timer{width:100%;margin-left:0}.tbar{flex:1;width:auto}}
+
+/* 세트 결과 */
+.result{padding:38px 20px;text-align:center}
+.result .big{font-family:var(--mono);font-size:76px;font-weight:600;letter-spacing:-.06em;
+  line-height:1;color:var(--ink)}
+.result .big span{color:var(--ink-4);font-size:34px}
+.result .cap{font-size:15px;color:var(--ink-3);margin-top:12px}
+.missed{display:flex;flex-direction:column;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  margin:26px auto 0;max-width:560px;text-align:left}
+.missed .r{display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:var(--surface);font-size:14px}
+.missed .r .c{font-weight:700;color:var(--ink);flex:0 0 128px}
+.missed .r .k{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
+.missed .r .x{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--red-2)}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+
+
+/* ═══ 다음 한 걸음 ═══
+   학생은 "알아서 고르세요" 를 못 한다. 어느 화면에 있든 다음 할 일을 아래에 띄운다. */
+.nextbar{position:fixed;left:0;right:0;bottom:0;z-index:80;
+  background:var(--nav-bg);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);
+  transform:translateY(110%);transition:transform .42s cubic-bezier(.32,.72,0,1)}
+.nextbar.on{transform:none}
+.nextbar .in{max-width:var(--wrap);margin:0 auto;padding:11px var(--s3);
+  display:flex;align-items:center;gap:14px}
+.nextbar .ring{flex:0 0 auto;width:40px;height:40px;position:relative}
+.nextbar .ring svg{display:block;transform:rotate(-90deg)}
+.nextbar .ring b{position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-2)}
+.nextbar .tx{flex:1;min-width:0}
+.nextbar .tx b{display:block;font-size:14.5px;color:var(--ink);font-weight:700;
+  letter-spacing:-.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nextbar .tx span{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nextbar .go{flex:0 0 auto;display:flex;gap:8px;align-items:center}
+.nextbar .go .btn{font-size:13.5px;padding:10px 17px}
+.nextbar .x{appearance:none;border:0;background:transparent;cursor:pointer;
+  color:var(--ink-4);font-size:15px;padding:6px 4px;line-height:1}
+.nextbar .x:hover{color:var(--ink-2)}
+body.hasnext{padding-bottom:74px}
+@media(max-width:640px){
+  .nextbar .in{padding:9px 14px;gap:10px}
+  .nextbar .tx span{display:none}
+  .nextbar .go .btn{padding:10px 14px;font-size:13px}
+  body.hasnext{padding-bottom:66px}
+}
+
+/* ═══ 스킨 고르기 ═══ */
+.skinpick{display:flex;gap:4px;align-items:center;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:999px;padding:3px}
+.skinpick button{appearance:none;border:0;background:transparent;cursor:pointer;
+  font-family:inherit;font-size:12.5px;font-weight:700;color:var(--ink-4);
+  padding:6px 12px;border-radius:999px;transition:.16s;white-space:nowrap;
+  display:flex;align-items:center;gap:5px}
+.skinpick button i{width:9px;height:9px;border-radius:50%;display:block}
+.skinpick button:hover{color:var(--ink-2)}
+.skinpick button[aria-pressed="true"]{background:var(--surface-3);color:var(--ink)}
+@media(max-width:900px){.skinpick button span{display:none}
+  .skinpick button{padding:7px 9px}}
+
+/* ── 스킨별 손질 ── */
+/* 모눈 노트 — 점선과 얇은 선. 종이 위에 그은 것처럼 */
+:root[data-skin="note"] .card .hd{border-bottom-style:dashed}
+:root[data-skin="note"] .chip,
+:root[data-skin="note"] .tag{border-style:dashed}
+:root[data-skin="note"] .btn{box-shadow:none}
+:root[data-skin="note"] .btn.ghost{border-style:dashed}
+
+/* 젤리 — 아래로 떨어지는 그림자와 두꺼운 테두리 */
+:root[data-skin="jelly"] .card{box-shadow:var(--shadow);border-width:2px}
+:root[data-skin="jelly"] .btn{box-shadow:0 3px 0 var(--red-3);border-width:2px}
+:root[data-skin="jelly"] .btn:hover{box-shadow:0 1px 0 var(--red-3);transform:translateY(1px)}
+:root[data-skin="jelly"] .btn.ghost{box-shadow:0 3px 0 var(--line-2)}
+:root[data-skin="jelly"] .chip,
+:root[data-skin="jelly"] .tag{border-width:1.5px}
+
+/* 화이트 — 장식을 걷어내고 선만 남긴다. 빨강은 지금·중요·오답에만 */
+:root[data-skin="white"] .card{box-shadow:none}
+:root[data-skin="white"] .btn{box-shadow:none}
+:root[data-skin="white"] .btn.ghost{border-color:var(--line-2)}
+:root[data-skin="white"] .navlinks a.on::after{height:2px}

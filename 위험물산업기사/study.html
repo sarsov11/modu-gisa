@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 위산기 — 문제</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#08090B">
+<link rel="icon" href="icons/favicon.png">
+<style>
+.wrap{max-width:760px;margin:0 auto;padding:12px 16px 110px}
+.hd{display:flex;align-items:center;justify-content:space-between;margin:6px 0 12px}
+.hd b{font-size:14px;color:var(--ink)}
+.hd .cnt{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{white-space:nowrap;font-size:12px;padding:6px 11px;border-radius:99px;cursor:pointer;
+      border:1px solid var(--line-2);background:var(--surface);color:var(--ink-3)}
+.chip.on{background:var(--red-soft);border-color:var(--red-line);color:var(--red-2);font-weight:700}
+.qcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.meta{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--ink-4);margin-bottom:10px;
+      font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.tag{border:1px solid var(--line-2);border-radius:99px;padding:2px 8px}
+.tag.k{color:var(--red-2);border-color:var(--red-line)}
+.q{font-size:16px;line-height:1.65;color:var(--ink);letter-spacing:-.01em;margin-bottom:14px;white-space:pre-wrap}
+.fig{width:100%;border:1px solid var(--line);border-radius:10px;margin:0 0 14px;background:#fff}
+.cfig{max-width:100%;display:block;margin-top:6px;border-radius:8px;background:#fff;padding:4px}
+.ch{display:flex;gap:10px;align-items:flex-start;padding:12px 13px;border:1px solid var(--line);
+    border-radius:11px;background:var(--bg-2);margin-bottom:8px;cursor:pointer;font-size:14px;
+    line-height:1.55;color:var(--ink-2)}
+.ch i{flex:0 0 22px;height:22px;border-radius:50%;border:1px solid var(--line-3);display:grid;
+      place-items:center;font-style:normal;font-size:12px;color:var(--ink-3);font-weight:700}
+.ch.pick{border-color:var(--line-3);background:var(--surface-2)}
+.ch.ok{border-color:#2E7D53;background:rgba(46,125,83,.14);color:var(--ink)}
+.ch.ok i{border-color:#2E7D53;color:#63D89B}
+.ch.no{border-color:var(--red-line);background:var(--red-soft)}
+.ch.no i{border-color:var(--red-line);color:var(--red-2)}
+.after{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line-2);display:none}
+.after.on{display:block}
+.after .line{font-size:13px;color:var(--ink-3);line-height:1.6}
+.after b{color:var(--ink)}
+.bottom{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+        background:var(--surface);border-top:1px solid var(--line)}
+.bottom button{width:100%;padding:14px;border:0;border-radius:12px;background:var(--red);color:#fff;
+               font-weight:800;font-size:15px;cursor:pointer}
+.bottom button.ghost{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line-2)}
+.done{text-align:center;padding:40px 10px;color:var(--ink-3)}
+.done h3{color:var(--ink);font-size:20px;margin-bottom:8px}
+.prog{height:4px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-bottom:14px}
+.prog i{display:block;height:100%;background:var(--red)}
+</style>
+</head><body>
+<div class="wrap">
+  <div class="hd"><b id="mode">오늘 몫</b><span class="cnt" id="cnt"></span></div>
+  <div class="prog"><i id="prog" style="width:0%"></i></div>
+  <div class="filters" id="filters"></div>
+  <div id="stage"></div>
+</div>
+<div class="bottom"><button id="next" class="ghost">답 고르기</button></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function(){
+  var qs=new URLSearchParams(location.search);
+  var mode=qs.get('mode')||'', subject=qs.get('subject'), code=qs.get('code'), one=qs.get('id');
+  var 목록=[], i=0, 고른=null, 채점됨=false;
+
+  function 만들기(){
+    if(one && T.문항맵[one]){        // 검수용 — 문항 하나만 띄운다
+      목록=[T.문항맵[one]];
+      document.getElementById('mode').textContent='문항 '+one;
+    } else if(mode==='wrong'){
+      목록=Object.keys(T.S.푼것).filter(function(id){return T.S.푼것[id] && !T.S.푼것[id].o && T.문항맵[id];})
+                 .map(function(id){return T.문항맵[id];});
+      document.getElementById('mode').textContent='틀린 것만';
+    } else if(code){
+      목록=(T.코드별문항[code]||[]).slice();
+      var n=T.트리맵[code];
+      document.getElementById('mode').textContent = n? n.d : code;
+    } else if(subject){
+      목록=(T.과목별문항[subject]||[]).slice().sort(function(){return Math.random()-.5;}).slice(0,40);
+      document.getElementById('mode').textContent=(T.과목맵[subject]||{}).name||'과목';
+    } else {
+      목록=T.오늘문항();
+      document.getElementById('mode').textContent='오늘 몫';
+    }
+  }
+
+  function 필터그리기(){
+    var box=document.getElementById('filters'); box.innerHTML='';
+    var 것들=[['오늘','index'],['틀린 것','wrong']].concat((G.과목||[]).map(function(s){return [s.name,'s'+s.n];}));
+    것들.forEach(function(p){
+      var c=document.createElement('span'); c.className='chip'; c.textContent=p[0];
+      var on = (p[1]==='wrong'&&mode==='wrong') || (p[1]==='index'&&!mode&&!subject&&!code)
+             || (p[1]==='s'+subject);
+      if(on) c.className+=' on';
+      c.onclick=function(){
+        if(p[1]==='wrong') location.href='study.html?mode=wrong';
+        else if(p[1]==='index') location.href='study.html?mode=today';
+        else location.href='study.html?subject='+p[1].slice(1);
+      };
+      box.appendChild(c);
+    });
+  }
+
+  function 그리기(){
+    var st=document.getElementById('stage');
+    if(i>=목록.length){
+      var r=T.루틴();
+      st.innerHTML='<div class="done"><h3>여기까지</h3><div>오늘 '+r.푼수+'문제 · 맞은 '+r.맞은수+'개'+
+        '<br>연속 '+r.연속+'일</div></div>';
+      document.getElementById('next').textContent='오늘 화면으로';
+      document.getElementById('next').className='';
+      document.getElementById('next').onclick=function(){location.href='index.html';};
+      document.getElementById('prog').style.width='100%';
+      return;
+    }
+    var q=목록[i]; 고른=null; 채점됨=false;
+    document.getElementById('cnt').textContent=(i+1)+' / '+목록.length;
+    document.getElementById('prog').style.width=(i*100/목록.length)+'%';
+    var 난=T.난이도(q), 과=(T.과목맵[q.s]||{}).name||'', 노드=q.k?T.트리맵[q.k]:null;
+    var h='<div class="qcard"><div class="meta">'+
+      '<span class="tag">'+과+'</span>'+
+      '<span class="tag'+(난==='킬러'?' k':'')+'">'+난+(q.r!=null?' · 정답률 '+q.r+'%':'')+'</span>'+
+      (노드?'<span class="tag">'+노드.d+'</span>':'')+
+      '<span class="tag">'+q.y+'</span></div>';
+    // 발문 그림은 여러 장인 문항이 있다. 첫 장만 그리면 자료가 반만 보인다.
+    (q.im||[]).forEach(function(f){
+      h+='<img class="fig" src="img/'+f+'" alt="" onerror="this.onerror=null;this.remove()">'; });
+    h+='<div class="q">'+esc(q.q).replace(/\[그림\]/g,'')+'</div><div id="chs"></div>'+
+       '<div class="after" id="after"><div class="line" id="afterline"></div></div></div>';
+    st.innerHTML=h;
+    var box=document.getElementById('chs');
+    (q.c||[]).forEach(function(c,idx){
+      var el=document.createElement('div'); el.className='ch';
+      // 선지 자체가 그림인 문항이 있다(구조식·계통도). 글자만 그리면 못 푸는 문항이 된다.
+      var cim=(q.ci&&q.ci[idx])||[];
+      var 그림='';
+      cim.forEach(function(f){ 그림+='<img class="cfig" src="img/'+f+'" alt="" '+
+        'onerror="this.onerror=null;this.remove()">'; });
+      var 글=esc(c).replace(/\[그림\]/g,'').trim();
+      el.innerHTML='<i>'+(idx+1)+'</i><span>'+글+그림+'</span>';
+      el.onclick=function(){ if(채점됨) return;
+        [].forEach.call(box.children,function(x){x.classList.remove('pick');});
+        el.classList.add('pick'); 고른=idx+1;
+        document.getElementById('next').textContent='정답 확인';
+        document.getElementById('next').className='';
+      };
+      box.appendChild(el);
+    });
+    document.getElementById('next').textContent='답 고르기';
+    document.getElementById('next').className='ghost';
+    document.getElementById('next').onclick=누름;
+  }
+
+  function 누름(){
+    if(!채점됨){
+      if(!고른) return;
+      var q=목록[i], 맞=T.채점(q.i,고른);
+      채점됨=true;
+      var box=document.getElementById('chs');
+      [].forEach.call(box.children,function(el,idx){
+        if(idx+1===q.a) el.className='ch ok';
+        else if(idx+1===고른) el.className='ch no';
+      });
+      var a=document.getElementById('after'); a.classList.add('on');
+      var 노드=q.k?T.트리맵[q.k]:null;
+      document.getElementById('afterline').innerHTML =
+        (맞? '<b>맞았습니다.</b>':'<b>다시 만날 문제입니다.</b> 틀린 문제는 내일 다시 나옵니다.')+
+        '<br>정답 <b>'+q.a+'번</b>'+(q.r!=null?' · 실제 정답률 '+q.r+'%':'')+
+        (노드? '<br>'+노드.sn+' &gt; '+노드.m+' &gt; '+노드.d : '')+
+        '<br>출처 '+q.y+' 기출';
+      document.getElementById('next').textContent='다음 문제';
+    } else { i++; 그리기(); }
+  }
+
+  function esc(s){ return String(s==null?'':s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  만들기(); 필터그리기(); 그리기();
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
+</body></html>

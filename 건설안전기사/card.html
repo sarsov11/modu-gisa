@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>개념 카드 — 모두의 건설안전</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#08090B">
+<style>
+/* 개념 카드 — 폰으로 넘겨 보는 화면이다.
+   한 장에 그림 하나 + 두세 줄. 길면 안 읽는다. */
+body{margin:0}
+.wrap{max-width:720px;margin:0 auto;padding:14px 16px 110px}
+.hd{padding:6px 0 4px}
+.hd .eb{font-size:10.5px;letter-spacing:.15em;color:var(--ink-4);font-weight:900}
+.hd h1{font-size:20px;margin:6px 0 3px;letter-spacing:-.02em;color:var(--ink)}
+.hd p{margin:0;font-size:12.5px;color:var(--ink-4);line-height:1.6}
+.prog{display:flex;gap:4px;margin:13px 0 16px}
+.prog i{flex:1;height:4px;border-radius:99px;background:var(--line)}
+.prog i.ok{background:var(--mint)}
+.prog i.no{background:var(--red)}
+.prog i.now{background:var(--ink-4)}
+
+.card{border:1px solid var(--line-2);border-radius:14px;background:var(--surface);
+  overflow:hidden;margin-bottom:12px}
+.fig{background:#fff;display:block;width:100%;height:auto}
+.figskel{background:var(--surface-2);height:150px;display:flex;align-items:center;
+  justify-content:center;font-size:11.5px;color:var(--ink-4);letter-spacing:.04em}
+.body{padding:17px 18px 19px}
+.badge{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.1em;
+  padding:3px 8px;border-radius:5px;border:1px solid var(--line-2);color:var(--ink-3)}
+.card h2{font-size:18px;margin:10px 0 12px;letter-spacing:-.02em;color:var(--ink);line-height:1.4}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.card li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.65;
+  color:var(--ink-2)}
+.card li i{flex:0 0 auto;width:5px;height:5px;border-radius:50%;margin-top:9px;background:var(--red)}
+.memo{margin-top:14px;padding:11px 13px;border-radius:9px;background:var(--red-soft);
+  border:1px solid var(--red-line)}
+.memo b{display:block;font-size:10px;letter-spacing:.12em;color:var(--red-2);
+  font-weight:900;margin-bottom:6px}
+.memo span{display:block;font-size:13.5px;color:var(--ink);font-weight:700;line-height:1.6}
+.act{margin-top:17px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{appearance:none;border:1px solid var(--red);background:var(--red);color:#fff;
+  font:inherit;font-size:14px;font-weight:800;padding:11px 17px;border-radius:9px;cursor:pointer}
+.btn.ghost{background:transparent;border-color:var(--line-2);color:var(--ink-2)}
+
+.qz{border:1px solid var(--line-2);border-radius:14px;background:var(--surface);
+  padding:18px;margin-bottom:12px}
+.qz .lab{font-size:10px;letter-spacing:.13em;color:var(--ink-4);font-weight:900}
+.qz .stem{font-size:15.5px;font-weight:700;line-height:1.65;margin:10px 0 16px;color:var(--ink)}
+.ox{display:grid;gap:8px}
+.ox button{appearance:none;border:1px solid var(--line-2);background:var(--surface-2);
+  color:var(--ink);font:inherit;font-size:14px;font-weight:600;padding:13px 14px;
+  border-radius:10px;cursor:pointer;text-align:left;line-height:1.55;
+  display:flex;gap:10px;align-items:flex-start}
+.ox button b{flex:0 0 auto;font-size:12px;font-weight:900;color:var(--ink-4);margin-top:1px}
+.ox button:disabled{opacity:.5}
+.ox button.pick{border-color:var(--red);background:var(--red-soft)}
+.ox button.ans{border-color:var(--mint)}
+.ox button.ans b{color:var(--mint)}
+.vd{margin-top:15px;padding:14px;border-radius:11px;border:1px solid var(--line-2);
+  background:var(--surface-2)}
+.vd.good{border-color:rgba(47,224,206,.4)}
+.vd.bad{border-color:var(--red-line)}
+.vd .mark{font-size:14.5px;font-weight:900;color:var(--ink)}
+.vd .say{margin:8px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.65}
+.vd .src{margin:9px 0 0;font-size:11px;color:var(--ink-4)}
+.done{border:1px solid var(--line-2);border-radius:14px;background:var(--surface);padding:24px 20px}
+.done h2{margin:0 0 8px;font-size:19px;color:var(--ink)}
+.done p{margin:0 0 14px;font-size:14px;color:var(--ink-3);line-height:1.7}
+.none{padding:52px 18px;text-align:center;color:var(--ink-4);font-size:13px;line-height:1.8}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:grid;
+  background:var(--surface);border-top:1px solid var(--line)}
+.tabs a{padding:12px 0;text-align:center;font-size:11.5px;color:var(--ink-4);
+  text-decoration:none;font-weight:700}
+.tabs a.on{color:var(--red-2)}
+</style></head><body>
+<div class="wrap">
+  <div class="hd">
+    <div class="eb" id="eb"></div>
+    <h1 id="ttl">개념 카드</h1>
+    <p id="lede"></p>
+  </div>
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+<nav class="tabs" id="tabs"></nav>
+<script src="js/data.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/app.js"></script>
+<script>
+(function(){
+  function el(id){ return document.getElementById(id); }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  /* 탭 — 실기 있는 종목만 6칸(다른 화면과 같은 규칙) */
+  var 실기있음=!!(G.실기&&G.실기.유형&&G.실기.유형.length);
+  var 탭=[["index.html","오늘"],["card.html","카드"],["study.html","문제"],
+          ["skilltree.html","진행"]];
+  if(실기있음) 탭.push(["practical.html","실기"]);
+  탭.push(["settings.html","설정"]);
+  var tb=el("tabs");
+  tb.style.gridTemplateColumns="repeat("+탭.length+",1fr)";
+  tb.innerHTML=탭.map(function(t){
+    return '<a href="'+t[0]+'"'+(t[1]==="카드"?' class="on"':'')+'>'+t[1]+'</a>'; }).join("");
+
+  var CARDS = window.CARDS || {};
+  var 코드 = new URLSearchParams(location.search).get("code");
+
+  /* code 없이 열면 **고르라고 하지 않는다** — 오늘 볼 것 하나를 골라 준다.
+     등급이 높고 아직 안 본 테마부터. 학생에게 고르게 하면 안 고른다. */
+  if(!코드){
+    var 본것 = (window.T && T.카드본것 && T.카드본것()) || {};
+    var 순 = {S:0,A:1,B:2,C:3};
+    var 후보 = Object.keys(CARDS).sort(function(a,b){
+      var d=(순[CARDS[a].등급]||9)-(순[CARDS[b].등급]||9);
+      if(d) return d;
+      return (본것[a]?1:0)-(본것[b]?1:0);
+    });
+    코드 = 후보.find(function(c){ return !본것[c]; }) || 후보[0];
+  }
+
+  var 묶 = CARDS[코드];
+  if(!묶){
+    el("lede").textContent="";
+    el("stage").innerHTML='<div class="none">이 종목은 개념 카드가 아직 없습니다.<br>'+
+      '강의가 선 테마부터 차례로 붙습니다.</div>';
+    return;
+  }
+
+  var 장들 = 묶.카드 || [], 확인 = 묶.확인 || [];
+  var i=0, 결과=[];
+
+  el("eb").textContent = (묶.과목||"") + " · " + 묶.등급 + "급";
+  el("ttl").textContent = 묶.이름;
+  el("lede").textContent = "카드 "+장들.length+"장입니다. 하나 읽고 바로 확인합니다.";
+
+  function 진행(){
+    el("prog").innerHTML = 장들.map(function(_,k){
+      var r=결과[k];
+      return '<i class="'+(r?(r.ok?"ok":"no"):(k===i?"now":""))+'"></i>'; }).join("");
+  }
+
+  function 그림칸(c){
+    if(!c.그림파일) return '<div class="figskel">그림 준비 중</div>';
+    return '<img class="fig" src="img/'+esc(c.그림파일)+'" alt="">';
+  }
+
+  function 카드그리기(){
+    진행();
+    if(i>=장들.length) return 끝();
+    var c=장들[i];
+    el("stage").innerHTML =
+      '<div class="card">'+ 그림칸(c) +
+        '<div class="body">'+
+          '<span class="badge">'+esc(묶.등급)+'급 · '+(i+1)+' / '+장들.length+'</span>'+
+          '<h2>'+esc(c.제목)+'</h2>'+
+          '<ul>'+(c.줄||[]).map(function(t){
+            return '<li><i></i><span>'+esc(t)+'</span></li>'; }).join("")+'</ul>'+
+          ((c.암기&&c.암기.length)
+            ? '<div class="memo"><b>이건 외웁니다</b>'+
+              c.암기.map(function(x){ return '<span>· '+esc(x)+'</span>'; }).join("")+
+              '</div>' : '')+
+          '<div class="act"><button class="btn" id="ok">읽었습니다 — 확인</button>'+
+            (i>0?'<button class="btn ghost" id="back">앞 카드</button>':'')+
+          '</div>'+
+        '</div>'+
+      '</div>';
+    el("ok").onclick=확인하기;
+    if(el("back")) el("back").onclick=function(){ i=Math.max(0,i-1); 카드그리기(); };
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  var 지금=null, 시작=0;
+  function 확인하기(){
+    /* 확인 문항은 테마마다 두 개뿐이다. 카드가 다섯 장이면 돌려 쓴다 —
+       없다고 그냥 넘기면 '읽기만 하고 넘긴' 화면이 되어 아무것도 안 남는다. */
+    if(!확인.length){ 결과[i]={ok:true,skip:true}; i++; return 카드그리기(); }
+    지금 = 확인[i % 확인.length];
+    시작 = Date.now();
+    var 번호 = ["①","②","③","④","⑤"];
+    el("stage").insertAdjacentHTML("beforeend",
+      '<div class="qz" id="qz">'+
+        '<span class="lab">바로 확인 · '+esc(지금.출처)+'</span>'+
+        '<p class="stem">'+esc(지금.발문)+'</p>'+
+        '<div class="ox">'+ 지금.선지.map(function(c,k){
+          return '<button data-v="'+(k+1)+'"><b>'+번호[k]+'</b><span>'+esc(c)+'</span></button>';
+        }).join("") +'</div>'+
+      '</div>');
+    document.querySelectorAll("#qz .ox button").forEach(function(b){
+      b.onclick=function(){ 답하기(Number(b.dataset.v)); }; });
+    el("qz").scrollIntoView({behavior:"smooth",block:"center"});
+  }
+
+  function 답하기(고른){
+    var ok = (고른 === 지금.답);
+    document.querySelectorAll("#qz .ox button").forEach(function(b){
+      b.disabled=true;
+      var v=Number(b.dataset.v);
+      if(v===지금.답) b.classList.add("ans");        // 정답은 언제나 보여 준다
+      else if(v===고른) b.classList.add("pick");     // 내가 고른 오답
+    });
+    결과[i]={ok:ok};
+    진행();
+    if(window.T && T.카드기록) T.카드기록(코드, ok);
+
+    var 말 = ok
+      ? (지금.정답률!=null && 지금.정답률 < 50
+          ? "정답률 "+지금.정답률+"% 짜리를 맞혔습니다. 이 자리는 잡혔습니다."
+          : "맞았습니다. 다음 카드로 넘어갑니다.")
+      : "카드로 돌아가 한 번 더 읽으십시오. 방금 읽은 것과 어긋난 자리입니다.";
+    el("qz").insertAdjacentHTML("beforeend",
+      '<div class="vd '+(ok?"good":"bad")+'">'+
+        '<div class="mark">'+(ok?"○ 맞았습니다":"✕ 아닙니다")+'</div>'+
+        '<p class="say">'+esc(말)+'</p>'+
+        '<p class="src">'+esc(지금.출처)+
+          (지금.정답률!=null?' · 이 문항 정답률 '+지금.정답률+'%':'')+'</p>'+
+        '<div class="act">'+
+          (!ok?'<button class="btn ghost" id="again">카드 다시 보기</button>':'')+
+          '<button class="btn" id="next">'+
+            (i+1>=장들.length?"끝내기":"다음 카드")+'</button>'+
+        '</div>'+
+      '</div>');
+    if(el("again")) el("again").onclick=function(){ 카드그리기(); };
+    el("next").onclick=function(){ i++; 카드그리기(); };
+  }
+
+  function 끝(){
+    var 맞=결과.filter(function(r){ return r&&r.ok; }).length;
+    el("prog").innerHTML="";
+    el("stage").innerHTML=
+      '<div class="done">'+
+        '<h2>'+esc(묶.이름)+' — 카드 '+장들.length+'장 끝</h2>'+
+        '<p>'+맞+' / '+장들.length+' 맞혔습니다. '+
+          (맞===장들.length
+            ? "여기는 잡혔습니다. 문제로 굳히면 끝납니다."
+            : "틀린 자리는 문제에서 다시 만납니다.")+'</p>'+
+        '<div class="act">'+
+          '<a class="btn" href="study.html?code='+encodeURIComponent(코드)+'">문제 풀러 가기</a>'+
+          '<a class="btn ghost" href="card.html">다음 테마 카드</a>'+
+        '</div>'+
+      '</div>';
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  카드그리기();
+})();
+</script>
+</body></html>
