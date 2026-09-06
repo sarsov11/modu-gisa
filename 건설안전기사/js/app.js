@@ -206,6 +206,13 @@
     var C = window.CARDS || {}, 순 = { S: 0, A: 1, B: 2, C: 3 };
     var 키 = Object.keys(C);
     if (!키.length) return null;
+    // 그림이 한 장도 없는 테마는 홈에 안 건다 — "카드 보기" 단추만 덩그러니 남아
+    // 눌러 볼 마음이 안 든다. 그림이 다 차면 이 걸러내기는 아무 일도 안 한다.
+    function 그림있나(k) {
+      return (C[k].카드 || []).some(function (c) { return c.그림파일; });
+    }
+    var 그림찬것 = 키.filter(그림있나);
+    if (그림찬것.length) 키 = 그림찬것;
     var 안본 = 키.filter(function (k) { return !(S.카드 || {})[k]; });
     var 고름;
     if (안본.length) {
