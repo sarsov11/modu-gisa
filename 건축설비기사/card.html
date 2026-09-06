@@ -109,16 +109,12 @@ body{margin:0}
   var 코드 = new URLSearchParams(location.search).get("code");
 
   /* code 없이 열면 **고르라고 하지 않는다** — 오늘 볼 것 하나를 골라 준다.
-     등급이 높고 아직 안 본 테마부터. 학생에게 고르게 하면 안 고른다. */
+     ⚠ 고르는 규칙은 `app.js` 의 `T.오늘카드()` 한 곳에만 둔다.
+     여기에 따로 쓰면 홈과 카드 화면이 서로 다른 테마를 고른다 —
+     실제로 홈은 그림 있는 것을, 카드 화면은 "그림 준비 중"을 골랐다(2026-09-07 확인). */
   if(!코드){
-    var 본것 = (window.T && T.카드본것 && T.카드본것()) || {};
-    var 순 = {S:0,A:1,B:2,C:3};
-    var 후보 = Object.keys(CARDS).sort(function(a,b){
-      var d=(순[CARDS[a].등급]||9)-(순[CARDS[b].등급]||9);
-      if(d) return d;
-      return (본것[a]?1:0)-(본것[b]?1:0);
-    });
-    코드 = 후보.find(function(c){ return !본것[c]; }) || 후보[0];
+    var 오늘 = window.T && T.오늘카드 && T.오늘카드();
+    코드 = 오늘 && 오늘.코드;
   }
 
   var 묶 = CARDS[코드];
@@ -143,7 +139,10 @@ body{margin:0}
   }
 
   function 그림칸(c){
-    if(!c.그림파일) return '<div class="figskel">그림 준비 중</div>';
+    /* 그림이 없으면 **자리를 비운다.** "그림 준비 중" 회색 판을 두면
+       첫 장부터 미완성으로 보인다 — 없는 편이 낫다(2026-09-07 화면 확인).
+       카드 본문만으로도 읽힌다. */
+    if(!c.그림파일) return '';
     return '<img class="fig" src="img/'+esc(c.그림파일)+'" alt="">';
   }
 
