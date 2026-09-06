@@ -35,7 +35,9 @@ h2{font-size:17px;margin:6px 0 2px;color:var(--ink);letter-spacing:-.01em}
 .pct.low{color:var(--red-2)}
 .streak{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:var(--ink-3);
         border:1px solid var(--line-2);border-radius:99px;padding:4px 10px}
-.tabs{position:fixed;top:auto;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);
+#cfig{display:block;width:100%;height:auto;background:#fff;border-radius:10px;
+  margin:12px 0 4px}
+.tabs{position:fixed;top:auto;left:0;right:0;bottom:0;display:grid;
      background:var(--nav-bg,var(--surface));border-top:1px solid var(--line);backdrop-filter:blur(8px)}
 .tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
 .tabs a.on{color:var(--red-2)}
@@ -46,6 +48,14 @@ h2{font-size:17px;margin:6px 0 2px;color:var(--ink);letter-spacing:-.01em}
   <div class="top">
     <div class="brand">모두의 건설안전<small>건설안전기사 필기</small></div>
     <div class="dday" id="dday"></div>
+  </div>
+
+  <div class="card" id="cardbox" hidden>
+    <div class="eyebrow">먼저 읽기</div>
+    <h2 id="ctit"></h2>
+    <div class="say" id="csay"></div>
+    <img id="cfig" alt="" hidden>
+    <button class="go" id="cgo">카드 보기</button>
   </div>
 
   <div class="card">
@@ -68,18 +78,47 @@ h2{font-size:17px;margin:6px 0 2px;color:var(--ink);letter-spacing:-.01em}
   </div>
 </div>
 
-<nav class="tabs">
-  <a href="index.html" class="on">오늘</a>
-  <a href="study.html">문제</a>
-  <a href="skilltree.html">진행</a>
-  <a href="settings.html">설정</a>
-</nav>
+<nav class="tabs" id="tabs"></nav>
 
 <script src="js/data.js"></script>
+<script src="js/cards.js"></script>
 <script src="js/app.js"></script>
 <script src="js/notify.js"></script>
 <script>
 (function(){
+  /* 탭 — 실기 있는 종목만 6칸 */
+  var 실기있음=!!(G.실기&&G.실기.유형&&G.실기.유형.length);
+  var 탭=[["index.html","오늘"],["card.html","카드"],["study.html","문제"],
+          ["skilltree.html","진행"]];
+  if(실기있음) 탭.push(["practical.html","실기"]);
+  탭.push(["settings.html","설정"]);
+  var tb=document.getElementById("tabs");
+  tb.style.gridTemplateColumns="repeat("+탭.length+",1fr)";
+  tb.innerHTML=탭.map(function(t){
+    return '<a href="'+t[0]+'"'+(t[1]==="오늘"?' class="on"':'')+'>'+t[1]+'</a>'; }).join("");
+
+  /* 오늘 볼 카드 — **문제보다 위에 둔다.** 개념을 안 읽고 문제부터 풀면
+     틀린 이유를 모른 채 문항만 소모한다. 고르라고 하지 않고 하나를 정해 준다. */
+  var 오늘카드 = T.오늘카드 && T.오늘카드();
+  if(오늘카드){
+    var 묶 = (window.CARDS||{})[오늘카드.코드]||{};
+    /* 홈에 거는 그림은 **그 테마에서 그림이 있는 첫 장**이다.
+       첫 장에 그림이 없다고 빈 칸을 두면 홈이 허전해 눌러 볼 마음이 안 든다.
+       카드 순서 자체는 안 바꾼다 — 읽는 차례는 강의 흐름 그대로여야 한다. */
+    var 첫 = (묶.카드||[]).find(function(c){ return c.그림파일; }) || (묶.카드||[])[0] || {};
+    document.getElementById("cardbox").hidden=false;
+    document.getElementById("ctit").textContent=오늘카드.이름;
+    document.getElementById("csay").textContent =
+      (오늘카드.과목||"") + " · " + 오늘카드.등급 + "급 · 카드 " + 오늘카드.장수 + "장"
+      + (오늘카드.본적 ? " · 다시 보기" : "");
+    if(첫.그림파일){
+      var im=document.getElementById("cfig");
+      im.src="img/"+첫.그림파일; im.hidden=false;
+    }
+    document.getElementById("cgo").onclick=function(){
+      location.href="card.html?code="+encodeURIComponent(오늘카드.코드); };
+  }
+
   var r=T.루틴(), dd=T.디데이();
   document.getElementById('dday').textContent = dd>0? ('D-'+dd) : (dd===0?'D-DAY':'시험일 지남');
   var m=T.알림문구();
