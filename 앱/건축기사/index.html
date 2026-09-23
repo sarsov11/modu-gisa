@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>모두의 건축기사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+  .when{padding:24px 2px 0}
+  .when small{display:block;font-size:14.5px;color:var(--ink-3);font-weight:700}
+  .when h1{font-size:27px;letter-spacing:-.04em;margin:8px 0 0;font-weight:900}
+  .when h1 em{font-style:normal;color:var(--accent)}
+  .when hr{border:0;border-top:1px solid var(--line);margin:18px 0 0}
+  /* 코치 한 문장 — 통사 홈과 같다. 설명하지 않고 권한다 */
+  .coach{border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);
+    padding:22px 22px;margin:22px 0 14px;font-size:19px;line-height:1.6;font-weight:700;
+    letter-spacing:-.02em}
+  .coach em{font-style:normal;color:var(--accent)}
+  .coach small{display:block;margin-top:8px;font-size:14.5px;color:var(--ink-3);font-weight:500}
+</style>
+</head><body>
+<div class="page">
+  <div class="when">
+    <small id="date"></small>
+    <h1 id="dd"></h1>
+    <hr>
+  </div>
+  <div class="coach" id="coach"></div>
+  <a class="b main" id="go">좋아요, 시작</a>
+  <div class="b2">
+    <a class="b" id="concept">개념부터 볼래요</a>
+    <a class="b" href="tree.html">다른 거 할래요</a>
+  </div>
+
+  <div class="lab">내 기록</div>
+  <details class="fold"><summary>이번 주</summary><div class="in" id="week"></div></details>
+  <details class="fold"><summary>과목별 정답률</summary><div class="in" id="subj"></div></details>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gstore.js"></script>
+<script>
+(function(){
+  GS.내비("index.html");
+  var D=GS.D, e=GS.esc;
+  var 지금=new Date();
+  document.getElementById("date").textContent=(지금.getMonth()+1)+"월 "+지금.getDate()+"일";
+  var dd=GS.디데이();
+  document.getElementById("dd").innerHTML = e(D.종목)+" "+
+    (dd==null?"":"<em>"+(dd>0?"D-"+dd:(dd===0?"D-DAY":"시험 끝"))+"</em>");
+
+  /* 오늘 이거 하나 — 고르게 하지 않는다 */
+  var 할=GS.오늘할것(), 말="", 가기="tree.html", 개념="card.html";
+  if(!할){
+    말="O·X 로 만들 기출이 아직 없어요.";
+  }else if(할.종류==="복습"){
+    말="오늘은 <em>다시 볼 문장 "+할.n+"개</em>부터 해볼까요?"+
+       "<small>틀렸던 문장이 간격을 두고 돌아왔어요.</small>";
+    가기="ox.html?review=1";
+  }else{
+    var t=할.t;
+    말="오늘은 <em>"+e(할.이름)+"</em> O·X부터 해볼까요?"+
+       "<small>"+e(t.s)+" · "+t.g+"급"+(할.종류==="약점"?" · 아직 헷갈리는 자리예요":"")+"</small>";
+    가기="ox.html?k="+encodeURIComponent(할.k);
+    개념="card.html?k="+encodeURIComponent(할.k);
+  }
+  document.getElementById("coach").innerHTML=말;
+  document.getElementById("go").href=가기;
+  document.getElementById("concept").href=개념;
+  if(!(D.cards||{})[할&&할.k]) document.getElementById("concept").href="card.html";
+
+  /* 기록 — 접어 둔다. 홈에 숫자를 늘어놓지 않는다 */
+  var w=GS.이번주();
+  document.getElementById("week").innerHTML = w.n
+    ? '<div class="row"><span>푼 문장</span><b>'+w.n+'개</b></div>'+
+      '<div class="row"><span>정답률</span><b>'+Math.round(w.ok*100/w.n)+'%</b></div>'
+    : '<div class="row"><span>아직 푼 문장이 없어요</span></div>';
+  var 성=GS.과목성적(), 줄="";
+  Object.keys(성).forEach(function(s){
+    var a=성[s], p=a.푼?Math.round(a.맞*100/a.푼):null;
+    줄+='<div class="row"><span>'+e(s)+'</span><b>'+(p==null?"—":p+"%")+'</b></div>';
+  });
+  document.getElementById("subj").innerHTML=줄||'<div class="row"><span>아직 없어요</span></div>';
+})();
+</script>
+</body></html>
