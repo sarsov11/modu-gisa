@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>설정 — 모두의 기계설계산업기사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+  .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 18px;font-weight:900}
+  input[type=date]{font:inherit;font-size:16px;padding:10px 12px;border:1.5px solid var(--line-2);
+    border-radius:var(--r2);background:var(--surface);color:var(--ink)}
+  .sk{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .sk button{appearance:none;font:inherit;font-size:15px;font-weight:700;padding:12px 4px;
+    border:1.5px solid var(--line-2);border-radius:var(--r2);background:var(--surface);color:var(--ink);cursor:pointer}
+  .sk button[aria-pressed="true"]{border-color:var(--ink)}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1>설정</h1></div>
+  <details class="fold" open><summary>시험일</summary><div class="in">
+    <input type="date" id="exam"><p style="color:var(--ink-3);font-size:14px;margin:10px 0 0">홈의 D-day 가 이 날짜로 셉니다.</p>
+  </div></details>
+  <details class="fold"><summary>화면</summary><div class="in">
+    <div class="sk" id="skins"></div>
+  </div></details>
+  <details class="fold"><summary>기록</summary><div class="in">
+    <button class="b" id="reset">기록 전부 지우기</button>
+  </div></details>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gstore.js"></script>
+<script>
+(function(){
+  GS.내비("settings.html");
+  var x=document.getElementById("exam");
+  x.value=GS.S.시험일||"";
+  x.onchange=function(){ GS.S.시험일=x.value; GS.저장(); };
+  var 스킨=[["white","화이트"],["paper","종이"],["jelly","분홍"],["night","밤"]];
+  var 지금=localStorage.getItem("modugisa2.skin")||"white";
+  document.getElementById("skins").innerHTML=스킨.map(function(s){
+    return '<button data-s="'+s[0]+'" aria-pressed="'+(s[0]===지금)+'">'+s[1]+'</button>';
+  }).join("");
+  document.querySelectorAll("#skins button").forEach(function(b){
+    b.onclick=function(){
+      var v=b.dataset.s; localStorage.setItem("modugisa2.skin",v);
+      document.documentElement.dataset.skin=(v==="night"?"":v); location.reload();
+    };
+  });
+  document.getElementById("reset").onclick=function(){
+    if(confirm("푼 기록을 전부 지울까요? 되돌릴 수 없어요.")){ GS.초기화(); location.href="index.html"; }
+  };
+})();
+</script>
+</body></html>

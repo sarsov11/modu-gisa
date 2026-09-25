@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>기출로 확인 — 모두의 조경기사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+  /* 통사 ox.html 「기출로 확인」 판 그대로 (2026-09-12·21 규격) */
+  .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 0;font-weight:900}
+  .prog{display:flex;gap:5px;margin:22px 0 16px}
+  .prog i{flex:1;height:4px;border-radius:99px;background:var(--surface-3)}
+  .prog i.ok{background:var(--ink-3)} .prog i.no{background:var(--accent)} .prog i.now{background:var(--ink-4)}
+
+  .qwrap{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--bg-2);
+    padding:22px 20px;margin-bottom:22px}
+  .qtag{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14.5px;
+    color:var(--ink-3);margin-bottom:16px}
+  .qtag b{color:var(--accent);font-weight:800}
+  .qtag .src{margin-left:auto;font-variant-numeric:tabular-nums}
+  .qstem{font-size:16.5px;line-height:1.62;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
+  .qpick{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--accent);
+    border-radius:var(--r3);padding:14px 16px;background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .qpick .no{flex:none;font-weight:800;color:var(--accent);font-size:17px;line-height:1.55}
+  .qpick .tx{font-size:17px;line-height:1.62;font-weight:700;letter-spacing:-.01em}
+  .qhint{font-size:14.5px;color:var(--ink-3);margin:10px 2px 0}
+
+  .step h3{font-size:15.5px;color:var(--ink-3);margin:0 0 10px;font-weight:700}
+  .conf{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+  .conf button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);
+    color:var(--ink-2);border-radius:var(--r1);padding:14px 6px;font:inherit;font-size:15.5px;
+    font-weight:700;cursor:pointer}
+  .conf button[aria-pressed="true"]{border-color:var(--ink);background:var(--surface);color:var(--ink)}
+  .ox{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:12px}
+  .ox button{appearance:none;border:2px solid var(--line-2);background:var(--surface-2);color:var(--ink);
+    border-radius:var(--r2);padding:20px;font:inherit;font-size:30px;font-weight:800;cursor:pointer;line-height:1}
+  .ox button:disabled{opacity:.35;cursor:default}
+  .ox button.pick{border-color:var(--ink);background:var(--surface);opacity:1}
+  .lock{font-size:14.5px;color:var(--ink-4);margin-top:9px;text-align:center}
+
+  .verdict{border-radius:var(--r2);padding:18px;margin-top:18px;border:1.5px solid var(--line-2);background:var(--surface-2)}
+  .verdict.good{border-color:var(--ink-3);background:var(--surface)}
+  .verdict.bad{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .verdict.warn{border-color:var(--amber);background:color-mix(in srgb,var(--amber) 10%,transparent)}
+  .verdict .top{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+  .verdict .mark{font-size:21px;font-weight:900;line-height:1}
+  .verdict.bad .mark{color:var(--accent)} .verdict.warn .mark{color:var(--amber)}
+  .verdict .kind{font-size:13.5px;color:var(--ink-3);border:1px solid var(--line-2);border-radius:99px;
+    padding:2px 9px;font-weight:800}
+  .verdict .say{font-size:15.5px;line-height:1.6;margin:0;font-weight:600}
+  /* 원래 기출 — 정답이 어느 것이었는지 같이 보여 준다(해설이 없는 자리를 기출이 채운다) */
+  .orig{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7}
+  .orig summary{cursor:pointer;color:var(--ink-3);font-size:14.5px;font-weight:700}
+  .orig p{margin:10px 0 6px;font-weight:600}
+  .orig ol{margin:0;padding-left:22px}
+  .orig li.ans{font-weight:800}
+  .orig li.ans::after{content:"  ← 기출 정답";color:var(--accent);font-weight:800;font-size:13.5px}
+  .orig li.mine{text-decoration:underline;text-decoration-color:var(--line-3)}
+  .next{margin-top:14px}
+
+  .done{text-align:center;padding:30px 4px}
+  .done h2{font-size:24px;margin:0 0 8px;letter-spacing:-.03em}
+  .done p{color:var(--ink-3);margin:0 0 22px;line-height:1.7}
+  .tally{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px}
+  .tally div{border:1px solid var(--line-2);border-radius:var(--r1);background:var(--surface);padding:13px 6px}
+  .tally b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+  .tally span{font-size:14px;color:var(--ink-3)}
+  @media(max-width:520px){ .qpick .tx{font-size:16px} .ox button{font-size:26px;padding:16px} }
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1 id="ttl">기출로 확인</h1></div>
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/judge.js"></script>
+<script src="js/gstore.js"></script>
+<script>
+(function(){
+  GS.내비("");
+  var D=GS.D, e=GS.esc, P=new URLSearchParams(location.search);
+  var k=P.get("k"), 복습=P.get("review")==="1";
+  var 문장들 = 복습 ? GS.다시볼것().slice(0,12) : GS.세션(k,12);
+  var 테마 = k ? GS.테마맵[k] : null;
+  if(테마) document.getElementById("ttl").textContent = 테마.n;
+  else if(복습) document.getElementById("ttl").textContent = "다시 볼 문장";
+
+  var i=0, 결과=[], 확신=null, 시작=0;
+  var 번호=["①","②","③","④"];
+  function el(x){return document.getElementById(x);}
+
+  if(!문장들.length){
+    el("stage").innerHTML='<div class="none">여기는 O·X 로 만들 기출이 아직 없어요.<br>'+
+      '<a href="tree.html">다른 테마 고르기</a></div>';
+    return;
+  }
+
+  function 진행(){
+    el("prog").innerHTML=문장들.map(function(_,j){
+      var r=결과[j]; return '<i class="'+(r?(r.ok?"ok":"no"):(j===i?"now":""))+'"></i>';
+    }).join("");
+  }
+
+  function 그리기(){
+    진행();
+    if(i>=문장들.length) return 끝();
+    var o=문장들[i], q=D.qs[o.q]||{}, t=GS.테마맵[o.k]||{};
+    확신=null; 시작=Date.now();
+    el("stage").innerHTML=
+      '<div class="qwrap">'+
+        '<div class="qtag"><b>'+e(t.n||"")+'</b><span>'+(i+1)+' / '+문장들.length+'</span>'+
+          '<span class="src">'+e(q.y||"")+(q.no?" "+q.no+"번":"")+'</span></div>'+
+        '<p class="qstem">'+e(o.s)+'</p>'+
+        '<div class="qpick"><span class="no">'+번호[o.n-1]+'</span><span class="tx">'+e(o.c)+'</span></div>'+
+        '<p class="qhint">위 발문에 맞는 선지면 O, 아니면 X</p>'+
+      '</div>'+
+      '<div class="step"><h3>얼마나 확신하나요?</h3>'+
+        '<div class="conf"><button data-c="sure">확실해요</button><button data-c="half">반반</button>'+
+        '<button data-c="guess">찍었어요</button></div>'+
+        '<div class="ox"><button class="o" data-v="1" disabled>O</button><button class="x" data-v="0" disabled>X</button></div>'+
+        '<div class="lock" id="lock">확신도를 먼저 고르세요</div>'+
+      '</div><div id="vd"></div>';
+    document.querySelectorAll(".conf button").forEach(function(b){
+      b.onclick=function(){
+        확신=b.dataset.c;
+        document.querySelectorAll(".conf button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+        document.querySelectorAll(".ox button").forEach(function(x){x.disabled=false;});
+        el("lock").textContent="";
+      };
+    });
+    document.querySelectorAll(".ox button").forEach(function(b){
+      b.onclick=function(){ 답하기(Number(b.dataset.v),b); };
+    });
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  function 답하기(v,btn){
+    var o=문장들[i], q=D.qs[o.q]||{}, t=GS.테마맵[o.k]||{};
+    var ok=(v===o.a), ms=Date.now()-시작;
+    document.querySelectorAll(".ox button,.conf button").forEach(function(x){x.disabled=true;});
+    btn.classList.add("pick");
+    var 전=GS.S.ox[o.i];
+    var 판=JUDGE.판정({ok:ok,conf:확신,ms:ms,attempt:전?전.n+1:1,qid:o.i,
+      mastery:GS.숙련(o.k),streak:GS.연속오답(o.k),leafName:t.n});
+    GS.기록(o.i,ok,확신,ms);
+    결과[i]={ok:ok,kind:판.kind};
+    진행();
+    var 선지=(q.c||[]).map(function(c,j){
+      var cls=(j+1===q.a?"ans":"")+(j+1===o.n?" mine":"");
+      return '<li class="'+cls+'">'+e(c)+'</li>';
+    }).join("");
+    var 다음=(i+1>=문장들.length)?"결과 보기":"다음 문장";
+    var 개념단추 = (판.next==="lecture"||판.next==="concept") && (D.cards||{})[o.k]
+      ? '<a class="b" style="margin-top:10px" href="card.html?k='+encodeURIComponent(o.k)+'">개념 읽기</a>' : '';
+    el("vd").innerHTML=
+      '<div class="verdict '+판.tone+'">'+
+        '<div class="top"><span class="mark">'+(ok?"○ 맞았어요":"✕ 아니에요")+'</span>'+
+          '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
+        '<p class="say">'+e(판.say)+'</p>'+
+        '<p class="say" style="margin-top:6px;color:var(--ink-3);font-weight:500">이 선지는 '+
+          (o.a?'발문에 맞아요 — <b style="color:var(--ink)">O</b>':'발문에 맞지 않아요 — <b style="color:var(--ink)">X</b>')+'</p>'+
+        '<details class="orig"'+(ok?'':' open')+'><summary>원래 기출 보기</summary>'+
+          '<p>'+e(q.q)+'</p><ol>'+선지+'</ol></details>'+
+      '</div>'+
+      '<div class="next"><button class="b main" id="nx">'+다음+'</button>'+개념단추+'</div>';
+    el("nx").onclick=function(){ i++; 그리기(); };
+    el("vd").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  function 끝(){
+    var 맞=결과.filter(function(r){return r.ok;}).length;
+    var 오개념=결과.filter(function(r){return r.kind==="오개념";}).length;
+    var m=k?GS.숙련(k):null;
+    el("prog").innerHTML="";
+    el("stage").innerHTML=
+      '<div class="done"><h2>'+(k&&테마?e(테마.n):"오늘 문장")+' — 끝</h2>'+
+        '<p>'+(맞===결과.length?"다 맞혔어요. 확실하게 맞힌 문장은 간격을 두고 다시 확인해요."
+          :"틀린 문장은 내일 다시 와요.")+'</p>'+
+        '<div class="tally"><div><b>'+맞+'/'+결과.length+'</b><span>맞힘</span></div>'+
+          '<div><b>'+오개념+'</b><span>잘못 알고 있음</span></div>'+
+          '<div><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b><span>이 테마</span></div></div>'+
+        '<a class="b main" href="index.html">홈으로</a>'+
+        (k?'<div class="b2"><a class="b" href="ox.html?k='+encodeURIComponent(k)+'">한 번 더</a>'+
+          '<a class="b" href="card.html?k='+encodeURIComponent(k)+'">개념 읽기</a></div>':'')+
+      '</div>';
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  그리기();
+})();
+</script>
+</body></html>
