@@ -52,7 +52,7 @@
     padding:2px 9px;font-weight:800}
   .verdict .say{font-size:15.5px;line-height:1.6;margin:0;font-weight:600}
   /* 원래 기출 — 정답이 어느 것이었는지 같이 보여 준다(해설이 없는 자리를 기출이 채운다) */
-  .orig{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7}
+  .orig{margin-top:4px;padding-top:10px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7}
   .orig summary{cursor:pointer;color:var(--ink-3);font-size:14.5px;font-weight:700}
   .orig p{margin:10px 0 6px;font-weight:600}
   .orig ol{margin:0;padding-left:22px}
@@ -160,11 +160,9 @@
       '<div class="verdict '+판.tone+'">'+
         '<div class="top"><span class="mark">'+(ok?"○ 맞았어요":"✕ 아니에요")+'</span>'+
           '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
-        '<p class="say">'+e(판.say)+'</p>'+
-        '<p class="say" style="margin-top:6px;color:var(--ink-3);font-weight:500">이 선지는 '+
-          (o.a?'발문에 맞아요 — <b style="color:var(--ink)">O</b>':'발문에 맞지 않아요 — <b style="color:var(--ink)">X</b>')+'</p>'+
-        '<details class="orig"'+(ok?'':' open')+'><summary>원래 기출 보기</summary>'+
-          '<p>'+e(q.q)+'</p><ol>'+선지+'</ol></details>'+
+        /* 2026-09-25 대표님: 「이 선지는 발문에 맞지 않아요」 같은 말은 개소리 — 뺀다.
+           맞다/틀리다는 위 표시로 끝났다. 그 아래엔 설명 말고 **기출 원문과 정답**만 둔다. */
+        '<div class="orig"><p>'+e(q.q)+'</p><ol>'+선지+'</ol></div>'+
       '</div>'+
       '<div class="next"><button class="b main" id="nx">'+다음+'</button>'+개념단추+'</div>';
     el("nx").onclick=function(){ i++; 그리기(); };
