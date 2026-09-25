@@ -116,13 +116,12 @@
           '<span class="src">'+e(q.y||"")+(q.no?" "+q.no+"번":"")+'</span></div>'+
         '<p class="qstem">'+e(o.s)+'</p>'+
         '<div class="qpick"><span class="no">'+번호[o.n-1]+'</span><span class="tx">'+e(o.c)+'</span></div>'+
-        '<p class="qhint">위 발문에 맞는 선지면 O, 아니면 X</p>'+
       '</div>'+
       '<div class="step"><h3>얼마나 확신하나요?</h3>'+
         '<div class="conf"><button data-c="sure">확실해요</button><button data-c="half">반반</button>'+
         '<button data-c="guess">찍었어요</button></div>'+
         '<div class="ox"><button class="o" data-v="1" disabled>O</button><button class="x" data-v="0" disabled>X</button></div>'+
-        '<div class="lock" id="lock">확신도를 먼저 고르세요</div>'+
+        '<div class="lock" id="lock"></div>'+
       '</div><div id="vd"></div>';
     document.querySelectorAll(".conf button").forEach(function(b){
       b.onclick=function(){
@@ -175,8 +174,6 @@
     el("prog").innerHTML="";
     el("stage").innerHTML=
       '<div class="done"><h2>'+(k&&테마?e(테마.n):"오늘 문장")+' — 끝</h2>'+
-        '<p>'+(맞===결과.length?"다 맞혔어요. 확실하게 맞힌 문장은 간격을 두고 다시 확인해요."
-          :"틀린 문장은 내일 다시 와요.")+'</p>'+
         '<div class="tally"><div><b>'+맞+'/'+결과.length+'</b><span>맞힘</span></div>'+
           '<div><b>'+오개념+'</b><span>잘못 알고 있음</span></div>'+
           '<div><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b><span>이 테마</span></div></div>'+

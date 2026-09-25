@@ -56,13 +56,12 @@
   if(!할){
     말="O·X 로 만들 기출이 아직 없어요.";
   }else if(할.종류==="복습"){
-    말="오늘은 <em>다시 볼 문장 "+할.n+"개</em>부터 해볼까요?"+
-       "<small>틀렸던 문장이 간격을 두고 돌아왔어요.</small>";
+    말="오늘은 <em>다시 볼 문장 "+할.n+"개</em>부터 해볼까요?";
     가기="ox.html?review=1";
   }else{
     var t=할.t;
     말="오늘은 <em>"+e(할.이름)+"</em> O·X부터 해볼까요?"+
-       "<small>"+e(t.s)+" · "+t.g+"급"+(할.종류==="약점"?" · 아직 헷갈리는 자리예요":"")+"</small>";
+       "<small>"+e(t.s)+" · "+t.g+"급"++"</small>";
     가기="ox.html?k="+encodeURIComponent(할.k);
     개념="card.html?k="+encodeURIComponent(할.k);
   }
