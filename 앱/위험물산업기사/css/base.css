@@ -8,6 +8,7 @@
    화면 코드는 늘 변수만 쓴다. 색을 직접 박으면 한쪽 스킨이 깨진다.
    ═══════════════════════════════════════════════ */
 
+.gc{display:inline-block;font-style:normal;font-size:.72em;font-weight:700;line-height:1;padding:.32em .6em;margin-left:.35em;border-radius:99px;vertical-align:.12em;color:#fff;background:var(--red);letter-spacing:.02em}
 :root{
   /* 바탕 */
   --bg:#08090B;
@@ -24,8 +25,8 @@
   /* 글자 */
   --ink:#F3F5F8;
   --ink-2:#AFB7C2;
-  --ink-3:#79818C;
-  --ink-4:#545B64;
+  --ink-3:#8F969F;
+  --ink-4:#7E8792;
 
   /* 강조 — 빨강은 지금·중요·오답에만 */
   --red:#E5484D;
@@ -108,7 +109,7 @@
   --bg:#F6F2E7; --bg-2:#EFEADC; --surface:#FFFDF7; --surface-2:#F7F3E7;
   --surface-3:#EDE7D5;
   --line:#DED6C1; --line-2:#CDC3A9; --line-3:#B5A987;
-  --ink:#1F2B44; --ink-2:#3D4A63; --ink-3:#6E7488; --ink-4:#95998F;
+  --ink:#1F2B44; --ink-2:#3D4A63; --ink-3:#545968; --ink-4:#64685F;
 
   --red:#C2452F; --red-2:#A93A26; --red-3:#8C2F1E;
   --red-soft:rgba(194,69,47,.10); --red-line:rgba(194,69,47,.38);
@@ -128,7 +129,7 @@
   --kr:"Gowun Dodum","Noto Sans KR",system-ui,sans-serif;
   --title:"Gaegu","Gowun Dodum",cursive;
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
-  --tw:700; --tls:-.01em;
+  --tw:900; --tls:-.01em;
   --r1:7px; --r2:11px; --r3:15px;
   --shadow:0 1px 0 rgba(120,110,85,.18), 0 10px 26px -20px rgba(80,70,45,.5);
   /* 공책 모눈 */
@@ -147,7 +148,7 @@
   --bg:#FFF6FA; --bg-2:#FFECF4; --surface:#FFFFFF; --surface-2:#FFF4F9;
   --surface-3:#FFE4EF;
   --line:#F6D6E4; --line-2:#EFB9D0; --line-3:#E294B6;
-  --ink:#33232C; --ink-2:#57414E; --ink-3:#8B7280; --ink-4:#A88F9C;
+  --ink:#33232C; --ink-2:#57414E; --ink-3:#695661; --ink-4:#7D6170;
 
   --red:#F0417E; --red-2:#DC2E6C; --red-3:#C22159;
   --red-soft:rgba(240,65,126,.11); --red-line:rgba(240,65,126,.42);
@@ -167,7 +168,7 @@
   --kr:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
   --title:"Jua","Noto Sans KR",sans-serif;
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
-  --tw:400; --tls:-.015em;
+  --tw:900; --tls:-.015em;
   --r1:15px; --r2:21px; --r3:28px;
   --shadow:0 3px 0 rgba(226,148,182,.35), 0 16px 34px -20px rgba(200,110,150,.5);
   --paper:none;
@@ -183,7 +184,7 @@
   --bg:#FFFFFF; --bg-2:#FAFAFB; --surface:#FFFFFF; --surface-2:#F7F8FA;
   --surface-3:#EFF1F4;
   --line:#E6E8EC; --line-2:#D3D7DD; --line-3:#B4BAC3;
-  --ink:#111419; --ink-2:#333941; --ink-3:#6B717A; --ink-4:#949AA3;
+  --ink:#111419; --ink-2:#333941; --ink-3:#5A5F67; --ink-4:#5F6670;   /* 2026-09-24 대표님 판정: 보조 글씨 명암비 4.5 이상(옛 --ink-4 #949AA3 = 2.83) */
 
   --red:#E5202E; --red-2:#C8101D; --red-3:#A50C17;
   --red-soft:rgba(229,32,46,.07); --red-line:rgba(229,32,46,.40);
@@ -220,7 +221,7 @@
   --bg:#FAF8F3; --bg-2:#F3F0E8; --surface:#FFFFFF; --surface-2:#F3F0E8;
   --surface-3:#ECE8DE;
   --line:#E6E1D6; --line-2:#D9D3C5; --line-3:#BDB6A6;
-  --ink:#171B24; --ink-2:#2B3140; --ink-3:#5C6371; --ink-4:#8A8F9C;   /* 2026-09-18 대표님 "글씨가 회색이라 흐릿" — 본문을 검정에 가깝게 */
+  --ink:#171B24; --ink-2:#2B3140; --ink-3:#545A67; --ink-4:#626774;   /* 2026-09-18 대표님 "글씨가 회색이라 흐릿" — 본문을 검정에 가깝게 */
 
   /* 빨강은 오답·경고에만 (수학의 retry 주황빨강) */
   --red:#C2410C; --red-2:#A8380A; --red-3:#8C2E08;
@@ -244,7 +245,7 @@
   --kr:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
   --title:var(--kr);
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
-  --tw:800; --tls:-.035em;
+  --tw:900; --tls:-.035em;
   --r1:10px; --r2:14px; --r3:18px;
   --shadow:0 1px 0 rgba(31,36,48,.04);
   /* 옅은 모눈 28px */
@@ -261,7 +262,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink-2);
   background-image:var(--paper);background-size:14px 14px;
-  font-family:var(--kr);font-size:16px;line-height:1.68;font-weight:400;
+  font-family:var(--kr);font-size:16px;line-height:1.68;font-weight:500;   /* 2026-09-24 대표님 판정 「글씨는 무조건 진해야」 — 본문 500 이상 */
   -webkit-font-smoothing:antialiased;word-break:keep-all}
 h1,h2,h3,h4{margin:0;color:var(--ink);font-family:var(--title);font-weight:var(--tw);
   letter-spacing:var(--tls);line-height:1.18;text-wrap:balance}
@@ -271,7 +272,7 @@ h1{font-weight:var(--tw)}
 :root[data-skin="diary"] .mono{letter-spacing:.02em}
 p{margin:0}
 a{color:inherit;text-decoration:none}
-button,input,select{font-family:inherit}
+button,input,select,textarea{font-family:inherit;font-weight:inherit}   /* 2026-09-24 단추 기본 400(UA) 이 본문 500 을 끊지 않게 */
 img{max-width:100%}
 ::selection{background:var(--red-soft)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:800}
@@ -594,3 +595,6 @@ body .ox button[data-s="ok"]{ color:#1F9D5B; } body .ox button[data-s="no"]{ col
   background:var(--surface-3,#eee);color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line-2)}
 
 .bdgs{display:flex;flex-wrap:wrap;gap:6px}
+
+/* ═══ 2026-09-24 대표님 판정소: 제목 굵기 900(700 대 900 → 900) — 화면마다 따로 준 600~800 을 덮는다(지적검수 T13) ═══ */
+h1,h2,h3,h4{font-weight:900!important}

@@ -2,31 +2,100 @@
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>모두의 기사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#08090B;--surface:#121418;--line:#22262D;--ink:#F3F5F8;--ink-3:#79818C}
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#F7F8FA;--line:#E6E8EC;--line-2:#D3D7DD;
+  --ink:#111419;--ink-2:#333941;--ink-3:#6B717A;--ink-4:#949AA3;--red:#E5202E}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;line-height:1.6}
-.wrap{max-width:520px;margin:0 auto;padding:56px 20px 60px}
-h1{font-size:27px;margin:0 0 6px;letter-spacing:-.03em}
-p.l{margin:0 0 30px;color:var(--ink-3);font-size:14px}
-.c{display:block;text-decoration:none;color:inherit;background:var(--surface);
-  border:1px solid var(--line);border-left:4px solid var(--c);border-radius:12px;
-  padding:17px 18px;margin-bottom:11px}
-.c b{display:block;font-size:17px;letter-spacing:-.02em}
-.c span{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px}
-footer{margin-top:34px;font-size:11.5px;color:var(--ink-3)}
-</style></head><body><div class="wrap">
-<h1>모두의 기사</h1>
-<p class="l">종목을 고르면 그 앱으로 들어갑니다. 진도는 폰에 저장되고 종목별로 따로 쌓입니다.</p>
-<a class="c" href="./앱/건설안전기사/index.html" style="--c:#0f8a6a">
-      <b>건설안전기사</b><span>기출 O·X · 개념 · 약점 복습</span></a>
-<a class="c" href="./앱/건축기사/index.html" style="--c:#1c5fb8">
-      <b>건축기사</b><span>기출 O·X · 개념 · 약점 복습</span></a>
-<a class="c" href="./앱/위험물산업기사/index.html" style="--c:#c81e2d">
-      <b>위험물산업기사</b><span>기출 O·X · 개념 · 약점 복습</span></a>
-<p class="l" style="margin:26px 0 12px">이전 판</p>
-<a class="c" href="./건축설비기사/index.html" style="--c:#7a4bbd">
-      <b>건축설비기사</b><span>개념카드 176장</span></a>
+  font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.top{height:52px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+.top div{max-width:560px;width:100%;margin:0 auto;padding:0 20px;font-weight:900;font-size:16px;letter-spacing:-.03em}
+.top div:before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--red);margin-right:8px;vertical-align:1px}
+.wrap{max-width:560px;margin:0 auto;padding:30px 20px 60px}
+h1{font-size:28px;font-weight:900;margin:0 0 6px;letter-spacing:-.05em}
+p.l{margin:0 0 26px;color:var(--ink-3);font-size:14.5px}
+h2{font-size:15px;font-weight:900;margin:30px 0 10px;letter-spacing:-.03em;color:var(--ink-2)}
+h2 em{font-style:normal;color:var(--red);font-weight:900;margin-left:4px}
+.c{display:flex;align-items:center;flex-wrap:wrap;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:9px}
+.c:active{background:var(--surface-2)}
+.c b{flex:1 1 auto;font-size:16.5px;font-weight:700;letter-spacing:-.03em}
+.c span{order:3;flex-basis:100%;font-size:13px;color:var(--ink-3);margin-top:2px}
+.c i{font-style:normal;color:var(--ink-4);font-size:20px;line-height:1}
+footer{margin-top:34px;font-size:12px;color:var(--ink-4)}
+</style></head><body>
+<div class="top"><div>모두의 기사</div></div>
+<div class="wrap">
+<h1>종목 고르기</h1>
+<p class="l">기출에 자주 나온 것부터 O·X 로 넘깁니다. 진도는 이 폰에 종목별로 따로 쌓입니다.</p>
+<h2>기사 <em>7</em></h2>
+<a class="c" href="./앱/산업위생관리기사/index.html">
+      <b>산업위생관리기사</b><span>테마 335 · O·X 7,040문장</span><i>›</i></a>
+<a class="c" href="./앱/소방설비기사(기계분야)/index.html">
+      <b>소방설비기사(기계분야)</b><span>테마 242 · O·X 6,072문장</span><i>›</i></a>
+<a class="c" href="./앱/건축기사/index.html">
+      <b>건축기사</b><span>테마 275 · O·X 5,692문장</span><i>›</i></a>
+<a class="c" href="./앱/건설안전기사/index.html">
+      <b>건설안전기사</b><span>테마 224 · O·X 4,972문장</span><i>›</i></a>
+<a class="c" href="./앱/화재감식평가기사/index.html">
+      <b>화재감식평가기사</b><span>테마 143 · O·X 3,020문장</span><i>›</i></a>
+<a class="c" href="./앱/건축설비기사/index.html">
+      <b>건축설비기사</b><span>테마 115 · O·X 2,648문장</span><i>›</i></a>
+<a class="c" href="./앱/정보처리기사/index.html">
+      <b>정보처리기사</b><span>테마 149 · O·X 1,028문장</span><i>›</i></a>
+<h2>산업기사 <em>3</em></h2>
+<a class="c" href="./앱/산업안전산업기사/index.html">
+      <b>산업안전산업기사</b><span>테마 311 · O·X 8,188문장</span><i>›</i></a>
+<a class="c" href="./앱/사무자동화산업기사/index.html">
+      <b>사무자동화산업기사</b><span>테마 230 · O·X 6,872문장</span><i>›</i></a>
+<a class="c" href="./앱/위험물산업기사/index.html">
+      <b>위험물산업기사</b><span>테마 129 · O·X 2,268문장</span><i>›</i></a>
+<h2>기능사 <em>22</em></h2>
+<a class="c" href="./앱/위험물기능사/index.html">
+      <b>위험물기능사</b><span>테마 134 · O·X 6,460문장</span><i>›</i></a>
+<a class="c" href="./앱/가스기능사/index.html">
+      <b>가스기능사</b><span>테마 274 · O·X 4,756문장</span><i>›</i></a>
+<a class="c" href="./앱/전산응용건축제도기능사/index.html">
+      <b>전산응용건축제도기능사</b><span>테마 288 · O·X 4,672문장</span><i>›</i></a>
+<a class="c" href="./앱/자동차정비기능사/index.html">
+      <b>자동차정비기능사</b><span>테마 226 · O·X 4,180문장</span><i>›</i></a>
+<a class="c" href="./앱/조주기능사/index.html">
+      <b>조주기능사</b><span>테마 256 · O·X 4,008문장</span><i>›</i></a>
+<a class="c" href="./앱/한식조리기능사/index.html">
+      <b>한식조리기능사</b><span>테마 155 · O·X 3,792문장</span><i>›</i></a>
+<a class="c" href="./앱/승강기기능사/index.html">
+      <b>승강기기능사</b><span>테마 310 · O·X 3,788문장</span><i>›</i></a>
+<a class="c" href="./앱/컴퓨터그래픽스기능사/index.html">
+      <b>컴퓨터그래픽스기능사</b><span>테마 301 · O·X 3,764문장</span><i>›</i></a>
+<a class="c" href="./앱/전산응용기계제도기능사/index.html">
+      <b>전산응용기계제도기능사</b><span>테마 216 · O·X 3,608문장</span><i>›</i></a>
+<a class="c" href="./앱/조경기능사/index.html">
+      <b>조경기능사</b><span>테마 211 · O·X 3,436문장</span><i>›</i></a>
+<a class="c" href="./앱/제과기능사/index.html">
+      <b>제과기능사</b><span>테마 150 · O·X 3,052문장</span><i>›</i></a>
+<a class="c" href="./앱/제빵기능사/index.html">
+      <b>제빵기능사</b><span>테마 306 · O·X 2,928문장</span><i>›</i></a>
+<a class="c" href="./앱/지게차운전기능사/index.html">
+      <b>지게차운전기능사</b><span>테마 198 · O·X 2,812문장</span><i>›</i></a>
+<a class="c" href="./앱/굴착기운전기능사/index.html">
+      <b>굴착기운전기능사</b><span>테마 188 · O·X 2,804문장</span><i>›</i></a>
+<a class="c" href="./앱/용접기능사/index.html">
+      <b>용접기능사</b><span>테마 165 · O·X 2,624문장</span><i>›</i></a>
+<a class="c" href="./앱/컴퓨터응용선반기능사/index.html">
+      <b>컴퓨터응용선반기능사</b><span>테마 206 · O·X 2,384문장</span><i>›</i></a>
+<a class="c" href="./앱/환경기능사/index.html">
+      <b>환경기능사</b><span>테마 169 · O·X 2,332문장</span><i>›</i></a>
+<a class="c" href="./앱/프로그래밍기능사/index.html">
+      <b>프로그래밍기능사</b><span>테마 159 · O·X 2,284문장</span><i>›</i></a>
+<a class="c" href="./앱/미용사(일반)/index.html">
+      <b>미용사(일반)</b><span>테마 178 · O·X 2,172문장</span><i>›</i></a>
+<a class="c" href="./앱/컴퓨터응용밀링기능사/index.html">
+      <b>컴퓨터응용밀링기능사</b><span>테마 168 · O·X 2,028문장</span><i>›</i></a>
+<a class="c" href="./앱/미용사(피부)/index.html">
+      <b>미용사(피부)</b><span>테마 132 · O·X 1,184문장</span><i>›</i></a>
+<a class="c" href="./앱/미용사(네일)/index.html">
+      <b>미용사(네일)</b><span>테마 93 · O·X 656문장</span><i>›</i></a>
 <footer>테라러닝</footer>
 </div></body></html>

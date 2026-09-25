@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>테마 — 모두의 제과기능사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+  .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 4px;font-weight:900}
+  .hd p{margin:0;color:var(--ink-3);font-size:15px}
+  .th{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;
+    padding:14px 2px;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+  .th b{display:block;font-size:16px;letter-spacing:-.02em}
+  .th small{display:block;font-size:13.5px;color:var(--ink-3);margin-top:2px}
+  .th .r{text-align:right;min-width:62px}
+  .th .r b{font-size:15px;font-variant-numeric:tabular-nums}
+  .th .bar{margin-top:6px}
+  .sub{margin-top:22px}
+  .sub>summary{list-style:none;cursor:pointer;font-weight:800;font-size:17px;padding:10px 2px;
+    display:flex;justify-content:space-between}
+  .sub>summary::-webkit-details-marker{display:none}
+  .sub>summary span{color:var(--ink-3);font-weight:600;font-size:14.5px}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1>테마</h1><p>기출에 자주 나온 것부터 놓았어요.</p></div>
+  <div id="list"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gstore.js"></script>
+<script>
+(function(){
+  GS.내비("tree.html");
+  var D=GS.D, e=GS.esc, 과목={}, 차례=[];
+  D.테마.forEach(function(t){
+    if((GS.테마별[t.k]||[]).length<4) return;         // O·X 가 4문장 안 되면 연습이 안 된다
+    if(!과목[t.s]){ 과목[t.s]=[]; 차례.push(t.s); }
+    과목[t.s].push(t);
+  });
+  var h="";
+  차례.forEach(function(s,idx){
+    var ts=과목[s].sort(function(a,b){return (GS.순[a.g]-GS.순[b.g])||(b.c-a.c);});
+    h+='<details class="sub"'+(idx===0?' open':'')+'><summary>'+e(s)+'<span>'+ts.length+'</span></summary>';
+    ts.forEach(function(t){
+      var m=GS.숙련(t.k), n=(GS.테마별[t.k]||[]).length;
+      h+='<a class="th" href="ox.html?k='+encodeURIComponent(t.k)+'">'+
+        '<span class="chip '+t.g+'">'+t.g+'</span>'+
+        '<span><b>'+e(t.n)+'</b><small>'+e(t.h||"")+'</small></span>'+
+        '<span class="r"><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b>'+
+          '<div class="bar"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></span></a>';
+    });
+    h+='</details>';
+  });
+  document.getElementById("list").innerHTML=h||'<div class="none">아직 테마가 없어요.</div>';
+})();
+</script>
+</body></html>
