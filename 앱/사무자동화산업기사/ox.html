@@ -160,8 +160,7 @@
       '<div class="verdict '+판.tone+'">'+
         '<div class="top"><span class="mark">'+(ok?"○ 맞았어요":"✕ 아니에요")+'</span>'+
           '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
-        /* 2026-09-25 대표님: 「이 선지는 발문에 맞지 않아요」 같은 말은 개소리 — 뺀다.
-           맞다/틀리다는 위 표시로 끝났다. 그 아래엔 설명 말고 **기출 원문과 정답**만 둔다. */
+        /* 0925: 판정 아래엔 설명문 없이 기출 원문과 정답만 둔다 */
         '<div class="orig"><p>'+e(q.q)+'</p><ol>'+선지+'</ol></div>'+
       '</div>'+
       '<div class="next"><button class="b main" id="nx">'+다음+'</button>'+개념단추+'</div>';
