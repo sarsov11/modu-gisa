@@ -159,6 +159,7 @@
       '<div class="verdict '+판.tone+'">'+
         '<div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
           '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
+        '<div class="ansline" style="font-size:13px;color:var(--ink-3);margin:2px 0 6px">정답 '+(o.a?"O":"X")+'</div>'+
         /* 0925: 판정 아래엔 설명문 없이 기출 원문과 정답만 둔다 */
         '<div class="orig"><p>'+e(q.q)+'</p><ol>'+선지+'</ol></div>'+
       '</div>'+
