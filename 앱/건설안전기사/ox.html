@@ -94,7 +94,7 @@
   function el(x){return document.getElementById(x);}
 
   if(!문장들.length){
-    el("stage").innerHTML='<div class="none">여기는 O·X 로 만들 기출이 아직 없어요.<br>'+
+    el("stage").innerHTML='<div class="none">'+
       '<a href="tree.html">다른 테마 고르기</a></div>';
     return;
   }
@@ -117,8 +117,8 @@
         '<p class="qstem">'+e(o.s)+'</p>'+
         '<div class="qpick"><span class="no">'+번호[o.n-1]+'</span><span class="tx">'+e(o.c)+'</span></div>'+
       '</div>'+
-      '<div class="step"><h3>얼마나 확신하나요?</h3>'+
-        '<div class="conf"><button data-c="sure">확실해요</button><button data-c="half">반반</button>'+
+      '<div class="step"><h3>확신 정도</h3>'+
+        '<div class="conf"><button data-c="sure">● 확실</button><button data-c="half">◐ 헷갈림</button>'+
         '<button data-c="guess">찍었어요</button></div>'+
         '<div class="ox"><button class="o" data-v="1" disabled>O</button><button class="x" data-v="0" disabled>X</button></div>'+
         '<div class="lock" id="lock"></div>'+
@@ -157,7 +157,7 @@
       ? '<a class="b" style="margin-top:10px" href="card.html?k='+encodeURIComponent(o.k)+'">개념 읽기</a>' : '';
     el("vd").innerHTML=
       '<div class="verdict '+판.tone+'">'+
-        '<div class="top"><span class="mark">'+(ok?"○ 맞았어요":"✕ 아니에요")+'</span>'+
+        '<div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
           '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
         /* 0925: 판정 아래엔 설명문 없이 기출 원문과 정답만 둔다 */
         '<div class="orig"><p>'+e(q.q)+'</p><ol>'+선지+'</ol></div>'+
@@ -175,7 +175,7 @@
     el("stage").innerHTML=
       '<div class="done"><h2>'+(k&&테마?e(테마.n):"오늘 문장")+' — 끝</h2>'+
         '<div class="tally"><div><b>'+맞+'/'+결과.length+'</b><span>맞힘</span></div>'+
-          '<div><b>'+오개념+'</b><span>잘못 알고 있음</span></div>'+
+          '<div><b>'+오개념+'</b><span>오개념</span></div>'+
           '<div><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b><span>이 테마</span></div></div>'+
         '<a class="b main" href="index.html">홈으로</a>'+
         (k?'<div class="b2"><a class="b" href="ox.html?k='+encodeURIComponent(k)+'">한 번 더</a>'+

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/gdata.js)",
+      "Read(**/data.js)",
+      "Read(**/img/**)"
+    ]
+  }
+}
