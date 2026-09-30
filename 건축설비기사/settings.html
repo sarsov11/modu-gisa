@@ -82,7 +82,7 @@ button.red{background:var(--red);border-color:var(--red);color:#fff}
   var 푼=Object.keys(S.푼것).length, 날=Object.keys(S.날).length;
   document.getElementById('stat').textContent='문항 '+푼+'개 · '+날+'일치';
   document.getElementById('reset').onclick=function(){
-    if(!confirm('푼 기록을 전부 지웁니다. 되돌릴 수 없습니다.')) return;
+    if(!confirm('푼 기록 전부 삭제 · 되돌릴 수 없음')) return;
     S.푼것={}; S.날={}; T.저장(); location.reload();
   };
 

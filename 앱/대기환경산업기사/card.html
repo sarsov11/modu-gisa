@@ -47,7 +47,7 @@
   }
   var 장들=(D.cards||{})[k]||[], t=GS.테마맵[k]||{};
   function el(x){return document.getElementById(x);}
-  if(!장들.length){ el("stage").innerHTML='<div class="none">이 테마는 개념이 아직 없어요.</div>'; return; }
+  if(!장들.length){ el("stage").innerHTML=''; return; }
   el("eb").textContent=(t.s||"")+" · "+(t.g||"")+"급";
   el("ttl").textContent=t.n||"";
   var i=0;

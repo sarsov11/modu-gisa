@@ -29,7 +29,7 @@
     <hr>
   </div>
   <div class="coach" id="coach"></div>
-  <a class="b main" id="go">좋아요, 시작</a>
+  <a class="b main" id="go">준비 완료</a>
   <div class="b2">
     <a class="b" id="concept">개념부터 볼래요</a>
     <a class="b" href="tree.html">다른 거 할래요</a>
@@ -54,18 +54,19 @@
   /* 오늘 이거 하나 — 고르게 하지 않는다 */
   var 할=GS.오늘할것(), 말="", 가기="tree.html", 개념="card.html";
   if(!할){
-    말="O·X 로 만들 기출이 아직 없어요.";
+    말="";
   }else if(할.종류==="복습"){
-    말="오늘은 <em>다시 볼 문장 "+할.n+"개</em>부터 해볼까요?";
+    말="복습 <em>"+할.n+"</em><i class=\"gc\">강추</i>";
     가기="ox.html?review=1";
   }else{
     var t=할.t;
-    말="오늘은 <em>"+e(할.이름)+"</em> O·X부터 해볼까요?"+
-       "<small>"+e(t.s)+" · "+t.g+"급"++"</small>";
+    말="<em>"+e(할.이름)+"</em><i class=\"gc\">강추</i>"+
+       "<small>"+e(t.s)+" · "+t.g+"급</small>";
     가기="ox.html?k="+encodeURIComponent(할.k);
     개념="card.html?k="+encodeURIComponent(할.k);
   }
   document.getElementById("coach").innerHTML=말;
+  if(!말) document.getElementById("coach").style.display="none";
   document.getElementById("go").href=가기;
   document.getElementById("concept").href=개념;
   if(!(D.cards||{})[할&&할.k]) document.getElementById("concept").href="card.html";
@@ -75,13 +76,13 @@
   document.getElementById("week").innerHTML = w.n
     ? '<div class="row"><span>푼 문장</span><b>'+w.n+'개</b></div>'+
       '<div class="row"><span>정답률</span><b>'+Math.round(w.ok*100/w.n)+'%</b></div>'
-    : '<div class="row"><span>아직 푼 문장이 없어요</span></div>';
+    : '';
   var 성=GS.과목성적(), 줄="";
   Object.keys(성).forEach(function(s){
     var a=성[s], p=a.푼?Math.round(a.맞*100/a.푼):null;
     줄+='<div class="row"><span>'+e(s)+'</span><b>'+(p==null?"—":p+"%")+'</b></div>';
   });
-  document.getElementById("subj").innerHTML=줄||'<div class="row"><span>아직 없어요</span></div>';
+  document.getElementById("subj").innerHTML=줄||'';
 })();
 </script>
 </body></html>
