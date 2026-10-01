@@ -2,31 +2,62 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>테마 — 모두의 임업종묘기능사</title>
+<title>개념트리 — 모두의 임업종묘기능사</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/g.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
+  /* 개념트리(1002) — 통사 스킬트리 문법: 위는 과목 지도(가운데 종목 → 과목), 아래는 과목 › 중분류 › 테마 가지 */
   .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 4px;font-weight:900}
   .hd p{margin:0;color:var(--ink-3);font-size:15px}
-  .th{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;
-    padding:14px 2px;border-top:1px solid var(--line);text-decoration:none;color:inherit}
-  .th b{display:block;font-size:16px;letter-spacing:-.02em}
-  .th small{display:block;font-size:13.5px;color:var(--ink-3);margin-top:2px}
-  .th .r{text-align:right;min-width:62px}
-  .th .r b{font-size:15px;font-variant-numeric:tabular-nums}
-  .th .bar{margin-top:6px}
-  .sub{margin-top:22px}
-  .sub>summary{list-style:none;cursor:pointer;font-weight:800;font-size:17px;padding:10px 2px;
-    display:flex;justify-content:space-between}
-  .sub>summary::-webkit-details-marker{display:none}
-  .sub>summary span{color:var(--ink-3);font-weight:600;font-size:14.5px}
+  .map{margin:16px 0 6px;border:1px solid var(--line);border-radius:var(--r3);background:var(--surface);overflow:hidden}
+  .map svg{display:block;width:100%;height:auto}
+  .map .lbl{font-weight:900;letter-spacing:-.03em;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:5px}
+  .map .sub{font-size:12px;fill:var(--ink-3);paint-order:stroke;stroke:var(--surface);stroke-width:4px}
+  .map g.nd{cursor:pointer}
+  .map g.nd:hover circle.body{stroke-width:3}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:8px 2px 0}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+  .br{margin-top:26px}
+  .br>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px;
+    border:1px solid var(--line-2);border-radius:var(--r2);background:var(--surface)}
+  .br>summary::-webkit-details-marker{display:none}
+  .br>summary .dot{flex:0 0 auto;width:14px;height:14px;border-radius:50%;border:3px solid var(--accent)}
+  .br>summary b{flex:1;font-size:18px;font-weight:900;letter-spacing:-.03em}
+  .br>summary span{font-size:13.5px;color:var(--ink-3);font-weight:700}
+  .br>summary .mb{width:64px}
+  .br[open]>summary{border-color:var(--accent)}
+  /* 가지 — 왼쪽 줄기에서 오른쪽으로 뻗는 선 */
+  .tr{position:relative;margin:0 0 0 20px;padding:6px 0 4px 18px;border-left:2px solid var(--line-2)}
+  .mid{position:relative;margin:12px 0 2px;font-size:14.5px;font-weight:800;color:var(--ink-2);display:flex;gap:8px;align-items:center}
+  .mid::before{content:"";position:absolute;left:-18px;top:50%;width:14px;border-top:2px solid var(--line-2)}
+  .mid em{font-style:normal;font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .mid+.lv{margin-top:2px}
+  .lv{position:relative;margin-left:14px;padding-left:16px;border-left:2px dashed var(--line)}
+  .lf{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;
+    padding:11px 0;border-bottom:1px solid var(--line)}
+  .lf::before{content:"";position:absolute;left:-16px;top:50%;width:12px;border-top:2px solid var(--line-2)}
+  .tr>.lf::before{left:-18px;width:14px}
+  .lf .nm{min-width:0}
+  .lf .nm b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.4}
+  .lf .nm small{display:block;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.45;
+    overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .lf .go{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:76px}
+  .lf .go .bar{width:64px}
+  .lf .go a{font-size:12.5px;font-weight:800;text-decoration:none;color:var(--ink-2);border:1px solid var(--line-2);
+    border-radius:99px;padding:3px 9px;white-space:nowrap}
+  .lf .go a.ox{background:var(--accent);border-color:var(--accent);color:#fff}
+  .lf .go span{display:flex;gap:5px}
+  .lf.done .nm b::after{content:" ✓";color:var(--accent)}
 </style>
 </head><body>
 <div class="page">
-  <div class="hd"><h1>테마</h1></div>
+  <div class="hd"><h1>개념트리</h1><p id="sub"></p></div>
+  <div class="map" id="map"></div>
+  <div class="legend"><span><i style="background:var(--accent)"></i>진할수록 많이 맞힘</span><span><i style="border:2px solid var(--line-3)"></i>원 크기 = 기출 문항 수</span></div>
   <div id="list"></div>
 </div>
 <script src="js/gdata.js"></script>
@@ -40,21 +71,75 @@
     if(!과목[t.s]){ 과목[t.s]=[]; 차례.push(t.s); }
     과목[t.s].push(t);
   });
+  function 숙(ts){ var a=0,n=0; ts.forEach(function(t){var m=GS.숙련(t.k); if(m!=null){a+=m;n++;}}); return n?a/n:null; }
+  function 문항(ts){ return ts.reduce(function(a,t){return a+(t.c||0);},0); }
+  var 전체=[].concat.apply([],차례.map(function(s){return 과목[s];}));
+  document.getElementById("sub").textContent="과목 "+차례.length+" · 테마 "+전체.length+" — 과목을 누르면 가지가 펼쳐집니다";
+
+  /* ── 과목 지도 ── */
+  var W=400,H=360,cx=W/2,cy=H/2-6,R=Math.min(112,40+차례.length*12);
+  var 최대=Math.max.apply(null,차례.map(function(s){return 문항(과목[s]);}).concat([1]));
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+  svg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="var(--line-2)" stroke-dasharray="2 6"/>';
+  var 노드='';
+  차례.forEach(function(s,i){
+    var a=-Math.PI/2+i*2*Math.PI/차례.length, x=cx+R*Math.cos(a), y=cy+R*Math.sin(a);
+    var r=12+16*Math.sqrt(문항(과목[s])/최대), m=숙(과목[s]);
+    svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="var(--line-2)" stroke-width="1.5"/>';
+    var ax="middle", lx=x, ly=y+r+15;              // 이름은 늘 원 아래 — 폰 폭에서 옆으로 잘리지 않게
+    노드+='<g class="nd" data-s="'+i+'">'+
+      '<circle class="body" cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--accent)" fill-opacity="'+(m==null?0.08:(0.12+0.7*m))+'" stroke="var(--accent)" stroke-width="2"/>'+
+      '<text class="lbl" x="'+lx+'" y="'+ly+'" text-anchor="'+ax+'" font-size="13">'+e(s.length>8?s.slice(0,8)+"…":s)+'</text></g>';
+  });
+  var 전숙=숙(전체);
+  svg+=노드+'<circle cx="'+cx+'" cy="'+cy+'" r="38" fill="var(--accent)" fill-opacity="'+(전숙==null?0.1:0.15+0.6*전숙)+'" stroke="var(--accent)" stroke-width="2.5"/>'+
+    '<text class="lbl" x="'+cx+'" y="'+(cy+2)+'" text-anchor="middle" font-size="15">'+e(D.별칭||"전체")+'</text>'+
+    '<text class="sub" x="'+cx+'" y="'+(cy+19)+'" text-anchor="middle">'+(전숙==null?"시작 전":Math.round(전숙*100)+"%")+'</text></svg>';
+  document.getElementById("map").innerHTML=svg;
+
+  /* ── 가지 ── */
+  var 중=(D.중분류||{});
+  function 잎(t){
+    var m=GS.숙련(t.k), 카드=((D.cards||{})[t.k]||[]).length;
+    return '<div class="lf'+(m!=null&&m>=0.8?' done':'')+'">'+
+      '<span class="chip '+t.g+'">'+t.g+'</span>'+
+      '<span class="nm"><b>'+e(t.n)+'</b><small>'+e(t.h||"")+'</small></span>'+
+      '<span class="go"><span><a href="card.html?k='+encodeURIComponent(t.k)+'">개념</a>'+
+        '<a class="ox" href="ox.html?k='+encodeURIComponent(t.k)+'">O·X</a></span>'+
+        '<div class="bar"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></span></div>';
+  }
+  function 정렬(ts){ return ts.slice().sort(function(a,b){return (GS.순[a.g]-GS.순[b.g])||(b.c-a.c);}); }
   var h="";
   차례.forEach(function(s,idx){
-    var ts=과목[s].sort(function(a,b){return (GS.순[a.g]-GS.순[b.g])||(b.c-a.c);});
-    h+='<details class="sub"'+(idx===0?' open':'')+'><summary>'+e(s)+'<span>'+ts.length+'</span></summary>';
-    ts.forEach(function(t){
-      var m=GS.숙련(t.k), n=(GS.테마별[t.k]||[]).length;
-      h+='<a class="th" href="ox.html?k='+encodeURIComponent(t.k)+'">'+
-        '<span class="chip '+t.g+'">'+t.g+'</span>'+
-        '<span><b>'+e(t.n)+'</b><small>'+e(t.h||"")+'</small></span>'+
-        '<span class="r"><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b>'+
-          '<div class="bar"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></span></a>';
-    });
-    h+='</details>';
+    var ts=과목[s], m=숙(ts), 있는={}; ts.forEach(function(t){있는[t.k]=t;});
+    h+='<details class="br" id="br'+idx+'"'+(idx===0?' open':'')+'><summary><i class="dot"></i><b>'+e(s)+'</b>'+
+      '<span>'+ts.length+'테마</span><div class="bar mb"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></summary><div class="tr">';
+    var 묶음=(중[s]||[]).map(function(g){return {이름:g.이름, ts:(g.테마||[]).map(function(k){return 있는[k];}).filter(Boolean)};})
+      .filter(function(g){return g.ts.length;});
+    var 쓴={}; 묶음.forEach(function(g){g.ts.forEach(function(t){쓴[t.k]=1;});});
+    var 남은=ts.filter(function(t){return !쓴[t.k];});
+    if(묶음.length){
+      묶음.forEach(function(g){
+        h+='<div class="mid">'+e(g.이름)+'<em>'+g.ts.length+'</em></div><div class="lv">'+정렬(g.ts).map(잎).join("")+'</div>';
+      });
+      if(남은.length) h+='<div class="mid">그 밖의 테마<em>'+남은.length+'</em></div><div class="lv">'+정렬(남은).map(잎).join("")+'</div>';
+    } else {
+      /* 중분류가 아직 없으면 등급(S→C)으로 가지를 나눈다 */
+      ["S","A","B","C"].forEach(function(g){
+        var gs=ts.filter(function(t){return t.g===g;});
+        if(!gs.length) return;
+        h+='<div class="mid">'+g+'급 '+({S:"매회 나옴",A:"자주 나옴",B:"가끔 나옴",C:"드물게 나옴"}[g])+'<em>'+gs.length+'</em></div>'+
+           '<div class="lv">'+정렬(gs).map(잎).join("")+'</div>';
+      });
+    }
+    h+='</div></details>';
   });
-  document.getElementById("list").innerHTML=h;
+  document.getElementById("list").innerHTML=h||'';
+  document.querySelectorAll(".map g.nd").forEach(function(n){
+    n.addEventListener("click",function(){
+      var d=document.getElementById("br"+n.dataset.s); d.open=true; d.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
 })();
 </script>
 </body></html>

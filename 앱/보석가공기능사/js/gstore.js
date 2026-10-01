@@ -151,7 +151,7 @@
 
   /* ── 내비 — 위 브랜드 줄 + 아래 탭 ── */
   function 내비(지금) {
-    var 탭 = [["index.html", "홈"], ["tree.html", "테마"], ["card.html", "개념"], ["settings.html", "설정"]];
+    var 탭 = [["index.html", "홈"], ["tree.html", "개념트리"], ["card.html", "개념"], ["settings.html", "설정"]];
     var 위 = '<header class="gbar"><a href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></header>';
     var 아래 = '<nav class="gtabs">' + 탭.map(function (t) {
       return '<a href="' + t[0] + '"' + (t[0] === 지금 ? ' class="on"' : '') + '>' + t[1] + '</a>';
