@@ -1,0 +1,53 @@
+/* 모두의기사 2판 — 통사 base.css 위에 얹는 화면 공용 규칙.
+   색은 base.css 변수로만 쓴다. 여기서 색을 박으면 다른 스킨이 깨진다. */
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased}
+.page{max-width:720px;margin:0 auto;padding:0 18px 110px}
+
+/* 위 브랜드 줄 — 통사와 같다 */
+.gbar{position:sticky;top:0;z-index:20;background:var(--nav-bg,var(--bg));
+  border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.gbar a{display:flex;align-items:center;gap:9px;max-width:720px;margin:0 auto;
+  padding:14px 18px;color:var(--ink);text-decoration:none;font-weight:800;font-size:17px;
+  letter-spacing:-.02em}
+.gbar i{width:11px;height:11px;border-radius:3px;background:var(--accent)}
+
+/* 아래 탭 */
+.gtabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;
+  grid-template-columns:repeat(4,1fr);background:var(--nav-bg,var(--bg));
+  border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.gtabs a{padding:14px 0 15px;text-align:center;font-size:15px;font-weight:700;
+  color:var(--ink-4);text-decoration:none}
+.gtabs a.on{color:var(--ink)}
+.gtabs a.on::after{content:"";display:block;width:22px;height:3px;border-radius:2px;
+  margin:6px auto 0;background:var(--accent)}
+
+/* 공용 단추 */
+.b{appearance:none;display:flex;align-items:center;justify-content:center;
+  width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);background:var(--surface);
+  color:var(--ink);border-radius:var(--r3);padding:16px 18px;font:inherit;font-size:17px;
+  font-weight:800;text-decoration:none;cursor:pointer}
+.b.main{background:var(--accent);border-color:var(--accent);color:#fff}
+.b:active{transform:translateY(1px)}
+.b2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.b2 .b{font-size:15.5px;padding:14px 10px;font-weight:700}
+
+.lab{font-size:14.5px;color:var(--ink-3);font-weight:700;margin:26px 2px 10px}
+.chip{display:inline-block;font-size:12.5px;font-weight:800;padding:2px 8px;
+  border-radius:99px;border:1px solid var(--line-2);color:var(--ink-3)}
+.chip.S{border-color:var(--accent);color:var(--accent)}
+.bar{height:6px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.fold{border:1px solid var(--line-2);border-radius:var(--r3);background:var(--surface);
+  margin-bottom:10px}
+.fold summary{list-style:none;cursor:pointer;padding:17px 18px;font-weight:700;font-size:16px;
+  display:flex;justify-content:space-between;align-items:center}
+.fold summary::-webkit-details-marker{display:none}
+.fold summary::after{content:"⌄";color:var(--ink-4);font-size:18px}
+.fold[open] summary::after{content:"⌃"}
+.fold .in{padding:0 18px 16px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.row b{font-variant-numeric:tabular-nums}
+.none{padding:48px 10px;text-align:center;color:var(--ink-3);font-size:15px;line-height:1.8}
+@media(max-width:520px){ .b{font-size:16px} }
