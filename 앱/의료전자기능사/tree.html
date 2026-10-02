@@ -54,6 +54,17 @@
   .big>.ss,.big>.lv{margin-left:28px}
   .ss{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 4px}
   .ss i{font-style:normal;font-size:11.5px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+  .rl{font-style:normal;display:inline-block;font-size:11.5px;font-weight:800;border-radius:99px;padding:2px 8px;margin-left:7px;vertical-align:2px;letter-spacing:0}
+  .rl.st{background:var(--accent);color:#fff}
+  .rl.df{border:1.5px solid var(--ink-2);color:var(--ink-2)}
+  #plan{display:grid;gap:8px;margin:14px 0 4px}
+  .pl{display:flex;gap:10px;align-items:center;padding:11px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface)}
+  .pl b{flex:0 0 auto;font-size:13px;font-weight:900;padding:3px 9px;border-radius:8px}
+  .pl.st b{background:var(--accent);color:#fff}
+  .pl.df b{border:1.5px solid var(--ink-2);color:var(--ink-2)}
+  .pl span{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  .pl em{font-style:normal;font-weight:900;color:var(--ink)}
+  .pl small{display:block;font-size:12px;color:var(--ink-3)}
   .lf .nm{min-width:0}
   .lf .nm b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.4}
   .lf .nm small{display:block;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.45;
@@ -69,6 +80,7 @@
 </head><body>
 <div class="page">
   <div class="hd"><h1>개념트리</h1><p id="sub"></p></div>
+  <div id="plan"></div>
   <div class="map" id="map"></div>
   <div class="legend"><span><i style="background:var(--accent)"></i>진할수록 많이 맞힘</span><span><i style="border:2px solid var(--line-3)"></i>원 크기 = 기출 문항 수</span></div>
   <div id="list"></div>
@@ -100,6 +112,15 @@
   var 전체=[].concat.apply([],차례.map(function(s){return 과목[s];}));
   document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준"):"과목 "+차례.length+" · 테마 "+전체.length+" — 과목을 누르면 가지가 펼쳐집니다");
 
+  /* ── 전략과목·방어과목(1002) — 기출 정답률 근거 ── */
+  function 배지(o){ return o&&o.역할 ? '<i class="rl '+(o.역할==="전략"?"st":"df")+'">'+(o.역할==="전략"?"전략 · 고득점":"방어 · 면과락")+'</i>' : ''; }
+  if(기준){
+    var 역=[]; 기준.forEach(function(sj){ if(sj.역할) 역.push([sj.역할,sj.n,sj.률]); sj.m.forEach(function(m){ if(m.역할) 역.push([m.역할,m.n,m.률]); }); });
+    var st=역.filter(function(r){return r[0]==="전략";})[0], df=역.filter(function(r){return r[0]==="방어";})[0];
+    if(st||df) document.getElementById("plan").innerHTML=
+      (st?'<div class="pl st"><b>전략</b><span><em>'+e(st[1])+'</em> 여기서 점수를 번다 <small>기출 정답률 '+st[2]+'%</small></span></div>':'')+
+      (df?'<div class="pl df"><b>방어</b><span><em>'+e(df[1])+'</em> 과락만 피한다 <small>기출 정답률 '+df[2]+'%</small></span></div>':'');
+  }
   /* ── 과목 지도 ── */
   var W=400,H=360,cx=W/2,cy=H/2-6,R=Math.min(112,40+차례.length*12);
   var 최대=Math.max.apply(null,차례.map(function(s){return 문항(과목[s]);}).concat([1]));
@@ -136,7 +157,7 @@
   var h="";
   차례.forEach(function(s,idx){
     var ts=과목[s], m=숙(ts), 있는={}; ts.forEach(function(t){있는[t.k]=t;});
-    h+='<details class="br" id="br'+idx+'"'+(idx===0?' open':'')+'><summary><i class="dot"></i><b>'+e(s)+'</b>'+
+    h+='<details class="br" id="br'+idx+'"'+(idx===0?' open':'')+'><summary><i class="dot"></i><b>'+e(s)+배지(기준&&기준.filter(function(z){return z.n===s;})[0])+'</b>'+
       '<span>'+ts.length+'테마</span><div class="bar mb"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></summary><div class="tr">';
     var sj=기준&&기준.filter(function(z){return z.n===s;})[0];
     if(sj){
@@ -144,7 +165,7 @@
         var mts=[]; m.s.forEach(function(x){ mts=mts.concat(x.ts||[]); });
         if(!mts.length) return;
         var mm=숙(mts);
-        h+='<details class="big"><summary><b>'+e(m.n)+'</b><span>'+mts.length+'테마</span>'+
+        h+='<details class="big"><summary><b>'+e(m.n)+배지(m)+'</b><span>'+mts.length+'테마</span>'+
            '<div class="bar mb"><i style="width:'+(mm==null?0:Math.round(mm*100))+'%"></i></div></summary>';
         m.s.forEach(function(x){
           if(!(x.ts||[]).length) return;
