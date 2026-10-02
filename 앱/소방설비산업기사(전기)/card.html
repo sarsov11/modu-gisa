@@ -25,6 +25,8 @@
   .memo{margin-top:16px;padding:13px 15px;border-radius:var(--r2);border:1px solid var(--line-2);background:var(--bg-2)}
   .memo b{display:block;font-size:13.5px;color:var(--accent);font-weight:800;margin-bottom:6px}
   .memo span{display:block;font-size:15.5px;font-weight:700;line-height:1.65}
+  .memo.trap b{color:var(--ink-3)}
+  .memo.trap span{font-weight:500;color:var(--ink-3);font-size:14.5px}
   .nav2{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-top:16px}
 </style>
 </head><body>
@@ -44,13 +46,21 @@
   function 노트(k){
     var by={}, 차례=[];
     (GS.테마별[k]||[]).forEach(function(o){
-      if(o.a!==1) return;
-      if(!by[o.q]){ by[o.q]={t:(o.s||"").replace(/\s*\(오류 신고[^)]*\)\s*/g," ").trim().replace(/\s*(으로|로)?\s*(가장\s*)?(옳은|알맞은|맞는|적합한|적당한|바른|올바른|타당한)\s*(것|설명)(은|을|으로)?\s*[?？]?\s*(\(.*\))?$/,function(_,a,b,c,d,f,조건){return 조건?" "+조건:"";}).trim(), l:[]}; 차례.push(o.q); }
-      if(by[o.q].l.indexOf(o.c)<0) by[o.q].l.push(o.c);
+      if(!by[o.q]){ by[o.q]={t:(o.s||"").replace(/\s*\(오류 신고[^)]*\)\s*/g," ").trim().replace(/\s*(으로|로)?\s*(가장\s*)?(옳은|알맞은|맞는|적합한|적당한|바른|올바른|타당한)\s*(것|설명)(은|을|으로)?\s*[?？]?\s*(\(.*\))?$/,function(_,a,b,c,d,f,조건){return 조건?" "+조건:"";}).trim(), l:[], x:[]}; 차례.push(o.q); }
+      var 칸=o.a===1?by[o.q].l:by[o.q].x;
+      if(칸.indexOf(o.c)<0) 칸.push(o.c);
     });
+    if(!차례.some(function(q){return by[q].l.length;})){
+      /* 맞는 설명이 하나도 안 잡힌 테마 — 기출 원문항의 정답 선지로 카드를 만든다(빠짐 없게) */
+      return 차례.slice(0,8).map(function(q){
+        var 원=(D.qs||{})[q]||{}, 답=(원.c||[])[(원.a||1)-1];
+        return {t:(원.q||by[q].t||"").replace(/\s*\(오류 신고[^)]*\)\s*/g," ").trim(), l:답?["정답: "+답]:[], m:[], x:[], 노트:1};
+      }).filter(function(c){return c.l.length;});
+    }
+    차례=차례.filter(function(q){return by[q].l.length;});
     차례.sort(function(a,b){return by[b].l.length-by[a].l.length;});
     return 차례.slice(0,8).map(function(q,j){
-      return {t:by[q].t, l:by[q].l, m:[], 노트:1};
+      return {t:by[q].t, l:by[q].l, m:[], x:by[q].x.slice(0,3), 노트:1};
     });
   }
   function 장(k){ return ((D.cards||{})[k]||[]).length ? D.cards[k] : 노트(k); }
@@ -75,6 +85,8 @@
           (c.l||[]).map(function(x){return '<li>'+e(x)+'</li>';}).join("")+'</ul>'+
           ((c.m||[]).length?'<div class="memo"><b>외울 것</b>'+
             c.m.map(function(x){return '<span>'+e(x)+'</span>';}).join("")+'</div>':'')+
+          ((c.x||[]).length?'<div class="memo trap"><b>함정 — 기출이 틀렸다고 한 설명</b>'+
+            c.x.map(function(x){return '<span>✕ '+e(x)+'</span>';}).join("")+'</div>':'')+
         '</div></div>'+
       '<div class="nav2">'+(i>0?'<button class="b" id="pv">앞</button>':'<span></span>')+
         (i+1<장들.length?'<button class="b main" id="nx">다음</button>'

@@ -41,6 +41,19 @@
     padding:11px 0;border-bottom:1px solid var(--line)}
   .lf::before{content:"";position:absolute;left:-16px;top:50%;width:12px;border-top:2px solid var(--line-2)}
   .tr>.lf::before{left:-18px;width:14px}
+  .big{position:relative;margin:8px 0}
+  .big::before{content:"";position:absolute;left:-18px;top:21px;width:14px;border-top:2px solid var(--line-2)}
+  .big>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 12px;
+    border:1px solid var(--line);border-radius:10px;background:var(--bg-2)}
+  .big>summary::-webkit-details-marker{display:none}
+  .big>summary b{flex:1;font-size:15.5px;font-weight:900;letter-spacing:-.02em}
+  .big>summary span{font-size:12.5px;color:var(--ink-3);font-weight:700}
+  .big>summary .mb{width:48px}
+  .big[open]>summary{border-color:var(--ink-3)}
+  .big>.mid{margin-left:14px}
+  .big>.ss,.big>.lv{margin-left:28px}
+  .ss{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 4px}
+  .ss i{font-style:normal;font-size:11.5px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
   .lf .nm{min-width:0}
   .lf .nm b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.4}
   .lf .nm small{display:block;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.45;
@@ -66,15 +79,26 @@
 (function(){
   GS.내비("tree.html");
   var D=GS.D, e=GS.esc, 과목={}, 차례=[];
-  D.테마.forEach(function(t){
-    if((GS.테마별[t.k]||[]).length<4) return;         // O·X 가 4문장 안 되면 연습이 안 된다
-    if(!과목[t.s]){ 과목[t.s]=[]; 차례.push(t.s); }
-    과목[t.s].push(t);
-  });
+  function 쓸만(t){ return t && ((GS.테마별[t.k]||[]).length>=1 || ((D.cards||{})[t.k]||[]).length); }   // 내용이 하나라도 있으면 싣는다(빠짐 없게)
+  var 기준=D.기준||null;
+  if(기준){
+    /* 출제기준 과목 › 대단원 › 중단원 › 테마 */
+    기준.forEach(function(sj){
+      var ts=[]; sj.m.forEach(function(m){ m.s.forEach(function(x){ x.ts=x.t.map(function(k){return GS.테마맵[k];}).filter(쓸만); ts=ts.concat(x.ts); }); });
+      if(!ts.length) return;
+      과목[sj.n]=ts; 차례.push(sj.n);
+    });
+  } else {
+    D.테마.forEach(function(t){
+      if(!쓸만(t)) return;
+      if(!과목[t.s]){ 과목[t.s]=[]; 차례.push(t.s); }
+      과목[t.s].push(t);
+    });
+  }
   function 숙(ts){ var a=0,n=0; ts.forEach(function(t){var m=GS.숙련(t.k); if(m!=null){a+=m;n++;}}); return n?a/n:null; }
   function 문항(ts){ return ts.reduce(function(a,t){return a+(t.c||0);},0); }
   var 전체=[].concat.apply([],차례.map(function(s){return 과목[s];}));
-  document.getElementById("sub").textContent="과목 "+차례.length+" · 테마 "+전체.length+" — 과목을 누르면 가지가 펼쳐집니다";
+  document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준"):"과목 "+차례.length+" · 테마 "+전체.length+" — 과목을 누르면 가지가 펼쳐집니다");
 
   /* ── 과목 지도 ── */
   var W=400,H=360,cx=W/2,cy=H/2-6,R=Math.min(112,40+차례.length*12);
@@ -114,6 +138,25 @@
     var ts=과목[s], m=숙(ts), 있는={}; ts.forEach(function(t){있는[t.k]=t;});
     h+='<details class="br" id="br'+idx+'"'+(idx===0?' open':'')+'><summary><i class="dot"></i><b>'+e(s)+'</b>'+
       '<span>'+ts.length+'테마</span><div class="bar mb"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></summary><div class="tr">';
+    var sj=기준&&기준.filter(function(z){return z.n===s;})[0];
+    if(sj){
+      sj.m.forEach(function(m){
+        var mts=[]; m.s.forEach(function(x){ mts=mts.concat(x.ts||[]); });
+        if(!mts.length) return;
+        var mm=숙(mts);
+        h+='<details class="big"><summary><b>'+e(m.n)+'</b><span>'+mts.length+'테마</span>'+
+           '<div class="bar mb"><i style="width:'+(mm==null?0:Math.round(mm*100))+'%"></i></div></summary>';
+        m.s.forEach(function(x){
+          if(!(x.ts||[]).length) return;
+          h+='<div class="mid">'+e(x.n)+'<em>'+x.ts.length+'</em></div>'+
+             ((x.x||[]).length?'<div class="ss">'+x.x.map(function(y){return '<i>'+e(y)+'</i>';}).join("")+'</div>':'')+
+             '<div class="lv">'+정렬(x.ts).map(잎).join("")+'</div>';
+        });
+        h+='</details>';
+      });
+      h+='</div></details>';
+      return;
+    }
     var 묶음=(중[s]||[]).map(function(g){return {이름:g.이름, ts:(g.테마||[]).map(function(k){return 있는[k];}).filter(Boolean)};})
       .filter(function(g){return g.ts.length;});
     var 쓴={}; 묶음.forEach(function(g){g.ts.forEach(function(t){쓴[t.k]=1;});});
