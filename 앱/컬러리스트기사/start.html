@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>시작 — 모두의 컬러리스트기사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/cheer.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+  .hd{padding:24px 2px 0}
+  .hd small{display:block;font-size:14.5px;color:var(--ink-3);font-weight:700}
+  .hd h1{font-size:27px;letter-spacing:-.04em;margin:6px 0 0;font-weight:900}
+  .prog{display:flex;gap:4px;margin:20px 0 18px}
+  .prog i{flex:1;height:4px;border-radius:99px;background:var(--surface-3)}
+  .prog i.on{background:var(--ink-3)} .prog i.ok{background:var(--ink-3)} .prog i.no{background:var(--accent)} .prog i.now{background:var(--ink-4)}
+  .dr{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0 0}
+  input[type=date]{font:inherit;font-size:16px;padding:11px 12px;border:1.5px solid var(--line-2);
+    border-radius:var(--r2);background:var(--surface);color:var(--ink)}
+  .gap{height:18px}
+  .qwrap{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--bg-2);padding:22px 20px;margin-bottom:18px}
+  .qtag{display:flex;gap:8px;align-items:center;font-size:14.5px;color:var(--ink-3);margin-bottom:14px}
+  .qtag b{color:var(--accent);font-weight:800}
+  .qstem{font-size:16.5px;line-height:1.62;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
+  .qpick{border:1px solid var(--accent);border-radius:var(--r3);padding:14px 16px;font-size:17px;line-height:1.62;font-weight:700;
+    background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .ox{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .ox button{appearance:none;border:2px solid var(--line-2);background:var(--surface-2);color:var(--ink);
+    border-radius:var(--r2);padding:20px;font:inherit;font-size:30px;font-weight:800;cursor:pointer;line-height:1}
+  .ox button:disabled{opacity:.4;cursor:default}
+  .ox button[data-s="ok"]{border-color:var(--cheer-ok);opacity:1}
+  .ox button[data-s="no"]{border-color:var(--accent);opacity:1}
+  .vd{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900}
+  .vd.no{color:var(--accent)}
+  .vd small{font-size:14px;color:var(--ink-3);font-weight:700}
+  .nx{margin-top:12px}
+  .res .sr{padding:12px 0;border-top:1px solid var(--line)}
+  .res .sr:first-child{border-top:0}
+  .res .t{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .res .sn{font-size:16px;font-weight:800;letter-spacing:-.02em;margin-right:auto}
+  .res b{font-size:16px;font-variant-numeric:tabular-nums}
+  .res .bar{margin-top:7px}
+  .rbox{border:1px solid var(--line-2);border-radius:var(--r3);background:var(--surface);padding:6px 18px 8px;margin-bottom:18px}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><small id="eb"></small><h1 id="ttl"></h1></div>
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gstore.js"></script>
+<script src="js/cheer.js"></script>
+<script>
+(function(){
+  GS.내비("", {탭:false});
+  var D=GS.D, S=GS.S, e=GS.esc, 기능=(GS.갈래==="기능사");
+  var P=new URLSearchParams(location.search), 재진단=P.get("diag")==="1";
+  function el(x){return document.getElementById(x);}
+  function 날(n){ var d=new Date(); d.setDate(d.getDate()+n); return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); }
+  function 표시(v){ return v.replace(/-/g,"."); }
+  el("eb").textContent=D.종목+(기능?" · 상시 CBT":"");
+
+  var 일 = S.시작 ? (S.시험일||"") : (기능 ? "" : (D.시험일||""));
+  var 분 = S.목표분||15;
+  var 문제 = [], 번=0, 과목맵={}, 결과=[];
+  var 단계 = 재진단 ? "진단" : "시험일";
+
+  function 끝내기(){ if(!S.시작) S.시작=GS.오늘(); GS.저장(); }
+  function 건너뛰기(){ S.시험일=일; S.목표분=분; 끝내기(); location.href="index.html"; }
+
+  /* ── 시험일 · 목표일 ── */
+  function 일화면(){
+    el("ttl").textContent=기능?"목표일":"시험일";
+    el("prog").innerHTML="<i class='on'></i><i></i><i></i>";
+    var 후=[];
+    if(기능){ [30,60,90].forEach(function(n){ 후.push([n+"일",날(n)]); }); }
+    else if(D.시험일){ 후.push([표시(D.시험일),D.시험일]); }
+    후.push([기능?"없음":"미정",""]);
+    el("stage").innerHTML=
+      '<div class="tl" id="q">'+후.map(function(c){
+        return '<button data-v="'+c[1]+'" aria-pressed="'+(일===c[1])+'">'+c[0]+'</button>';}).join("")+'</div>'+
+      '<div class="dr"><input type="date" id="dt" value="'+e(일)+'"></div>'+
+      '<div class="gap"></div><button class="b main" id="go">다음</button>';
+    document.querySelectorAll("#q button").forEach(function(b){
+      b.onclick=function(){ 일=b.dataset.v; 일화면(); };
+    });
+    el("dt").onchange=function(){ 일=el("dt").value; 일화면(); };
+    el("go").onclick=function(){ 단계="목표"; 목표화면(); };
+  }
+  /* ── 하루 목표 ── */
+  function 목표화면(){
+    el("ttl").textContent="하루 목표";
+    el("prog").innerHTML="<i class='on'></i><i class='on'></i><i></i>";
+    el("stage").innerHTML=
+      '<div class="tl" id="q">'+[5,10,15,20,30].map(function(m){
+        return '<button data-m="'+m+'" aria-pressed="'+(분===m)+'">'+m+'분</button>';}).join("")+'</div>'+
+      '<div class="gap"></div><button class="b main" id="go">진단 10문항</button>'+
+      '<button class="lnk" id="skip">건너뛰기</button>';
+    document.querySelectorAll("#q button").forEach(function(b){
+      b.onclick=function(){ 분=Number(b.dataset.m); 목표화면(); };
+    });
+    el("go").onclick=function(){ S.시험일=일; S.목표분=분; GS.저장(); 단계="진단"; 진단시작(); };
+    el("skip").onclick=건너뛰기;
+  }
+  /* ── 진단 10문항 — 과목마다 고르게 ── */
+  function 진단시작(){
+    문제=GS.진단뽑기(10);
+    if(!문제.length){ 끝내기(); location.href="index.html"; return; }
+    번=0; 과목맵={}; 결과=[];
+    진단그리기();
+  }
+  function 진단진행(){
+    el("prog").innerHTML="<i class='on'></i><i class='on'></i>"+"<span style='display:contents'></span>";
+    el("prog").innerHTML=문제.map(function(_,j){
+      var r=결과[j]; return '<i class="'+(r?(r.ok?"ok":"no"):(j===번?"now":""))+'"></i>';
+    }).join("");
+  }
+  function 진단그리기(){
+    el("ttl").textContent="진단";
+    진단진행();
+    if(번>=문제.length) return 결과화면();
+    var o=문제[번], q=(D.qs[o.q]||{}), t=GS.테마맵[o.k]||{};
+    el("stage").innerHTML=
+      '<div class="qwrap"><div class="qtag"><b>'+e(t.s||"")+'</b><span>'+(번+1)+' / '+문제.length+'</span></div>'+
+        '<p class="qstem">'+e(GS.깨끗(o.s))+'</p><div class="qpick">'+e(GS.깨끗(o.c))+'</div></div>'+
+      '<div class="ox"><button data-v="1">O</button><button data-v="0">X</button></div><div id="vd"></div>'+
+      '<button class="lnk" id="skip">건너뛰기</button>';
+    document.querySelectorAll(".ox button").forEach(function(b){
+      b.onclick=function(){ 답(Number(b.dataset.v),b); };
+    });
+    el("skip").onclick=function(){ 번=문제.length; 결과화면(true); };
+    var 시작=Date.now(); 진단그리기.시작=시작;
+  }
+  function 답(v,b){
+    var o=문제[번], t=GS.테마맵[o.k]||{}, ok=(v===o.a);
+    document.querySelectorAll(".ox button").forEach(function(x){x.disabled=true;});
+    b.setAttribute("data-s",ok?"ok":"no");
+    if(window.CHEER){ if(ok) CHEER.ok(b); else CHEER.miss(b); }
+    GS.기록(o.i,ok,null,Date.now()-(진단그리기.시작||Date.now()));
+    var a=과목맵[t.s]=과목맵[t.s]||[0,0]; a[1]++; if(ok) a[0]++;
+    결과[번]={ok:ok}; 진단진행();
+    el("vd").innerHTML='<div class="vd '+(ok?"":"no")+'">'+(ok?"○ 정답":"✕ 오답")+'<small>정답 '+(o.a?"O":"X")+'</small></div>'+
+      '<div class="nx"><button class="b main" id="nx">'+(번+1>=문제.length?"결과":"다음")+'</button></div>';
+    el("nx").onclick=function(){ 번++; 진단그리기(); };
+  }
+  /* ── 결과 — 과목별 정답, 약한 과목, 첫 할 일 ── */
+  function 결과화면(건너뜀){
+    var 약=Object.keys(과목맵).length?GS.진단결과(과목맵):(끝내기(),[]);
+    el("ttl").textContent="진단 결과";
+    el("prog").innerHTML="";
+    var 줄=Object.keys(과목맵).map(function(s){
+      var a=과목맵[s], p=Math.round(a[0]*100/a[1]);
+      return '<div class="sr"><div class="t"><span class="sn">'+e(s)+'</span>'+
+        (약.indexOf(s)>=0&&Object.keys(과목맵).length>1?'<i class="rl wk">약함</i>':'')+
+        '<b>'+a[0]+'/'+a[1]+'</b></div><div class="bar"><i style="width:'+p+'%"></i></div></div>';
+    }).join("");
+    var R=GS.루틴();
+    el("stage").innerHTML=
+      (줄?'<div class="rbox res">'+줄+'</div>':'')+
+      (R.다음?'<a class="b main" id="go" href="'+e(R.다음.주소)+'">'+e(GS.큰단추(R))+'</a>':'<a class="b main" id="go" href="index.html">홈</a>')+
+      '<div class="b2" style="margin-top:10px"><a class="b sm" href="index.html">홈</a><a class="b sm" href="tree.html">개념트리</a></div>';
+  }
+
+  if(재진단) 진단시작(); else 일화면();
+})();
+</script>
+</body></html>

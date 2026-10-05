@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>문제풀이 — 모두의 지적기능사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/q.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+</head><body>
+<div class="page">
+  <div class="hd"><h1 id="ttl">문제풀이</h1></div>
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gquiz.js"></script>
+<script src="js/judge.js"></script>
+<script src="js/gstore.js"></script>
+<script src="js/qlib.js"></script>
+<script>
+(function(){
+  GS.내비("quiz.html");
+  var D=GS.D, e=GS.esc, P=new URLSearchParams(location.search);
+  var k=P.get("k"), s=P.get("s"), 오답=P.get("wrong")==="1", 밖만=P.get("out")==="1";
+  function el(x){return document.getElementById(x);}
+  var 한번=10;
+
+  /* ── 고르기 화면 ── */
+  function 고르기(){
+    el("prog").innerHTML="";
+    var 과목수={}, 테마수={}, 밖수=0;
+    QL.Q.forEach(function(x){
+      if(QL.밖(x)){ 밖수++; } else { 과목수[x.s]=(과목수[x.s]||0)+1; }
+      if(x.k) 테마수[x.k]=(테마수[x.k]||0)+1;
+    });
+    var 틀 = QL.틀린것().length;
+    var h='<div class="pick" style="margin-top:20px">'+
+      '<a class="hot" href="quiz.html?wrong=1">오답 모아풀기 <i>'+틀+'</i></a>'+
+      (GS.있다("exam.html")?'<a href="exam.html">모의고사</a>':'')+'</div>';
+    h+='<div class="lab">과목</div><div class="pick">'+
+      QL.S.filter(function(n){return 과목수[n];}).map(function(n){
+        return '<a href="quiz.html?s='+encodeURIComponent(n)+'">'+e(QL.이름(n))+' <i>'+과목수[n]+'</i></a>';
+      }).join("")+(밖수?'<a href="quiz.html?out=1">출제기준 밖 기출 <i>'+밖수+'</i></a>':'')+'</div>';
+    h+='<div class="lab">테마</div>';
+    var 순=GS.순;
+    function 그룹(이름,테마들,열림){
+      테마들=테마들.filter(function(t){return 테마수[t.k];}).sort(function(a,b){return (순[a.g]-순[b.g])||(테마수[b.k]-테마수[a.k]);});
+      if(!테마들.length) return "";
+      return '<details class="fold"'+(열림?' open':'')+'><summary>'+e(이름)+' <span class="chip">'+테마들.length+'</span></summary><div class="in th">'+
+        테마들.map(function(t){return '<a href="quiz.html?k='+encodeURIComponent(t.k)+'"><span>'+e(t.n)+'</span><i>'+t.g+' · '+테마수[t.k]+'</i></a>';}).join("")+'</div></details>';
+    }
+    var 바깥=D.테마.filter(function(t){return t.x;});
+    var 과목들=[]; D.테마.forEach(function(t){ if(!t.x && 과목들.indexOf(t.s)<0) 과목들.push(t.s); });
+    과목들.forEach(function(n){
+      h+=그룹(QL.이름(n),D.테마.filter(function(t){return !t.x && t.s===n;}), 과목들.length===1);
+    });
+    h+=그룹("출제기준 밖 기출",바깥,false);
+    el("stage").innerHTML=h;
+  }
+
+  /* ── 풀 만들기 ── */
+  var 문제;
+  if(!k && !s && !오답 && !밖만){ 고르기(); return; }
+  if(오답){
+    el("ttl").textContent="오답 모아풀기";
+    문제=QL.섞기(QL.틀린것().map(function(id){return QL.맵[id];})).slice(0,20);
+  } else if(밖만){
+    el("ttl").textContent="출제기준 밖 기출";
+    문제=QL.뽑기(QL.Q.filter(function(x){return QL.밖(x);}),한번);
+  } else if(k){
+    var t=GS.테마맵[k]; el("ttl").textContent=t?t.n:"문제풀이";
+    문제=QL.뽑기(QL.Q.filter(function(x){return x.k===k;}),한번);
+  } else {
+    el("ttl").textContent=QL.이름(s);
+    문제=QL.뽑기(QL.Q.filter(function(x){return x.s===s && !QL.밖(x);}),한번);
+  }
+  if(!문제.length){
+    el("stage").innerHTML='<div class="none"><a href="quiz.html">목록</a></div>'; return;
+  }
+
+  var i=0, 결과=[], 고른=null, 순, 확정=false, 시작=0;
+  function 진행(){
+    el("prog").innerHTML=문제.map(function(_,j){
+      var r=결과[j]; return '<i class="'+(r?(r.ok?"ok":"no"):(j===i?"now":""))+'"></i>';
+    }).join("");
+  }
+  function 그리기(){
+    진행();
+    if(i>=문제.length) return 끝();
+    var x=문제[i], t=GS.테마맵[x.k]||null;
+    순=QL.보기섞기(x); 고른=null; 확정=false; 시작=Date.now();
+    el("stage").innerHTML=
+      '<div class="qwrap"><div class="qtag"><b>'+e(t?t.n:QL.이름(x.s))+'</b><span>'+(i+1)+' / '+문제.length+'</span>'+
+        QL.마크(x)+'<span class="src">'+e(x.y||"")+(x.no?" "+x.no+"번":"")+'</span></div>'+
+        '<p class="qstem">'+e(x.q)+'</p></div>'+
+      '<div class="ch" id="ch">'+순.map(function(o,j){
+        return '<button data-j="'+j+'"><span class="n">'+QL.번호[j]+'</span><span>'+e(GS.깨끗(x.c[o]))+'</span></button>';
+      }).join("")+'</div>'+
+      '<div id="vd"></div>'+
+      '<button class="b main" id="go" disabled>확정</button>';
+    document.querySelectorAll("#ch button").forEach(function(b){
+      b.onclick=function(){
+        if(확정) return;
+        고른=Number(b.dataset.j);
+        document.querySelectorAll("#ch button").forEach(function(y){y.setAttribute("aria-pressed",y===b?"true":"false");});
+        el("go").disabled=false;
+      };
+    });
+    el("go").onclick=확정하기;
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function 확정하기(){
+    if(확정||고른==null) return; 확정=true;
+    var x=문제[i], t=GS.테마맵[x.k]||null;
+    var 맞칸=순.indexOf(x.a-1), ok=(고른===맞칸);
+    document.querySelectorAll("#ch button").forEach(function(b,j){
+      b.disabled=true;
+      if(j===맞칸) b.classList.add("ans"); else if(j===고른) b.classList.add("wrong");
+    });
+    QL.기록(x.id,ok); GS.저장();
+    결과[i]={ok:ok,x:x,맞칸:맞칸};
+    진행();
+    el("vd").innerHTML='<div class="vd '+(ok?"":"bad")+'"><div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
+      '<span class="pl">정답 '+QL.번호[맞칸]+'</span>'+
+      '<span class="meta">'+(x.r!=null?"정답률 "+x.r+"%":"")+'</span></div>'+
+      (x.k&&t?'<div class="lk"><a href="ox.html?k='+encodeURIComponent(x.k)+'">O·X</a><a href="card.html?k='+encodeURIComponent(x.k)+'">개념</a></div>':'')+'</div>';
+    el("go").textContent=(i+1>=문제.length)?"결과":"다음";
+    el("go").disabled=false;
+    el("go").onclick=function(){ i++; 그리기(); };
+    el("vd").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  function 끝(){
+    var 맞=결과.filter(function(r){return r&&r.ok;}).length, 틀=결과.filter(function(r){return r&&!r.ok;});
+    el("prog").innerHTML="";
+    if(k) GS.루틴완료("quiz",k);
+    /* G1(1005): 오늘 루틴 중이면 큰 단추는 루틴 다음 항목 — 오답 다시는 작게 */
+    var 루=k?GS.루틴():null, 큰="";
+    if(루) 큰=루.다음?'<a class="b main" href="'+e(루.다음.주소)+'">'+e(GS.큰단추(루))+'</a>':'<a class="b main" href="index.html">오늘 목표 완료</a>';
+    var 다시=틀.length?'<a class="b'+(큰?'':' main')+'" href="#" id="rt" style="'+(큰?'margin-top:10px':'')+'">오답 다시 <span style="margin-left:6px">'+틀.length+'</span></a>':'';
+    el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2>'+
+      '<div class="tally"><div><b>'+맞+' / '+결과.length+'</b><span>정답</span></div>'+
+      '<div><b>'+틀.length+'</b><span>오답</span></div>'+
+      '<div><b>'+Math.round(맞*100/Math.max(1,결과.length))+'%</b><span>정답률</span></div></div>'+
+      (틀.length?'<ul class="wl">'+틀.map(function(r){
+        return '<li><b>'+e(r.x.q.length>70?r.x.q.slice(0,70)+"…":r.x.q)+'</b><span>정답 '+QL.번호[r.맞칸]+' '+e(GS.깨끗(r.x.c[r.x.a-1]))+'</span></li>';}).join("")+'</ul>':'')+
+      '<div class="act">'+큰+다시+
+      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="quiz.html">목록</a>'+((루&&루.완료&&GS.있다("exam.html"))?'<a class="b" href="exam.html">모의고사</a>':'')+'</div></div></div>';
+    if(el("rt")) el("rt").onclick=function(ev){
+      ev.preventDefault();
+      문제=틀.map(function(r){return r.x;}); i=0; 결과=[]; el("ttl").textContent="오답 다시"; 그리기();
+    };
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  그리기();
+})();
+</script>
+</body></html>

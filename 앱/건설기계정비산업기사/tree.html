@@ -13,11 +13,17 @@
   .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 4px;font-weight:900}
   .hd p{margin:0;color:var(--ink-3);font-size:15px}
   .map{margin:16px 0 6px;border:1px solid var(--line);border-radius:var(--r3);background:var(--surface);overflow:hidden}
-  .map svg{display:block;width:100%;height:auto}
-  .map .lbl{font-weight:900;letter-spacing:-.03em;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:5px}
-  .map .sub{font-size:12px;fill:var(--ink-3);paint-order:stroke;stroke:var(--surface);stroke-width:4px}
+  .map .mp{position:relative;margin:0 auto}
+  .map svg{position:absolute;left:0;top:0;display:block}
+  .map .ln{stroke:var(--line-2);stroke-width:1.5}
   .map g.nd{cursor:pointer}
   .map g.nd:hover circle.body{stroke-width:3}
+  /* 과목 이름표 — 말줄임 없이 줄바꿈, 13.5px 이상 */
+  .map .ml{position:absolute;box-sizing:border-box;width:max-content;max-width:128px;font-size:14px;line-height:1.3;
+    font-weight:800;letter-spacing:-.02em;color:var(--ink);text-align:center;word-break:keep-all;
+    overflow-wrap:anywhere;white-space:normal;cursor:pointer}
+  .map .ml.ctr{cursor:default;color:var(--ink-3)}
+  .map .pc{font-size:14px;font-weight:900;fill:var(--ink)}
   .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin:8px 2px 0}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
 
@@ -54,17 +60,11 @@
   .big>.ss,.big>.lv{margin-left:28px}
   .ss{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 4px}
   .ss i{font-style:normal;font-size:11.5px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
-  .rl{font-style:normal;display:inline-block;font-size:11.5px;font-weight:800;border-radius:99px;padding:2px 8px;margin-left:7px;vertical-align:2px;letter-spacing:0}
-  .rl.st{background:var(--accent);color:#fff}
-  .rl.df{border:1.5px solid var(--ink-2);color:var(--ink-2)}
+  .br .rl,.big .rl{margin-left:7px;vertical-align:2px}
   #plan{display:grid;gap:8px;margin:14px 0 4px}
-  .pl{display:flex;gap:10px;align-items:center;padding:11px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface)}
-  .pl b{flex:0 0 auto;font-size:13px;font-weight:900;padding:3px 9px;border-radius:8px}
-  .pl.st b{background:var(--accent);color:#fff}
-  .pl.df b{border:1.5px solid var(--ink-2);color:var(--ink-2)}
-  .pl span{font-size:14.5px;color:var(--ink-2);line-height:1.5}
-  .pl em{font-style:normal;font-weight:900;color:var(--ink)}
-  .pl small{display:block;font-size:12px;color:var(--ink-3)}
+  .pl{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:11px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface)}
+  .pl em{font-style:normal;font-weight:900;color:var(--ink);font-size:15.5px;letter-spacing:-.02em;margin-right:auto}
+  .pl b{font-size:16px;font-weight:900;font-variant-numeric:tabular-nums}
   .lf .nm{min-width:0}
   .lf .nm b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.4}
   .lf .nm small{display:block;font-size:13px;color:var(--ink-3);margin-top:2px;line-height:1.45;
@@ -82,16 +82,18 @@
   <div class="hd"><h1>개념트리</h1><p id="sub"></p></div>
   <div id="plan"></div>
   <div class="map" id="map"></div>
-  <div class="legend"><span><i style="background:var(--accent)"></i>진할수록 많이 맞힘</span><span><i style="border:2px solid var(--line-3)"></i>원 크기 = 기출 문항 수</span></div>
+  <div class="legend"><span><i style="background:var(--accent)"></i>진하기 = 정답률</span><span><i style="border:2px solid var(--line-3)"></i>크기 = 기출 문항 수</span></div>
   <div id="list"></div>
 </div>
 <script src="js/gdata.js"></script>
 <script src="js/gstore.js"></script>
+<script src="js/gquiz.js"></script>
 <script>
 (function(){
   GS.내비("tree.html");
   var D=GS.D, e=GS.esc, 과목={}, 차례=[];
-  function 쓸만(t){ return t && ((GS.테마별[t.k]||[]).length>=1 || ((D.cards||{})[t.k]||[]).length); }   // 내용이 하나라도 있으면 싣는다(빠짐 없게)
+  var 문풀={}; ((window.GQ&&GQ.Q)||[]).forEach(function(r){ 문풀[r[2]]=(문풀[r[2]]||0)+1; });
+  function 쓸만(t){ return t && ((GS.테마별[t.k]||[]).length>=1 || 문풀[t.k] || ((D.cards||{})[t.k]||[]).length); }   // 내용이 하나라도 있으면 싣는다(빠짐 없게)
   var 기준=D.기준||null;
   if(기준){
     /* 출제기준 과목 › 대단원 › 중단원 › 테마 */
@@ -110,37 +112,104 @@
   function 숙(ts){ var a=0,n=0; ts.forEach(function(t){var m=GS.숙련(t.k); if(m!=null){a+=m;n++;}}); return n?a/n:null; }
   function 문항(ts){ return ts.reduce(function(a,t){return a+(t.c||0);},0); }
   var 전체=[].concat.apply([],차례.map(function(s){return 과목[s];}));
-  document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준"):"과목 "+차례.length+" · 테마 "+전체.length+" — 과목을 누르면 가지가 펼쳐집니다");
+  document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준"):"과목 "+차례.length+" · 테마 "+전체.length);
 
   /* ── 전략과목·방어과목(1002) — 기출 정답률 근거 ── */
-  function 배지(o){ return o&&o.역할 ? '<i class="rl '+(o.역할==="전략"?"st":"df")+'">'+(o.역할==="전략"?"전략 · 고득점":"방어 · 면과락")+'</i>' : ''; }
+  function 배지(o){ return o&&o.역할 ? '<i class="rl '+(o.역할==="전략"?"st":"df")+'">'+o.역할+'</i>' : ''; }
+  var 표=GS.과목표(), 역맵=GS.역할();
+  function 위험(이름){                                       // 내 풀이로 과락 위험인 과목이면 마크
+    var 과=null; Object.keys(역맵).forEach(function(s){ if(역맵[s].이름===이름) 과=s; });
+    var r=표.filter(function(x){return x.s===과;})[0];
+    return '';
+  }
+  function 행(r){ return '<div class="pl"><i class="rl '+(r[0]==="전략"?"st":"df")+'">'+r[0]+'</i><em>'+e(r[1])+'</em><b>'+r[2]+'%</b>'+위험(r[1])+'</div>'; }
   if(기준){
     var 역=[]; 기준.forEach(function(sj){ if(sj.역할) 역.push([sj.역할,sj.n,sj.률]); sj.m.forEach(function(m){ if(m.역할) 역.push([m.역할,m.n,m.률]); }); });
     var st=역.filter(function(r){return r[0]==="전략";})[0], df=역.filter(function(r){return r[0]==="방어";})[0];
-    if(st||df) document.getElementById("plan").innerHTML=
-      (st?'<div class="pl st"><b>전략</b><span><em>'+e(st[1])+'</em> 여기서 점수를 번다 <small>기출 정답률 '+st[2]+'%</small></span></div>':'')+
-      (df?'<div class="pl df"><b>방어</b><span><em>'+e(df[1])+'</em> 과락만 피한다 <small>기출 정답률 '+df[2]+'%</small></span></div>':'');
+    if(st||df) document.getElementById("plan").innerHTML=(st?행(st):'')+(df?행(df):'');
   }
-  /* ── 과목 지도 ── */
-  var W=400,H=360,cx=W/2,cy=H/2-6,R=Math.min(112,40+차례.length*12);
+  /* ── 과목 지도 ── 라벨 실제 상자를 재서 서로 밀어내고(unstack), 폭에 맞춰 다시 그린다(fitView).
+     원·라벨은 겹치지 않고, 이름은 줄바꿈으로 전부 보인다. 과목 1~6개 모두 같은 규칙. */
+  var mapEl=document.getElementById("map");
   var 최대=Math.max.apply(null,차례.map(function(s){return 문항(과목[s]);}).concat([1]));
-  var svg='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
-  svg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="var(--line-2)" stroke-dasharray="2 6"/>';
-  var 노드='';
-  차례.forEach(function(s,i){
-    var a=-Math.PI/2+i*2*Math.PI/차례.length, x=cx+R*Math.cos(a), y=cy+R*Math.sin(a);
-    var r=12+16*Math.sqrt(문항(과목[s])/최대), m=숙(과목[s]);
-    svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="var(--line-2)" stroke-width="1.5"/>';
-    var ax="middle", lx=x, ly=y+r+15;              // 이름은 늘 원 아래 — 폰 폭에서 옆으로 잘리지 않게
-    노드+='<g class="nd" data-s="'+i+'">'+
-      '<circle class="body" cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--accent)" fill-opacity="'+(m==null?0.08:(0.12+0.7*m))+'" stroke="var(--accent)" stroke-width="2"/>'+
-      '<text class="lbl" x="'+lx+'" y="'+ly+'" text-anchor="'+ax+'" font-size="13">'+e(s.length>8?s.slice(0,8)+"…":s)+'</text></g>';
-  });
   var 전숙=숙(전체);
-  svg+=노드+'<circle cx="'+cx+'" cy="'+cy+'" r="38" fill="var(--accent)" fill-opacity="'+(전숙==null?0.1:0.15+0.6*전숙)+'" stroke="var(--accent)" stroke-width="2.5"/>'+
-    '<text class="lbl" x="'+cx+'" y="'+(cy+2)+'" text-anchor="middle" font-size="15">'+e(D.별칭||"전체")+'</text>'+
-    '<text class="sub" x="'+cx+'" y="'+(cy+19)+'" text-anchor="middle">'+(전숙==null?"시작 전":Math.round(전숙*100)+"%")+'</text></svg>';
-  document.getElementById("map").innerHTML=svg;
+  var 간극=10;
+  function 지도(){
+    var W=Math.max(300,Math.min(560,mapEl.clientWidth||340)), n=차례.length;
+    mapEl.innerHTML="";
+    var 판=document.createElement("div"); 판.className="mp"; 판.style.width=W+"px";
+    mapEl.appendChild(판);
+    function 라벨만들기(txt,cls,i){
+      var d=document.createElement("div"); d.className="ml"+(cls?" "+cls:""); d.textContent=txt;
+      if(i!=null) d.dataset.s=i;
+      판.appendChild(d); return d;
+    }
+    var 목록=[];
+    var 중심={ctr:1,r:30,x:W/2,y:0,lab:라벨만들기(D.별칭||"전체","ctr")};
+    목록.push(중심);
+    var 각=n===1?[-90]:(n===2?[180,0]:null);
+    차례.forEach(function(s,i){
+      var a=(각?각[i]:-90+i*360/n)*Math.PI/180;
+      var Rx=Math.max(70,W/2-64), Ry=Math.max(90,40+n*16);
+      var r=16+14*Math.sqrt(문항(과목[s])/최대);
+      목록.push({i:i,r:r,x:W/2+Rx*Math.cos(a),y:Ry*Math.sin(a),m:숙(과목[s]),lab:라벨만들기(s,"",i)});
+    });
+    목록.forEach(function(o){ o.w=o.lab.offsetWidth; o.h=o.lab.offsetHeight; });
+    function 박스(o){ var hw=Math.max(o.r,o.w/2); return {l:o.x-hw,r:o.x+hw,t:o.y-o.r,b:o.y+o.r+4+o.h,hw:hw}; }
+    for(var it=0;it<600;it++){
+      var 움직임=false;
+      for(var a=0;a<목록.length;a++) for(var b=a+1;b<목록.length;b++){
+        var A=목록[a],B=목록[b],X=박스(A),Y=박스(B);
+        var ox=Math.min(X.r,Y.r)-Math.max(X.l,Y.l)+간극, oy=Math.min(X.b,Y.b)-Math.max(X.t,Y.t)+간극;
+        if(ox<=0||oy<=0) continue;
+        움직임=true;
+        var 고정A=A.ctr, 몫A=고정A?0:0.5, 몫B=0.5;
+        if(고정A){ 몫B=1; }
+        if(it<200 && ox<oy){
+          var 방=((X.l+X.r)/2<=(Y.l+Y.r)/2)?1:-1;
+          A.x-=방*ox*몫A; B.x+=방*ox*몫B;
+        }else{
+          var 위=((X.t+X.b)/2<=(Y.t+Y.b)/2)?1:-1;
+          A.y-=위*oy*몫A; B.y+=위*oy*몫B;
+        }
+      }
+      목록.forEach(function(o){ if(o.ctr) return; var hw=박스(o).hw; o.x=Math.max(hw+6,Math.min(W-hw-6,o.x)); });
+      if(!움직임) break;
+    }
+    var 위끝=1e9,아래끝=-1e9;
+    목록.forEach(function(o){ var X=박스(o); 위끝=Math.min(위끝,X.t); 아래끝=Math.max(아래끝,X.b); });
+    var dy=12-위끝, H=Math.ceil(아래끝-위끝+24);
+    목록.forEach(function(o){ o.y+=dy; });
+    판.style.height=H+"px";
+    var svg='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+    목록.forEach(function(o){                                    // 줄은 원 가장자리에서 가장자리까지(원 안으로 안 들어간다)
+      if(o.ctr) return;
+      var vx=o.x-중심.x, vy=o.y-중심.y, L=Math.sqrt(vx*vx+vy*vy)||1;
+      svg+='<line class="ln" x1="'+(중심.x+vx/L*중심.r)+'" y1="'+(중심.y+vy/L*중심.r)+'" x2="'+(o.x-vx/L*o.r)+'" y2="'+(o.y-vy/L*o.r)+'"/>';
+    });
+    var 점='';
+    목록.forEach(function(o){
+      if(o.ctr){
+        점+='<circle class="ctrc" cx="'+o.x+'" cy="'+o.y+'" r="'+o.r+'" fill="var(--accent)" fill-opacity="'+(전숙==null?0.1:0.15+0.6*전숙)+'" stroke="var(--accent)" stroke-width="2.5"/>'+
+          '<text class="pc" x="'+o.x+'" y="'+(o.y+5)+'" text-anchor="middle">'+(전숙==null?"—":Math.round(전숙*100)+"%")+'</text>';
+      }else{
+        점+='<g class="nd" data-s="'+o.i+'"><circle class="body" cx="'+o.x+'" cy="'+o.y+'" r="'+o.r+'" fill="var(--accent)" fill-opacity="'+(o.m==null?0.08:(0.12+0.7*o.m))+'" stroke="var(--accent)" stroke-width="2"/></g>';
+      }
+    });
+    판.insertAdjacentHTML("afterbegin",svg+점+'</svg>');
+    목록.forEach(function(o){
+      o.lab.style.left=(o.x-o.w/2)+"px"; o.lab.style.top=(o.y+o.r+4)+"px";
+    });
+    판.querySelectorAll("g.nd,.ml[data-s]").forEach(function(nd){
+      nd.addEventListener("click",function(){
+        var d=document.getElementById("br"+nd.dataset.s); d.open=true; d.scrollIntoView({behavior:"smooth",block:"start"});
+      });
+    });
+  }
+  지도();
+  var 다시=null;
+  window.addEventListener("resize",function(){ clearTimeout(다시); 다시=setTimeout(지도,150); });
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(지도);
 
   /* ── 가지 ── */
   var 중=(D.중분류||{});
@@ -148,9 +217,10 @@
     var m=GS.숙련(t.k), 카드=((D.cards||{})[t.k]||[]).length;
     return '<div class="lf'+(m!=null&&m>=0.8?' done':'')+'">'+
       '<span class="chip '+t.g+'">'+t.g+'</span>'+
-      '<span class="nm"><b>'+e(t.n)+'</b><small>'+e(t.h||"")+'</small></span>'+
+      '<span class="nm"><b>'+e(t.n)+'</b><small>기출 '+(t.c||0)+'</small></span>'+
       '<span class="go"><span><a href="card.html?k='+encodeURIComponent(t.k)+'">개념</a>'+
-        '<a class="ox" href="ox.html?k='+encodeURIComponent(t.k)+'">O·X</a></span>'+
+        (GS.옥수(t.k)>0 ? '<a class="ox" href="ox.html?k='+encodeURIComponent(t.k)+'">O·X</a>'
+          : (문풀[t.k] ? '<a class="ox" href="quiz.html?k='+encodeURIComponent(t.k)+'">문제풀이</a>' : ''))+'</span>'+
         '<div class="bar"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></span></div>';
   }
   function 정렬(ts){ return ts.slice().sort(function(a,b){return (GS.순[a.g]-GS.순[b.g])||(b.c-a.c);}); }
@@ -199,11 +269,6 @@
     h+='</div></details>';
   });
   document.getElementById("list").innerHTML=h||'';
-  document.querySelectorAll(".map g.nd").forEach(function(n){
-    n.addEventListener("click",function(){
-      var d=document.getElementById("br"+n.dataset.s); d.open=true; d.scrollIntoView({behavior:"smooth",block:"start"});
-    });
-  });
 })();
 </script>
 </body></html>

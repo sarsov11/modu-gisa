@@ -28,6 +28,8 @@
   .memo.trap b{color:var(--ink-3)}
   .memo.trap span{font-weight:500;color:var(--ink-3);font-size:14.5px}
   .nav2{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-top:16px}
+  .end{margin-top:16px}
+  .end .b2{margin-top:10px}
 </style>
 </head><body>
 <div class="page">
@@ -40,7 +42,7 @@
 <script>
 (function(){
   GS.내비("card.html");
-  var D=GS.D, e=GS.esc, k=new URLSearchParams(location.search).get("k");
+  var D=GS.D, e=GS.esc, 깨=GS.깨끗, k=new URLSearchParams(location.search).get("k");
   /* 개념 노트(1002) — 손으로 쓴 카드가 없는 테마는 기출이 「맞다」고 확인한 문장을 모아 보여 준다.
      지어낸 문장 없음: 발문(맥락) 아래에 O 로 판정된 선지만 싣는다. */
   function 노트(k){
@@ -65,36 +67,47 @@
   }
   /* 쓴 카드(a:1)는 첫 장, 그 뒤에 기출 확인 문장 노트를 잇는다. 손 카드(그림 있는 것)는 그대로. */
   function 장(k){ var c=(D.cards||{})[k]||[]; return c.length ? (c[0].a ? c.concat(노트(k)) : c) : 노트(k); }
-  /* k 없이 열면 고르라 하지 않고 오늘 할 테마의 개념을 편다 */
-  if(!k || !GS.테마맵[k]){
-    var 할=GS.오늘할것();
-    k = 할 ? 할.k : (D.테마[0]||{}).k;
-  }
+  /* k 없이 열면 직전에 공부한 테마(없으면 오늘 루틴의 테마) */
+  if(!k || !GS.테마맵[k]) k = GS.최근테마();
   var 장들=장(k), t=GS.테마맵[k]||{};
   function el(x){return document.getElementById(x);}
-  if(!장들.length){ el("stage").innerHTML='<p style="color:var(--ink-3)">이 테마는 아직 정리된 문장이 없습니다. <a href="tree.html">개념트리</a>에서 다른 테마를 고르세요.</p>'; return; }
+  if(!장들.length){ el("stage").innerHTML='<p style="color:var(--ink-3)">문장 없음 · <a href="tree.html">개념트리</a></p>'; return; }
   el("eb").textContent=(t.s||"")+" · "+(t.g||"")+"급"+(장들[0].노트?" · 기출 확인 문장":"");
   el("ttl").textContent=t.n||"";
   var i=0;
   function 그리기(){
     el("prog").innerHTML=장들.map(function(_,j){return '<i class="'+(j<=i?"on":"")+'"></i>';}).join("");
-    var c=장들[i];
+    var c=장들[i], 마지막=(i+1>=장들.length);
+    var 끝="";
+    if(마지막){
+      GS.카드봄(k);                                  // 마지막 장을 보면 루틴의 「개념」 칸이 찬다
+      var R=GS.루틴(), 다음=R.다음;
+      끝 = (다음
+          ? '<a class="b main" href="'+e(다음.주소)+'">'+e(GS.큰단추(R))+'</a>'
+          : '<a class="b main" href="index.html">오늘 목표 완료</a>')+
+        '<div class="b2">'+
+        ((!다음||다음.k!==k||다음.종류!=="ox")?'<a class="b sm" href="ox.html?k='+encodeURIComponent(k)+'">O·X</a>':'')+
+        (R.완료?'<button class="b sm" id="more">한 세트 더</button>':'')+
+        (R.완료&&GS.있다("exam.html")?'<a class="b sm" href="exam.html">모의고사</a>':'')+
+        '<a class="b sm" href="index.html">홈</a></div>';
+    }
     el("stage").innerHTML=
       '<div class="kc">'+(c.f?'<img src="img/'+e(c.f)+'" alt="">':'')+
-        '<div class="in">'+(c.노트&&i===0&&t.h?'<p style="margin:0 0 14px;font-size:15px;color:var(--ink-3);line-height:1.6">'+e(t.h)+'</p>':'')+
-          '<h2>'+e(c.t)+'</h2>'+(c.노트?'<div style="font-size:13px;font-weight:800;color:var(--accent);margin:-4px 0 10px">기출에서 맞는 설명</div>':'')+'<ul>'+
-          (c.l||[]).map(function(x){return '<li>'+e(x)+'</li>';}).join("")+'</ul>'+
+        '<div class="in">'+
+          '<h2>'+e(깨(c.t))+'</h2>'+(c.노트?'<div style="font-size:13px;font-weight:800;color:var(--accent);margin:-4px 0 10px">기출에서 맞는 설명</div>':'')+'<ul>'+
+          (c.l||[]).map(function(x){return '<li>'+e(깨(x))+'</li>';}).join("")+'</ul>'+
           ((c.m||[]).length?'<div class="memo"><b>외울 것</b>'+
             c.m.map(function(x){return '<span>'+e(x)+'</span>';}).join("")+'</div>':'')+
           ((c.x||[]).length?'<div class="memo trap"><b>함정 — 기출이 틀렸다고 한 설명</b>'+
-            c.x.map(function(x){return '<span>✕ '+e(x)+'</span>';}).join("")+'</div>':'')+
+            c.x.map(function(x){return '<span>✕ '+e(깨(x))+'</span>';}).join("")+'</div>':'')+
         '</div></div>'+
-      '<div class="nav2">'+(i>0?'<button class="b" id="pv">앞</button>':'<span></span>')+
-        (i+1<장들.length?'<button class="b main" id="nx">다음</button>'
-          :'<a class="b main" href="ox.html?k='+encodeURIComponent(k)+'">O·X 로 확인</a>')+'</div>';
+      (마지막
+        ? '<div class="end">'+(i>0?'<button class="b sm" id="pv" style="margin-bottom:10px">앞</button>':'')+끝+'</div>'
+        : '<div class="nav2">'+(i>0?'<button class="b" id="pv">앞</button>':'<span></span>')+
+          '<button class="b main" id="nx">다음</button></div>');
     if(el("pv")) el("pv").onclick=function(){i--;그리기();};
     if(el("nx")) el("nx").onclick=function(){i++;그리기();};
-    if(i+1>=장들.length) GS.카드봄(k);
+    if(el("more")) el("more").onclick=function(){ GS.더하기(); location.href=GS.루틴().다음.주소; };
     window.scrollTo({top:0,behavior:"smooth"});
   }
   그리기();

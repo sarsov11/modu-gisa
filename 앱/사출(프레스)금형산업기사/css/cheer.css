@@ -1,0 +1,78 @@
+/* 정답 연출 (js/cheer.js) — 색은 base.css 변수만. 스킨 5종 모두에서 같은 코드로 보인다.
+   이모지·별표 글자 없음. 전부 pointer-events:none — 다음 단추를 가리지도 막지도 않는다. */
+:root{ --cheer-ok:#1F9D5B; }   /* 채점 초록(base.css 의 data-s=ok 와 같은 값) */
+
+#cheer-fx,.cheer-fx-host{ position:fixed; inset:0; z-index:9990; pointer-events:none; overflow:hidden; }
+#cheer-fx > *,.cheer-fx-host > *{ position:absolute; pointer-events:none; will-change:transform,opacity; }
+
+/* 선지의 통통·흔들림·불꽃 테두리는 js/cheer.js 가 Web Animations 로 건다(class 를 갈아엎는 화면에서도 안 끊기게) */
+
+/* ── 체크 아이콘 그리기 (공통) ── */
+.cheer-check svg{ width:100%; height:100%; overflow:visible; filter:drop-shadow(0 1px 3px var(--line-2)); }
+.cheer-check circle{ fill:var(--cheer-ok); stroke:var(--cheer-ok); stroke-width:2; transform-origin:center; animation:cheerPop .32s cubic-bezier(.2,.9,.3,1.4) both; }
+.cheer-check path{ fill:none; stroke:#fff; stroke-width:4; stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:30; stroke-dashoffset:30; animation:cheerDraw .34s ease-out .16s forwards; }
+.cheer-check{ animation:cheerFade 1.35s ease-in both; }
+@keyframes cheerDraw{ to{ stroke-dashoffset:0 } }
+@keyframes cheerPop{ 0%{transform:scale(0)} 100%{transform:scale(1)} }
+@keyframes cheerFade{ 0%,70%{opacity:1} 100%{opacity:0} }
+
+/* ── A 버스트 ── */
+.cheer-p{ border-radius:50%; margin:-4px 0 0 -4px; animation:cheerFly .85s cubic-bezier(.15,.7,.3,1) both; }
+.cheer-p1{ border-radius:3px; } .cheer-p2{ border-radius:2px 50% 2px 50%; }
+@keyframes cheerFly{ 0%{ transform:translate(0,0) scale(.3) rotate(0); opacity:1 }
+  70%{ opacity:1 } 100%{ transform:translate(var(--dx),calc(var(--dy) + 26px)) scale(1) rotate(var(--rot)); opacity:0 } }
+.cheer-ring{ border:3px solid var(--cheer-ok); border-radius:16px; transform:translate(-50%,-50%); animation:cheerRing .7s ease-out both; }
+@keyframes cheerRing{ 0%{ transform:translate(-50%,-50%) scale(.9); opacity:.9 } 100%{ transform:translate(-50%,-50%) scale(1.55); opacity:0 } }
+
+/* ── B 콤보 ── */
+.cheer-xp{ left:50%; top:calc(env(safe-area-inset-top,0px) + 10px); transform:translateX(-50%); display:flex; align-items:center; gap:8px;
+  padding:6px 12px; border-radius:99px; background:var(--surface); border:1.5px solid var(--line-3); color:var(--ink); font-size:13px; font-weight:800;
+  box-shadow:0 4px 14px var(--line-2); animation:cheerXp 1.45s ease both; }
+.cheer-xp .tr{ display:block; width:96px; height:9px; border-radius:99px; background:var(--line-2); overflow:hidden; }
+.cheer-xp i{ display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,var(--mint),var(--cheer-ok)); transition:width .55s cubic-bezier(.2,.8,.2,1); }
+.cheer-xp .lv{ color:var(--ink-2); white-space:nowrap; } .cheer-xp .pt{ color:var(--cheer-ok); min-width:2ch; text-align:right; }
+.cheer-xp.up{ border-color:var(--amber); } .cheer-xp.up .lv{ color:var(--amber); }
+@keyframes cheerXp{ 0%{ opacity:0; transform:translate(-50%,-14px) } 12%{ opacity:1; transform:translate(-50%,0) } 80%{ opacity:1 } 100%{ opacity:0; transform:translate(-50%,-6px) } }
+.cheer-float{ transform:translateX(-50%); color:var(--cheer-ok); font-weight:900; font-size:20px; letter-spacing:-.01em;
+  text-shadow:0 0 0 var(--bg), 0 2px 0 var(--bg), 0 0 8px var(--bg); animation:cheerFloat 1s ease-out both; white-space:nowrap; }
+@keyframes cheerFloat{ 0%{ opacity:0; transform:translate(-50%,6px) scale(.6) } 18%{ opacity:1; transform:translate(-50%,-6px) scale(1.15) }
+  100%{ opacity:0; transform:translate(-50%,-52px) scale(1) } }
+.cheer-combo{ left:50%; top:22%; transform:translate(-50%,0); display:flex; flex-direction:column; align-items:center; line-height:1; animation:cheerCombo 1.2s cubic-bezier(.2,.9,.3,1.2) both; }
+.cheer-combo b{ font-size:64px; font-weight:900; letter-spacing:-.04em; color:var(--cheer-ok); -webkit-text-stroke:5px var(--bg); paint-order:stroke fill; }
+.cheer-combo span{ margin-top:2px; padding:3px 12px; border-radius:99px; font-size:14px; font-weight:800; color:#fff; background:var(--cheer-ok); }
+.cheer-combo.t1 b{ font-size:78px; color:var(--mint); } .cheer-combo.t1 span{ background:var(--mint); color:var(--bg); }
+.cheer-combo.t2 b{ font-size:92px; color:var(--amber); } .cheer-combo.t2 span{ background:var(--amber); color:var(--bg); }
+.cheer-combo.t3 b{ font-size:108px; color:var(--accent); } .cheer-combo.t3 span{ background:var(--accent); color:#fff; }
+@keyframes cheerCombo{ 0%{ opacity:0; transform:translate(-50%,10px) scale(.3) } 22%{ opacity:1; transform:translate(-50%,0) scale(1.28) }
+  38%{ transform:translate(-50%,0) scale(.95) } 50%{ transform:translate(-50%,0) scale(1) } 82%{ opacity:1 } 100%{ opacity:0; transform:translate(-50%,-14px) scale(1) } }
+.cheer-flame{ margin-left:-6px; border-radius:50% 50% 50% 50% / 62% 62% 38% 38%; opacity:0; animation:cheerFlame .9s ease-out both; }
+@keyframes cheerFlame{ 0%{ opacity:0; transform:translate(0,6px) scale(.5) } 20%{ opacity:.95 }
+  100%{ opacity:0; transform:translate(var(--fx),var(--fy)) scale(.2) } }
+
+/* ── C 도장 ── */
+.cheer-flash{ inset:0; background:var(--cheer-ok); opacity:0; animation:cheerFlash .5s ease-out both; }
+@keyframes cheerFlash{ 0%{ opacity:0 } 14%{ opacity:.22 } 100%{ opacity:0 } }
+.cheer-stamp{ left:50%; top:42%; transform:translate(-50%,-50%) rotate(-9deg); animation:cheerStamp 1.15s cubic-bezier(.2,.9,.3,1) both; }
+.cheer-stamp span{ display:block; padding:6px 30px 8px; border:7px double var(--cheer-ok); border-radius:16px; color:var(--cheer-ok);
+  background:var(--surface); font-size:56px; font-weight:900; letter-spacing:.08em; line-height:1.1; box-shadow:0 8px 0 var(--line-2); }
+@keyframes cheerStamp{ 0%{ opacity:0; transform:translate(-50%,-50%) rotate(-9deg) scale(2.8) }
+  18%{ opacity:1; transform:translate(-50%,-50%) rotate(-9deg) scale(.92) }
+  26%{ transform:translate(-47%,-51%) rotate(-11deg) scale(1.04) } 34%{ transform:translate(-53%,-49%) rotate(-7deg) scale(1) }
+  42%{ transform:translate(-50%,-50%) rotate(-9deg) scale(1) } 72%{ opacity:1 } 100%{ opacity:0; transform:translate(-50%,-56%) rotate(-9deg) scale(1) } }
+
+/* ── 움직임 줄이기: 체크와 글자만, 흔들림·튀김·플래시 없음 ── */
+@media (prefers-reduced-motion:reduce){
+  .cheer-check circle,.cheer-check path{ animation:none; stroke-dashoffset:0 }
+  .cheer-xp,.cheer-float,.cheer-combo{ animation-duration:.6s }
+}
+
+/* ── 설정 화면 「정답 연출」 ── */
+.cheerpick{ display:flex; gap:8px; flex-wrap:wrap; }
+.cheerpick button{ flex:1 1 0; min-height:48px; padding:8px 10px; border-radius:12px; border:1.5px solid var(--line-2); background:var(--surface); color:var(--ink);
+  font:inherit; font-weight:700; cursor:pointer; }
+.cheerpick button small{ display:block; font-weight:500; color:var(--ink-3); font-size:12px; }
+.cheerpick button[aria-pressed="true"]{ border-color:var(--cta); background:var(--cta-soft); }
+.cheerrow{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.cheerrow button{ min-height:44px; padding:8px 14px; border-radius:12px; border:1.5px solid var(--line-2); background:var(--surface); color:var(--ink); font:inherit; font-weight:700; cursor:pointer; }
+.cheerrow button[aria-pressed="true"]{ border-color:var(--cta); background:var(--cta-soft); }

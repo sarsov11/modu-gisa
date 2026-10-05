@@ -7,24 +7,38 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/cheer.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
   .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 18px;font-weight:900}
   input[type=date]{font:inherit;font-size:16px;padding:10px 12px;border:1.5px solid var(--line-2);
     border-radius:var(--r2);background:var(--surface);color:var(--ink)}
+  .dr{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:12px}
   .sk{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   .sk button{appearance:none;font:inherit;font-size:15px;font-weight:700;padding:12px 4px;
     border:1.5px solid var(--line-2);border-radius:var(--r2);background:var(--surface);color:var(--ink);cursor:pointer}
   .sk button[aria-pressed="true"]{border-color:var(--ink)}
+  .fold .b+.b{margin-top:10px}
 </style>
 </head><body>
 <div class="page">
   <div class="hd"><h1>설정</h1></div>
-  <details class="fold" open><summary>시험일</summary><div class="in">
-    <input type="date" id="exam">
+  <details class="fold" open><summary>하루 목표</summary><div class="in">
+    <div class="tl" id="goal"></div>
+  </div></details>
+  <details class="fold" open><summary id="exlab">시험일</summary><div class="in">
+    <div class="tl" id="exq"></div>
+    <div class="dr"><input type="date" id="exam"><span class="rl" id="exdd"></span></div>
+  </div></details>
+  <details class="fold" open><summary>진단</summary><div class="in">
+    <a class="b" href="start.html?diag=1">진단 다시 하기</a>
+    <div class="dr" id="dgres"></div>
   </div></details>
   <details class="fold"><summary>화면</summary><div class="in">
     <div class="sk" id="skins"></div>
+  </div></details>
+  <details class="fold"><summary>정답 연출</summary><div class="in">
+    <div class="sk" id="cheer"></div>
   </div></details>
   <details class="fold"><summary>기록</summary><div class="in">
     <button class="b" id="reset">기록 전부 지우기</button>
@@ -32,12 +46,53 @@
 </div>
 <script src="js/gdata.js"></script>
 <script src="js/gstore.js"></script>
+<script src="js/cheer.js"></script>
 <script>
 (function(){
   GS.내비("settings.html");
-  var x=document.getElementById("exam");
-  x.value=GS.S.시험일||"";
-  x.onchange=function(){ GS.S.시험일=x.value; GS.저장(); };
+  var S=GS.S, D=GS.D, e=GS.esc;
+  function 표(n){ return n==null?"":(n>0?"D-"+n:(n===0?"D-DAY":"시험 끝")); }
+
+  /* 하루 목표 분 — 바꾸면 오늘 루틴도 새로 짠다(아직 안 한 항목이 없을 때) */
+  var 분=[5,10,15,20,30];
+  function 목표그리기(){
+    document.getElementById("goal").innerHTML=분.map(function(m){
+      return '<button data-m="'+m+'" aria-pressed="'+(S.목표분===m)+'">'+m+'분</button>';
+    }).join("");
+    document.querySelectorAll("#goal button").forEach(function(b){
+      b.onclick=function(){ S.목표분=Number(b.dataset.m); S.플로=(S.플로&&S.플로.done&&S.플로.done.length)?S.플로:null; GS.저장(); 목표그리기(); };
+    });
+  }
+  목표그리기();
+
+  /* 시험일 — 기능사는 상시 CBT 라 목표일을 직접 */
+  var 기능=(GS.갈래==="기능사"), x=document.getElementById("exam");
+  document.getElementById("exlab").textContent=기능?"목표일":"시험일";
+  x.value=S.시험일||"";
+  function 날표시(){ var d=GS.디데이(); var s=document.getElementById("exdd"); s.textContent=d==null?"":표(d); s.style.display=d==null?"none":""; }
+  function 칸그리기(){
+    var 후=[];
+    if(기능){ [30,60,90].forEach(function(n){ var d=new Date(); d.setDate(d.getDate()+n); var v=new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); 후.push([n+"일",v]); }); }
+    else if(D.시험일){ 후.push([D.시험일.replace(/-/g,"."),D.시험일]); }
+    후.push(["미정",""]);
+    document.getElementById("exq").innerHTML=후.map(function(c,j){
+      return '<button data-v="'+c[1]+'" aria-pressed="'+((S.시험일||"")===c[1])+'">'+c[0]+'</button>';
+    }).join("");
+    document.querySelectorAll("#exq button").forEach(function(b){
+      b.onclick=function(){ S.시험일=b.dataset.v; x.value=S.시험일; GS.저장(); 칸그리기(); 날표시(); };
+    });
+  }
+  x.onchange=function(){ S.시험일=x.value; GS.저장(); 칸그리기(); 날표시(); };
+  칸그리기(); 날표시();
+
+  /* 진단 결과 — 과목별 한 줄 */
+  if(S.진단&&S.진단.과목){
+    document.getElementById("dgres").innerHTML=Object.keys(S.진단.과목).map(function(s){
+      var a=S.진단.과목[s]; if(!a[1]) return "";
+      return '<span class="rl '+((S.진단.약||[]).indexOf(s)>=0?'wk':'df')+'">'+e(s)+' '+a[0]+'/'+a[1]+'</span>';
+    }).join("");
+  }
+
   var 스킨=[["white","화이트"],["paper","종이"],["jelly","분홍"],["night","밤"]];
   var 지금=localStorage.getItem("modugisa2.skin")||"white";
   document.getElementById("skins").innerHTML=스킨.map(function(s){
@@ -49,6 +104,23 @@
       document.documentElement.dataset.skin=(v==="night"?"":v); location.reload();
     };
   });
+
+  /* 정답 연출 — 소리 켬/끔, 종류 A·B·C */
+  function 연출그리기(){
+    var 소리=CHEER.sound(), 종=CHEER.kind();
+    var 후=[["a","버스트"],["b","콤보"],["c","도장"],["s",소리?"소리 켬":"소리 끔"]];
+    document.getElementById("cheer").innerHTML=후.map(function(c){
+      return '<button data-c="'+c[0]+'" aria-pressed="'+(c[0]==="s"?소리:(c[0]===종))+'">'+c[1]+'</button>';
+    }).join("");
+    document.querySelectorAll("#cheer button").forEach(function(b){
+      b.onclick=function(){
+        if(b.dataset.c==="s") CHEER.sound(!CHEER.sound()); else { CHEER.kind(b.dataset.c); CHEER.ok(b); }
+        연출그리기();
+      };
+    });
+  }
+  연출그리기();
+
   document.getElementById("reset").onclick=function(){
     if(confirm("기록 전부 삭제 · 복구 불가")){ GS.초기화(); location.href="index.html"; }
   };

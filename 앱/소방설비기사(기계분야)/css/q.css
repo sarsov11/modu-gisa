@@ -1,0 +1,81 @@
+/* quiz.html · exam.html 공용 — 색은 base.css 변수만 */
+.hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 0;font-weight:900}
+.prog{display:flex;gap:4px;margin:20px 0 14px}
+.prog i{flex:1;height:4px;border-radius:99px;background:var(--surface-3)}
+.prog i.ok{background:var(--ink-3)} .prog i.no{background:var(--accent)} .prog i.now{background:var(--ink-4)}
+.qwrap{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--bg-2);padding:20px 18px;margin-bottom:16px}
+.qtag{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--ink-3);margin-bottom:14px}
+.qtag b{color:var(--accent);font-weight:800}
+.qtag .src{margin-left:auto;font-variant-numeric:tabular-nums}
+.qstem{font-size:16.5px;line-height:1.65;font-weight:700;margin:0;letter-spacing:-.01em;white-space:pre-wrap;word-break:keep-all}
+.pl{display:inline-block;font-size:12.5px;font-weight:800;padding:2px 9px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink-3)}
+.pl.wr{border-color:var(--amber);color:var(--amber)}
+.pl.pass{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.pl.fail{background:var(--accent);border-color:var(--accent);color:#fff}
+.pl.lock{background:var(--accent);border-color:var(--accent);color:#fff;margin-left:6px}
+.ch{display:grid;gap:9px;margin:0 0 14px}
+.ch button{appearance:none;display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);
+  padding:14px 15px;font:inherit;font-size:16px;line-height:1.55;font-weight:600;cursor:pointer;word-break:keep-all}
+.ch button .n{flex:none;font-weight:800;color:var(--ink-3);font-size:16px}
+.ch button[aria-pressed="true"]{border-color:var(--ink);background:var(--surface)}
+.ch button.ans{border-color:var(--ink);background:var(--surface);box-shadow:inset 4px 0 0 var(--ink)}
+.ch button.wrong{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.ch button:disabled{cursor:default}
+.vd{border-radius:var(--r2);padding:16px 18px;margin:0 0 14px;border:1.5px solid var(--line-2);background:var(--surface-2)}
+.vd.bad{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.vd .top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.vd .mark{font-size:21px;font-weight:900;line-height:1}
+.vd.bad .mark{color:var(--accent)}
+.vd .meta{margin-left:auto;font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.vd .lk{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.vd .lk a{display:flex;justify-content:center;padding:11px 8px;border:1.5px solid var(--line-2);border-radius:var(--r3);
+  background:var(--surface);color:var(--ink);text-decoration:none;font-weight:800;font-size:15px}
+.done{text-align:center;padding:26px 2px}
+.done h2{font-size:24px;margin:0 0 14px;letter-spacing:-.03em}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 20px}
+.tally div{text-align:center;border:1px solid var(--line-2);border-radius:var(--r1);background:var(--surface);padding:13px 6px}
+.tally b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+.tally span{font-size:14px;color:var(--ink-3)}
+.wl{list-style:none;margin:0 0 18px;padding:0;text-align:left}
+.wl li{border-top:1px solid var(--line);padding:12px 2px;font-size:15px;line-height:1.55}
+.wl li b{display:block;font-weight:700;margin-bottom:3px}
+.wl li span{color:var(--ink-3)}
+.sub{display:grid;gap:8px;margin:0 0 18px;text-align:left}
+.sub .r{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;border:1px solid var(--line-2);
+  border-radius:var(--r3);background:var(--surface);padding:12px 14px}
+.sub .r.lk2{border-color:var(--accent)}
+.sub .r b{font-size:16px}
+.sub .r em{font-style:normal;font-weight:800;font-variant-numeric:tabular-nums}
+.sub .r .bar{grid-column:1/3}
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.pick a{display:inline-flex;gap:7px;align-items:center;padding:9px 13px;border:1.5px solid var(--line-2);border-radius:99px;
+  background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}
+.pick a i{font-style:normal;color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
+.pick a.hot{border-color:var(--accent);color:var(--accent)}
+.fold .th{display:grid;gap:0}
+.fold .th a{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-top:1px solid var(--line);
+  color:var(--ink);text-decoration:none;font-size:15px}
+.fold .th a i{font-style:normal;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.stick{position:sticky;top:50px;z-index:15;background:var(--bg);display:flex;align-items:center;gap:10px;padding:10px 0;
+  border-bottom:1px solid var(--line)}
+.stick .tm{font-weight:900;font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.stick .tm.low{color:var(--accent)}
+.stick .ct{margin-left:auto;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:7px;margin:0 0 16px}
+.grid button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink-3);border-radius:10px;
+  padding:9px 0;font:inherit;font-size:14px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums}
+.grid button.on{background:var(--surface);color:var(--ink);border-color:var(--ink-3)}
+.grid button.cur{border-color:var(--accent);color:var(--accent)}
+.hist{display:grid;gap:8px;margin:0 0 18px}
+.hist .r{display:flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:var(--r3);background:var(--surface);padding:11px 14px;font-size:15px}
+.hist .r em{margin-left:auto;font-style:normal;font-weight:800;font-variant-numeric:tabular-nums}
+.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.spec div{border:1px solid var(--line-2);border-radius:var(--r1);background:var(--surface);padding:13px 6px;text-align:center}
+.spec b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.spec span{font-size:13.5px;color:var(--ink-3)}
+.big{display:flex;flex-direction:column;align-items:center;gap:10px;margin:8px 0 20px}
+.big .pl{font-size:20px;padding:7px 22px}
+.big strong{font-size:30px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.act{display:grid;gap:10px;margin-top:6px}
+@media(max-width:520px){ .ch button{font-size:15.5px} .qstem{font-size:16px} }

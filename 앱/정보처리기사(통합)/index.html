@@ -14,12 +14,24 @@
   .when h1{font-size:27px;letter-spacing:-.04em;margin:8px 0 0;font-weight:900}
   .when h1 em{font-style:normal;color:var(--accent)}
   .when hr{border:0;border-top:1px solid var(--line);margin:18px 0 0}
-  /* 코치 한 문장 — 통사 홈과 같다. 설명하지 않고 권한다 */
+  /* 오늘 테마 — 이름표 한 장 */
   .coach{border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);
-    padding:22px 22px;margin:22px 0 14px;font-size:19px;line-height:1.6;font-weight:700;
-    letter-spacing:-.02em}
+    padding:20px 22px;margin:20px 0 12px;font-size:21px;line-height:1.5;font-weight:800;letter-spacing:-.03em}
   .coach em{font-style:normal;color:var(--accent)}
-  .coach small{display:block;margin-top:8px;font-size:14.5px;color:var(--ink-3);font-weight:500}
+  .coach small{display:block;margin-top:6px;font-size:14.5px;color:var(--ink-3);font-weight:600;letter-spacing:0}
+  .flowbox{margin:20px 0 4px}
+  /* 합격 가늠 */
+  .gm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 2px 6px}
+  .gm b{font-size:34px;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  .gm span{font-size:15px;color:var(--ink-3);font-weight:700}
+  .gm i.up{font-style:normal;font-weight:900;font-size:15px;color:var(--ink)}
+  .gm i.dn{font-style:normal;font-weight:900;font-size:15px;color:var(--accent)}
+  .sr{padding:11px 0;border-top:1px solid var(--line)}
+  .sr:first-child{border-top:0}
+  .sr .t{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .sr .t .sn{font-size:15.5px;font-weight:800;letter-spacing:-.02em;margin-right:auto;min-width:0}
+  .sr .t b{font-size:16px;font-variant-numeric:tabular-nums}
+  .sr .bar{margin-top:7px}
 </style>
 </head><body>
 <div class="page">
@@ -29,60 +41,95 @@
     <hr>
   </div>
   <div class="coach" id="coach"></div>
-  <a class="b main" id="go">준비 완료</a>
-  <div class="b2">
-    <a class="b" id="concept">개념 보기</a>
-    <a class="b" href="tree.html">다른 테마</a>
-  </div>
+  <a class="b main" id="go"></a>
+  <div class="flowbox" id="flow"></div>
+  <div class="b2" id="small"></div>
 
-  <div class="lab">내 기록</div>
-  <details class="fold"><summary>이번 주</summary><div class="in" id="week"></div></details>
-  <details class="fold"><summary>과목별 정답률</summary><div class="in" id="subj"></div></details>
+  <div id="gm"></div>
+  <div class="lab" id="slab">과목</div>
+  <div class="fold" style="padding:6px 18px 8px"><div id="subj"></div></div>
+  <details class="fold" id="wk"><summary>이번 주</summary><div class="in" id="week"></div></details>
 </div>
 <script src="js/gdata.js"></script>
 <script src="js/gstore.js"></script>
+<script>/* 합격 가늠은 문제풀이 기록을 과목별로 센다 — 기록이 있을 때만 문제 자료를 불러온다 */
+(function(){ var 기=(GS.S.기출||{}); if(Object.keys(기).length && !window.GQ){ document.write('<script src="js/gquiz.js"><\/script>'); } })();</script>
 <script>
 (function(){
+  if(!GS.S.시작){ location.replace("start.html"); return; }
   GS.내비("index.html");
   var D=GS.D, e=GS.esc;
-  var 지금=new Date();
-  document.getElementById("date").textContent=(지금.getMonth()+1)+"월 "+지금.getDate()+"일";
+  var 오늘=new Date();
+  document.getElementById("date").textContent=(오늘.getMonth()+1)+"월 "+오늘.getDate()+"일";
   var dd=GS.디데이();
   document.getElementById("dd").innerHTML = e(D.종목)+" "+
     (dd==null?"":"<em>"+(dd>0?"D-"+dd:(dd===0?"D-DAY":"시험 끝"))+"</em>");
 
-  /* 오늘 이거 하나 — 고르게 하지 않는다 */
-  var 할=GS.오늘할것(), 말="", 가기="tree.html", 개념="card.html";
-  if(!할){
-    말="";
-  }else if(할.종류==="복습"){
-    말="복습 "+할.n+'<i class="gc">강추</i>';
-    가기="ox.html?review=1";
-  }else{
-    var t=할.t;
-    말="<em>"+e(할.이름)+"</em> O·X"+
-       "<small>"+e(t.s)+" · "+t.g+"급</small>";
-    가기="ox.html?k="+encodeURIComponent(할.k);
-    개념="card.html?k="+encodeURIComponent(할.k);
-  }
-  var coachEl=document.getElementById("coach");
-  if(말) coachEl.innerHTML=말; else coachEl.remove();
-  document.getElementById("go").href=가기;
-  document.getElementById("concept").href=개념;
-  if(!(D.cards||{})[할&&할.k]) document.getElementById("concept").href="card.html";
+  /* ── 오늘 루틴 — 큰 단추 하나가 다음 항목으로 바로 이어진다 ── */
+  var R=GS.루틴(), 다음=R.다음, t=R.t;
+  var 코치=document.getElementById("coach");
+  if(t){
+    코치.innerHTML="<em>"+e(t.n)+"</em><small>"+e(t.s)+" · "+t.g+"급</small>";
+  }else 코치.remove();
+  var go=document.getElementById("go");
+  go.textContent=GS.큰단추(R);
+  if(다음){ go.href=다음.주소; }
+  else { go.removeAttribute("href"); go.className="b fin"; }
 
-  /* 기록 — 접어 둔다. 홈에 숫자를 늘어놓지 않는다 */
-  var w=GS.이번주();
-  document.getElementById("week").innerHTML = w.n
-    ? '<div class="row"><span>푼 문장</span><b>'+w.n+'개</b></div>'+
-      '<div class="row"><span>정답률</span><b>'+Math.round(w.ok*100/w.n)+'%</b></div>'
-    : '';
-  var 성=GS.과목성적(), 줄="";
-  Object.keys(성).forEach(function(s){
-    var a=성[s], p=a.푼?Math.round(a.맞*100/a.푼):null;
-    줄+='<div class="row"><span>'+e(s)+'</span><b>'+(p==null?"—":p+"%")+'</b></div>';
-  });
+  var 칩=R.items.map(function(it){
+    var 끝=R.done.indexOf(it.id)>=0, 지금=(다음&&다음.id===it.id);
+    var 이름=it.종류==="review"?"복습":(it.종류==="card"?"개념":(it.종류==="quiz"?"문제풀이":"O·X"));
+    return '<li class="'+(끝?"dn":(지금?"now":""))+'">'+(끝?"✓ ":"")+이름+'<small>'+it.분+'분</small></li>';
+  }).join("");
+  var 비율=Math.min(100,Math.round(R.오늘분*100/R.목표분));
+  document.getElementById("flow").innerHTML=
+    '<div class="flowbar"><i style="width:'+비율+'%"></i></div>'+
+    '<div class="flowmeta"><b>오늘 '+R.오늘분+'분</b><span>'+(R.완료||R.남은===0?"목표 "+R.목표분+"분 완료":"남은 "+R.남은+"분 · 목표 "+R.목표분+"분")+'</span></div>'+
+    '<ul class="fl">'+칩+'</ul>';
+
+  /* ── 작은 단추 — 개념은 직전·오늘 테마로 ── */
+  var 소=[];
+  if(R.완료) 소.push('<button class="b sm" id="more">한 세트 더</button>');
+  소.push('<a class="b sm" href="card.html?k='+encodeURIComponent(GS.최근테마())+'">개념</a>');
+  소.push('<a class="b sm" href="tree.html">다른 테마</a>');
+  if(GS.있다("quiz.html")) 소.push('<a class="b sm" href="quiz.html">문제풀이</a>');
+  if(GS.있다("exam.html")) 소.push('<a class="b sm" href="exam.html">모의고사'+(GS.모의필요()?' <i class="wn" style="margin-left:6px">주 1회</i>':'')+'</a>');
+  document.getElementById("small").innerHTML=소.join("");
+  var more=document.getElementById("more");
+  if(more) more.onclick=function(){ GS.더하기(); location.reload(); };
+
+  /* ── 합격 가늠 — 표본이 모자라면 통째로 숨긴다 ── */
+  var 가=GS.가늠();
+  if(가){
+    var 차=가.점-가.선;
+    document.getElementById("gm").innerHTML=
+      '<div class="lab">합격 가늠 · '+(가.출처==="모의"?"모의고사":"문제풀이")+'</div>'+
+      '<div class="gm"><b>'+가.점+'</b><span>/ 합격선 '+가.선+'</span>'+
+      '<i class="'+(차>=0?"up":"dn")+'">'+(차>=0?"+":"")+차+'</i>'+
+      (가.과락.length?'<i class="wn">⚠ 과락 '+가.과락.length+'</i>':'')+'</div>'+
+      '<div class="fold" style="padding:6px 18px 8px">'+Object.keys(가.과목).map(function(n){
+        var v=가.과목[n]; return '<div class="sr"><div class="t"><span class="sn">'+e(n)+'</span>'+
+          (가.과락있음&&v<40?'<i class="wn">⚠ 과락</i>':'')+'<b>'+v+'</b></div><div class="bar"><i style="width:'+v+'%"></i></div></div>';
+      }).join("")+'</div>';
+  }
+
+  /* ── 과목별 정답률 — 전략·방어 알약, 과락 위험 마크 ── */
+  var 줄=GS.과목표().map(function(r){
+    return '<div class="sr"><div class="t"><span class="sn">'+e(r.s)+'</span>'+
+      (r.역할==="전략"?'<i class="rl st">전략</i>':(r.역할==="방어"?'<i class="rl df">방어</i>':''))+
+      (r.과락위험?'<i class="wn">⚠ 과락</i>':'')+
+      '<b>'+(r.p==null?"—":r.p+"%")+'</b></div>'+
+      '<div class="bar"><i style="width:'+(r.p==null?0:r.p)+'%"></i></div></div>';
+  }).join("");
   document.getElementById("subj").innerHTML=줄;
+  document.getElementById("slab").textContent="과목 · O·X 정답률";
+
+  var w=GS.이번주();
+  if(w.n){
+    document.getElementById("week").innerHTML=
+      '<div class="row"><span>푼 문장</span><b>'+w.n+'개</b></div>'+
+      '<div class="row"><span>정답률</span><b>'+Math.round(w.ok*100/w.n)+'%</b></div>';
+  }else document.getElementById("wk").remove();
 })();
 </script>
 </body></html>
