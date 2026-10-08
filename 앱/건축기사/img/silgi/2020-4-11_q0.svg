@@ -1,0 +1,35 @@
+<svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 결합점 표시법 보기 -->
+  <text class="tb" x="280" y="26" text-anchor="middle">결합점 표시법</text>
+  <rect class="th" x="112" y="48" width="76" height="20"/>
+  <line class="th" x1="150" y1="48" x2="150" y2="68"/>
+  <text class="ts" x="118" y="63">EST</text><text class="ts" x="157" y="63">LST</text>
+  <polygon class="th" points="372,68 380,48 448,48 448,68"/>
+  <line class="th" x1="412" y1="48" x2="412" y2="68"/>
+  <text class="ts" x="384" y="63">LFT</text><text class="ts" x="418" y="63">EFT</text>
+  <circle class="nd" cx="150" cy="104" r="17"/><text class="tm" x="147" y="109">i</text>
+  <circle class="nd" cx="410" cy="104" r="17"/><text class="tm" x="407" y="109">j</text>
+  <line class="ln" x1="167" y1="104" x2="391" y2="104" marker-end="url(#ai)"/>
+  <text class="tx" x="280" y="92" text-anchor="middle">작업명</text>
+  <text class="tx" x="280" y="128" text-anchor="middle">소요일수</text>
+  <line class="crit" x1="190" y1="160" x2="250" y2="160" marker-end="url(#ar)"/>
+  <text class="ts" x="262" y="165">주공정선은 굵은 선으로 표시</text>
+</svg>

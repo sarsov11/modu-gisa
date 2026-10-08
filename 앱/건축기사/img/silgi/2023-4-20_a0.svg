@@ -1,0 +1,66 @@
+<svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 결합점: 0(50,180) 1(170,180) 2(310,100) 3(310,260) 4(440,180) 5(520,350) 6(600,180) -->
+  <!-- B: 0 -> 6 (위로 돌아감), C: 0 -> 5 (아래로 돌아감) -->
+  <polyline class="ln" points="50,164 50,30 600,30 600,164" fill="none" marker-end="url(#ai)"/>
+  <polyline class="ln" points="50,196 50,350 503,350" fill="none" marker-end="url(#ai)"/>
+  <!-- A, D, G : 주공정선 -->
+  <line class="crit" x1="67" y1="180" x2="152" y2="180" marker-end="url(#ar)"/>
+  <line class="crit" x1="187" y1="180" x2="422" y2="180" marker-end="url(#ar)"/>
+  <line class="crit" x1="457" y1="180" x2="582" y2="180" marker-end="url(#ar)"/>
+  <!-- E, F -->
+  <line class="ln" x1="183" y1="171" x2="294" y2="108" marker-end="url(#ai)"/>
+  <line class="ln" x1="183" y1="189" x2="294" y2="252" marker-end="url(#ai)"/>
+  <!-- 더미 -->
+  <line class="dsh" x1="324" y1="110" x2="428" y2="168" marker-end="url(#ai)"/>
+  <line class="dsh" x1="324" y1="250" x2="428" y2="192" marker-end="url(#ai)"/>
+  <line class="dsh" x1="530" y1="334" x2="595" y2="197" marker-end="url(#ai)"/>
+  <!-- 결합점 -->
+  <circle class="nd" cx="50" cy="180" r="16"/><text class="tb" x="50" y="185" text-anchor="middle">0</text>
+  <circle class="nd" cx="170" cy="180" r="16"/><text class="tb" x="170" y="185" text-anchor="middle">1</text>
+  <circle class="nd" cx="310" cy="100" r="16"/><text class="tb" x="310" y="105" text-anchor="middle">2</text>
+  <circle class="nd" cx="310" cy="260" r="16"/><text class="tb" x="310" y="265" text-anchor="middle">3</text>
+  <circle class="nd" cx="440" cy="180" r="16"/><text class="tb" x="440" y="185" text-anchor="middle">4</text>
+  <circle class="nd" cx="520" cy="350" r="16"/><text class="tb" x="520" y="355" text-anchor="middle">5</text>
+  <circle class="nd" cx="600" cy="180" r="16"/><text class="tb" x="600" y="185" text-anchor="middle">6</text>
+  <!-- 작업명 · 일수 -->
+  <text class="tx" x="110" y="204" text-anchor="middle">A 5</text>
+  <text class="tx" x="310" y="172" text-anchor="middle">D 8</text>
+  <text class="tx" x="520" y="170" text-anchor="middle">G 7</text>
+  <text class="tx" x="255" y="148">E 7</text>
+  <text class="tx" x="212" y="238">F 6</text>
+  <text class="tx" x="325" y="22" text-anchor="middle">B 18</text>
+  <text class="tx" x="280" y="342" text-anchor="middle">C 16</text>
+  <!-- 결합점 일정: 사각형 = EST | LST, 삼각형 = LFT | EFT -->
+  <rect class="th" x="62" y="148" width="56" height="18"/><text class="ts" x="90" y="161" text-anchor="middle">0 | 0</text>
+  <polygon class="th" points="124,126 156,96 188,126"/><text class="ts" x="156" y="122" text-anchor="middle">5 | 5</text>
+  <rect class="th" x="124" y="134" width="56" height="18"/><text class="ts" x="152" y="147" text-anchor="middle">5 | 5</text>
+  <rect class="th" x="244" y="56" width="56" height="18"/><text class="ts" x="272" y="69" text-anchor="middle">12 | 13</text>
+  <polygon class="th" points="330,76 362,46 394,76"/><text class="ts" x="362" y="72" text-anchor="middle">13 | 12</text>
+  <rect class="th" x="244" y="288" width="56" height="18"/><text class="ts" x="272" y="301" text-anchor="middle">11 | 13</text>
+  <polygon class="th" points="330,308 362,278 394,308"/><text class="ts" x="362" y="304" text-anchor="middle">13 | 11</text>
+  <rect class="th" x="452" y="200" width="56" height="18"/><text class="ts" x="480" y="213" text-anchor="middle">13 | 13</text>
+  <polygon class="th" points="452,252 484,222 516,252" transform="translate(0,-2)"/><text class="ts" x="484" y="248" text-anchor="middle">13 | 13</text>
+  <rect class="th" x="440" y="290" width="56" height="18"/><text class="ts" x="468" y="303" text-anchor="middle">16 | 20</text>
+  <polygon class="th" points="540,384 572,354 604,384"/><text class="ts" x="572" y="380" text-anchor="middle">20 | 16</text>
+  <polygon class="th" points="626,168 658,138 690,168"/><text class="ts" x="658" y="164" text-anchor="middle">20 | 20</text>
+  <rect class="th" x="630" y="176" width="56" height="18"/><text class="ts" x="658" y="189" text-anchor="middle">20 | 20</text>
+  <text class="ts" x="16" y="428">사각형 = EST | LST · 삼각형 = LFT | EFT · 굵은 선 = 주공정선 A → D → G (20일) · 점선 = 더미</text>
+</svg>

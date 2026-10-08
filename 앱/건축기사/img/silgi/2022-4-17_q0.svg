@@ -1,0 +1,64 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- ① 마찰력이 작용하는 접합 -->
+  <rect class="fl" x="50" y="120" width="120" height="20"/><rect class="ln" x="50" y="120" width="120" height="20"/>
+  <rect class="fl" x="90" y="100" width="120" height="20"/><rect class="ln" x="90" y="100" width="120" height="20"/>
+  <rect class="fl" x="90" y="140" width="120" height="20"/><rect class="ln" x="90" y="140" width="120" height="20"/>
+  <rect class="sup" x="118" y="84" width="34" height="16"/><rect class="sup" x="118" y="160" width="34" height="16"/>
+  <rect class="sup" x="130" y="100" width="10" height="60"/>
+  <line class="ld" x1="50" y1="130" x2="22" y2="130" marker-end="url(#ar)"/>
+  <line class="ld" x1="210" y1="110" x2="240" y2="110" marker-end="url(#ar)"/>
+  <line class="ld" x1="210" y1="150" x2="240" y2="150" marker-end="url(#ar)"/>
+  <line class="ld" x1="160" y1="124" x2="190" y2="124" marker-end="url(#ar)"/>
+  <line class="ld" x1="160" y1="136" x2="130" y2="136"/>
+  <text class="tx" x="150" y="62">마찰력</text>
+  <line class="th" x1="172" y1="68" x2="178" y2="118"/>
+  <text class="tb" x="126" y="270">①</text>
+
+  <!-- ② 부재간 압축력 감소 · 볼트 인장력 증가 -->
+  <rect class="fl" x="220" y="140" width="90" height="20"/><rect class="ln" x="220" y="140" width="90" height="20"/>
+  <rect class="fl" x="310" y="100" width="15" height="100"/><rect class="ln" x="310" y="100" width="15" height="100"/>
+  <rect class="fl" x="325" y="100" width="15" height="100"/><rect class="ln" x="325" y="100" width="15" height="100"/>
+  <rect class="fl" x="340" y="140" width="90" height="20"/><rect class="ln" x="340" y="140" width="90" height="20"/>
+  <rect class="sup" x="304" y="104" width="8" height="12"/><rect class="sup" x="312" y="108" width="36" height="4"/><rect class="sup" x="346" y="104" width="8" height="12"/>
+  <rect class="sup" x="304" y="184" width="8" height="12"/><rect class="sup" x="312" y="188" width="36" height="4"/><rect class="sup" x="346" y="184" width="8" height="12"/>
+  <line class="ld" x1="220" y1="150" x2="190" y2="150" marker-end="url(#ar)"/>
+  <line class="ld" x1="430" y1="150" x2="460" y2="150" marker-end="url(#ar)"/>
+  <text class="tx" x="196" y="44">부재간 압축력의 감소</text>
+  <line class="th" x1="290" y1="50" x2="326" y2="132"/>
+  <text class="tx" x="364" y="76">볼트 인장력의 증가</text>
+  <line class="th" x1="380" y1="82" x2="352" y2="106"/>
+  <text class="tb" x="322" y="270">②</text>
+
+  <!-- ③ 지압력이 작용하는 접합 -->
+  <rect class="fl" x="500" y="120" width="120" height="20"/><rect class="ln" x="500" y="120" width="120" height="20"/>
+  <rect class="fl" x="540" y="100" width="120" height="20"/><rect class="ln" x="540" y="100" width="120" height="20"/>
+  <rect class="fl" x="540" y="140" width="120" height="20"/><rect class="ln" x="540" y="140" width="120" height="20"/>
+  <rect class="sup" x="568" y="84" width="34" height="16"/><rect class="sup" x="568" y="160" width="34" height="16"/>
+  <rect class="sup" x="580" y="100" width="10" height="60"/>
+  <line class="ld" x1="500" y1="130" x2="472" y2="130" marker-end="url(#ar)"/>
+  <line class="ld" x1="660" y1="110" x2="690" y2="110" marker-end="url(#ar)"/>
+  <line class="ld" x1="660" y1="150" x2="690" y2="150" marker-end="url(#ar)"/>
+  <line class="ld" x1="560" y1="116" x2="578" y2="116" marker-end="url(#ar)"/>
+  <line class="ld" x1="612" y1="156" x2="594" y2="156" marker-end="url(#ar)"/>
+  <text class="tx" x="610" y="62">지압력</text>
+  <line class="th" x1="620" y1="68" x2="592" y2="124"/>
+  <text class="tb" x="576" y="270">③</text>
+</svg>

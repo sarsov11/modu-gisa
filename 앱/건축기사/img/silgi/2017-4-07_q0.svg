@@ -1,0 +1,51 @@
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 왼쪽: L-100x100x7 단면 (1 mm = 1.5 px) -->
+  <path class="fl" d="M60,60 H210 V72 H72 V210 H60 Z"/>
+  <path class="m" d="M60,60 H210 V72 H72 V210 H60 Z"/>
+  <circle class="nd" cx="135" cy="66" r="4"/><circle class="nd" cx="66" cy="135" r="4"/>
+  <line class="th" x1="60" y1="60" x2="60" y2="32"/><line class="th" x1="135" y1="60" x2="135" y2="32"/><line class="th" x1="210" y1="60" x2="210" y2="32"/>
+  <line class="dm" x1="60" y1="38" x2="135" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="135" y1="38" x2="210" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="86" y="26">50</text><text class="tx" x="162" y="26">50</text>
+  <line class="th" x1="60" y1="60" x2="30" y2="60"/><line class="th" x1="60" y1="135" x2="30" y2="135"/><line class="th" x1="60" y1="210" x2="30" y2="210"/>
+  <line class="dm" x1="38" y1="60" x2="38" y2="135" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="38" y1="135" x2="38" y2="210" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="8" y="102">50</text><text class="tx" x="8" y="177">50</text>
+  <line class="th" x1="60" y1="210" x2="60" y2="240"/><line class="th" x1="72" y1="210" x2="72" y2="240"/>
+  <line class="ln" x1="30" y1="232" x2="58" y2="232" marker-end="url(#ai)"/><line class="ln" x1="104" y1="232" x2="74" y2="232" marker-end="url(#ai)"/>
+  <text class="tx" x="110" y="237">7</text>
+  <line class="ln" x1="140" y1="136" x2="136" y2="74" marker-end="url(#ai)"/>
+  <text class="tb" x="104" y="154">F10T-M20</text>
+  <text class="ts" x="16" y="292">L-100×100×7 · 단위 mm</text>
+  <!-- 오른쪽: 볼트 2개 측면 -->
+  <rect class="fl" x="360" y="70" width="240" height="150"/><rect class="ln" x="360" y="70" width="240" height="150"/>
+  <line class="th" x1="360" y1="82" x2="600" y2="82"/>
+  <circle class="ln" cx="420" cy="145" r="12"/><line class="th" x1="404" y1="145" x2="436" y2="145"/><line class="th" x1="420" y1="129" x2="420" y2="161"/>
+  <circle class="ln" cx="510" cy="145" r="12"/><line class="th" x1="494" y1="145" x2="526" y2="145"/><line class="th" x1="510" y1="129" x2="510" y2="161"/>
+  <line class="th" x1="360" y1="70" x2="360" y2="44"/><line class="th" x1="420" y1="145" x2="420" y2="44"/><line class="th" x1="510" y1="145" x2="510" y2="44"/>
+  <line class="dm" x1="360" y1="50" x2="420" y2="50" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="420" y1="50" x2="510" y2="50" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="378" y="40">40</text><text class="tx" x="456" y="40">60</text>
+  <path class="ln" d="M600,70 L592,110 L608,130 L600,150 L600,220"/>
+  <line class="ld" x1="612" y1="145" x2="672" y2="145" marker-end="url(#ar)"/>
+  <text class="tr" x="676" y="150">P</text>
+  <text class="ts" x="370" y="248">볼트 구멍 지름 = 20 + 2 = 22 mm</text>
+</svg>

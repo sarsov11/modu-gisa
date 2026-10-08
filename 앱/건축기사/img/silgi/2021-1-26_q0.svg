@@ -1,0 +1,47 @@
+<svg viewBox="0 0 580 440" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 보·슬래브 기둥열 -->
+  <line class="th" x1="70" y1="50" x2="466" y2="50"/><line class="th" x1="70" y1="198.5" x2="466" y2="198.5"/><line class="th" x1="70" y1="347" x2="466" y2="347"/>
+  <line class="th" x1="70" y1="50" x2="70" y2="347"/><line class="th" x1="268" y1="50" x2="268" y2="347"/><line class="th" x1="466" y1="50" x2="466" y2="347"/>
+  <!-- 지판 -->
+  <rect class="hl" x="235" y="173.5" width="66" height="50"/><rect class="ln" x="235" y="173.5" width="66" height="50"/>
+  <!-- 기둥 -->
+  <rect class="sup" x="58" y="38" width="24" height="24"/><rect class="sup" x="256" y="38" width="24" height="24"/><rect class="sup" x="454" y="38" width="24" height="24"/>
+  <rect class="sup" x="58" y="186.5" width="24" height="24"/><rect class="sup" x="256" y="186.5" width="24" height="24"/><rect class="sup" x="454" y="186.5" width="24" height="24"/>
+  <rect class="sup" x="58" y="335" width="24" height="24"/><rect class="sup" x="256" y="335" width="24" height="24"/><rect class="sup" x="454" y="335" width="24" height="24"/>
+  <!-- b1, b2 -->
+  <line class="th" x1="235" y1="146" x2="235" y2="173"/><line class="th" x1="301" y1="146" x2="301" y2="173"/>
+  <line class="dm" x1="235" y1="154" x2="301" y2="154" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="260" y="146">b<tspan dy="4" class="ts">1</tspan></text>
+  <line class="th" x1="301" y1="173.5" x2="330" y2="173.5"/><line class="th" x1="301" y1="223.5" x2="330" y2="223.5"/>
+  <line class="dm" x1="322" y1="173.5" x2="322" y2="223.5" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="332" y="203">b<tspan dy="4" class="ts">2</tspan></text>
+  <!-- 가로 치수 -->
+  <line class="th" x1="70" y1="366" x2="70" y2="396"/><line class="th" x1="268" y1="366" x2="268" y2="396"/><line class="th" x1="466" y1="366" x2="466" y2="396"/>
+  <line class="dm" x1="70" y1="388" x2="268" y2="388" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="268" y1="388" x2="466" y2="388" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="145" y="414">6,000</text><text class="tx" x="343" y="414">6,000</text>
+  <!-- 세로 치수 -->
+  <line class="th" x1="484" y1="50" x2="520" y2="50"/><line class="th" x1="484" y1="198.5" x2="520" y2="198.5"/><line class="th" x1="484" y1="347" x2="520" y2="347"/>
+  <line class="dm" x1="512" y1="50" x2="512" y2="198.5" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="512" y1="198.5" x2="512" y2="347" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="522" y="130">4,500</text><text class="tx" x="522" y="278">4,500</text>
+  <text class="ts" x="16" y="24">기둥 격자 · 중앙 기둥 둘레에 지판</text>
+</svg>

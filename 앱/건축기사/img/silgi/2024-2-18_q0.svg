@@ -1,0 +1,65 @@
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tb" x="30" y="344">지붕 평면도</text>
+  <text class="tb" x="400" y="344">A-A 단면도</text>
+  <!-- 평면 -->
+  <polygon class="ln" points="30,80 180,80 180,155 280,155 280,280 30,280" fill="none"/>
+  <polygon class="th" points="40,90 170,90 170,165 270,165 270,270 40,270" fill="none"/>
+  <text class="tx" x="85" y="190">옥상 바닥</text>
+  <line class="th" x1="30" y1="76" x2="30" y2="26"/><line class="th" x1="180" y1="76" x2="180" y2="50"/><line class="th" x1="280" y1="151" x2="280" y2="26"/>
+  <line class="dm" x1="30" y1="46" x2="180" y2="46" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="180" y1="46" x2="280" y2="46" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="30" y1="24" x2="280" y2="24" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="86" y="40">6,000</text><text class="tx" x="206" y="40">4,000</text><text class="tx" x="118" y="18">10,000</text>
+  <line class="th" x1="284" y1="80" x2="340" y2="80"/><line class="th" x1="284" y1="155" x2="316" y2="155"/><line class="th" x1="284" y1="280" x2="340" y2="280"/>
+  <line class="dm" x1="304" y1="80" x2="304" y2="155" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="304" y1="155" x2="304" y2="280" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="332" y1="80" x2="332" y2="280" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="308" y="123">3,000</text><text class="tx" x="308" y="222">5,000</text>
+  <text class="tx" x="338" y="262">8,000</text>
+  <!-- 절단 표시 A -->
+  <line class="th" x1="8" y1="215" x2="60" y2="215"/>
+  <text class="tb" x="6" y="236">A</text><text class="tb" x="50" y="236">A</text>
+  <line class="ld" x1="14" y1="230" x2="14" y2="214" marker-end="url(#ai)"/>
+  <line class="ld" x1="56" y1="230" x2="56" y2="214" marker-end="url(#ai)"/>
+  <!-- 단면 -->
+  <polygon points="400,90 440,90 440,242 660,242 660,300 400,300" fill="url(#hat)"/>
+  <polyline class="ln" points="400,300 400,90 440,90 440,242 660,242 660,300 400,300" fill="none"/>
+  <rect class="fl" x="440" y="216" width="220" height="18"/>
+  <line class="th" x1="440" y1="236" x2="660" y2="236"/>
+  <line class="th" x1="442" y1="240" x2="442" y2="150"/>
+  <rect class="fl" x="446" y="106" width="26" height="110"/>
+  <path class="th" d="M446,133 h26 M446,161 h26 M446,188 h26"/>
+  <line class="dm" x1="384" y1="106" x2="384" y2="216" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="th" x1="380" y1="106" x2="446" y2="106"/><line class="th" x1="380" y1="216" x2="446" y2="216"/>
+  <text class="tx" x="344" y="166">400</text>
+  <line class="dm" x1="684" y1="216" x2="684" y2="234" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="th" x1="660" y1="216" x2="690" y2="216"/><line class="th" x1="660" y1="234" x2="690" y2="234"/>
+  <text class="tx" x="694" y="230">80</text>
+  <!-- 지시선 -->
+  <polyline class="th" points="590,52 458,52 458,108" fill="none" marker-end="url(#ai)"/>
+  <polyline class="th" points="590,82 500,82 500,224" fill="none" marker-end="url(#ai)"/>
+  <polyline class="th" points="590,112 530,112 530,236" fill="none" marker-end="url(#ai)"/>
+  <polyline class="th" points="590,142 560,142 560,240" fill="none" marker-end="url(#ai)"/>
+  <text class="tx" x="596" y="57">0.5B 시멘트벽돌</text>
+  <text class="tx" x="596" y="87">누름콘크리트 80</text>
+  <text class="tx" x="596" y="117">P.E 필름 2겹</text>
+  <text class="tx" x="596" y="147">시트방수</text>
+</svg>

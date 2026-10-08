@@ -1,0 +1,42 @@
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <path class="fl" d="M20,30 H120 V42 H76 V118 H120 V130 H20 V118 H64 V42 H20 Z"/>
+  <path class="ln" d="M20,30 H120 V42 H76 V118 H120 V130 H20 V118 H64 V42 H20 Z"/>
+  <path class="fl" d="M190,30 H290 V42 H202 V118 H290 V130 H190 Z"/>
+  <path class="ln" d="M190,30 H290 V42 H202 V118 H290 V130 H190 Z"/>
+  <path class="fl" d="M330,30 H430 V42 H386 V130 H374 V42 H330 Z"/>
+  <path class="ln" d="M330,30 H430 V42 H386 V130 H374 V42 H330 Z"/>
+  <path class="fl" d="M470,30 H482 V118 H570 V130 H470 Z"/>
+  <path class="ln" d="M470,30 H482 V118 H570 V130 H470 Z"/>
+  <path class="fl" d="M590,30 H652 V118 H702 V130 H640 V42 H590 Z"/>
+  <path class="ln" d="M590,30 H652 V118 H702 V130 H640 V42 H590 Z"/>
+  <!-- 전단중심 -->
+  <circle class="rb" cx="70" cy="80" r="6"/>
+  <circle class="rb" cx="168" cy="80" r="6"/>
+  <circle class="rb" cx="380" cy="36" r="6"/>
+  <circle class="rb" cx="476" cy="124" r="6"/>
+  <circle class="rb" cx="646" cy="80" r="6"/>
+  <text class="tx" x="56" y="166">I형</text>
+  <text class="tx" x="226" y="166">ㄷ형</text>
+  <text class="tx" x="368" y="166">T형</text>
+  <text class="tx" x="504" y="166">L형</text>
+  <text class="tx" x="636" y="166">Z형</text>
+  <text class="ts" x="20" y="192">● 전단중심</text>
+</svg>

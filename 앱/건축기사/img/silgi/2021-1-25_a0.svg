@@ -1,0 +1,40 @@
+<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 휨모멘트도 (라멘 바깥 -, 안쪽 +) -->
+  <polygon class="hl" points="120,110 65,110 120,270"/>
+  <polygon class="hl" points="440,110 495,110 440,270"/>
+  <path class="hl" d="M120,110 L120,55 Q280,183.6 440,55 L440,110 Z"/>
+  <path class="crit" d="M120,55 Q280,183.6 440,55"/>
+  <line class="crit" x1="65" y1="110" x2="120" y2="270"/>
+  <line class="crit" x1="495" y1="110" x2="440" y2="270"/>
+  <line class="th" x1="120" y1="55" x2="65" y2="110"/>
+  <line class="th" x1="440" y1="55" x2="495" y2="110"/>
+  <!-- 라멘 -->
+  <path class="m" d="M120,110 L440,110 M120,110 L120,270 M440,110 L440,270"/>
+  <circle class="nd" cx="340" cy="110" r="6"/>
+  <polygon class="sup" points="120,270 108,292 132,292"/><polygon class="sup" points="440,270 428,292 452,292"/>
+  <line class="ln" x1="96" y1="292" x2="144" y2="292"/><line class="ln" x1="416" y1="292" x2="464" y2="292"/>
+  <!-- 부호 -->
+  <text class="tb" x="52" y="170">−</text><text class="tb" x="498" y="170">−</text>
+  <text class="tb" x="150" y="100">−</text><text class="tb" x="412" y="100">−</text>
+  <text class="tb" x="272" y="136">+</text>
+  <text class="tb" x="250" y="210">BMD</text>
+  <text class="ts" x="318" y="138">힌지 M = 0</text>
+</svg>

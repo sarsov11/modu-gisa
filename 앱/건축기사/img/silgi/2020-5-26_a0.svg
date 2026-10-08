@@ -1,0 +1,67 @@
+<svg viewBox="0 0 720 350" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 작업선 -->
+  <line class="crit" x1="56" y1="170" x2="234" y2="170" marker-end="url(#ar)"/>
+  <line class="ln" x1="52.2" y1="158.8" x2="148.8" y2="69.2" marker-end="url(#ai)"/>
+  <line class="dsh" x1="170.1" y1="72.4" x2="239.9" y2="157.6" marker-end="url(#ai)"/>
+  <line class="ln" x1="52.2" y1="181.2" x2="148.8" y2="270.8" marker-end="url(#ai)"/>
+  <line class="dsh" x1="170.1" y1="267.6" x2="239.9" y2="182.4" marker-end="url(#ai)"/>
+  <line class="ln" x1="264.6" y1="163.4" x2="455.4" y2="76.6" marker-end="url(#ai)"/>
+  <line class="crit" x1="266" y1="170" x2="354" y2="170" marker-end="url(#ar)"/>
+  <line class="ln" x1="264.6" y1="176.6" x2="455.4" y2="263.4" marker-end="url(#ai)"/>
+  <line class="crit" x1="381.3" y1="158.7" x2="458.7" y2="81.3" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <line class="crit" x1="481.3" y1="81.3" x2="558.7" y2="158.7" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <line class="crit" x1="381.3" y1="181.3" x2="458.7" y2="258.7" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <line class="crit" x1="481.3" y1="258.7" x2="558.7" y2="181.3" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <line class="ln" x1="484.3" y1="77.2" x2="655.7" y2="162.8" marker-end="url(#ai)"/>
+  <line class="crit" x1="586" y1="170" x2="654" y2="170" marker-end="url(#ar)"/>
+  <line class="ln" x1="484.3" y1="262.8" x2="655.7" y2="177.2" marker-end="url(#ai)"/>
+  <!-- 결합점 -->
+  <circle class="nd" cx="40" cy="170" r="16"/><text class="tb" x="40" y="175" text-anchor="middle">0</text>
+  <circle class="nd" cx="160" cy="60" r="16"/><text class="tb" x="160" y="65" text-anchor="middle">1</text>
+  <circle class="nd" cx="160" cy="280" r="16"/><text class="tb" x="160" y="285" text-anchor="middle">2</text>
+  <circle class="nd" cx="250" cy="170" r="16"/><text class="tb" x="250" y="175" text-anchor="middle">3</text>
+  <circle class="nd" cx="370" cy="170" r="16"/><text class="tb" x="370" y="175" text-anchor="middle">4</text>
+  <circle class="nd" cx="470" cy="70" r="16"/><text class="tb" x="470" y="75" text-anchor="middle">5</text>
+  <circle class="nd" cx="470" cy="270" r="16"/><text class="tb" x="470" y="275" text-anchor="middle">6</text>
+  <circle class="nd" cx="570" cy="170" r="16"/><text class="tb" x="570" y="175" text-anchor="middle">7</text>
+  <circle class="nd" cx="670" cy="170" r="16"/><text class="tb" x="670" y="175" text-anchor="middle">8</text>
+  <!-- 작업명 / 일수 -->
+  <text class="tx" x="140" y="160">A 5</text>
+  <text class="tx" x="84" y="102">B 2</text>
+  <text class="tx" x="62" y="246">C 4</text>
+  <text class="tx" x="300" y="160">D 5</text>
+  <text class="tx" x="330" y="112">E 3</text>
+  <text class="tx" x="350" y="240">F 2</text>
+  <text class="tx" x="560" y="100">G 2</text>
+  <text class="tx" x="588" y="194">H 5</text>
+  <text class="tx" x="580" y="246">I 4</text>
+  <!-- ET|LT 상자 -->
+  <rect class="th" x="16" y="128" width="48" height="16"/><line class="th" x1="40" y1="128" x2="40" y2="144"/><text class="ts" x="24" y="140">0</text><text class="ts" x="46" y="140">0</text>
+  <rect class="th" x="136" y="18" width="48" height="16"/><line class="th" x1="160" y1="18" x2="160" y2="34"/><text class="ts" x="146" y="30">2</text><text class="ts" x="167" y="30">5</text>
+  <rect class="th" x="136" y="306" width="48" height="16"/><line class="th" x1="160" y1="306" x2="160" y2="322"/><text class="ts" x="146" y="318">4</text><text class="ts" x="167" y="318">5</text>
+  <rect class="th" x="226" y="128" width="48" height="16"/><line class="th" x1="250" y1="128" x2="250" y2="144"/><text class="ts" x="236" y="140">5</text><text class="ts" x="257" y="140">5</text>
+  <rect class="th" x="392" y="162" width="48" height="16"/><line class="th" x1="416" y1="162" x2="416" y2="178"/><text class="ts" x="395" y="174">10</text><text class="ts" x="420" y="174">10</text>
+  <rect class="th" x="446" y="28" width="48" height="16"/><line class="th" x1="470" y1="28" x2="470" y2="44"/><text class="ts" x="449" y="40">10</text><text class="ts" x="474" y="40">10</text>
+  <rect class="th" x="446" y="296" width="48" height="16"/><line class="th" x1="470" y1="296" x2="470" y2="312"/><text class="ts" x="449" y="308">10</text><text class="ts" x="474" y="308">10</text>
+  <rect class="th" x="506" y="162" width="48" height="16"/><line class="th" x1="530" y1="162" x2="530" y2="178"/><text class="ts" x="509" y="174">10</text><text class="ts" x="534" y="174">10</text>
+  <rect class="th" x="646" y="128" width="48" height="16"/><line class="th" x1="670" y1="128" x2="670" y2="144"/><text class="ts" x="649" y="140">15</text><text class="ts" x="674" y="140">15</text>
+  <text class="ts" x="16" y="342">굵은 선 = 주공정선 A-D-H (공기 15일) · 상자 = ET|LT</text>
+</svg>

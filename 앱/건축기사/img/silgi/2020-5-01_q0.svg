@@ -1,0 +1,36 @@
+<svg viewBox="0 0 600 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tb" x="16" y="85">①</text>
+  <path class="m" d="M70,40 L550,40 M70,120 L550,120"/>
+  <path class="ln" d="M70,40 L70,120 M150,40 L150,120 M230,40 L230,120 M310,40 L310,120 M390,40 L390,120 M470,40 L470,120 M550,40 L550,120"/>
+  <path class="ln" d="M70,120 L150,40 M150,120 L230,40 M230,120 L310,40 M310,40 L390,120 M390,40 L470,120 M470,40 L550,120"/>
+  <g><circle class="nd" cx="70" cy="40" r="6"/><circle class="nd" cx="150" cy="40" r="6"/><circle class="nd" cx="230" cy="40" r="6"/><circle class="nd" cx="310" cy="40" r="6"/><circle class="nd" cx="390" cy="40" r="6"/><circle class="nd" cx="470" cy="40" r="6"/><circle class="nd" cx="550" cy="40" r="6"/>
+  <circle class="nd" cx="70" cy="120" r="6"/><circle class="nd" cx="150" cy="120" r="6"/><circle class="nd" cx="230" cy="120" r="6"/><circle class="nd" cx="310" cy="120" r="6"/><circle class="nd" cx="390" cy="120" r="6"/><circle class="nd" cx="470" cy="120" r="6"/><circle class="nd" cx="550" cy="120" r="6"/></g>
+  <polygon class="sup" points="70,126 58,148 82,148"/>
+  <polygon class="sup" points="550,126 538,148 562,148"/><circle class="nd" cx="543" cy="153" r="3.5"/><circle class="nd" cx="557" cy="153" r="3.5"/>
+  <text class="tb" x="16" y="245">②</text>
+  <path class="m" d="M70,200 L550,200 M70,280 L550,280"/>
+  <path class="ln" d="M70,200 L70,280 M150,200 L150,280 M230,200 L230,280 M310,200 L310,280 M390,200 L390,280 M470,200 L470,280 M550,200 L550,280"/>
+  <path class="ln" d="M70,200 L150,280 M150,200 L230,280 M230,200 L310,280 M310,280 L390,200 M390,280 L470,200 M470,280 L550,200"/>
+  <g><circle class="nd" cx="70" cy="200" r="6"/><circle class="nd" cx="150" cy="200" r="6"/><circle class="nd" cx="230" cy="200" r="6"/><circle class="nd" cx="310" cy="200" r="6"/><circle class="nd" cx="390" cy="200" r="6"/><circle class="nd" cx="470" cy="200" r="6"/><circle class="nd" cx="550" cy="200" r="6"/>
+  <circle class="nd" cx="70" cy="280" r="6"/><circle class="nd" cx="150" cy="280" r="6"/><circle class="nd" cx="230" cy="280" r="6"/><circle class="nd" cx="310" cy="280" r="6"/><circle class="nd" cx="390" cy="280" r="6"/><circle class="nd" cx="470" cy="280" r="6"/><circle class="nd" cx="550" cy="280" r="6"/></g>
+  <polygon class="sup" points="70,286 58,308 82,308"/>
+  <polygon class="sup" points="550,286 538,308 562,308"/><circle class="nd" cx="543" cy="313" r="3.5"/><circle class="nd" cx="557" cy="313" r="3.5"/>
+</svg>

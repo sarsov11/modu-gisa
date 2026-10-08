@@ -1,0 +1,42 @@
+<svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 지반 단면: 왼쪽 지반 · 터파기 · 오른쪽 연약지반 -->
+  <polygon class="fl" points="16,90 150,90 150,210 300,210 300,90 544,90 544,300 16,300"/>
+  <line class="th" x1="16" y1="90" x2="150" y2="90"/>
+  <line class="th" x1="300" y1="90" x2="544" y2="90"/>
+  <line class="ln" x1="150" y1="90" x2="150" y2="210"/>
+  <line class="ln" x1="150" y1="210" x2="300" y2="210"/>
+  <!-- 널말뚝(I형강) -->
+  <line class="m" x1="300" y1="66" x2="300" y2="262"/>
+  <!-- 인접 건물 -->
+  <rect class="sup" x="352" y="22" width="130" height="68"/>
+  <text class="tb" x="417" y="62" text-anchor="middle">인접 건물</text>
+  <!-- 침하 화살표 -->
+  <line class="ld" x1="372" y1="104" x2="372" y2="140" marker-end="url(#ar)"/>
+  <line class="ld" x1="417" y1="104" x2="417" y2="140" marker-end="url(#ar)"/>
+  <line class="ld" x1="462" y1="104" x2="462" y2="140" marker-end="url(#ar)"/>
+  <text class="tr" x="417" y="164" text-anchor="middle">침하?</text>
+  <text class="tx" x="417" y="226" text-anchor="middle">연약지반</text>
+  <!-- 이름 -->
+  <text class="tx" x="24" y="80">G.L</text>
+  <text class="tx" x="225" y="190" text-anchor="middle">터파기</text>
+  <line class="th" x1="300" y1="262" x2="300" y2="308"/>
+  <text class="tx" x="300" y="324" text-anchor="middle">I형강, 널말뚝</text>
+</svg>

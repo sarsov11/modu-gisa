@@ -1,0 +1,45 @@
+<svg viewBox="0 0 420 390" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tb" x="196" y="28" text-anchor="middle">흙막이벽</text>
+  <!-- 배면 흙(왼쪽) / 굴착면 흙(오른쪽 아래) -->
+  <rect class="fl" x="24" y="110" width="166" height="240"/>
+  <line class="m" x1="24" y1="110" x2="190" y2="110"/>
+  <rect class="fl" x="200" y="290" width="150" height="60"/>
+  <line class="m" x1="200" y1="290" x2="350" y2="290"/>
+  <!-- 벽 -->
+  <rect class="sup" x="190" y="40" width="10" height="312"/>
+  <!-- 주동 측 토압 분포(삼각형) -->
+  <polygon class="hl" points="190,110 140,340 190,340"/>
+  <line class="th" x1="190" y1="110" x2="140" y2="340"/><line class="th" x1="140" y1="340" x2="190" y2="340"/>
+  <line class="ld" x1="184" y1="140" x2="188" y2="140" marker-end="url(#ar)"/>
+  <line class="ld" x1="175" y1="180" x2="188" y2="180" marker-end="url(#ar)"/>
+  <line class="ld" x1="166" y1="220" x2="188" y2="220" marker-end="url(#ar)"/>
+  <line class="ld" x1="157" y1="260" x2="188" y2="260" marker-end="url(#ar)"/>
+  <line class="ld" x1="149" y1="300" x2="188" y2="300" marker-end="url(#ar)"/>
+  <line class="ld" x1="141" y1="336" x2="188" y2="336" marker-end="url(#ar)"/>
+  <!-- 굴착면 아래 반대쪽 토압 -->
+  <polygon class="hl" points="200,290 200,346 246,346"/>
+  <line class="ld" x1="216" y1="310" x2="202" y2="310" marker-end="url(#ar)"/>
+  <line class="ld" x1="232" y1="330" x2="202" y2="330" marker-end="url(#ar)"/>
+  <!-- ① 오른쪽 위, ② 왼쪽, ③ 오른쪽 아래 -->
+  <line class="ln" x1="268" y1="172" x2="204" y2="172" marker-end="url(#ai)"/><text class="tx" x="274" y="178">(  ①  )</text>
+  <line class="ln" x1="76" y1="240" x2="148" y2="240" marker-end="url(#ai)"/><text class="tx" x="14" y="246">(  ②  )</text>
+  <line class="ln" x1="268" y1="322" x2="236" y2="322" marker-end="url(#ai)"/><text class="tx" x="274" y="328">(  ③  )</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- ① 상단 힌지 · 하단 고정, 길이 2L -->
+  <rect class="sup" x="76" y="137" width="48" height="8"/><rect x="76" y="129" width="48" height="8" fill="url(#hat)"/>
+  <line class="m" x1="100" y1="155" x2="100" y2="250"/>
+  <circle class="nd" cx="100" cy="150" r="5"/>
+  <rect class="sup" x="76" y="250" width="48" height="8"/><rect x="76" y="258" width="48" height="8" fill="url(#hat)"/>
+  <line class="dm" x1="140" y1="150" x2="140" y2="250" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="150" y="206">2L</text>
+  <text class="tb" x="92" y="300">①</text>
+  <!-- ② 양단 고정, 길이 4L -->
+  <rect class="sup" x="236" y="42" width="48" height="8"/><rect x="236" y="34" width="48" height="8" fill="url(#hat)"/>
+  <line class="m" x1="260" y1="50" x2="260" y2="250"/>
+  <rect class="sup" x="236" y="250" width="48" height="8"/><rect x="236" y="258" width="48" height="8" fill="url(#hat)"/>
+  <line class="dm" x1="300" y1="50" x2="300" y2="250" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="310" y="156">4L</text>
+  <text class="tb" x="252" y="300">②</text>
+  <!-- ③ 하단 고정 · 상단 자유, 길이 L -->
+  <line class="m" x1="420" y1="200" x2="420" y2="250"/>
+  <rect class="sup" x="396" y="250" width="48" height="8"/><rect x="396" y="258" width="48" height="8" fill="url(#hat)"/>
+  <line class="dm" x1="460" y1="200" x2="460" y2="250" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="470" y="230">L</text>
+  <text class="tb" x="412" y="300">③</text>
+  <!-- ④ 양단 힌지, 길이 L/2 -->
+  <rect class="sup" x="556" y="212" width="48" height="8"/><rect x="556" y="204" width="48" height="8" fill="url(#hat)"/>
+  <line class="m" x1="580" y1="230" x2="580" y2="245"/>
+  <circle class="nd" cx="580" cy="225" r="5"/><circle class="nd" cx="580" cy="250" r="5"/>
+  <rect class="sup" x="556" y="255" width="48" height="8"/><rect x="556" y="263" width="48" height="8" fill="url(#hat)"/>
+  <line class="dm" x1="620" y1="225" x2="620" y2="250" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="630" y="242">L/2</text>
+  <text class="tb" x="572" y="300">④</text>
+</svg>

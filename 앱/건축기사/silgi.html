@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>실기 — 모두의 건축기사</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/q.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+/* 실기(필답형) — 문제를 보고 답을 떠올린 뒤 정답을 펼쳐 스스로 채점 */
+.page{padding-bottom:110px}
+.sg-fig{display:block;max-width:100%;margin:14px auto 0;border-radius:var(--r3);border:1px solid var(--line-2);background:#fff}
+.sg-ans{border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--surface);padding:16px 18px;margin:0 0 14px}
+.sg-ans h3{margin:0 0 8px;font-size:14px;color:var(--ink-3);font-weight:800}
+.sg-ans .a{font-size:16.5px;line-height:1.7;font-weight:700;white-space:pre-wrap;word-break:keep-all}
+.sg-ans .h{margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7;color:var(--ink-2);white-space:pre-wrap;word-break:keep-all}
+.sg-memo{width:100%;box-sizing:border-box;min-height:84px;border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface-2);color:var(--ink);font:inherit;font-size:16px;line-height:1.6;padding:12px 14px;margin:0 0 14px;resize:vertical}
+.sg-self{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
+.sg-self button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);padding:13px 6px;font:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
+.sg-self button[data-v="2"]{border-color:var(--ink)}
+.sg-self button[data-v="0"]{border-color:var(--accent);color:var(--accent)}
+.sg-self button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sg-self button[data-v="0"][aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.sg-bar{display:flex;align-items:center;gap:10px;margin:6px 0 2px;font-size:14px;color:var(--ink-3)}
+.sg-bar i{flex:1;height:6px;border-radius:99px;background:var(--surface-3);overflow:hidden;position:relative}
+.sg-bar i b{position:absolute;inset:0 auto 0 0;background:var(--ink-3);border-radius:99px}
+.sg-note{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:18px 0 96px}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1 id="ttl">실기</h1></div>
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gsilgi.js"></script>
+<script src="js/judge.js"></script>
+<script src="js/gstore.js"></script>
+<script>
+(function(){
+  GS.내비("silgi.html");
+  var SG=window.SG||{문항:[],파트:[]}, e=GS.esc, P=new URLSearchParams(location.search), S=GS.S;
+  S.실기=S.실기||{};                        /* id → {n:푼 횟수, v:마지막 자가채점 2맞힘·1헷갈림·0틀림, t:날짜} */
+  function el(x){return document.getElementById(x);}
+  function 기록(id){return S.실기[id]||null;}
+  function 회차명(x){return x.y+"년 "+x.r+"회";}
+  var 파트 = P.get("p"), 회 = P.get("h"), 오답 = P.get("wrong")==="1", 섞 = P.get("mix")==="1";
+
+  /* ── 고르기 ── */
+  function 고르기(){
+    var 틀=SG.문항.filter(function(x){var r=기록(x.id); return r&&r.v<2;}).length;
+    var 안본=SG.문항.filter(function(x){return !기록(x.id);}).length;
+    var h='<div class="pick" style="margin-top:20px">'+
+      '<a class="hot" href="silgi.html?mix=1">무작위 10문항</a>'+
+      '<a href="silgi.html?wrong=1">다시 볼 문항 <i>'+틀+'</i></a></div>';
+    /* 파트별 숙련 */
+    h+='<div class="lab">분야</div><div class="pick">'+SG.파트.map(function(p){
+      var xs=SG.문항.filter(function(x){return x.p===p;}); if(!xs.length) return "";
+      var ok=xs.filter(function(x){var r=기록(x.id); return r&&r.v===2;}).length;
+      return '<a href="silgi.html?p='+encodeURIComponent(p)+'">'+e(p)+' <i>'+ok+'/'+xs.length+'</i></a>';
+    }).join("")+'</div>';
+    /* 키워드(분야 안 단원) */
+    var 키={}; SG.문항.forEach(function(x){ if(x.kw){ var k=x.p+" · "+x.kw; 키[k]=(키[k]||0)+1; } });
+    var 키들=Object.keys(키).sort(function(a,b){return 키[b]-키[a];});
+    if(키들.length) h+='<details class="fold"><summary>단원 <span class="chip">'+키들.length+'</span></summary><div class="in th">'+
+      키들.map(function(k){return '<a href="silgi.html?kw='+encodeURIComponent(k)+'"><span>'+e(k)+'</span><i>'+키[k]+'</i></a>';}).join("")+'</div></details>';
+    /* 회차 모의 — 한 회차 전부, 배점 합산 */
+    var 회들=[]; SG.문항.forEach(function(x){var k=x.y+"-"+x.r; if(회들.indexOf(k)<0) 회들.push(k);});
+    회들.sort(function(a,b){return b.localeCompare(a,"en",{numeric:true});});
+    h+='<div class="lab">회차 모의 <span style="font-weight:500;color:var(--ink-3)">· 100점 중 60점 합격</span></div><div class="pick">'+회들.map(function(k){
+      var p=k.split("-"); var n=SG.문항.filter(function(x){return x.y+"-"+x.r===k;}).length;
+      return '<a href="silgi.html?h='+k+'">'+p[0]+'년 '+p[1]+'회 <i>'+n+'</i></a>';
+    }).join("")+'</div>';
+    h+='<p class="sg-note">필답형 실기 기출 '+SG.문항.length+'문항 · 아직 안 본 문항 '+안본+' · 답은 스스로 채점합니다.</p>';
+    el("stage").innerHTML=h;
+  }
+
+  var kw=P.get("kw");
+  if(!파트 && !회 && !오답 && !섞 && !kw) return 고르기();
+
+  var 문제=SG.문항.filter(function(x){
+    if(파트) return x.p===파트;
+    if(kw) return (x.p+" · "+x.kw)===kw;
+    if(회) return (x.y+"-"+x.r)===회;
+    if(오답){ var r=기록(x.id); return r&&r.v<2; }
+    return true;
+  });
+  if(섞 || 오답 || 파트 || kw){
+    문제=문제.slice().sort(function(){return Math.random()-.5;});
+    /* 안 본 문항·틀린 문항 먼저 */
+    문제.sort(function(a,b){var ra=기록(a.id), rb=기록(b.id); return (ra?ra.v+1:0)-(rb?rb.v+1:0);});
+    문제=문제.slice(0,10);
+  } else 문제.sort(function(a,b){return a.n-b.n;});
+  el("ttl").textContent=회?회차명(문제[0]||{y:"",r:""})+" 실기":(파트||kw||(오답?"다시 볼 문항":"무작위 10문항"));
+  if(!문제.length){ el("stage").innerHTML='<div class="none"><a href="silgi.html">목록</a></div>'; return; }
+
+  var i=0, 결과=[];
+  function 진행(){
+    el("prog").innerHTML=문제.map(function(_,j){var r=결과[j]; return '<i class="'+(r!=null?(r===2?"ok":"no"):(j===i?"now":""))+'"></i>';}).join("");
+  }
+  function 그리기(){
+    진행();
+    if(i>=문제.length) return 끝();
+    var x=문제[i];
+    el("stage").innerHTML=
+      '<div class="qwrap"><div class="qtag"><b>'+e(x.p)+(x.kw?' · '+e(x.kw):'')+'</b><span>'+(i+1)+' / '+문제.length+'</span>'+
+        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+'<span class="src">'+e(회차명(x))+' '+x.n+'번</span></div>'+
+        '<p class="qstem">'+e(x.q)+'</p>'+
+        (x.img||[]).map(function(f){return '<img class="sg-fig" loading="lazy" alt="" src="img/silgi/'+e(f)+'">';}).join("")+'</div>'+
+      '<textarea class="sg-memo" id="memo" placeholder="답을 적어 보기 (저장 안 됨)"></textarea>'+
+      '<div id="ans"></div>'+
+      '<button class="b main" id="go">정답 보기</button>';
+    el("go").onclick=펼치기;
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function 펼치기(){
+    var x=문제[i];
+    el("ans").innerHTML='<div class="sg-ans"><h3>정답</h3><div class="a">'+e(x.a)+'</div>'+
+      (x.h?'<div class="h">'+e(x.h)+'</div>':'')+(x.ai?'<img class="sg-fig" loading="lazy" alt="" src="img/silgi/'+e(x.ai)+'">':'')+'</div>'+
+      '<div class="sg-self" id="self"><button data-v="2">맞힘</button><button data-v="1">헷갈림</button><button data-v="0">틀림</button></div>';
+    el("go").style.display="none";
+    document.querySelectorAll("#self button").forEach(function(b){
+      b.onclick=function(){
+        var v=Number(b.dataset.v), r=S.실기[x.id]||{n:0};
+        r.n++; r.v=v; r.t=GS.오늘(); S.실기[x.id]=r; GS.저장();
+        결과[i]=v; i++; 그리기();
+      };
+    });
+    el("ans").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  function 끝(){
+    el("prog").innerHTML="";
+    var 맞=결과.filter(function(v){return v===2;}).length, 헷=결과.filter(function(v){return v===1;}).length;
+    var 점="", 합=0, 만=0;
+    if(회){
+      문제.forEach(function(x,j){ var p=x.pt||0; 만+=p; if(결과[j]===2) 합+=p; else if(결과[j]===1) 합+=Math.floor(p/2); });
+      점='<div><b>'+합+' / '+만+'</b><span>'+(합>=만*0.6?"합격선 넘음":"합격선 "+Math.ceil(만*0.6))+'</span></div>';
+    }
+    var 틀=문제.filter(function(_,j){return 결과[j]<2;});
+    el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2>'+
+      '<div class="tally">'+(점||'<div><b>'+맞+' / '+결과.length+'</b><span>맞힘</span></div>')+
+      '<div><b>'+헷+'</b><span>헷갈림</span></div><div><b>'+(결과.length-맞-헷)+'</b><span>틀림</span></div></div>'+
+      (틀.length?'<ul class="wl">'+틀.map(function(x){return '<li><b>'+e(x.q.length>70?x.q.slice(0,70)+"…":x.q)+'</b><span>'+e(x.a.length>60?x.a.slice(0,60)+"…":x.a)+'</span></li>';}).join("")+'</ul>':'')+
+      '<div class="act">'+(틀.length?'<a class="b main" href="silgi.html?wrong=1">다시 볼 문항</a>':'')+
+      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div></div></div>';
+  }
+  그리기();
+})();
+</script>
+</body></html>

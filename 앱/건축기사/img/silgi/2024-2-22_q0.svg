@@ -1,0 +1,55 @@
+<svg viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 바닥판 -->
+  <polygon class="fl" points="30,50 160,50 160,64 178,64 178,50 320,50 320,120 30,120"/>
+  <polygon class="ln" points="30,50 160,50 160,64 178,64 178,50 320,50 320,120 30,120" fill="none"/>
+  <text class="tx" x="150" y="100">바닥판</text>
+  <circle class="th" fill="none" cx="240" cy="24" r="11"/><text class="tb" x="240" y="29" text-anchor="middle">1</text>
+  <line class="th" x1="232" y1="32" x2="180" y2="60" marker-end="url(#ai)"/>
+  <!-- 기둥 보 -->
+  <polygon class="fl" points="40,210 320,210 320,262 40,262"/>
+  <rect class="ln" x="40" y="210" width="280" height="52" fill="none"/>
+  <text class="tx" x="170" y="242">보</text>
+  <rect class="fl" x="40" y="262" width="70" height="150"/>
+  <rect class="ln" x="40" y="262" width="70" height="150" fill="none"/>
+  <text class="tx" x="62" y="350">기둥</text>
+  <rect class="hl" x="40" y="259" width="70" height="6"/>
+  <circle class="th" fill="none" cx="200" cy="320" r="11"/><text class="tb" x="200" y="325" text-anchor="middle">2</text>
+  <line class="th" x1="192" y1="312" x2="100" y2="266" marker-end="url(#ai)"/>
+  <!-- 지하벽 -->
+  <rect x="400" y="410" width="260" height="40" fill="url(#hat)"/>
+  <rect class="ln" x="400" y="410" width="260" height="40" fill="none"/>
+  <rect class="fl" x="430" y="360" width="190" height="50"/>
+  <rect class="ln" x="430" y="360" width="190" height="50" fill="none"/>
+  <text class="tx" x="498" y="392">기초판</text>
+  <rect class="fl" x="480" y="50" width="50" height="310"/>
+  <rect class="ln" x="480" y="50" width="50" height="310" fill="none"/>
+  <text class="tx" x="486" y="200">지하벽</text>
+  <rect class="fl" x="530" y="70" width="170" height="60"/>
+  <rect class="ln" x="530" y="70" width="170" height="60" fill="none"/>
+  <text class="tx" x="570" y="106">1층 바닥판</text>
+  <rect x="534" y="140" width="166" height="190" fill="url(#hat)"/>
+  <rect class="hl" x="528" y="70" width="6" height="60"/>
+  <rect class="hl" x="480" y="357" width="50" height="6"/>
+  <circle class="th" fill="none" cx="410" cy="320" r="11"/><text class="tb" x="410" y="325" text-anchor="middle">3</text>
+  <line class="th" x1="421" y1="326" x2="480" y2="360" marker-end="url(#ai)"/>
+  <circle class="th" fill="none" cx="420" cy="30" r="11"/><text class="tb" x="420" y="35" text-anchor="middle">4</text>
+  <line class="th" x1="428" y1="38" x2="528" y2="90" marker-end="url(#ai)"/>
+</svg>

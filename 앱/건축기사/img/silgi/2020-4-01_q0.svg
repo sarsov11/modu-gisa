@@ -1,0 +1,65 @@
+<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- ① 평면 -->
+  <rect class="fl" x="108" y="28" width="84" height="74"/><rect class="ln" x="108" y="28" width="84" height="74"/>
+  <rect class="th" x="132" y="40" width="5" height="50"/><rect class="th" x="163" y="40" width="5" height="50"/><line class="th" x1="137" y1="65" x2="163" y2="65"/>
+  <circle class="nd" cx="150" cy="52" r="4"/><circle class="nd" cx="150" cy="78" r="4"/>
+  <!-- ① 입면 -->
+  <polyline class="th" points="130,140 144,132 156,148 170,140"/>
+  <line class="ln" x1="136" y1="144" x2="136" y2="240"/><line class="ln" x1="164" y1="144" x2="164" y2="240"/>
+  <rect class="fl" x="80" y="252" width="140" height="78"/><rect class="ln" x="80" y="252" width="140" height="78"/>
+  <rect class="hl" x="110" y="249" width="80" height="4"/>
+  <rect class="fl" x="110" y="240" width="80" height="9"/><rect class="ln" x="110" y="240" width="80" height="9"/>
+  <path class="dsh" d="M150,249 L150,305 L130,305"/>
+  <text class="ts" x="16" y="226">베이스</text><text class="ts" x="16" y="240">플레이트</text>
+  <line class="th" x1="58" y1="244" x2="109" y2="245" marker-end="url(#ai)"/>
+  <text class="ts" x="236" y="270">그라우팅</text>
+  <line class="th" x1="234" y1="266" x2="192" y2="252" marker-end="url(#ai)"/>
+  <text class="ts" x="16" y="300">앵커볼트</text>
+  <line class="th" x1="66" y1="298" x2="128" y2="304" marker-end="url(#ai)"/>
+  <text class="tx" x="150" y="356" text-anchor="middle">( ① )</text>
+  <!-- ② 평면 -->
+  <rect class="fl" x="338" y="28" width="84" height="74"/><rect class="ln" x="338" y="28" width="84" height="74"/>
+  <rect class="th" x="362" y="40" width="5" height="50"/><rect class="th" x="393" y="40" width="5" height="50"/><line class="th" x1="367" y1="65" x2="393" y2="65"/>
+  <circle class="nd" cx="348" cy="42" r="4"/><circle class="nd" cx="348" cy="65" r="4"/><circle class="nd" cx="348" cy="88" r="4"/>
+  <circle class="nd" cx="412" cy="42" r="4"/><circle class="nd" cx="412" cy="65" r="4"/><circle class="nd" cx="412" cy="88" r="4"/>
+  <!-- ② 입면 -->
+  <polyline class="th" points="360,140 374,132 386,148 400,140"/>
+  <line class="ln" x1="366" y1="144" x2="366" y2="240"/><line class="ln" x1="394" y1="144" x2="394" y2="240"/>
+  <rect class="fl" x="310" y="252" width="140" height="78"/><rect class="ln" x="310" y="252" width="140" height="78"/>
+  <rect class="fl" x="325" y="240" width="110" height="12"/><rect class="ln" x="325" y="240" width="110" height="12"/>
+  <path class="dsh" d="M340,252 L340,305 L360,305"/><path class="dsh" d="M420,252 L420,305 L400,305"/>
+  <text class="tx" x="380" y="356" text-anchor="middle">( ② )</text>
+  <!-- ③ 평면 -->
+  <rect class="fl" x="568" y="28" width="84" height="74"/><rect class="ln" x="568" y="28" width="84" height="74"/>
+  <rect class="th" x="592" y="40" width="5" height="50"/><rect class="th" x="623" y="40" width="5" height="50"/><line class="th" x1="597" y1="65" x2="623" y2="65"/>
+  <circle class="nd" cx="610" cy="52" r="4"/><circle class="nd" cx="610" cy="78" r="4"/>
+  <!-- ③ 입면 (콘크리트 속에 묻힘) -->
+  <polyline class="th" points="590,110 604,102 616,118 630,110"/>
+  <rect class="fl" x="540" y="200" width="140" height="130"/><rect class="ln" x="540" y="200" width="140" height="130"/>
+  <line class="ln" x1="596" y1="114" x2="596" y2="282"/><line class="ln" x1="624" y1="114" x2="624" y2="282"/>
+  <rect class="fl" x="565" y="282" width="90" height="8"/><rect class="ln" x="565" y="282" width="90" height="8"/>
+  <path class="dsh" d="M610,290 L610,315 L590,315"/>
+  <text class="ts" x="456" y="262">베이스</text><text class="ts" x="456" y="276">플레이트</text>
+  <line class="th" x1="508" y1="278" x2="563" y2="285" marker-end="url(#ai)"/>
+  <text class="ts" x="456" y="318">앵커볼트</text>
+  <line class="th" x1="508" y1="314" x2="588" y2="315" marker-end="url(#ai)"/>
+  <text class="tx" x="610" y="356" text-anchor="middle">( ③ )</text>
+</svg>

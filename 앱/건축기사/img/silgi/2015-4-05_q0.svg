@@ -1,0 +1,31 @@
+<svg viewBox="0 0 420 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 기둥(H형강 단면 느낌의 두 플랜지)과 보 -->
+  <rect class="fl" x="66" y="90" width="84" height="200"/>
+  <rect class="sup" x="50" y="90" width="16" height="200"/><rect class="sup" x="150" y="90" width="16" height="200"/>
+  <rect class="fl" x="166" y="136" width="194" height="100"/>
+  <rect class="sup" x="166" y="122" width="194" height="14"/><rect class="sup" x="166" y="236" width="194" height="14"/>
+  <!-- 용접 이음 위치 -->
+  <rect class="hl" x="160" y="120" width="8" height="18"/><rect class="hl" x="160" y="234" width="8" height="18"/>
+  <!-- 화살표와 기준선(용접기호를 이 위에 적는다) -->
+  <line class="th" x1="230" y1="60" x2="400" y2="60"/>
+  <line class="ld" x1="230" y1="60" x2="166" y2="120" marker-end="url(#ar)"/>
+  <text class="ts" x="236" y="52">기준선</text>
+</svg>

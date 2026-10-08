@@ -1,0 +1,88 @@
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 결합점: 0(110,160) 1(230,160) 2(230,60) 3(370,60) 4(370,160) 5(510,160) 6(510,270) 7(655,160) -->
+  <!-- A 0→2 -->
+  <line class="ln" x1="123" y1="149" x2="217" y2="71" marker-end="url(#ai)"/>
+  <!-- B 0→1 (주공정선) -->
+  <line class="crit" x1="127" y1="160" x2="211" y2="160" marker-end="url(#ar)"/>
+  <!-- 더미 1→2 -->
+  <line class="dsh" x1="230" y1="143" x2="230" y2="79" marker-end="url(#ai)"/>
+  <!-- D 2→3 -->
+  <line class="ln" x1="247" y1="60" x2="351" y2="60" marker-end="url(#ai)"/>
+  <!-- 더미 3→4 -->
+  <line class="dsh" x1="370" y1="77" x2="370" y2="141" marker-end="url(#ai)"/>
+  <!-- F 3→5 -->
+  <line class="ln" x1="384" y1="70" x2="496" y2="152" marker-end="url(#ai)"/>
+  <!-- E 1→4 (주공정선) -->
+  <line class="crit" x1="247" y1="160" x2="351" y2="160" marker-end="url(#ar)"/>
+  <!-- G 4→5 (주공정선) -->
+  <line class="crit" x1="387" y1="160" x2="491" y2="160" marker-end="url(#ar)"/>
+  <!-- 더미 5→6 -->
+  <line class="dsh" x1="510" y1="177" x2="510" y2="251" marker-end="url(#ai)"/>
+  <!-- I 5→7 (주공정선) -->
+  <line class="crit" x1="527" y1="160" x2="636" y2="160" marker-end="url(#ar)"/>
+  <!-- C 0→6 -->
+  <path class="ln" d="M122,171 L190,270 L491,270" marker-end="url(#ai)"/>
+  <!-- H 6→7 -->
+  <line class="ln" x1="523" y1="260" x2="642" y2="170" marker-end="url(#ai)"/>
+
+  <circle class="nd" cx="110" cy="160" r="17"/><text class="tb" x="110" y="165" text-anchor="middle">0</text>
+  <circle class="nd" cx="230" cy="160" r="17"/><text class="tb" x="230" y="165" text-anchor="middle">1</text>
+  <circle class="nd" cx="230" cy="60" r="17"/><text class="tb" x="230" y="65" text-anchor="middle">2</text>
+  <circle class="nd" cx="370" cy="60" r="17"/><text class="tb" x="370" y="65" text-anchor="middle">3</text>
+  <circle class="nd" cx="370" cy="160" r="17"/><text class="tb" x="370" y="165" text-anchor="middle">4</text>
+  <circle class="nd" cx="510" cy="160" r="17"/><text class="tb" x="510" y="165" text-anchor="middle">5</text>
+  <circle class="nd" cx="510" cy="270" r="17"/><text class="tb" x="510" y="275" text-anchor="middle">6</text>
+  <circle class="nd" cx="655" cy="160" r="17"/><text class="tb" x="655" y="165" text-anchor="middle">7</text>
+
+  <!-- 작업명(위) / 일수(아래) -->
+  <text class="tx" x="150" y="106">A</text><text class="tx" x="182" y="130">3</text>
+  <text class="tx" x="170" y="150" text-anchor="middle">B</text><text class="tx" x="170" y="180" text-anchor="middle">4</text>
+  <text class="tx" x="299" y="50" text-anchor="middle">D</text><text class="tx" x="299" y="80" text-anchor="middle">6</text>
+  <text class="tx" x="455" y="100">F</text><text class="tx" x="428" y="128">4</text>
+  <text class="tx" x="299" y="150" text-anchor="middle">E</text><text class="tx" x="299" y="180" text-anchor="middle">7</text>
+  <text class="tx" x="439" y="150" text-anchor="middle">G</text><text class="tx" x="439" y="180" text-anchor="middle">5</text>
+  <text class="tx" x="581" y="150" text-anchor="middle">I</text><text class="tx" x="581" y="180" text-anchor="middle">7</text>
+  <text class="tx" x="340" y="260" text-anchor="middle">C</text><text class="tx" x="340" y="294" text-anchor="middle">5</text>
+  <text class="tx" x="536" y="230">H</text><text class="tx" x="606" y="238">6</text>
+
+  <!-- 일정 상자: 왼쪽 EST|LST, 오른쪽 LFT|EFT -->
+  <g class="th" >
+  <rect x="20" y="186" width="44" height="20"/><rect x="66" y="186" width="44" height="20"/>
+  <rect x="186" y="186" width="44" height="20"/><rect x="232" y="186" width="44" height="20"/>
+  <rect x="185" y="14" width="44" height="20"/><rect x="231" y="14" width="44" height="20"/>
+  <rect x="325" y="14" width="44" height="20"/><rect x="371" y="14" width="44" height="20"/>
+  <rect x="326" y="186" width="44" height="20"/><rect x="372" y="186" width="44" height="20"/>
+  <rect x="526" y="186" width="44" height="20"/><rect x="572" y="186" width="44" height="20"/>
+  <rect x="466" y="296" width="44" height="20"/><rect x="512" y="296" width="44" height="20"/>
+  <rect x="610" y="114" width="44" height="20"/><rect x="656" y="114" width="44" height="20"/>
+  </g>
+  <g class="ts" text-anchor="middle">
+  <text x="42" y="200">0|0</text><text x="88" y="200">0|0</text>
+  <text x="208" y="200">4|4</text><text x="254" y="200">4|4</text>
+  <text x="207" y="28">4|5</text><text x="253" y="28">5|4</text>
+  <text x="347" y="28">10|11</text><text x="393" y="28">11|10</text>
+  <text x="348" y="200">11|11</text><text x="394" y="200">11|11</text>
+  <text x="548" y="200">16|16</text><text x="594" y="200">16|16</text>
+  <text x="488" y="310">16|17</text><text x="534" y="310">17|16</text>
+  <text x="632" y="128">23|23</text><text x="678" y="128">23|23</text>
+  </g>
+  <text class="ts" x="16" y="342">결합점 상자: 왼쪽 EST | LST, 오른쪽 LFT | EFT · 굵은 선 = 주공정선 B-E-G-I (23일) · 점선 = 더미</text>
+</svg>

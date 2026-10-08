@@ -93,6 +93,7 @@
   소.push('<a class="b sm" href="card.html?k='+encodeURIComponent(GS.최근테마())+'">개념</a>');
   소.push('<a class="b sm" href="tree.html">다른 테마</a>');
   if(GS.있다("quiz.html")) 소.push('<a class="b sm" href="quiz.html">문제풀이</a>');
+  if(GS.있다("silgi.html")) 소.push('<a class="b sm" href="silgi.html">실기</a>');
   if(GS.있다("exam.html")) 소.push('<a class="b sm" href="exam.html">모의고사'+(GS.모의필요()?' <i class="wn" style="margin-left:6px">주 1회</i>':'')+'</a>');
   document.getElementById("small").innerHTML=소.join("");
   var more=document.getElementById("more");

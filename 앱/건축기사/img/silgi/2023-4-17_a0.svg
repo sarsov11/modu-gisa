@@ -1,0 +1,40 @@
+<svg viewBox="0 0 460 350" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <polygon class="fl" points="40,33 161,33 161,105 299,105 299,30 421,30 421,286 40,286"/>
+  <polygon class="ln" points="40,33 161,33 161,105 299,105 299,30 421,30 421,286 40,286" fill="none"/>
+  <line class="ln" x1="161" y1="105" x2="161" y2="286"/>
+  <line class="ln" x1="299" y1="105" x2="299" y2="286"/>
+  <line class="ln" x1="40" y1="197" x2="161" y2="197"/>
+  <!-- 귀규준틀 6개소 (볼록 모서리) -->
+  <polyline class="crit" points="52,28 35,28 35,45" fill="none"/>
+  <polyline class="crit" points="149,28 166,28 166,45" fill="none"/>
+  <polyline class="crit" points="311,25 294,25 294,42" fill="none"/>
+  <polyline class="crit" points="409,25 426,25 426,42" fill="none"/>
+  <polyline class="crit" points="409,291 426,291 426,274" fill="none"/>
+  <polyline class="crit" points="52,291 35,291 35,274" fill="none"/>
+  <!-- 평규준틀 6개소 -->
+  <rect class="rb" x="31" y="88" width="6" height="26"/><rect class="rb" x="31" y="204" width="6" height="26"/>
+  <rect class="rb" x="424" y="88" width="6" height="26"/><rect class="rb" x="424" y="204" width="6" height="26"/>
+  <rect class="rb" x="148" y="290" width="26" height="6"/><rect class="rb" x="286" y="290" width="26" height="6"/>
+  <polyline class="crit" points="40,330 24,330 24,314" fill="none"/>
+  <text class="tx" x="46" y="330">귀규준틀 6개소</text>
+  <rect class="rb" x="230" y="324" width="26" height="6"/>
+  <text class="tx" x="264" y="332">평규준틀 6개소</text>
+</svg>

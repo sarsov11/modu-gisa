@@ -1,0 +1,38 @@
+<svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 수직 판 -->
+  <rect class="fl" x="100" y="40" width="40" height="200"/><rect class="ln" x="100" y="40" width="40" height="200"/>
+  <!-- 수평 판: 끝을 45도로 깎은 맞댐 홈, 루트 간격 3 -->
+  <polygon class="fl" points="158,150 158,135 183,110 400,110 400,150"/>
+  <polygon class="ln" points="158,150 158,135 183,110 400,110 400,150" fill="none"/>
+  <rect class="fl" x="146" y="150" width="52" height="8"/><rect class="ln" x="146" y="150" width="52" height="8"/>
+  <!-- 홈 각도 -->
+  <line class="dsh" x1="158" y1="135" x2="158" y2="66"/>
+  <line class="th" x1="158" y1="135" x2="208" y2="85"/>
+  <path class="th" d="M158,100 A35,35 0 0,1 183,110"/>
+  <text class="tx" x="196" y="104">45°</text>
+  <!-- 루트 간격 -->
+  <line class="th" x1="140" y1="158" x2="140" y2="262"/><line class="th" x1="158" y1="150" x2="158" y2="262"/>
+  <line class="dm" x1="120" y1="256" x2="140" y2="256" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="140" y1="256" x2="158" y2="256" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="146" y="284">3</text>
+  <text class="tx" x="104" y="306">루트 간격 3 (단위 mm)</text>
+  <text class="tb" x="270" y="240">현장용접</text>
+</svg>

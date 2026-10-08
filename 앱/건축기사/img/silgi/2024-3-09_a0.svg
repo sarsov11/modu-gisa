@@ -1,0 +1,40 @@
+<svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <line class="ln" x1="84" y1="136" x2="316" y2="76" marker-end="url(#ai)"/>
+  <line class="crit" x1="87" y1="150" x2="203" y2="150" marker-end="url(#ar)"/>
+  <line class="ln" x1="84" y1="164" x2="316" y2="254" marker-end="url(#ai)"/>
+  <line class="dsh" x1="231" y1="138" x2="318" y2="84" marker-end="url(#ai)"/>
+  <line class="dsh" x1="228" y1="164" x2="318" y2="248" marker-end="url(#ai)"/>
+  <polyline class="crit" points="347,70 520,70 536,134" fill="none" marker-end="url(#ar)"/>
+  <polyline class="ln" points="347,260 520,260 540,168" fill="none" marker-end="url(#ai)"/>
+  <circle class="nd" cx="70" cy="150" r="16"/><text class="tb" x="70" y="155" text-anchor="middle">0</text>
+  <circle class="nd" cx="220" cy="150" r="16"/><text class="tb" x="220" y="155" text-anchor="middle">1</text>
+  <circle class="nd" cx="330" cy="70" r="16"/><text class="tb" x="330" y="75" text-anchor="middle">2</text>
+  <circle class="nd" cx="330" cy="260" r="16"/><text class="tb" x="330" y="265" text-anchor="middle">3</text>
+  <circle class="nd" cx="540" cy="150" r="16"/><text class="tb" x="540" y="155" text-anchor="middle">4</text>
+  <text class="tx" x="175" y="94">A 2</text><text class="tx" x="130" y="140">B 5</text><text class="tx" x="175" y="226">C 3</text>
+  <text class="tx" x="428" y="60">D 4</text><text class="tx" x="428" y="250">E 3</text>
+  <rect class="th" fill="none" x="35" y="104" width="50" height="20"/><text class="ts" x="60" y="119" text-anchor="middle">0 | 0</text>
+  <rect class="th" fill="none" x="196" y="108" width="50" height="20"/><text class="ts" x="221" y="123" text-anchor="middle">5 | 5</text>
+  <rect class="th" fill="none" x="306" y="28" width="50" height="20"/><text class="ts" x="331" y="43" text-anchor="middle">5 | 5</text>
+  <rect class="th" fill="none" x="306" y="288" width="50" height="20"/><text class="ts" x="331" y="303" text-anchor="middle">5 | 6</text>
+  <rect class="th" fill="none" x="566" y="140" width="50" height="20"/><text class="ts" x="591" y="155" text-anchor="middle">9 | 9</text>
+  <text class="ts" x="16" y="332">결합점 상자 = EST | LST · 굵은 선 = 주공정선 B → 더미 → D (9일) · 점선 = 더미</text>
+</svg>

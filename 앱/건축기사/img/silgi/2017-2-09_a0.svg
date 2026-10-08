@@ -1,0 +1,106 @@
+<svg viewBox="0 0 720 616" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tb" x="16" y="20">① 표준 공정표 (공기 31일)</text>
+  <g transform="translate(0,36)">
+    <line class="ln" x1="66" y1="120" x2="144" y2="120" marker-end="url(#ai)"/>
+    <line class="ln" x1="65" y1="115" x2="255" y2="50" marker-end="url(#ai)"/>
+    <line class="crit" x1="65" y1="125" x2="255" y2="190" marker-end="url(#ar)"/>
+    <line class="ln" x1="173" y1="111" x2="257" y2="54" marker-end="url(#ai)"/>
+    <line class="ln" x1="173" y1="129" x2="257" y2="186" marker-end="url(#ai)"/>
+    <line class="ln" x1="286" y1="45" x2="394" y2="45" marker-end="url(#ai)"/>
+    <line class="ln" x1="281" y1="57" x2="399" y2="183" marker-end="url(#ai)"/>
+    <line class="crit" x1="286" y1="195" x2="394" y2="195" marker-end="url(#ar)"/>
+    <line class="ln" x1="424" y1="53" x2="536" y2="112" marker-end="url(#ai)"/>
+    <line class="crit" x1="424" y1="187" x2="536" y2="128" marker-end="url(#ar)"/>
+    <line class="crit" x1="566" y1="120" x2="649" y2="120" marker-end="url(#ar)"/>
+    <circle class="nd" cx="50" cy="120" r="16"/><text class="tb" x="50" y="126" text-anchor="middle">0</text>
+    <circle class="nd" cx="160" cy="120" r="16"/><text class="tb" x="160" y="126" text-anchor="middle">1</text>
+    <circle class="nd" cx="270" cy="45" r="16"/><text class="tb" x="270" y="51" text-anchor="middle">2</text>
+    <circle class="nd" cx="270" cy="195" r="16"/><text class="tb" x="270" y="201" text-anchor="middle">3</text>
+    <circle class="nd" cx="410" cy="45" r="16"/><text class="tb" x="410" y="51" text-anchor="middle">4</text>
+    <circle class="nd" cx="410" cy="195" r="16"/><text class="tb" x="410" y="201" text-anchor="middle">5</text>
+    <circle class="nd" cx="550" cy="120" r="16"/><text class="tb" x="550" y="126" text-anchor="middle">6</text>
+    <circle class="nd" cx="665" cy="120" r="16"/><text class="tb" x="665" y="126" text-anchor="middle">7</text>
+    <text class="tx" x="95" y="112">A 5</text><text class="tx" x="130" y="76">B 8</text><text class="tx" x="130" y="176">C 15</text>
+    <text class="tx" x="234" y="98">D 3</text><text class="tx" x="236" y="160">E 6</text><text class="tx" x="325" y="37">G 9</text>
+    <text class="tx" x="358" y="108">F 7</text><text class="tx" x="326" y="187">H 10</text><text class="tx" x="472" y="68">J 3</text>
+    <text class="tx" x="474" y="178">I 4</text><text class="tx" x="595" y="112">K 2</text>
+    <g class="th"><rect class="fl" x="28" y="142" width="40" height="28"/><line x1="48" y1="142" x2="48" y2="170"/><line x1="28" y1="156" x2="68" y2="156"/></g>
+    <text class="ts" x="38" y="153" text-anchor="middle">0</text><text class="ts" x="58" y="153" text-anchor="middle">0</text><text class="ts" x="38" y="167" text-anchor="middle">0</text><text class="ts" x="58" y="167" text-anchor="middle">0</text>
+    <g class="th"><rect class="fl" x="188" y="106" width="40" height="28"/><line x1="208" y1="106" x2="208" y2="134"/><line x1="188" y1="120" x2="228" y2="120"/></g>
+    <text class="ts" x="198" y="117" text-anchor="middle">5</text><text class="ts" x="218" y="117" text-anchor="middle">9</text><text class="ts" x="198" y="131" text-anchor="middle">9</text><text class="ts" x="218" y="131" text-anchor="middle">5</text>
+    <g class="th"><rect class="fl" x="250" y="-14" width="40" height="28"/><line x1="270" y1="-14" x2="270" y2="14"/><line x1="250" y1="0" x2="290" y2="0"/></g>
+    <text class="ts" x="260" y="-3" text-anchor="middle">8</text><text class="ts" x="280" y="-3" text-anchor="middle">17</text><text class="ts" x="260" y="11" text-anchor="middle">17</text><text class="ts" x="280" y="11" text-anchor="middle">8</text>
+    <g class="th"><rect class="fl" x="250" y="215" width="40" height="28"/><line x1="270" y1="215" x2="270" y2="243"/><line x1="250" y1="229" x2="290" y2="229"/></g>
+    <text class="ts" x="260" y="226" text-anchor="middle">15</text><text class="ts" x="280" y="226" text-anchor="middle">15</text><text class="ts" x="260" y="240" text-anchor="middle">15</text><text class="ts" x="280" y="240" text-anchor="middle">15</text>
+    <g class="th"><rect class="fl" x="390" y="-14" width="40" height="28"/><line x1="410" y1="-14" x2="410" y2="14"/><line x1="390" y1="0" x2="430" y2="0"/></g>
+    <text class="ts" x="400" y="-3" text-anchor="middle">17</text><text class="ts" x="420" y="-3" text-anchor="middle">26</text><text class="ts" x="400" y="11" text-anchor="middle">26</text><text class="ts" x="420" y="11" text-anchor="middle">17</text>
+    <g class="th"><rect class="fl" x="390" y="215" width="40" height="28"/><line x1="410" y1="215" x2="410" y2="243"/><line x1="390" y1="229" x2="430" y2="229"/></g>
+    <text class="ts" x="400" y="226" text-anchor="middle">25</text><text class="ts" x="420" y="226" text-anchor="middle">25</text><text class="ts" x="400" y="240" text-anchor="middle">25</text><text class="ts" x="420" y="240" text-anchor="middle">25</text>
+    <g class="th"><rect class="fl" x="530" y="70" width="40" height="28"/><line x1="550" y1="70" x2="550" y2="98"/><line x1="530" y1="84" x2="570" y2="84"/></g>
+    <text class="ts" x="540" y="81" text-anchor="middle">29</text><text class="ts" x="560" y="81" text-anchor="middle">29</text><text class="ts" x="540" y="95" text-anchor="middle">29</text><text class="ts" x="560" y="95" text-anchor="middle">29</text>
+    <g class="th"><rect class="fl" x="645" y="72" width="40" height="28"/><line x1="665" y1="72" x2="665" y2="100"/><line x1="645" y1="86" x2="685" y2="86"/></g>
+    <text class="ts" x="655" y="83" text-anchor="middle">31</text><text class="ts" x="675" y="83" text-anchor="middle">31</text><text class="ts" x="655" y="97" text-anchor="middle">31</text><text class="ts" x="675" y="97" text-anchor="middle">31</text>
+  </g>
+
+  <text class="tb" x="16" y="316">② 10일 단축 공정표 (공기 21일)</text>
+  <g transform="translate(0,336)">
+    <line class="crit" x1="66" y1="120" x2="144" y2="120" marker-end="url(#ar)"/>
+    <line class="crit" x1="65" y1="115" x2="255" y2="50" marker-end="url(#ar)"/>
+    <line class="crit" x1="65" y1="125" x2="255" y2="190" marker-end="url(#ar)"/>
+    <line class="crit" x1="173" y1="111" x2="257" y2="54" marker-end="url(#ar)"/>
+    <line class="crit" x1="173" y1="129" x2="257" y2="186" marker-end="url(#ar)"/>
+    <line class="crit" x1="286" y1="45" x2="394" y2="45" marker-end="url(#ar)"/>
+    <line class="ln" x1="281" y1="57" x2="399" y2="183" marker-end="url(#ai)"/>
+    <line class="crit" x1="286" y1="195" x2="394" y2="195" marker-end="url(#ar)"/>
+    <line class="crit" x1="424" y1="53" x2="536" y2="112" marker-end="url(#ar)"/>
+    <line class="crit" x1="424" y1="187" x2="536" y2="128" marker-end="url(#ar)"/>
+    <line class="crit" x1="566" y1="120" x2="649" y2="120" marker-end="url(#ar)"/>
+    <circle class="nd" cx="50" cy="120" r="16"/><text class="tb" x="50" y="126" text-anchor="middle">0</text>
+    <circle class="nd" cx="160" cy="120" r="16"/><text class="tb" x="160" y="126" text-anchor="middle">1</text>
+    <circle class="nd" cx="270" cy="45" r="16"/><text class="tb" x="270" y="51" text-anchor="middle">2</text>
+    <circle class="nd" cx="270" cy="195" r="16"/><text class="tb" x="270" y="201" text-anchor="middle">3</text>
+    <circle class="nd" cx="410" cy="45" r="16"/><text class="tb" x="410" y="51" text-anchor="middle">4</text>
+    <circle class="nd" cx="410" cy="195" r="16"/><text class="tb" x="410" y="201" text-anchor="middle">5</text>
+    <circle class="nd" cx="550" cy="120" r="16"/><text class="tb" x="550" y="126" text-anchor="middle">6</text>
+    <circle class="nd" cx="665" cy="120" r="16"/><text class="tb" x="665" y="126" text-anchor="middle">7</text>
+    <text class="tx" x="95" y="112">A 4</text><text class="tx" x="130" y="76">B 7</text><text class="tx" x="130" y="176">C 10</text>
+    <text class="tx" x="234" y="98">D 3</text><text class="tx" x="236" y="160">E 6</text><text class="tx" x="325" y="37">G 9</text>
+    <text class="tx" x="358" y="108">F 7</text><text class="tx" x="330" y="187">H 7</text><text class="tx" x="472" y="68">J 3</text>
+    <text class="tx" x="474" y="178">I 2</text><text class="tx" x="595" y="112">K 2</text>
+    <g class="th"><rect class="fl" x="28" y="142" width="40" height="28"/><line x1="48" y1="142" x2="48" y2="170"/><line x1="28" y1="156" x2="68" y2="156"/></g>
+    <text class="ts" x="38" y="153" text-anchor="middle">0</text><text class="ts" x="58" y="153" text-anchor="middle">0</text><text class="ts" x="38" y="167" text-anchor="middle">0</text><text class="ts" x="58" y="167" text-anchor="middle">0</text>
+    <g class="th"><rect class="fl" x="188" y="106" width="40" height="28"/><line x1="208" y1="106" x2="208" y2="134"/><line x1="188" y1="120" x2="228" y2="120"/></g>
+    <text class="ts" x="198" y="117" text-anchor="middle">4</text><text class="ts" x="218" y="117" text-anchor="middle">4</text><text class="ts" x="198" y="131" text-anchor="middle">4</text><text class="ts" x="218" y="131" text-anchor="middle">4</text>
+    <g class="th"><rect class="fl" x="250" y="-14" width="40" height="28"/><line x1="270" y1="-14" x2="270" y2="14"/><line x1="250" y1="0" x2="290" y2="0"/></g>
+    <text class="ts" x="260" y="-3" text-anchor="middle">7</text><text class="ts" x="280" y="-3" text-anchor="middle">7</text><text class="ts" x="260" y="11" text-anchor="middle">7</text><text class="ts" x="280" y="11" text-anchor="middle">7</text>
+    <g class="th"><rect class="fl" x="250" y="215" width="40" height="28"/><line x1="270" y1="215" x2="270" y2="243"/><line x1="250" y1="229" x2="290" y2="229"/></g>
+    <text class="ts" x="260" y="226" text-anchor="middle">10</text><text class="ts" x="280" y="226" text-anchor="middle">10</text><text class="ts" x="260" y="240" text-anchor="middle">10</text><text class="ts" x="280" y="240" text-anchor="middle">10</text>
+    <g class="th"><rect class="fl" x="390" y="-14" width="40" height="28"/><line x1="410" y1="-14" x2="410" y2="14"/><line x1="390" y1="0" x2="430" y2="0"/></g>
+    <text class="ts" x="400" y="-3" text-anchor="middle">16</text><text class="ts" x="420" y="-3" text-anchor="middle">16</text><text class="ts" x="400" y="11" text-anchor="middle">16</text><text class="ts" x="420" y="11" text-anchor="middle">16</text>
+    <g class="th"><rect class="fl" x="390" y="215" width="40" height="28"/><line x1="410" y1="215" x2="410" y2="243"/><line x1="390" y1="229" x2="430" y2="229"/></g>
+    <text class="ts" x="400" y="226" text-anchor="middle">17</text><text class="ts" x="420" y="226" text-anchor="middle">17</text><text class="ts" x="400" y="240" text-anchor="middle">17</text><text class="ts" x="420" y="240" text-anchor="middle">17</text>
+    <g class="th"><rect class="fl" x="530" y="70" width="40" height="28"/><line x1="550" y1="70" x2="550" y2="98"/><line x1="530" y1="84" x2="570" y2="84"/></g>
+    <text class="ts" x="540" y="81" text-anchor="middle">19</text><text class="ts" x="560" y="81" text-anchor="middle">19</text><text class="ts" x="540" y="95" text-anchor="middle">19</text><text class="ts" x="560" y="95" text-anchor="middle">19</text>
+    <g class="th"><rect class="fl" x="645" y="72" width="40" height="28"/><line x1="665" y1="72" x2="665" y2="100"/><line x1="645" y1="86" x2="685" y2="86"/></g>
+    <text class="ts" x="655" y="83" text-anchor="middle">21</text><text class="ts" x="675" y="83" text-anchor="middle">21</text><text class="ts" x="655" y="97" text-anchor="middle">21</text><text class="ts" x="675" y="97" text-anchor="middle">21</text>
+  </g>
+  <text class="ts" x="16" y="604">결합점 상자: 위 칸 EST | LST, 아래 칸 LFT | EFT · 굵은 선 = 주공정선(표준: C-H-I-K)</text>
+</svg>

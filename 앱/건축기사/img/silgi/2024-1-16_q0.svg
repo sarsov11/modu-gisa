@@ -1,0 +1,43 @@
+<svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <polygon class="fl" points="160,26 220,26 220,80 380,80 380,130 220,130 220,330 380,330 380,390 60,390 60,330 160,330"/>
+  <polygon class="ln" points="160,26 220,26 220,80 380,80 380,130 220,130 220,330 380,330 380,390 60,390 60,330 160,330" fill="none"/>
+  <!-- 주철근 -->
+  <polyline class="th" points="172,36 172,370 330,370" fill="none"/>
+  <polyline class="th" points="208,36 208,100 370,100" fill="none"/>
+  <!-- 구간 치수 (왼쪽) -->
+  <line class="th" x1="100" y1="80" x2="156" y2="80"/><line class="th" x1="100" y1="130" x2="156" y2="130"/><line class="th" x1="100" y1="180" x2="156" y2="180"/><line class="th" x1="100" y1="280" x2="156" y2="280"/><line class="th" x1="100" y1="330" x2="156" y2="330"/>
+  <line class="dm" x1="128" y1="80" x2="128" y2="130" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="128" y1="130" x2="128" y2="180" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="128" y1="180" x2="128" y2="280" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="128" y1="280" x2="128" y2="330" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <circle class="th" fill="none" cx="104" cy="105" r="10"/><text class="tb" x="104" y="110" text-anchor="middle">1</text>
+  <circle class="th" fill="none" cx="104" cy="155" r="10"/><text class="tb" x="104" y="160" text-anchor="middle">2</text>
+  <circle class="th" fill="none" cx="104" cy="230" r="10"/><text class="tb" x="104" y="235" text-anchor="middle">3</text>
+  <circle class="th" fill="none" cx="104" cy="305" r="10"/><text class="tb" x="104" y="310" text-anchor="middle">4</text>
+  <!-- 오른쪽 H 치수 -->
+  <line class="th" x1="224" y1="180" x2="290" y2="180"/><line class="th" x1="224" y1="280" x2="290" y2="280"/>
+  <line class="th" x1="224" y1="130" x2="290" y2="130"/><line class="th" x1="224" y1="330" x2="290" y2="330"/>
+  <line class="dm" x1="262" y1="130" x2="262" y2="180" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="262" y1="280" x2="262" y2="330" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="300" y1="130" x2="300" y2="330" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="228" y="162">H/4</text><text class="tx" x="228" y="312">H/4</text>
+  <text class="tm" x="310" y="236">H</text>
+</svg>

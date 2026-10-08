@@ -1,0 +1,49 @@
+<svg viewBox="0 0 480 570" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 단면: 1 px = 10 mm. 기초 2,000 x 두께 600, 철근 아래 피복 100, 기둥 500 -->
+  <rect class="fl" x="160" y="170" width="200" height="60"/><rect class="ln" x="160" y="170" width="200" height="60"/>
+  <rect class="hl" x="235" y="70" width="50" height="100"/><rect class="ln" x="235" y="70" width="50" height="100"/>
+  <line class="ld" x1="260" y1="20" x2="260" y2="68" marker-end="url(#ar)"/><text class="tr" x="272" y="40">P</text>
+  <circle class="rb" cx="175" cy="220" r="5"/><circle class="rb" cx="203" cy="220" r="5"/><circle class="rb" cx="231" cy="220" r="5"/><circle class="rb" cx="260" cy="220" r="5"/><circle class="rb" cx="289" cy="220" r="5"/><circle class="rb" cx="317" cy="220" r="5"/><circle class="rb" cx="345" cy="220" r="5"/>
+  <line class="th" x1="360" y1="170" x2="402" y2="170"/><line class="th" x1="360" y1="230" x2="402" y2="230"/>
+  <line class="dm" x1="394" y1="170" x2="394" y2="230" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="406" y="206">600 mm</text>
+  <line class="th" x1="160" y1="220" x2="112" y2="220"/><line class="th" x1="160" y1="230" x2="112" y2="230"/>
+  <line class="dm" x1="120" y1="206" x2="120" y2="220" marker-end="url(#dmk)"/>
+  <line class="dm" x1="120" y1="244" x2="120" y2="230" marker-end="url(#dmk)"/>
+  <text class="tx" x="30" y="228">100 mm</text>
+  <line class="th" x1="160" y1="238" x2="160" y2="276"/><line class="th" x1="360" y1="238" x2="360" y2="276"/>
+  <line class="dm" x1="160" y1="268" x2="360" y2="268" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="214" y="292">2,000 mm</text>
+  <text class="ts" x="16" y="120">단면</text>
+  <!-- 평면 -->
+  <rect class="fl" x="160" y="330" width="200" height="200"/><rect class="ln" x="160" y="330" width="200" height="200"/>
+  <rect class="hl" x="235" y="405" width="50" height="50"/><rect class="ln" x="235" y="405" width="50" height="50"/>
+  <line class="th" x1="235" y1="405" x2="235" y2="384"/><line class="th" x1="285" y1="405" x2="285" y2="384"/>
+  <line class="dm" x1="235" y1="390" x2="285" y2="390" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="226" y="380">500 mm</text>
+  <line class="th" x1="235" y1="405" x2="212" y2="405"/><line class="th" x1="235" y1="455" x2="212" y2="455"/>
+  <line class="dm" x1="220" y1="405" x2="220" y2="455" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="166" y="434">500 mm</text>
+  <line class="th" x1="360" y1="330" x2="412" y2="330"/><line class="th" x1="360" y1="530" x2="412" y2="530"/>
+  <line class="dm" x1="404" y1="330" x2="404" y2="530" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="412" y="436">2,000 mm</text>
+  <text class="ts" x="16" y="340">평면</text>
+</svg>

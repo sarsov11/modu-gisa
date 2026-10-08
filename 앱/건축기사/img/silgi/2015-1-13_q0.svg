@@ -1,0 +1,42 @@
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 단순보 경간 6 m, 중앙 집중하중 -->
+  <line class="ld" x1="220" y1="36" x2="220" y2="106" marker-end="url(#ar)"/>
+  <text class="tr" x="232" y="50"><tspan class="tm">P</tspan><tspan dy="4" class="ts">u</tspan></text>
+  <line class="m" x1="40" y1="110" x2="400" y2="110"/>
+  <polygon class="sup" points="40,112 24,140 56,140"/>
+  <polygon class="sup" points="400,112 384,136 416,136"/>
+  <circle class="nd" cx="390" cy="141" r="4"/><circle class="nd" cx="400" cy="141" r="4"/><circle class="nd" cx="410" cy="141" r="4"/>
+  <text class="tb" x="8" y="130">A</text><text class="tb" x="424" y="130">B</text>
+  <line class="th" x1="40" y1="150" x2="40" y2="190"/><line class="th" x1="220" y1="116" x2="220" y2="190"/><line class="th" x1="400" y1="150" x2="400" y2="190"/>
+  <line class="dm" x1="40" y1="182" x2="220" y2="182" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="220" y1="182" x2="400" y2="182" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="130" y="206" text-anchor="middle">3 m</text><text class="tx" x="310" y="206" text-anchor="middle">3 m</text>
+  <!-- 단면 280 x 430 -->
+  <rect class="fl" x="480" y="40" width="100" height="154"/><rect class="ln" x="480" y="40" width="100" height="154" fill="none"/>
+  <circle class="rb" cx="505" cy="166" r="6"/><circle class="rb" cx="530" cy="166" r="6"/><circle class="rb" cx="555" cy="166" r="6"/>
+  <line class="th" x1="584" y1="40" x2="606" y2="40"/><line class="th" x1="561" y1="166" x2="606" y2="166"/>
+  <line class="dm" x1="598" y1="40" x2="598" y2="166" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="606" y="108"><tspan class="tm">d</tspan> = 430 mm</text>
+  <line class="th" x1="480" y1="198" x2="480" y2="220"/><line class="th" x1="580" y1="198" x2="580" y2="220"/>
+  <line class="dm" x1="480" y1="212" x2="580" y2="212" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="530" y="236" text-anchor="middle"><tspan class="tm">b</tspan> = 280 mm</text>
+  <text class="ts" x="16" y="250"><tspan class="tm">f</tspan><tspan dy="4">ck</tspan><tspan dy="-4"> 24 MPa · </tspan><tspan class="tm">f</tspan><tspan dy="4">y</tspan><tspan dy="-4"> 400 MPa · </tspan><tspan class="tm">E</tspan><tspan dy="4">s</tspan><tspan dy="-4"> 200,000 MPa · </tspan><tspan class="tm">A</tspan><tspan dy="4">s</tspan><tspan dy="-4"> 2,100 mm²</tspan></text>
+</svg>

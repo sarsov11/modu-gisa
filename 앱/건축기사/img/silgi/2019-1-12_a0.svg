@@ -1,0 +1,58 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 결합점: 0(60,190) 2(250,60) 1(250,190) 4(400,190) 3(250,320) 5(540,190) 6(670,190) -->
+  <path class="ln" fill="none" d="M70,175 Q95,60 233,60" marker-end="url(#ai)"/>
+  <line class="ln" x1="77" y1="190" x2="233" y2="190" marker-end="url(#ai)"/>
+  <path class="crit" fill="none" d="M70,205 Q90,320 233,320" marker-end="url(#ar)"/>
+  <path class="ln" fill="none" d="M267,60 Q520,60 538,173" marker-end="url(#ai)"/>
+  <line class="ln" x1="267" y1="190" x2="383" y2="190" marker-end="url(#ai)"/>
+  <line class="dsh" x1="260" y1="70" x2="390" y2="178" marker-end="url(#ai)"/>
+  <line class="dsh" x1="260" y1="310" x2="390" y2="202" marker-end="url(#ai)"/>
+  <line class="ln" x1="417" y1="190" x2="523" y2="190" marker-end="url(#ai)"/>
+  <path class="crit" fill="none" d="M267,320 Q520,320 538,207" marker-end="url(#ar)"/>
+  <line class="crit" x1="557" y1="190" x2="653" y2="190" marker-end="url(#ar)"/>
+  <circle class="nd" cx="60" cy="190" r="17"/><text class="tb" x="60" y="195" text-anchor="middle">0</text>
+  <circle class="nd" cx="250" cy="60" r="17"/><text class="tb" x="250" y="65" text-anchor="middle">2</text>
+  <circle class="nd" cx="250" cy="190" r="17"/><text class="tb" x="250" y="195" text-anchor="middle">1</text>
+  <circle class="nd" cx="400" cy="190" r="17"/><text class="tb" x="400" y="195" text-anchor="middle">4</text>
+  <circle class="nd" cx="250" cy="320" r="17"/><text class="tb" x="250" y="325" text-anchor="middle">3</text>
+  <circle class="nd" cx="540" cy="190" r="17"/><text class="tb" x="540" y="195" text-anchor="middle">5</text>
+  <circle class="nd" cx="670" cy="190" r="17"/><text class="tb" x="670" y="195" text-anchor="middle">6</text>
+  <!-- 작업명 일수 -->
+  <text class="tx" x="118" y="68">A 3</text>
+  <text class="tx" x="140" y="180">B 2</text>
+  <text class="tb" x="96" y="312">C 4</text>
+  <text class="tx" x="380" y="50">F 3</text>
+  <text class="tx" x="306" y="180">E 2</text>
+  <text class="tx" x="450" y="180">G 3</text>
+  <text class="tb" x="380" y="344">D 5</text>
+  <text class="tb" x="590" y="180">H 4</text>
+  <!-- 빠른 | 늦은 시각 -->
+  <g class="ts" text-anchor="middle">
+    <rect class="th" x="38" y="146" width="44" height="16"/><line class="th" x1="60" y1="146" x2="60" y2="162"/><text x="49" y="158">0</text><text x="71" y="158">0</text>
+    <rect class="th" x="228" y="16" width="44" height="16"/><line class="th" x1="250" y1="16" x2="250" y2="32"/><text x="239" y="28">3</text><text x="261" y="28">6</text>
+    <rect class="th" x="228" y="146" width="44" height="16"/><line class="th" x1="250" y1="146" x2="250" y2="162"/><text x="239" y="158">2</text><text x="261" y="158">4</text>
+    <rect class="th" x="378" y="146" width="44" height="16"/><line class="th" x1="400" y1="146" x2="400" y2="162"/><text x="389" y="158">4</text><text x="411" y="158">6</text>
+    <rect class="th" x="228" y="346" width="44" height="16"/><line class="th" x1="250" y1="346" x2="250" y2="362"/><text x="239" y="358">4</text><text x="261" y="358">4</text>
+    <rect class="th" x="518" y="146" width="44" height="16"/><line class="th" x1="540" y1="146" x2="540" y2="162"/><text x="529" y="158">9</text><text x="551" y="158">9</text>
+    <rect class="th" x="648" y="146" width="44" height="16"/><line class="th" x1="670" y1="146" x2="670" y2="162"/><text x="659" y="158">13</text><text x="681" y="158">13</text>
+  </g>
+  <text class="ts" x="20" y="392">굵은 선 = 주공정선 C→D→H (13일) · 점선 = 더미 · 상자 = 빠른 | 늦은 시각</text>
+</svg>

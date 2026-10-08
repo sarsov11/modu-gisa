@@ -1,0 +1,48 @@
+<svg viewBox="0 0 520 450" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 판재 (두께 10 mm), 구멍 지름 22 mm -->
+  <rect class="fl" x="70" y="40" width="310" height="300"/>
+  <line class="ln" x1="70" y1="40" x2="380" y2="40"/><line class="ln" x1="70" y1="340" x2="380" y2="340"/><line class="ln" x1="70" y1="40" x2="70" y2="340"/>
+  <line class="dsh" x1="380" y1="30" x2="380" y2="350"/>
+  <!-- 파단선 -->
+  <line class="dsh" x1="150" y1="30" x2="150" y2="352"/>
+  <polyline class="dsh" points="150,110 200,190 150,270"/>
+  <line class="dsh" x1="200" y1="30" x2="200" y2="60"/>
+  <!-- 볼트 구멍 -->
+  <circle class="rb" cx="150" cy="110" r="11"/><circle class="rb" cx="200" cy="190" r="11"/><circle class="rb" cx="150" cy="270" r="11"/>
+  <circle class="rb" cx="250" cy="110" r="11"/><circle class="rb" cx="250" cy="270" r="11"/>
+  <text class="tx" x="126" y="104">1</text><text class="tx" x="214" y="186">2</text><text class="tx" x="126" y="284">3</text>
+  <text class="tb" x="150" y="24" text-anchor="middle">A</text><text class="tb" x="200" y="24" text-anchor="middle">D</text>
+  <text class="tb" x="150" y="364" text-anchor="middle">B</text><text class="tb" x="200" y="364" text-anchor="middle">C</text>
+  <line class="ld" x1="380" y1="190" x2="470" y2="190" marker-end="url(#ar)"/><text class="tr" x="478" y="195">P</text>
+  <!-- 세로 치수 -->
+  <line class="th" x1="66" y1="40" x2="36" y2="40"/><line class="th" x1="66" y1="110" x2="36" y2="110"/><line class="th" x1="66" y1="190" x2="36" y2="190"/><line class="th" x1="66" y1="270" x2="36" y2="270"/><line class="th" x1="66" y1="340" x2="36" y2="340"/>
+  <line class="dm" x1="44" y1="40" x2="44" y2="110" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="44" y1="110" x2="44" y2="190" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="44" y1="190" x2="44" y2="270" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="44" y1="270" x2="44" y2="340" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="20" y="79" text-anchor="middle">70</text><text class="tx" x="20" y="154" text-anchor="middle">80</text><text class="tx" x="20" y="234" text-anchor="middle">80</text><text class="tx" x="20" y="309" text-anchor="middle">70</text>
+  <!-- 가로 치수 -->
+  <line class="th" x1="150" y1="372" x2="150" y2="402"/><line class="th" x1="200" y1="372" x2="200" y2="402"/><line class="th" x1="250" y1="282" x2="250" y2="402"/>
+  <line class="dm" x1="150" y1="396" x2="200" y2="396" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="200" y1="396" x2="250" y2="396" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="175" y="418" text-anchor="middle">50</text><text class="tx" x="225" y="418" text-anchor="middle">50</text>
+  <text class="ts" x="16" y="442">판 두께 10 mm · 볼트 구멍 지름 22 mm · 단위 mm</text>
+</svg>

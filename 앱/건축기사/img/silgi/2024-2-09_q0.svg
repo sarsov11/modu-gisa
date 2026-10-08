@@ -1,0 +1,39 @@
+<svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <rect x="60" y="22" width="260" height="16" fill="url(#hat)"/>
+  <line class="m" x1="60" y1="38" x2="320" y2="38"/>
+  <rect class="fl" x="100" y="38" width="180" height="120"/>
+  <rect class="fl" x="150" y="158" width="80" height="130"/>
+  <rect class="ln" x="100" y="38" width="180" height="120" fill="none"/>
+  <rect class="ln" x="150" y="158" width="80" height="130" fill="none"/>
+  <text class="tm" x="112" y="76">A<tspan dy="4" class="ts">1</tspan></text>
+  <text class="tm" x="112" y="104">E<tspan dy="4" class="ts">1</tspan></text>
+  <text class="tm" x="162" y="200">A<tspan dy="4" class="ts">2</tspan></text>
+  <text class="tm" x="162" y="228">E<tspan dy="4" class="ts">2</tspan></text>
+  <line class="ld" x1="190" y1="70" x2="190" y2="156" marker-end="url(#ar)"/>
+  <text class="tr" x="198" y="96">P<tspan dy="4" class="ts">1</tspan></text>
+  <line class="ld" x1="190" y1="288" x2="190" y2="352" marker-end="url(#ar)"/>
+  <text class="tr" x="200" y="334">P<tspan dy="4" class="ts">2</tspan></text>
+  <line class="th" x1="280" y1="38" x2="346" y2="38"/><line class="th" x1="280" y1="158" x2="346" y2="158"/><line class="th" x1="230" y1="288" x2="346" y2="288"/>
+  <line class="dm" x1="336" y1="38" x2="336" y2="158" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="336" y1="158" x2="336" y2="288" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="352" y="104">L<tspan dy="4" class="ts">1</tspan></text>
+  <text class="tm" x="352" y="228">L<tspan dy="4" class="ts">2</tspan></text>
+</svg>

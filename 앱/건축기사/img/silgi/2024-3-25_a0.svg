@@ -1,0 +1,51 @@
+<svg viewBox="0 0 560 520" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <line class="m" x1="60" y1="70" x2="480" y2="70"/>
+  <polygon class="sup" points="60,70 46,98 74,98"/>
+  <polygon class="sup" points="340,70 326,98 354,98"/>
+  <circle class="th" fill="none" cx="333" cy="104" r="3.5"/><circle class="th" fill="none" cx="340" cy="104" r="3.5"/><circle class="th" fill="none" cx="347" cy="104" r="3.5"/>
+  <line class="ld" x1="480" y1="22" x2="480" y2="68" marker-end="url(#ar)"/>
+  <text class="tr" x="440" y="16">10 kN</text>
+  <text class="tb" x="36" y="62">A</text><text class="tb" x="356" y="92">B</text>
+  <line class="ld" x1="60" y1="140" x2="60" y2="112" marker-end="url(#ar)"/>
+  <text class="tx" x="20" y="160">R<tspan dy="4" class="ts">A</tspan> = 5 kN ↓</text>
+  <line class="ld" x1="340" y1="156" x2="340" y2="112" marker-end="url(#ar)"/>
+  <text class="tx" x="290" y="176">R<tspan dy="4" class="ts">B</tspan> = 15 kN ↑</text>
+  <line class="th" x1="60" y1="184" x2="60" y2="210"/><line class="th" x1="340" y1="184" x2="340" y2="210"/><line class="th" x1="480" y1="74" x2="480" y2="210"/>
+  <line class="dm" x1="60" y1="202" x2="340" y2="202" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="340" y1="202" x2="480" y2="202" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="190" y="196">2 m</text><text class="tx" x="400" y="196">1 m</text>
+  <text class="tb" x="16" y="236">SFD</text>
+  <line class="ln" x1="60" y1="290" x2="480" y2="290"/>
+  <polygon class="hl" points="60,290 60,314 340,314 340,290"/>
+  <polygon class="hl" points="340,290 340,250 480,250 480,290"/>
+  <polyline class="ln" points="60,290 60,314 340,314 340,250 480,250 480,290" fill="none"/>
+  <text class="tb" x="200" y="306" text-anchor="middle">−</text><text class="tb" x="410" y="276" text-anchor="middle">+</text>
+  <text class="tr" x="200" y="334" text-anchor="middle">−5 kN</text><text class="tr" x="410" y="242" text-anchor="middle">+10 kN</text>
+  <line class="dsh" x1="340" y1="214" x2="340" y2="470"/>
+  <text class="tb" x="16" y="376">BMD</text>
+  <line class="ln" x1="60" y1="420" x2="480" y2="420"/>
+  <polygon class="hl" points="60,420 340,380 480,420"/>
+  <polygon class="ln" points="60,420 340,380 480,420" fill="none"/>
+  <text class="tb" x="340" y="408" text-anchor="middle">−</text>
+  <text class="tr" x="340" y="370" text-anchor="middle">−10 kN·m</text>
+  <text class="ts" x="60" y="450">A와 끝점은 0, 전 구간 부(−) 휨모멘트</text>
+  <text class="tx" x="16" y="500">ΣM<tspan dy="4" class="ts">A</tspan><tspan dy="-4"> = 0 :  −R</tspan><tspan dy="4" class="ts">B</tspan><tspan dy="-4">×2 + 10×3 = 0 → R</tspan><tspan dy="4" class="ts">B</tspan><tspan dy="-4"> = 15 kN</tspan></text>
+</svg>

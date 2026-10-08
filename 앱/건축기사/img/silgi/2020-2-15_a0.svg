@@ -1,0 +1,38 @@
+<svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <rect class="fl" x="90" y="30" width="180" height="250"/>
+  <rect class="ln" x="90" y="30" width="180" height="250" fill="none"/>
+  <!-- 늑근 -->
+  <rect class="m" x="112" y="52" width="136" height="206" rx="8" fill="none"/>
+  <!-- 주근 -->
+  <circle class="rb" cx="134" cy="236" r="9"/><circle class="rb" cx="180" cy="236" r="9"/><circle class="rb" cx="226" cy="236" r="9"/>
+  <!-- 지시선 -->
+  <line class="th" x1="248" y1="100" x2="330" y2="78" marker-start="url(#ai)"/>
+  <text class="tb" x="336" y="82">늑근</text>
+  <line class="th" x1="188" y1="230" x2="330" y2="170" marker-start="url(#ai)"/>
+  <text class="tb" x="336" y="174">주근</text>
+  <!-- 피복두께 -->
+  <line class="th" x1="276" y1="258" x2="330" y2="258"/><line class="th" x1="276" y1="280" x2="330" y2="280"/>
+  <line class="dm" x1="318" y1="258" x2="318" y2="280" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tb" x="336" y="274">피복두께</text>
+  <line class="th" x1="90" y1="286" x2="90" y2="320"/><line class="th" x1="112" y1="286" x2="112" y2="320"/>
+  <line class="dm" x1="90" y1="312" x2="112" y2="312" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tb" x="40" y="342">피복두께</text>
+</svg>

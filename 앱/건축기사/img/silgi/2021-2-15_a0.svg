@@ -1,0 +1,36 @@
+<svg viewBox="0 0 560 360" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 상부기둥 / 하부기둥 (H형강 정면: 두 플랜지 + 웨브) -->
+  <rect class="fl" x="110" y="40" width="130" height="130"/>
+  <rect class="fl" x="110" y="170" width="130" height="130"/>
+  <rect class="sup" x="110" y="40" width="16" height="130"/><rect class="sup" x="224" y="40" width="16" height="130"/>
+  <rect class="sup" x="110" y="170" width="16" height="130"/><rect class="sup" x="224" y="170" width="16" height="130"/>
+  <!-- 단면 절단 표시 -->
+  <polyline class="ln" points="80,40 100,40 106,32 114,48 120,40 270,40"/>
+  <polyline class="ln" points="80,300 100,300 106,292 114,308 120,300 270,300"/>
+  <!-- 메탈터치 접촉면 -->
+  <line class="crit" x1="110" y1="170" x2="240" y2="170"/>
+  <text class="tx" x="175" y="108" text-anchor="middle">상부기둥</text>
+  <text class="tx" x="175" y="244" text-anchor="middle">하부기둥</text>
+  <line class="th" x1="286" y1="128" x2="244" y2="168" marker-end="url(#ai)"/>
+  <text class="tr" x="290" y="116">Metal touch</text>
+  <text class="ts" x="290" y="140">절단 직각도 오차:</text>
+  <text class="ts" x="290" y="158">100 mm에 0.1 ~ 0.2 mm 정도</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 결합점: 1(60,240) 3(230,110) 4(400,110) 6(640,240) 2(230,370) 5(400,370) -->
+  <line class="ln" x1="73" y1="230" x2="217" y2="120" marker-end="url(#ai)"/>
+  <line class="crit" x1="73" y1="250" x2="217" y2="360" marker-end="url(#ar)"/>
+  <line class="crit dsh" x1="230" y1="353" x2="230" y2="127" marker-end="url(#ar)"/>
+  <line class="ln" x1="247" y1="110" x2="383" y2="110" marker-end="url(#ai)"/>
+  <line class="crit" x1="239" y1="124" x2="391" y2="356" marker-end="url(#ar)"/>
+  <line class="ln" x1="239" y1="356" x2="391" y2="124" marker-end="url(#ai)"/>
+  <line class="ln" x1="247" y1="370" x2="383" y2="370" marker-end="url(#ai)"/>
+  <line class="ln" x1="415" y1="118" x2="625" y2="232" marker-end="url(#ai)"/>
+  <line class="dsh" x1="400" y1="127" x2="400" y2="353" marker-end="url(#ai)"/>
+  <line class="crit" x1="415" y1="362" x2="625" y2="248" marker-end="url(#ar)"/>
+  <circle class="nd" cx="60" cy="240" r="17"/><text class="tb" x="55" y="245">1</text>
+  <circle class="nd" cx="230" cy="110" r="17"/><text class="tb" x="225" y="115">3</text>
+  <circle class="nd" cx="400" cy="110" r="17"/><text class="tb" x="395" y="115">4</text>
+  <circle class="nd" cx="640" cy="240" r="17"/><text class="tb" x="635" y="245">6</text>
+  <circle class="nd" cx="230" cy="370" r="17"/><text class="tb" x="225" y="375">2</text>
+  <circle class="nd" cx="400" cy="370" r="17"/><text class="tb" x="395" y="375">5</text>
+  <text class="tx" x="96" y="186">A 5</text><text class="tx" x="126" y="332">B 6</text>
+  <text class="tx" x="304" y="98">C 5</text><text class="tx" x="252" y="236">D 7</text><text class="tx" x="344" y="222">E 3</text>
+  <text class="tx" x="304" y="394">F 4</text><text class="tx" x="510" y="150">G 2</text><text class="tx" x="520" y="342">H 4</text>
+  <!-- 일정 표시 -->
+  <rect class="th" x="18" y="198" width="40" height="16"/><line class="th" x1="38" y1="198" x2="38" y2="214"/>
+  <text class="ts" x="23" y="210">0</text><text class="ts" x="43" y="210">0</text>
+  <rect class="th" x="184" y="62" width="40" height="16"/><line class="th" x1="204" y1="62" x2="204" y2="78"/>
+  <text class="ts" x="189" y="74">6</text><text class="ts" x="209" y="74">6</text>
+  <polygon class="th" points="238,78 262,56 286,78"/><text class="ts" x="246" y="74">6</text><text class="ts" x="266" y="74">6</text>
+  <rect class="th" x="354" y="62" width="40" height="16"/><line class="th" x1="374" y1="62" x2="374" y2="78"/>
+  <text class="ts" x="357" y="74">11</text><text class="ts" x="377" y="74">13</text>
+  <polygon class="th" points="408,78 432,56 456,78"/><text class="ts" x="414" y="74">13</text><text class="ts" x="436" y="74">11</text>
+  <rect class="th" x="184" y="396" width="40" height="16"/><line class="th" x1="204" y1="396" x2="204" y2="412"/>
+  <text class="ts" x="189" y="408">6</text><text class="ts" x="209" y="408">6</text>
+  <polygon class="th" points="238,414 262,392 286,414"/><text class="ts" x="246" y="410">6</text><text class="ts" x="266" y="410">6</text>
+  <rect class="th" x="354" y="396" width="40" height="16"/><line class="th" x1="374" y1="396" x2="374" y2="412"/>
+  <text class="ts" x="357" y="408">13</text><text class="ts" x="377" y="408">13</text>
+  <polygon class="th" points="408,414 432,392 456,414"/><text class="ts" x="414" y="410">13</text><text class="ts" x="436" y="410">13</text>
+  <polygon class="th" points="664,238 688,216 712,238"/><text class="ts" x="670" y="234">17</text><text class="ts" x="692" y="234">17</text>
+  <text class="ts" x="16" y="434">굵은 선 = 주공정선 B-더미-D-H (17일) · 점선 = 더미 · 상자 EST|LST · 삼각형 LFT|EFT</text>
+</svg>

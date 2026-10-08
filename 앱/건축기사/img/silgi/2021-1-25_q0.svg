@@ -1,0 +1,41 @@
+<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 등분포하중 -->
+  <rect class="hl" x="120" y="42" width="320" height="46"/>
+  <line class="th" x1="120" y1="42" x2="440" y2="42"/>
+  <line class="ld" x1="120" y1="42" x2="120" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="160" y1="42" x2="160" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="200" y1="42" x2="200" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="240" y1="42" x2="240" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="280" y1="42" x2="280" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="320" y1="42" x2="320" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="360" y1="42" x2="360" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="400" y1="42" x2="400" y2="106" marker-end="url(#ar)"/>
+  <line class="ld" x1="440" y1="42" x2="440" y2="106" marker-end="url(#ar)"/>
+  <text class="tm" x="276" y="30">w</text>
+  <!-- 라멘 -->
+  <path class="m" d="M120,110 L440,110 M120,110 L120,270 M440,110 L440,270"/>
+  <circle class="nd" cx="340" cy="110" r="7"/>
+  <text class="ts" x="318" y="138">중간 힌지</text>
+  <!-- 힌지 지점 -->
+  <polygon class="sup" points="120,270 106,296 134,296"/><polygon class="sup" points="440,270 426,296 454,296"/>
+  <line class="ln" x1="94" y1="296" x2="146" y2="296"/><line class="ln" x1="414" y1="296" x2="466" y2="296"/>
+  <rect x="94" y="296" width="52" height="8" fill="url(#hat)"/><rect x="414" y="296" width="52" height="8" fill="url(#hat)"/>
+</svg>

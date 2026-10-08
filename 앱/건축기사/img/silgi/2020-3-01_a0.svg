@@ -1,0 +1,49 @@
+<svg viewBox="0 0 560 390" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 작업선 -->
+  <line class="crit" x1="52.8" y1="180.4" x2="187.2" y2="79.6" marker-end="url(#ar)"/>
+  <line class="crit" x1="214.4" y1="76.9" x2="435.6" y2="183.1" marker-end="url(#ar)"/>
+  <line class="ln" x1="56" y1="190" x2="284" y2="190" marker-end="url(#ai)"/>
+  <line class="ln" x1="316" y1="190" x2="434" y2="190" marker-end="url(#ai)"/>
+  <line class="ln" x1="52.8" y1="199.6" x2="187.2" y2="300.4" marker-end="url(#ai)"/>
+  <line class="dsh" x1="210.2" y1="297.7" x2="289.8" y2="202.3" marker-end="url(#ai)"/>
+  <!-- 결합점 -->
+  <circle class="nd" cx="40" cy="190" r="16"/><text class="tb" x="40" y="195" text-anchor="middle">0</text>
+  <circle class="nd" cx="200" cy="70" r="16"/><text class="tb" x="200" y="75" text-anchor="middle">1</text>
+  <circle class="nd" cx="200" cy="310" r="16"/><text class="tb" x="200" y="315" text-anchor="middle">2</text>
+  <circle class="nd" cx="300" cy="190" r="16"/><text class="tb" x="300" y="195" text-anchor="middle">3</text>
+  <circle class="nd" cx="450" cy="190" r="16"/><text class="tb" x="450" y="195" text-anchor="middle">4</text>
+  <!-- 작업명 / 일수 -->
+  <text class="tx" x="96" y="116">A 5</text>
+  <text class="tx" x="300" y="104">B 4</text>
+  <text class="tx" x="150" y="180">C 2</text>
+  <text class="tx" x="366" y="180">E 3</text>
+  <text class="tx" x="66" y="260">D 4</text>
+  <!-- 결합점 상자 -->
+  <rect class="th" x="16" y="148" width="48" height="16"/><line class="th" x1="40" y1="148" x2="40" y2="164"/><text class="ts" x="23" y="160">0</text><text class="ts" x="45" y="160">0</text>
+  <polygon class="th" points="146,44 153,28 194,28 194,44"/><line class="th" x1="173" y1="28" x2="173" y2="44"/><text class="ts" x="158" y="40">5</text><text class="ts" x="177" y="40">5</text>
+  <rect class="th" x="206" y="28" width="48" height="16"/><line class="th" x1="230" y1="28" x2="230" y2="44"/><text class="ts" x="216" y="40">5</text><text class="ts" x="235" y="40">5</text>
+  <polygon class="th" points="246,164 253,148 294,148 294,164"/><line class="th" x1="273" y1="148" x2="273" y2="164"/><text class="ts" x="258" y="160">6</text><text class="ts" x="277" y="160">4</text>
+  <rect class="th" x="306" y="148" width="48" height="16"/><line class="th" x1="330" y1="148" x2="330" y2="164"/><text class="ts" x="316" y="160">4</text><text class="ts" x="335" y="160">6</text>
+  <polygon class="th" points="146,352 153,336 194,336 194,352"/><line class="th" x1="173" y1="336" x2="173" y2="352"/><text class="ts" x="158" y="348">6</text><text class="ts" x="177" y="348">4</text>
+  <rect class="th" x="206" y="336" width="48" height="16"/><line class="th" x1="230" y1="336" x2="230" y2="352"/><text class="ts" x="216" y="348">4</text><text class="ts" x="235" y="348">6</text>
+  <polygon class="th" points="396,232 403,216 444,216 444,232"/><line class="th" x1="423" y1="216" x2="423" y2="232"/><text class="ts" x="404" y="228">9</text><text class="ts" x="427" y="228">9</text>
+  <text class="ts" x="16" y="380">굵은 선 = 주공정선 A-B (공기 9일) · 오른쪽 상자 EST|LST · 비스듬한 상자 LFT|EFT</text>
+</svg>

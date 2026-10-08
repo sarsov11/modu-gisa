@@ -383,6 +383,7 @@
     옵션 = 옵션 || {};
     var 탭 = [["index.html", "홈"]];
     if (있다("quiz.html")) 탭.push(["quiz.html", "문제풀이"]);
+    if (있다("silgi.html")) 탭.push(["silgi.html", "실기"]);       // 1007 실기 필답형 기출이 있는 종목만
     탭.push(["tree.html", "개념트리"], ["card.html", "개념"], ["settings.html", "설정"]);
     var 위 = '<header class="gbar"><a href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></header>';
     var 아래 = 옵션.탭 === false ? "" : '<nav class="gtabs" style="grid-template-columns:repeat(' + 탭.length + ',1fr)">' + 탭.map(function (t) {

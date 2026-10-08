@@ -1,0 +1,65 @@
+<svg viewBox="0 0 560 390" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 고정단과 보 -->
+  <rect class="sup" x="70" y="52" width="16" height="60"/>
+  <rect x="54" y="52" width="16" height="60" fill="url(#hat)"/>
+  <line class="m" x1="86" y1="82" x2="486" y2="82"/>
+  <line class="ld" x1="236" y1="34" x2="236" y2="79" marker-end="url(#ar)"/>
+  <line class="ld" x1="386" y1="34" x2="386" y2="79" marker-end="url(#ar)"/>
+  <line class="ld" x1="486" y1="34" x2="486" y2="79" marker-end="url(#ar)"/>
+  <text class="tr" x="236" y="26" text-anchor="middle">3 kN</text>
+  <text class="tr" x="386" y="26" text-anchor="middle">4 kN</text>
+  <text class="tr" x="486" y="26" text-anchor="middle">2 kN</text>
+  <!-- 반력 -->
+  <path class="ld" d="M44,56 A18,18 0 0,0 44,96" marker-end="url(#ar)"/>
+  <text class="tr" x="10" y="48">M<tspan dy="4" class="ts">A</tspan></text>
+  <line class="ld" x1="100" y1="132" x2="100" y2="88" marker-end="url(#ar)"/>
+  <text class="tr" x="108" y="130">R<tspan dy="4" class="ts">A</tspan></text>
+  <text class="tb" x="286" y="74" text-anchor="middle">C</text>
+  <circle class="nd" cx="286" cy="82" r="3.5"/>
+  <!-- 치수 -->
+  <line class="dm" x1="86" y1="148" x2="236" y2="148" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="236" y1="148" x2="386" y2="148" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="386" y1="148" x2="486" y2="148" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="161" y="142" text-anchor="middle">3 m</text><text class="tx" x="311" y="142" text-anchor="middle">3 m</text><text class="tx" x="436" y="142" text-anchor="middle">2 m</text>
+  <!-- 연직선 -->
+  <line class="dsh" x1="236" y1="86" x2="236" y2="372"/><line class="dsh" x1="286" y1="86" x2="286" y2="372"/><line class="dsh" x1="386" y1="86" x2="386" y2="372"/>
+  <!-- SFD -->
+  <text class="tb" x="16" y="172">SFD</text>
+  <line class="ln" x1="86" y1="250" x2="486" y2="250"/>
+  <polygon class="hl" points="86,250 86,196 236,196 236,214 386,214 386,238 486,238 486,250"/>
+  <path class="crit" d="M86,196 L236,196 L236,214 L386,214 L386,238 L486,238"/>
+  <text class="tr" x="161" y="188" text-anchor="middle">9 kN</text>
+  <text class="tr" x="311" y="206" text-anchor="middle">6 kN</text>
+  <text class="tr" x="436" y="230" text-anchor="middle">2 kN</text>
+  <text class="ts" x="161" y="232" text-anchor="middle">(+)</text>
+  <circle class="nd" cx="286" cy="214" r="3.5"/>
+  <!-- BMD -->
+  <text class="tb" x="16" y="290">BMD</text>
+  <line class="ln" x1="86" y1="340" x2="486" y2="340"/>
+  <polygon class="hl" points="86,340 86,281 236,313.6 286,320.8 386,335.2 486,340"/>
+  <path class="crit" d="M86,281 L236,313.6 L286,320.8 L386,335.2 L486,340"/>
+  <circle class="nd" cx="236" cy="313.6" r="3.5"/><circle class="nd" cx="286" cy="320.8" r="3.5"/><circle class="nd" cx="386" cy="335.2" r="3.5"/>
+  <text class="tr" x="96" y="276">−49 kN·m</text>
+  <text class="tx" x="230" y="360" text-anchor="end">−22 kN·m</text>
+  <text class="tr" x="294" y="378" text-anchor="start">M<tspan dy="4" class="ts">C</tspan><tspan dy="-4"> = −16 kN·m</tspan></text>
+  <text class="tx" x="380" y="360" text-anchor="end">−4 kN·m</text>
+  <text class="ts" x="150" y="332">(−)</text>
+</svg>

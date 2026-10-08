@@ -1,0 +1,47 @@
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <line class="m" x1="60" y1="130" x2="360" y2="130"/>
+  <!-- A 힌지 -->
+  <polygon class="sup" points="60,130 44,162 76,162"/><line class="th" x1="34" y1="162" x2="86" y2="162"/>
+  <text class="tb" x="20" y="150">A</text>
+  <!-- B 롤러 -->
+  <polygon class="sup" points="360,130 344,160 376,160"/>
+  <circle class="ln" cx="350" cy="166" r="5" fill="none"/><circle class="ln" cx="370" cy="166" r="5" fill="none"/>
+  <line class="th" x1="334" y1="172" x2="386" y2="172"/>
+  <text class="tb" x="392" y="150">B</text>
+  <!-- 하중 -->
+  <line class="ld" x1="160" y1="56" x2="160" y2="127" marker-end="url(#ar)"/><line class="ld" x1="260" y1="56" x2="260" y2="127" marker-end="url(#ar)"/>
+  <text class="tm" x="154" y="46">P</text><text class="tm" x="254" y="46">P</text>
+  <!-- 치수 -->
+  <line class="th" x1="60" y1="176" x2="60" y2="222"/><line class="th" x1="160" y1="136" x2="160" y2="222"/><line class="th" x1="260" y1="136" x2="260" y2="222"/><line class="th" x1="360" y1="178" x2="360" y2="222"/>
+  <line class="dm" x1="60" y1="214" x2="160" y2="214" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="160" y1="214" x2="260" y2="214" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="260" y1="214" x2="360" y2="214" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="84" y="240">150 mm</text><text class="tx" x="184" y="240">150 mm</text><text class="tx" x="284" y="240">150 mm</text>
+  <!-- 단면 -->
+  <rect class="fl" x="490" y="70" width="120" height="120"/><rect class="ln" x="490" y="70" width="120" height="120" fill="none"/>
+  <line class="th" x1="616" y1="70" x2="650" y2="70"/><line class="th" x1="616" y1="190" x2="650" y2="190"/>
+  <line class="dm" x1="642" y1="70" x2="642" y2="190" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="624" y="136">150 mm</text>
+  <line class="th" x1="490" y1="196" x2="490" y2="222"/><line class="th" x1="610" y1="196" x2="610" y2="222"/>
+  <line class="dm" x1="490" y1="214" x2="610" y2="214" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="518" y="240">150 mm</text>
+  <text class="ts" x="520" y="56">단면</text>
+</svg>

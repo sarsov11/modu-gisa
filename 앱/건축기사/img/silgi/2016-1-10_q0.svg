@@ -1,0 +1,38 @@
+<svg viewBox="0 0 440 390" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <rect class="sup" x="30" y="20" width="300" height="300"/>
+  <!-- 스터럽 D10 -->
+  <path class="ln" d="M60,70 V290 H300 V70"/>
+  <!-- 인장철근 3-D22 -->
+  <circle class="rb" cx="70" cy="280" r="9"/><circle class="rb" cx="180" cy="280" r="9"/><circle class="rb" cx="290" cy="280" r="9"/>
+  <!-- 간격 s -->
+  <line class="th" x1="70" y1="270" x2="70" y2="236"/><line class="th" x1="180" y1="270" x2="180" y2="236"/>
+  <line class="dm" x1="70" y1="244" x2="180" y2="244" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="122" y="236">s</text>
+  <!-- 지시선 -->
+  <text class="tx" x="346" y="116">D10</text>
+  <line class="ln" x1="344" y1="112" x2="302" y2="150" marker-end="url(#ai)"/>
+  <text class="tx" x="346" y="236">3-D22</text>
+  <line class="ln" x1="344" y1="232" x2="298" y2="274" marker-end="url(#ai)"/>
+  <!-- 폭 b -->
+  <line class="th" x1="30" y1="320" x2="30" y2="350"/><line class="th" x1="330" y1="320" x2="330" y2="350"/>
+  <line class="dm" x1="30" y1="344" x2="330" y2="344" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="180" y="372" text-anchor="middle"><tspan class="tm">b</tspan> = 400 mm</text>
+</svg>

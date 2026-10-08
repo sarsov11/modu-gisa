@@ -1,0 +1,47 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 왼쪽: 전단접합 (웨브만 접합) -->
+  <text class="tb" x="190" y="22" text-anchor="middle">전단접합</text>
+  <rect class="fl" x="40" y="40" width="50" height="250"/><rect class="ln" x="40" y="40" width="50" height="250" fill="none"/>
+  <rect class="fl" x="100" y="104" width="230" height="8"/><rect class="ln" x="100" y="104" width="230" height="8" fill="none"/>
+  <rect class="fl" x="100" y="188" width="230" height="8"/><rect class="ln" x="100" y="188" width="230" height="8" fill="none"/>
+  <line class="th" x1="100" y1="112" x2="330" y2="112"/><line class="th" x1="100" y1="188" x2="330" y2="188"/>
+  <rect class="sup" x="90" y="118" width="38" height="64"/>
+  <circle class="rb" cx="109" cy="128" r="3.5"/><circle class="rb" cx="109" cy="144" r="3.5"/><circle class="rb" cx="109" cy="160" r="3.5"/><circle class="rb" cx="109" cy="176" r="3.5"/>
+  <polyline class="th" points="330,100 322,125 338,150 322,175 338,200"/>
+  <line class="th" x1="130" y1="200" x2="130" y2="212"/>
+  <text class="ts" x="106" y="226">플랜지 사이 틈 (비접합)</text>
+  <text class="ts" x="40" y="320">웨브만 접합 · 회전 허용</text>
+  <!-- 오른쪽: 모멘트접합 (웨브 + 플랜지 접합) -->
+  <text class="tb" x="550" y="22" text-anchor="middle">모멘트접합</text>
+  <rect class="fl" x="400" y="40" width="50" height="250"/><rect class="ln" x="400" y="40" width="50" height="250" fill="none"/>
+  <line class="th" x1="400" y1="108" x2="450" y2="108"/><line class="th" x1="400" y1="192" x2="450" y2="192"/>
+  <rect class="fl" x="450" y="104" width="240" height="8"/><rect class="ln" x="450" y="104" width="240" height="8" fill="none"/>
+  <rect class="fl" x="450" y="188" width="240" height="8"/><rect class="ln" x="450" y="188" width="240" height="8" fill="none"/>
+  <line class="th" x1="450" y1="112" x2="690" y2="112"/><line class="th" x1="450" y1="188" x2="690" y2="188"/>
+  <rect class="sup" x="450" y="94" width="110" height="10"/><rect class="sup" x="450" y="196" width="110" height="10"/>
+  <circle class="rb" cx="480" cy="99" r="3.5"/><circle class="rb" cx="510" cy="99" r="3.5"/><circle class="rb" cx="540" cy="99" r="3.5"/>
+  <circle class="rb" cx="480" cy="201" r="3.5"/><circle class="rb" cx="510" cy="201" r="3.5"/><circle class="rb" cx="540" cy="201" r="3.5"/>
+  <rect class="sup" x="452" y="118" width="38" height="64"/>
+  <circle class="rb" cx="471" cy="128" r="3.5"/><circle class="rb" cx="471" cy="144" r="3.5"/><circle class="rb" cx="471" cy="160" r="3.5"/><circle class="rb" cx="471" cy="176" r="3.5"/>
+  <polyline class="th" points="690,100 682,125 698,150 682,175 698,200"/>
+  <text class="ts" x="400" y="320">웨브 + 플랜지 접합 · 휨모멘트 저항</text>
+  <text class="ts" x="460" y="236">플랜지 이음판 + 웨브 이음판 (볼트)</text>
+</svg>

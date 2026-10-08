@@ -1,0 +1,61 @@
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 전단력 분포 -->
+  <polygon class="hl" points="100,50 367,250 100,250"/>
+  <polygon class="fl" points="100,250 367,250 500,350 100,350"/>
+  <line class="ln" x1="100" y1="50" x2="500" y2="350"/>
+  <line class="dsh" x1="500" y1="350" x2="560" y2="395"/>
+  <line class="ln" x1="100" y1="50" x2="100" y2="350"/>
+  <line class="ln" x1="100" y1="350" x2="500" y2="350"/>
+  <line class="dsh" x1="100" y1="250" x2="367" y2="250"/>
+  <line class="dsh" x1="367" y1="250" x2="367" y2="350"/>
+  <line class="dsh" x1="433" y1="300" x2="433" y2="350"/>
+  <line class="dsh" x1="433" y1="300" x2="500" y2="300"/>
+  <line class="dsh" x1="100" y1="125" x2="190" y2="125"/>
+  <!-- d -->
+  <line class="th" x1="100" y1="40" x2="100" y2="22"/><line class="th" x1="190" y1="40" x2="190" y2="22"/>
+  <line class="dm" x1="100" y1="28" x2="190" y2="28" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="140" y="20">d</text>
+  <!-- 세로 치수 -->
+  <line class="th" x1="94" y1="50" x2="50" y2="50"/><line class="th" x1="94" y1="250" x2="50" y2="250"/><line class="th" x1="94" y1="350" x2="50" y2="350"/>
+  <line class="dm" x1="56" y1="50" x2="56" y2="350" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="76" y1="50" x2="76" y2="250" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="76" y1="250" x2="76" y2="350" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="6" y="204">V<tspan dy="4" class="ts">u</tspan></text>
+  <text class="tx" x="104" y="190">V<tspan dy="4" class="ts">u</tspan> − φV<tspan dy="4" class="ts">c</tspan> = φV<tspan dy="4" class="ts">s</tspan></text>
+  <text class="tx" x="130" y="310">φV<tspan dy="4" class="ts">c</tspan></text>
+  <line class="th" x1="506" y1="300" x2="560" y2="300"/><line class="th" x1="506" y1="350" x2="560" y2="350"/>
+  <line class="dm" x1="552" y1="300" x2="552" y2="350" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="560" y="330">0.5φV<tspan dy="4" class="ts">c</tspan></text>
+  <!-- 지시 -->
+  <line class="th" x1="440" y1="120" x2="250" y2="190" marker-end="url(#ai)"/>
+  <text class="tb" x="400" y="108">스터럽 φV<tspan dy="4" class="ts">s</tspan>에 의해 전단 지지</text>
+  <line class="th" x1="480" y1="238" x2="420" y2="320" marker-end="url(#ai)"/>
+  <text class="tb" x="440" y="228">콘크리트 φV<tspan dy="4" class="ts">c</tspan>에 의해 전단 지지</text>
+  <!-- 구간 -->
+  <line class="th" x1="100" y1="364" x2="100" y2="380"/><line class="th" x1="367" y1="364" x2="367" y2="380"/><line class="th" x1="433" y1="364" x2="433" y2="440"/><line class="th" x1="500" y1="364" x2="500" y2="380"/>
+  <line class="dm" x1="100" y1="372" x2="367" y2="372" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="170" y="398">전단보강철근을</text><text class="tx" x="170" y="416">배치하여야 되는 구간</text>
+  <line class="dm" x1="433" y1="372" x2="500" y2="372" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="440" y="398">배치하지 않아도</text><text class="ts" x="440" y="414">되는 구간</text>
+  <line class="th" x1="367" y1="364" x2="367" y2="440"/>
+  <line class="dm" x1="367" y1="440" x2="433" y2="440" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="340" y="464">최소 전단철근 배치구간</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tb" x="16" y="22">단면</text>
+  <!-- 지반선 G.L / 흙막이 / 굴착 바닥 -->
+  <line class="ln" x1="40" y1="60" x2="110" y2="60"/>
+  <text class="tx" x="8" y="56">G.L</text>
+  <line class="m" x1="110" y1="60" x2="110" y2="255"/>
+  <text class="ts" x="76" y="46">흙막이</text>
+  <line class="ln" x1="110" y1="255" x2="330" y2="255"/>
+  <!-- 기초(잡석+밑창) -->
+  <rect fill="url(#hat)" x="140" y="246" width="190" height="9"/>
+  <rect class="ln" x="140" y="246" width="190" height="9" fill="none"/>
+  <!-- 지하실 -->
+  <rect class="fl" x="152" y="62" width="178" height="184"/>
+  <line class="ln" x1="146" y1="52" x2="146" y2="246"/><line class="ln" x1="152" y1="62" x2="152" y2="246"/>
+  <text class="tb" x="224" y="160">지하실</text>
+  <!-- 가로 치수 -->
+  <line class="th" x1="110" y1="44" x2="110" y2="60"/><line class="th" x1="146" y1="30" x2="146" y2="52"/>
+  <line class="dm" x1="110" y1="34" x2="146" y2="34" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="108" y="26">1.2 m</text>
+  <line class="th" x1="146" y1="104" x2="146" y2="110"/>
+  <line class="dm" x1="146" y1="100" x2="152" y2="100" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="160" y="96">0.2 m (벽 두께)</text>
+  <line class="th" x1="110" y1="256" x2="110" y2="300"/><line class="th" x1="140" y1="256" x2="140" y2="300"/><line class="th" x1="149" y1="256" x2="149" y2="318"/>
+  <line class="dm" x1="110" y1="292" x2="140" y2="292" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="140" y1="292" x2="149" y2="292" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="110" y1="310" x2="149" y2="310" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="86" y="288">1 m</text><text class="ts" x="146" y="288">0.3 m</text><text class="ts" x="152" y="326">1.3 m</text>
+  <!-- 세로 치수 -->
+  <line class="th" x1="100" y1="255" x2="40" y2="255"/>
+  <line class="dm" x1="56" y1="60" x2="56" y2="236" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="14" y="150">6.2 m</text>
+  <line class="dm" x1="56" y1="236" x2="56" y2="255" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="14" y="276">0.3 m</text>
+  <!-- 평면 -->
+  <text class="tb" x="400" y="22">평면</text>
+  <rect class="ln" x="400" y="40" width="212" height="152" fill="none"/>
+  <rect class="fl" x="416" y="56" width="180" height="120"/>
+  <rect class="ln" x="416" y="56" width="180" height="120" fill="none"/>
+  <text class="tb" x="476" y="112">지하실</text><text class="ts" x="460" y="132">벽 두께 20 cm</text>
+  <line class="th" x1="400" y1="196" x2="400" y2="220"/><line class="th" x1="416" y1="196" x2="416" y2="220"/><line class="th" x1="596" y1="196" x2="596" y2="220"/><line class="th" x1="612" y1="196" x2="612" y2="220"/>
+  <line class="dm" x1="400" y1="212" x2="416" y2="212" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="416" y1="212" x2="596" y2="212" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="596" y1="212" x2="612" y2="212" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="388" y="236">1.3 m</text><text class="tx" x="490" y="234">15 m</text><text class="ts" x="596" y="236">1.3 m</text>
+  <line class="th" x1="618" y1="40" x2="650" y2="40"/><line class="th" x1="618" y1="56" x2="650" y2="56"/><line class="th" x1="618" y1="176" x2="650" y2="176"/><line class="th" x1="618" y1="192" x2="650" y2="192"/>
+  <line class="dm" x1="642" y1="40" x2="642" y2="56" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="642" y1="56" x2="642" y2="176" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="642" y1="176" x2="642" y2="192" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="652" y="52">1.3 m</text><text class="tx" x="652" y="120">10 m</text><text class="ts" x="652" y="188">1.3 m</text>
+</svg>

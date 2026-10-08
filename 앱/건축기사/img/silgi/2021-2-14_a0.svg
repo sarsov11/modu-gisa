@@ -1,0 +1,42 @@
+<svg viewBox="0 0 600 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 판재 두 장, V형 개선(맞대기) -->
+  <polygon class="fl" points="70,130 180,130 290,240 290,250 70,250"/>
+  <polygon class="fl" points="530,130 420,130 310,240 310,250 530,250"/>
+  <polyline class="ln" points="70,130 180,130 290,240 290,250 70,250"/>
+  <polyline class="ln" points="530,130 420,130 310,240 310,250 530,250"/>
+  <!-- 개선각 90° -->
+  <path class="th" d="M180,120 A170,170 0 0,1 420,120"/>
+  <line class="th" x1="180" y1="132" x2="180" y2="116"/><line class="th" x1="420" y1="132" x2="420" y2="116"/>
+  <text class="tb" x="300" y="64" text-anchor="middle">90°</text>
+  <!-- 판 두께 12 -->
+  <line class="th" x1="66" y1="130" x2="44" y2="130"/><line class="th" x1="66" y1="250" x2="44" y2="250"/>
+  <line class="dm" x1="52" y1="130" x2="52" y2="250" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="76" y="196">12 mm</text>
+  <!-- 목두께 11 -->
+  <line class="th" x1="424" y1="130" x2="496" y2="130"/><line class="th" x1="314" y1="240" x2="496" y2="240"/>
+  <line class="dm" x1="486" y1="130" x2="486" y2="240" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="436" y="190" text-anchor="end">11 mm</text>
+  <!-- 루트 간격 2 -->
+  <line class="th" x1="290" y1="254" x2="290" y2="288"/><line class="th" x1="310" y1="254" x2="310" y2="288"/>
+  <line class="dm" x1="270" y1="280" x2="290" y2="280"  marker-end="url(#dmk)"/>
+  <line class="dm" x1="330" y1="280" x2="310" y2="280"  marker-end="url(#dmk)"/>
+  <text class="tx" x="300" y="312" text-anchor="middle">루트 간격 2 mm</text>
+</svg>

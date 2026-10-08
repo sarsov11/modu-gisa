@@ -1,0 +1,43 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- ① 스피닝: 관 끝을 회전시키며 눌러 오므림 -->
+  <path class="ln" fill="none" d="M65,250 V160 L78,124 Q100,92 122,124 L135,160 V250"/>
+  <path class="th" fill="none" d="M80,110 Q100,98 120,110"/>
+  <path class="ld" fill="none" d="M66,84 Q100,58 134,84" marker-end="url(#ar)"/>
+  <line class="dsh" x1="55" y1="250" x2="145" y2="250"/>
+  <!-- ② 가열하여 반구형 가공 -->
+  <path class="ln" fill="none" d="M235,250 V130 A35,35 0 0,1 305,130 V250"/>
+  <line class="dsh" x1="225" y1="250" x2="315" y2="250"/>
+  <!-- ③ 원판(반구형판) 용접 -->
+  <rect class="fl" x="405" y="112" width="70" height="10"/><rect class="ln" x="405" y="112" width="70" height="10" fill="none"/>
+  <circle class="rb" cx="410" cy="128" r="3.5"/><circle class="rb" cx="422" cy="128" r="3.5"/><circle class="rb" cx="434" cy="128" r="3.5"/><circle class="rb" cx="446" cy="128" r="3.5"/><circle class="rb" cx="458" cy="128" r="3.5"/><circle class="rb" cx="470" cy="128" r="3.5"/>
+  <line class="ln" x1="405" y1="134" x2="405" y2="250"/><line class="ln" x1="475" y1="134" x2="475" y2="250"/>
+  <line class="dsh" x1="395" y1="250" x2="485" y2="250"/>
+  <!-- ④ 관 끝 압착 후 용접 밀폐 -->
+  <path class="ln" fill="none" d="M575,250 V172 Q575,142 602,128 V92 H618 V128 Q645,142 645,172 V250"/>
+  <line class="ld" x1="560" y1="104" x2="598" y2="104" marker-end="url(#ar)"/><line class="ld" x1="660" y1="104" x2="622" y2="104" marker-end="url(#ar)"/>
+  <line class="dsh" x1="565" y1="250" x2="655" y2="250"/>
+  <!-- 이름 -->
+  <text class="tb" x="100" y="284" text-anchor="middle">①</text><text class="tx" x="100" y="306" text-anchor="middle">스피닝</text>
+  <text class="tb" x="270" y="284" text-anchor="middle">②</text><text class="tx" x="270" y="306" text-anchor="middle">가열하여 구형 가공</text>
+  <text class="tb" x="440" y="284" text-anchor="middle">③</text><text class="tx" x="440" y="306" text-anchor="middle">원판·반구형판 용접</text>
+  <text class="tb" x="610" y="284" text-anchor="middle">④</text><text class="tx" x="610" y="306" text-anchor="middle">관 끝 압착 후 용접</text>
+  <text class="ts" x="16" y="30">파이프 단부 밀폐 방법 (녹막이)</text>
+</svg>

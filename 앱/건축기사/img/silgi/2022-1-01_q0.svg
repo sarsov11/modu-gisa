@@ -1,0 +1,61 @@
+<svg viewBox="0 0 700 540" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 평면도: 5,000 x 8,000, 벽 두께 200, 모서리 기둥 500x500 -->
+  <path d="M90,40 H340 V440 H90 Z M100,50 V430 H330 V50 Z" fill="url(#hat)" fill-rule="evenodd"/>
+  <rect class="ln" x="90" y="40" width="250" height="400"/>
+  <rect class="ln" x="100" y="50" width="230" height="380"/>
+  <rect class="sup" x="90" y="40" width="25" height="25"/>
+  <rect class="sup" x="315" y="40" width="25" height="25"/>
+  <rect class="sup" x="90" y="415" width="25" height="25"/>
+  <rect class="sup" x="315" y="415" width="25" height="25"/>
+  <!-- 세로 치수 8,000 -->
+  <line class="th" x1="86" y1="40" x2="58" y2="40"/><line class="th" x1="86" y1="440" x2="58" y2="440"/>
+  <line class="dm" x1="66" y1="40" x2="66" y2="440" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="16" y="246">8,000</text>
+  <!-- 가로 치수 5,000 -->
+  <line class="th" x1="90" y1="446" x2="90" y2="482"/><line class="th" x1="340" y1="446" x2="340" y2="482"/>
+  <line class="dm" x1="90" y1="474" x2="340" y2="474" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="215" y="498" text-anchor="middle">5,000</text>
+  <text class="tb" x="215" y="524" text-anchor="middle">평면도</text>
+  <!-- A부분 표시 -->
+  <circle class="dsh" cx="104" cy="426" r="34"/>
+  <text class="tx" x="150" y="388">A부분</text>
+  <line class="th" x1="150" y1="394" x2="124" y2="414"/>
+  <!-- A부분 상세도 (왼쪽 아래 모서리 확대) -->
+  <rect x="440" y="130" width="40" height="120" fill="url(#hat)"/>
+  <rect x="540" y="310" width="90" height="40" fill="url(#hat)"/>
+  <polyline class="ln" points="440,130 440,250"/><polyline class="ln" points="480,130 480,250"/>
+  <polyline class="ln" points="540,310 630,310"/><polyline class="ln" points="540,350 630,350"/>
+  <rect class="sup" x="440" y="250" width="100" height="100"/>
+  <!-- 상세도 치수 -->
+  <line class="th" x1="440" y1="126" x2="440" y2="100"/><line class="th" x1="480" y1="126" x2="480" y2="100"/>
+  <line class="dm" x1="440" y1="108" x2="480" y2="108" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="460" y="92" text-anchor="middle">200</text>
+  <line class="th" x1="436" y1="250" x2="396" y2="250"/><line class="th" x1="436" y1="350" x2="396" y2="350"/>
+  <line class="dm" x1="404" y1="250" x2="404" y2="350" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="364" y="306">500</text>
+  <line class="th" x1="440" y1="356" x2="440" y2="392"/><line class="th" x1="540" y1="356" x2="540" y2="392"/>
+  <line class="dm" x1="440" y1="384" x2="540" y2="384" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="490" y="408" text-anchor="middle">500</text>
+  <line class="th" x1="620" y1="306" x2="660" y2="306"/><line class="th" x1="620" y1="354" x2="660" y2="354"/>
+  <line class="dm" x1="652" y1="310" x2="652" y2="350" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="662" y="336">200</text>
+  <text class="tb" x="520" y="436" text-anchor="middle">A부분 상세도</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- H-400x300x9x14 (세로 1 px = 0.7 mm 정도, 두께는 보기 좋게 키움) -->
+  <path class="fl" d="M105,40 H315 V60 H216 V300 H315 V320 H105 V300 H204 V60 H105 Z"/>
+  <path class="m" d="M105,40 H315 V60 H216 V300 H315 V320 H105 V300 H204 V60 H105 Z"/>
+  <!-- 높이 400 -->
+  <line class="th" x1="315" y1="40" x2="362" y2="40"/><line class="th" x1="315" y1="320" x2="362" y2="320"/>
+  <line class="dm" x1="354" y1="40" x2="354" y2="320" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="364" y="184">400</text>
+  <!-- 폭 300 -->
+  <line class="th" x1="105" y1="320" x2="105" y2="354"/><line class="th" x1="315" y1="320" x2="315" y2="354"/>
+  <line class="dm" x1="105" y1="346" x2="315" y2="346" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="194" y="370">300</text>
+  <!-- 플랜지 두께 14 -->
+  <line class="th" x1="105" y1="40" x2="52" y2="40"/><line class="th" x1="105" y1="60" x2="52" y2="60"/>
+  <line class="ln" x1="62" y1="14" x2="62" y2="38" marker-end="url(#ai)"/>
+  <line class="ln" x1="62" y1="88" x2="62" y2="62" marker-end="url(#ai)"/>
+  <text class="tx" x="30" y="56">14</text>
+  <!-- 웨브 두께 9 -->
+  <line class="ln" x1="150" y1="180" x2="203" y2="180" marker-end="url(#ai)"/>
+  <line class="ln" x1="270" y1="180" x2="217" y2="180" marker-end="url(#ai)"/>
+  <text class="tx" x="274" y="185">9</text>
+  <text class="ts" x="130" y="20">H-400×300×9×14 (단위 mm)</text>
+</svg>

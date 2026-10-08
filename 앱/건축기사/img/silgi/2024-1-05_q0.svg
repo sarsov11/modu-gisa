@@ -1,0 +1,41 @@
+<svg viewBox="0 0 460 500" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <path class="fl" fill-rule="evenodd" d="M100,50 H300 V450 H100 Z M120,90 V410 H260 V90 Z"/>
+  <path class="ln" fill="none" fill-rule="evenodd" d="M100,50 H300 V450 H100 Z M120,90 V410 H260 V90 Z"/>
+  <!-- x축 -->
+  <line class="dsh" x1="50" y1="450" x2="400" y2="450"/>
+  <text class="tm" x="28" y="455">x</text><text class="tm" x="408" y="455">x</text>
+  <!-- 두께 치수 -->
+  <line class="th" x1="100" y1="44" x2="100" y2="16"/><line class="th" x1="120" y1="44" x2="120" y2="16"/><line class="th" x1="260" y1="44" x2="260" y2="16"/><line class="th" x1="300" y1="44" x2="300" y2="16"/>
+  <line class="dm" x1="100" y1="24" x2="120" y2="24" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="260" y1="24" x2="300" y2="24" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="50" y="20">5 mm</text><text class="tx" x="306" y="20">10 mm</text>
+  <line class="th" x1="94" y1="50" x2="56" y2="50"/><line class="th" x1="94" y1="90" x2="56" y2="90"/><line class="th" x1="94" y1="410" x2="56" y2="410"/>
+  <line class="dm" x1="64" y1="50" x2="64" y2="90" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="64" y1="410" x2="64" y2="450" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="2" y="76">10 mm</text><text class="tx" x="2" y="436">10 mm</text>
+  <!-- 전체 치수 -->
+  <line class="th" x1="306" y1="50" x2="350" y2="50"/><line class="th" x1="306" y1="450" x2="350" y2="450"/>
+  <line class="dm" x1="340" y1="50" x2="340" y2="450" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="350" y="254">100 mm</text>
+  <line class="th" x1="100" y1="458" x2="100" y2="486"/><line class="th" x1="300" y1="458" x2="300" y2="486"/>
+  <line class="dm" x1="100" y1="478" x2="300" y2="478" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="176" y="498">50 mm</text>
+</svg>

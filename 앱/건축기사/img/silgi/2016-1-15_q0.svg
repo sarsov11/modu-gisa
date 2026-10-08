@@ -1,0 +1,44 @@
+<svg viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 절점 O(180,170) -->
+  <line class="m" x1="48" y1="170" x2="180" y2="170"/>
+  <line class="m" x1="180" y1="60" x2="180" y2="170"/>
+  <line class="m" x1="180" y1="170" x2="295" y2="170"/>
+  <line class="m" x1="180" y1="170" x2="180" y2="290"/>
+  <!-- A: 고정 -->
+  <rect class="sup" x="36" y="140" width="12" height="60"/><rect x="24" y="140" width="12" height="60" fill="url(#hat)"/>
+  <!-- B: 고정 -->
+  <rect class="sup" x="150" y="48" width="60" height="12"/><rect x="150" y="36" width="60" height="12" fill="url(#hat)"/>
+  <!-- C: 힌지 끝 -->
+  <circle class="nd" cx="300" cy="170" r="5"/>
+  <rect class="sup" x="312" y="140" width="12" height="60"/><rect x="324" y="140" width="12" height="60" fill="url(#hat)"/>
+  <line class="m" x1="305" y1="170" x2="312" y2="170"/>
+  <!-- D: 고정 -->
+  <rect class="sup" x="150" y="290" width="60" height="12"/><rect x="150" y="302" width="60" height="12" fill="url(#hat)"/>
+  <!-- 모멘트 M -->
+  <path class="ld" d="M150,170 A31,31 0 1 1 210,170" marker-end="url(#ar)"/>
+  <text class="tr" x="212" y="126"><tspan class="tm">M</tspan></text>
+  <!-- 이름과 강비 -->
+  <text class="tb" x="18" y="134">A</text><text class="tb" x="218" y="52">B</text><text class="tb" x="332" y="134">C</text><text class="tb" x="218" y="314">D</text><text class="tm" x="162" y="188">O</text>
+  <text class="tx" x="86" y="160"><tspan class="tm">K</tspan> = 2</text>
+  <text class="tx" x="196" y="100"><tspan class="tm">K</tspan> = 1</text>
+  <text class="tx" x="222" y="160"><tspan class="tm">K</tspan> = 4</text>
+  <text class="tx" x="196" y="250"><tspan class="tm">K</tspan> = 3</text>
+</svg>
