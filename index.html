@@ -89,6 +89,8 @@ p.sv{margin:0 0 4px;font-size:16px;font-weight:800;color:var(--ink-2);letter-spa
   }
   q.addEventListener("input",거르기);
   bs.forEach(function(b){ b.onclick=function(){ bs.forEach(function(x){x.classList.remove("on");}); b.classList.add("on"); g=b.dataset.g; 거르기(); }; });
+  /* ?g=기사|산업기사|기능사 — 테라러닝 허브 카드가 등급별로 바로 연다(2026-10-08) */
+  var g0=new URLSearchParams(location.search).get("g"); if(g0) bs.forEach(function(b){ if(b.dataset.g===g0) b.click(); });
 })();
 </script>
 </div></body></html>
