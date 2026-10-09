@@ -58,7 +58,7 @@
   .orig li.ans{font-weight:800}
   .orig li.ans::after{content:"  ← 기출 정답";color:var(--accent);font-weight:800;font-size:13.5px}
   .orig li.mine{text-decoration:underline;text-decoration-color:var(--line-3)}
-  .next{margin-top:14px}
+  .next{margin-top:14px;position:sticky;bottom:calc(10px + env(safe-area-inset-bottom));z-index:5}
 
   .done{text-align:center;padding:30px 4px}
   .done h2{font-size:24px;margin:0 0 18px;letter-spacing:-.03em}
@@ -194,6 +194,7 @@
           '<div><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b><span>이 테마</span></div></div>'+
         큰+'<div class="b2" style="margin-top:12px">'+작.join("")+'</div>'+
       '</div>';
+    if(window.ZZ&&결과.length>0){ var _p=맞/결과.length; ZZ.stars(_p>=1?3:_p>=.7?2:_p>=.4?1:0); }
     var more=el("more");
     if(more) more.onclick=function(){ GS.더하기(); location.href=GS.루틴().다음.주소; };
     window.scrollTo({top:0,behavior:"smooth"});
@@ -201,4 +202,5 @@
   그리기();
 })();
 </script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
 </body></html>

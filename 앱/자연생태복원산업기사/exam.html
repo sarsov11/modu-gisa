@@ -157,6 +157,7 @@
       }).join("");
     }
     el("stage").innerHTML=h;
+    if(window.ZZ&&총>0){ var _p=총맞/총; ZZ.stars(_p>=1?3:_p>=.7?2:_p>=.4?1:0); }
     var 바=document.querySelector(".gtabs"); if(바) 바.style.display="";
     window.scrollTo(0,0);
   }
@@ -165,4 +166,5 @@
   시작화면();
 })();
 </script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
 </body></html>

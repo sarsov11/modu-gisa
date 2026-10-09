@@ -121,6 +121,7 @@
       if(j===맞칸) b.classList.add("ans"); else if(j===고른) b.classList.add("wrong");
     });
     QL.기록(x.id,ok); GS.저장();
+    if(window.ZZ){ var _b=document.querySelectorAll("#ch button")[고른]; if(ok) ZZ.ok(_b); else ZZ.no(_b); }
     결과[i]={ok:ok,x:x,맞칸:맞칸};
     진행();
     el("vd").innerHTML='<div class="vd '+(ok?"":"bad")+'"><div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
@@ -140,21 +141,23 @@
     var 루=k?GS.루틴():null, 큰="";
     if(루) 큰=루.다음?'<a class="b main" href="'+e(루.다음.주소)+'">'+e(GS.큰단추(루))+'</a>':'<a class="b main" href="index.html">오늘 목표 완료</a>';
     var 다시=틀.length?'<a class="b'+(큰?'':' main')+'" href="#" id="rt" style="'+(큰?'margin-top:10px':'')+'">오답 다시 <span style="margin-left:6px">'+틀.length+'</span></a>':'';
+    var 목록=(틀.length?'<ul class="wl">'+틀.map(function(r){
+        return '<li><b>'+e(r.x.q.length>70?r.x.q.slice(0,70)+"…":r.x.q)+'</b><span>정답 '+QL.번호[r.맞칸]+' '+e(GS.깨끗(r.x.c[r.x.a-1]))+'</span></li>';}).join("")+'</ul>':'');
     el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2>'+
       '<div class="tally"><div><b>'+맞+' / '+결과.length+'</b><span>정답</span></div>'+
       '<div><b>'+틀.length+'</b><span>오답</span></div>'+
       '<div><b>'+Math.round(맞*100/Math.max(1,결과.length))+'%</b><span>정답률</span></div></div>'+
-      (틀.length?'<ul class="wl">'+틀.map(function(r){
-        return '<li><b>'+e(r.x.q.length>70?r.x.q.slice(0,70)+"…":r.x.q)+'</b><span>정답 '+QL.번호[r.맞칸]+' '+e(GS.깨끗(r.x.c[r.x.a-1]))+'</span></li>';}).join("")+'</ul>':'')+
       '<div class="act">'+큰+다시+
-      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="quiz.html">목록</a>'+((루&&루.완료&&GS.있다("exam.html"))?'<a class="b" href="exam.html">모의고사</a>':'')+'</div></div></div>';
+      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="quiz.html">목록</a>'+((루&&루.완료&&GS.있다("exam.html"))?'<a class="b" href="exam.html">모의고사</a>':'')+'</div></div>'+목록+'</div>';
     if(el("rt")) el("rt").onclick=function(ev){
       ev.preventDefault();
       문제=틀.map(function(r){return r.x;}); i=0; 결과=[]; el("ttl").textContent="오답 다시"; 그리기();
     };
+    if(window.ZZ&&결과.length>0){ var _p=맞/결과.length; ZZ.stars(_p>=1?3:_p>=.7?2:_p>=.4?1:0); }
     window.scrollTo({top:0,behavior:"smooth"});
   }
   그리기();
 })();
 </script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
 </body></html>

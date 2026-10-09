@@ -158,6 +158,8 @@
         '<b>'+a[0]+'/'+a[1]+'</b></div><div class="bar"><i style="width:'+p+'%"></i></div></div>';
     }).join("");
     var R=GS.루틴();
+    var _n=결과.length, _m=결과.filter(function(r){return r&&r.ok;}).length;
+    if(window.ZZ&&!건너뜀&&_n>0){ var _p=_m/_n; ZZ.stars(_p>=1?3:_p>=.7?2:_p>=.4?1:0); }
     el("stage").innerHTML=
       (줄?'<div class="rbox res">'+줄+'</div>':'')+
       (R.다음?'<a class="b main" id="go" href="'+e(R.다음.주소)+'">'+e(GS.큰단추(R))+'</a>':'<a class="b main" id="go" href="index.html">홈</a>')+
@@ -167,4 +169,5 @@
   if(재진단) 진단시작(); else 일화면();
 })();
 </script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
 </body></html>

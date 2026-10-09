@@ -188,10 +188,13 @@
 
   /* ── 공용 입구 ── */
   var lastOk = 0, lastEl = null;
+  /* ★ 짜잔 3판(js/zzajan.js, 2026-10-09 게임 연출 조사 반영)이 실려 있으면 그쪽이 소리·연출을 다 맡는다 — 둘 다 울리면 겹친다 */
+  function zz() { return window.ZZ && window.ZZ.ok ? window.ZZ : null; }
   function ok(el, o) {
+    if (zz()) { zz().ok(el); return; }
     o = o || {};
     HOST = (el && el.closest && el.closest("[data-cheer-host]")) || null;
-    var now = Date.now(); if (now - lastOk < 250 && (!el || el === lastEl)) return; lastOk = now; lastEl = el;     /* 한 판정에 두 번 울리지 않게 */
+    var now = Date.now(); if (now - lastOk < 1000 && (!el || el === lastEl)) return; lastOk = now; lastEl = el;     /* 한 판정에 두 번 울리지 않게 — 첫 소리에서 AudioContext 를 만드느라 250ms 를 넘겨 첫 정답이 연속 2·XP 20 으로 셌다(2026-10-09) */
     var k = KINDS.indexOf(o.kind) >= 0 ? o.kind : kind();
     var combo = typeof o.combo === "number" ? o.combo : num("terra.cheer.combo") + 1;
     ss("terra.cheer.combo", String(combo));
@@ -213,8 +216,9 @@
     }
   }
   function miss(el) {
+    if (zz()) { zz().no(el); return; }
     HOST = (el && el.closest && el.closest("[data-cheer-host]")) || null;
-    var now = Date.now(); if (now - lastOk < 250 && el && el === lastEl) return; lastOk = now; lastEl = el;
+    var now = Date.now(); if (now - lastOk < 1000 && el && el === lastEl) return; lastOk = now; lastEl = el;
     reset();
     if (RM) return;
     cls(el, "shake"); buzz(10); beepMiss();
@@ -233,6 +237,7 @@
   function watch() {
     if (!window.MutationObserver) return;
     new MutationObserver(function (ms) {
+      if (zz()) return;      /* 짜잔 3판이 data-s 를 직접 본다 */
       ms.forEach(function (m) {
         var t = m.target, v = t.getAttribute && t.getAttribute("data-s");
         if (v === "pick") { picked.add(t); return; }     /* start.html 은 고른 뒤 「다음」 으로 확정한다 */
