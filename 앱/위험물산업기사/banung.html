@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>반응식 쓰기: 모두의 위산기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/q.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+/* 1011 위험물산업기사 실기: 반응물을 보고 생성물·계수를 써서 자동 채점 */
+.page{padding-bottom:120px}
+.rx-q{font-size:22px;font-weight:900;letter-spacing:-.02em;margin:6px 0 4px;word-break:keep-all}
+.rx-q small{display:block;font-size:13px;font-weight:600;color:var(--ink-3);margin-top:4px}
+.rx-in{width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);color:var(--ink);font:700 20px/1.5 var(--sans);padding:12px 14px;margin:14px 0 8px;letter-spacing:.01em}
+.rx-in:focus{outline:none;border-color:var(--ink)}
+.rx-in.ok{border-color:var(--ink);background:var(--surface-2)} .rx-in.no{border-color:var(--accent)}
+.rx-pad{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:0 0 6px}
+.rx-pad button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:11px 0;font:800 16px/1 var(--sans);cursor:pointer;touch-action:manipulation}
+.rx-pad button.op{background:var(--surface-3)}
+.rx-pad button.wide{grid-column:span 2}
+.rx-tip{font-size:13px;color:var(--ink-3);line-height:1.55;margin:4px 0 14px}
+.rx-res{border-radius:var(--r2);padding:14px 16px;margin:0 0 12px;font-size:15.5px;line-height:1.65;border:1.5px solid var(--line-2);background:var(--surface)}
+.rx-res.ok{border-color:var(--ink)} .rx-res.no{border-color:var(--accent)}
+.rx-res b.eq{display:block;font-size:18px;margin:4px 0}
+.rx-res .rule{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-2);color:var(--ink-2);font-size:14.5px}
+.rx-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
+.rx-grp{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line-2);border-radius:var(--r2);background:var(--surface);padding:14px;margin:0 0 8px;color:var(--ink);text-decoration:none}
+.rx-grp .nm{font-weight:900;font-size:16.5px;flex:1}
+.rx-grp .nm small{display:block;font-weight:600;font-size:13px;color:var(--ink-3);margin-top:2px}
+.rx-grp .n{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1 id="ttl">반응식 쓰기</h1></div>
+  <div class="prog" id="prog"></div>
+  <div id="stage"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gbanung.js"></script>
+<script src="js/gstore.js"></script>
+<script src="js/hwa.js"></script>
+<script>
+(function(){
+  GS.내비("silgi.html");
+  var RX=window.RX||{묶음:[],식:[]}, e=GS.esc, P=new URLSearchParams(location.search), S=GS.S;
+  S.반응=S.반응||{};                       /* 식 id → {n, v:2 한 번에 맞힘·1 다시 써서 맞힘·0 정답 봄, t} */
+  function el(x){return document.getElementById(x);}
+  function 기록(id){return S.반응[id]||null;}
+  function 숙련(xs){return xs.filter(function(x){var r=기록(x.id); return r&&r.v===2;}).length;}
+  var 묶=P.get("g"), 등급=P.get("a")==="1", 오답=P.get("wrong")==="1", 섞=P.get("mix")==="1";
+
+  function 고르기(){
+    var 틀=RX.식.filter(function(x){var r=기록(x.id); return r&&r.v<2;}).length;
+    var A=RX.식.filter(function(x){return x.등급==="A";});
+    var h='<p class="rx-tip" style="margin-top:14px">반응물을 보고 생성물과 계수를 직접 씁니다. 숫자는 원소 기호 바로 뒤에 오면 저절로 아래첨자(H₂O)가 되고, 맨 앞에 오면 계수(2H₂O)로 남습니다.</p>'+
+      '<div class="pick"><a class="hot" href="banung.html?a=1&mix=1">자주 나온 식 <i>'+숙련(A)+'/'+A.length+'</i></a>'+
+      '<a href="banung.html?mix=1">무작위 10</a><a href="banung.html?wrong=1">다시 볼 식 <i>'+틀+'</i></a></div><div class="lab">반응 종류</div>';
+    h+=RX.묶음.map(function(g){
+      var xs=RX.식.filter(function(x){return x.g===g.g;});
+      return '<a class="rx-grp" href="banung.html?g='+g.g+'"><span class="nm">'+e(g.이름)+'<small>'+e(g.요령)+'</small></span><span class="n">'+숙련(xs)+' / '+xs.length+'</span></a>';
+    }).join("");
+    h+='<p class="rx-tip">자주 나온 식은 2019~2025 실기 23회 기출에 6회 이상 나온 것입니다. <a href="silgi.html">실기 기출로 돌아가기</a></p>';
+    el("stage").innerHTML=h;
+  }
+  if(!묶 && !등급 && !오답 && !섞) return 고르기();
+
+  var 문제=RX.식.filter(function(x){
+    if(묶) return x.g===Number(묶);
+    if(오답){var r=기록(x.id); return r&&r.v<2;}
+    if(등급) return x.등급==="A";
+    return true;
+  }).slice().sort(function(){return Math.random()-.5;});
+  문제.sort(function(a,b){var ra=기록(a.id), rb=기록(b.id); return (ra?ra.v+1:0)-(rb?rb.v+1:0);});
+  문제=문제.slice(0,10);
+  var 묶이름=묶?((RX.묶음.filter(function(g){return g.g===Number(묶);})[0]||{}).이름||""):"";
+  el("ttl").textContent=묶이름||(오답?"다시 볼 식":등급?"자주 나온 식":"무작위 10");
+  if(!문제.length){ el("stage").innerHTML='<p class="rx-tip" style="margin-top:20px">아직 여기 담긴 식이 없습니다. <a href="banung.html">목록</a></p>'; return; }
+
+  /* 키패드: 이 화면에 나오는 원소만, 많이 쓰는 순서 */
+  var 빈도={}; RX.식.forEach(function(x){ (x.식.match(/[A-Z][a-z]?/g)||[]).forEach(function(k){빈도[k]=(빈도[k]||0)+1;}); });
+  var 원소들=Object.keys(빈도).sort(function(a,b){return 빈도[b]-빈도[a];});
+  var i=0, 결과=[], 시도=0, 힌트=false;
+  function 진행(){ el("prog").innerHTML=문제.map(function(_,j){var r=결과[j]; return '<i class="'+(r!=null?(r===2?"ok":"no"):(j===i?"now":""))+'"></i>';}).join(""); }
+  function 왼쪽만(식){ return 식.split("→")[0].split("+").map(function(t){return t.trim().replace(/^\d+(?=[A-Z(])/,"");}).join(" + ")+" → "; }
+  function 생성물만(식){ return 식.split("→")[1].split("+").map(function(t){return t.trim().replace(/^\d+(?=[A-Z(])/,"");}).join(" + "); }
+  function 그리기(){
+    진행(); 시도=0; 힌트=false;
+    if(i>=문제.length) return 끝();
+    var x=문제[i], g=RX.묶음.filter(function(k){return k.g===x.g;})[0]||{};
+    el("stage").innerHTML='<div class="qwrap"><div class="qtag"><b>'+e(g.이름||"")+'</b><span>'+(i+1)+' / '+문제.length+'</span>'+(x.등급==="A"?'<span class="pl">자주 나옴</span>':'')+'</div>'+
+      '<p class="rx-q">'+e(x.물음)+(x.옛이름?'<small>옛 이름 '+e(x.옛이름)+'</small>':'')+'</p></div>'+
+      '<input class="rx-in" id="in" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="none" value="'+e(HWA.표시(왼쪽만(x.식)))+'">'+
+      '<div class="rx-pad" id="pad">'+원소들.map(function(k){return '<button data-k="'+k+'">'+k+'</button>';}).join("")+
+        "1234567890".split("").map(function(d){return '<button class="op" data-k="'+d+'">'+d+'</button>';}).join("")+
+        '<button class="op" data-k="(">(</button><button class="op" data-k=")">)</button><button class="op" data-k=" + ">+</button><button class="op" data-k=" → ">→</button>'+
+        '<button class="op" data-k="⌫">⌫</button><button class="op" data-k="kb">키보드</button></div>'+
+      '<p class="rx-tip">반응물은 미리 넣어 두었습니다. 계수와 생성물을 채우세요.</p>'+
+      '<div id="res"></div><div class="rx-row"><button class="b" id="hint">생성물 보기</button><button class="b" id="see">정답 보기</button></div><button class="b main" id="go">채점</button>';
+    var 칸=el("in");
+    function 고침(){ var p=칸.selectionStart, v=HWA.표시(HWA.원래숫자(칸.value)); if(v!==칸.value){ 칸.value=v; 칸.setSelectionRange(p,p);} }
+    칸.addEventListener("input", 고침);
+    칸.addEventListener("keydown", function(ev){ if(ev.key==="Enter"){ ev.preventDefault(); el("go").click(); } });
+    el("pad").onclick=function(ev){
+      var b=ev.target.closest("button"); if(!b) return;
+      var k=b.dataset.k, s=칸.selectionStart==null?칸.value.length:칸.selectionStart, t=칸.selectionEnd==null?s:칸.selectionEnd;
+      if(k==="kb"){ 칸.setAttribute("inputmode","text"); 칸.blur(); 칸.focus(); return; }
+      if(k==="⌫"){ if(s===t&&s>0) s--; 칸.value=칸.value.slice(0,s)+칸.value.slice(t); 칸.setSelectionRange(s,s); }
+      else { 칸.value=칸.value.slice(0,s)+k+칸.value.slice(t); 칸.setSelectionRange(s+k.length,s+k.length); }
+      고침(); 칸.focus();
+    };
+    el("hint").onclick=function(){ 힌트=true; el("res").innerHTML='<div class="rx-res">생성물: <b>'+e(HWA.표시(생성물만(x.식)))+'</b><br>이제 계수만 맞추면 됩니다.</div>'; };
+    el("see").onclick=function(){ 보여주기(x,0,""); };
+    el("go").onclick=function(){
+      var r=HWA.채점(칸.value, x.식); 시도++;
+      if(r.ok) return 보여주기(x, (시도===1&&!힌트)?2:1, "");
+      칸.className="rx-in no";
+      el("res").innerHTML='<div class="rx-res no">'+e(r.이유)+(시도>=2?'<br>한 번 더 틀리면 정답을 보여 줍니다.':'')+'</div>';
+      if(window.ZZ) ZZ.no(el("go"));
+      if(시도>=3) 보여주기(x,0,"");
+    };
+    칸.focus(); 칸.setSelectionRange(칸.value.length,칸.value.length);
+  }
+  function 보여주기(x,v,_){
+    var g=RX.묶음.filter(function(k){return k.g===x.g;})[0]||{};
+    el("in").className="rx-in "+(v?"ok":"no"); el("in").readOnly=true;
+    el("res").innerHTML='<div class="rx-res '+(v?"ok":"no")+'">'+(v===2?"정답":v===1?"맞았습니다":"정답")+'<b class="eq">'+e(HWA.표시(x.식))+'</b>'+
+      (x.메모?'<div>'+e(x.메모)+'</div>':'')+'<div class="rule">'+e(g.요령||"")+'</div></div>';
+    if(v&&window.ZZ) ZZ.ok(el("go"));
+    var r=S.반응[x.id]||{n:0}; r.n++; r.v=v; r.t=GS.오늘(); S.반응[x.id]=r; GS.저장();
+    결과[i]=v;
+    el("pad").style.display="none"; el("hint").parentNode.style.display="none";
+    var b=el("go"); b.textContent=i+1<문제.length?"다음":"결과 보기"; b.onclick=function(){ i++; 그리기(); };
+  }
+  function 끝(){
+    el("prog").innerHTML="";
+    var 맞=결과.filter(function(v){return v===2;}).length, 헷=결과.filter(function(v){return v===1;}).length;
+    var 틀=문제.filter(function(_,j){return 결과[j]<2;});
+    if(window.ZZ&&결과.length){ var p=맞/결과.length; ZZ.stars(p>=1?3:p>=.7?2:p>=.4?1:0); }
+    el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2><div class="tally"><div><b>'+맞+' / '+결과.length+'</b><span>한 번에</span></div>'+
+      '<div><b>'+헷+'</b><span>다시 써서</span></div><div><b>'+(결과.length-맞-헷)+'</b><span>정답 봄</span></div></div>'+
+      '<div class="act">'+(틀.length?'<a class="b main" href="banung.html?wrong=1">다시 볼 식</a>':'')+
+      '<div class="b2"><a class="b" href="'+e("banung.html"+location.search)+'">한 번 더</a><a class="b" href="banung.html">목록</a></div></div>'+
+      (틀.length?'<ul class="wl">'+틀.map(function(x){return '<li><b>'+e(x.물음)+'</b><span>'+e(HWA.표시(x.식))+'</span></li>';}).join("")+'</ul>':'')+'</div>';
+  }
+  그리기();
+})();
+</script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+</body></html>

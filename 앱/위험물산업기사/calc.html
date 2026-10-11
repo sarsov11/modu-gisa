@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>계산기 — 모두의 위산기</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/q.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}
+try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem("gisa.calc.ui")||"A";document.documentElement.dataset.ui=_u;}catch(e){document.documentElement.dataset.ui="A";}</script>
+<style>
+/* 소방 실기 계산기 — 유형별 단계 풀이 + 공학용 계산기. 색은 base.css 변수만 쓴다 */
+.page{padding-bottom:120px}
+.ct-seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r3);padding:5px;margin:14px 0 18px}
+.ct-seg a{text-align:center;padding:11px 4px;border-radius:calc(var(--r3) - 5px);font-weight:800;font-size:15px;color:var(--ink-3);text-decoration:none}
+.ct-seg a.on{background:var(--surface);color:var(--ink);box-shadow:0 1px 0 var(--line-2)}
+.ct-types{display:grid;gap:8px}
+.ct-type{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--surface);padding:13px 15px}
+.ct-type h3{margin:0 0 8px;font-size:15.5px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.ct-type h3 b{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-weight:800}
+.ct-type h3 small{margin-left:auto;font-size:12.5px;color:var(--ink-3);font-weight:700}
+.ct-type .ls{display:flex;flex-wrap:wrap;gap:6px}
+.ct-type .ls a{font-size:14px;font-weight:700;padding:7px 11px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink);text-decoration:none;background:var(--surface-2)}
+.ct-q{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--surface);padding:12px 14px;margin:0 0 12px}
+.ct-q summary{cursor:pointer;font-weight:800;font-size:14.5px;color:var(--ink-2);list-style:none}
+.ct-q p{margin:10px 0 0;font-size:15px;line-height:1.7;white-space:pre-wrap;word-break:keep-all}
+.ct-q img{display:block;max-width:100%;margin:10px auto 0;border-radius:var(--r1);background:#fff}
+.ct-other{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.ct-other a{font-size:13.5px;font-weight:700;padding:6px 10px;border-radius:99px;border:1px solid var(--line-2);color:var(--ink-3);text-decoration:none}
+.ct-other a.on{border-color:var(--ink);color:var(--ink)}
+.ct-in{border:1.5px solid var(--line-2);border-radius:var(--r2);background:var(--surface);padding:6px 14px 12px;margin:0 0 12px}
+.ct-in h3{margin:10px 0 4px;font-size:14px;color:var(--ink-3);font-weight:800}
+.ct-f{display:grid;grid-template-columns:1fr minmax(0,168px);gap:6px 10px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line-2)}
+.ct-f:last-child{border-bottom:0}
+.ct-f label{font-size:14.5px;line-height:1.35;word-break:keep-all}
+.ct-f label b{font-family:var(--mono);font-weight:800;font-size:12.5px;padding:1px 6px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line-2);margin-right:6px;color:var(--ink-2)}
+.ct-f label i{font-style:normal;font-size:12.5px;color:var(--ink-3)}
+.ct-f .w{display:flex;gap:4px;min-width:0}
+.ct-f input,.ct-f select,.ct-s input,.ct-s select,.ct-cv input,.ct-cv select{font:inherit;font-size:16px;color:var(--ink);background:var(--surface-2);border:1.5px solid var(--line-2);border-radius:10px;padding:9px 8px;min-width:0;box-sizing:border-box}
+.ct-f input{flex:1;width:100%;text-align:right;font-family:var(--mono);font-weight:700}
+.ct-f select.u{flex:0 0 auto;max-width:86px;font-size:13.5px;padding:9px 4px}
+.ct-f select.g{width:100%;font-size:14px}
+.ct-f .w:has(select.g){flex-direction:column}
+.ct-f input.x{text-align:right}
+.ct-f.miss input{border-color:var(--accent)}
+.ct-f .ut{flex:0 0 auto;align-self:center;font-size:13.5px;color:var(--ink-3);min-width:36px}
+.ct-mode{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
+.ct-mode button{appearance:none;font:inherit;font-weight:800;font-size:15px;padding:12px 6px;border-radius:var(--r2);border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink-3);cursor:pointer}
+.ct-mode button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface)}
+.ct-left{font-size:13.5px;color:var(--ink-3);margin:6px 2px 12px;line-height:1.6}
+.ct-steps{display:grid;gap:10px;margin:14px 0}
+.ct-s{border:1.5px solid var(--line-2);border-radius:var(--r2);background:var(--surface);padding:13px 15px}
+.ct-s h4{margin:0;font-size:15px;display:flex;gap:8px;align-items:center}
+.ct-s h4 em{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:13px;font-weight:900;flex:0 0 auto}
+.ct-s h4 .ans{margin-left:auto;font-size:11.5px;font-weight:800;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:1px 7px}
+.ct-s .fx{margin:9px 0 0;font-family:var(--mono);font-size:15px;line-height:1.75;word-break:break-all}
+.ct-s .fx div{padding-left:1.1em;text-indent:-1.1em}
+.ct-s .fx .r{font-weight:900;font-size:17px}
+.ct-s .fx .r span{font-weight:700;font-size:14px;color:var(--ink-3);margin-left:4px}
+.ct-s .mm{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--ink-3);word-break:keep-all}
+.ct-s .try{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.ct-s .try input{flex:1 1 120px;text-align:right;font-family:var(--mono);font-weight:700}
+.ct-s .try select{flex:0 0 auto;font-size:14px}
+.ct-s .try button,.ct-s .tf button{appearance:none;font:inherit;font-weight:800;font-size:14.5px;border-radius:10px;padding:9px 14px;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:var(--bg)}
+.ct-s .try button.q{background:transparent;color:var(--ink-3);border-color:var(--line-2)}
+.ct-s .tf{display:flex;gap:6px;margin-top:10px}
+.ct-s .tf button{flex:1;background:var(--surface-2);color:var(--ink)}
+.ct-s .ct-vd{margin-top:10px;font-weight:800;font-size:14.5px}
+.ct-s .ct-vd.정답{color:var(--ink)} .ct-s .ct-vd.정답::before{content:"● "}
+.ct-s .ct-vd.오답,.ct-s .ct-vd.단위,.ct-s .ct-vd.근접{color:var(--accent)} .ct-s .ct-vd.오답::before{content:"✕ "} .ct-s .ct-vd.단위::before,.ct-s .ct-vd.근접::before{content:"△ "}
+.ct-s.ok{border-color:var(--ink)} .ct-s.no{border-color:var(--accent)}
+.ct-skip{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:4px 2px}
+.ct-sum{border:1.5px solid var(--ink);border-radius:var(--r2);padding:14px 16px;margin:6px 0 14px;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ct-sum b{font-family:var(--mono);font-size:22px}
+.ct-src{font-size:12.5px;color:var(--ink-3);margin:16px 2px;line-height:1.6}
+
+/* 공학용 계산기 */
+.ct-kp{border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);padding:12px;margin-bottom:14px}
+.ct-disp{background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r2);padding:10px 12px;margin-bottom:10px;min-height:76px;display:flex;flex-direction:column;justify-content:flex-end}
+.ct-disp input{all:unset;font-family:var(--mono);font-size:18px;color:var(--ink-2);text-align:right;width:100%;word-break:break-all}
+.ct-disp output{display:block;font-family:var(--mono);font-size:30px;font-weight:900;text-align:right;color:var(--ink);word-break:break-all}
+.ct-keys{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.ct-keys button{appearance:none;font:inherit;font-family:var(--mono);font-weight:800;font-size:17px;padding:13px 0;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink);cursor:pointer}
+.ct-keys button.f{font-size:14.5px;color:var(--ink-2)}
+.ct-keys button.op{background:var(--surface);}
+.ct-keys button.eq{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ct-keys button.ac{color:var(--accent)}
+.ct-hist{font-family:var(--mono);font-size:13.5px;color:var(--ink-3);margin-top:8px;max-height:96px;overflow:auto}
+.ct-hist div{display:flex;justify-content:space-between;gap:10px;padding:2px 0;cursor:pointer}
+.ct-cv{border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);padding:12px 14px}
+.ct-cv h3{margin:0 0 10px;font-size:15px}
+.ct-cv .row{display:grid;grid-template-columns:1fr auto;gap:6px;margin-bottom:6px}
+.ct-cv input{text-align:right;font-family:var(--mono);font-weight:700;width:100%}
+.ct-cv .out{font-family:var(--mono);font-size:22px;font-weight:900;text-align:right;padding:6px 2px}
+.ct-cv .qk{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.ct-cv .qk button{appearance:none;font:inherit;font-size:13px;font-weight:700;padding:6px 10px;border-radius:99px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink-2);cursor:pointer}
+.ct-ui{display:flex;gap:6px;justify-content:flex-end;margin:6px 0 0;font-size:12.5px;color:var(--ink-3)}
+.ct-ui a{color:var(--ink-3);padding:2px 8px;border:1px solid var(--line-2);border-radius:99px;text-decoration:none}
+.ct-ui a.on{color:var(--ink);border-color:var(--ink)}
+
+/* ── 안 B: 계산기 테이프 — 단계가 영수증처럼 한 줄씩 찍힌다 ── */
+:root[data-ui="B"] .ct-steps{gap:0;border-radius:var(--r2);overflow:hidden;background:var(--ink);color:var(--bg);padding:6px 0}
+:root[data-ui="B"] .ct-s{background:transparent;border:0;border-bottom:1px dashed color-mix(in srgb,var(--bg) 30%,transparent);border-radius:0;color:var(--bg);padding:12px 16px}
+:root[data-ui="B"] .ct-s:last-child{border-bottom:0}
+:root[data-ui="B"] .ct-s h4{color:var(--bg)}
+:root[data-ui="B"] .ct-s h4 em{background:var(--bg);color:var(--ink)}
+:root[data-ui="B"] .ct-s .fx{text-align:right}
+:root[data-ui="B"] .ct-s .fx div{padding-left:0;text-indent:0}
+:root[data-ui="B"] .ct-s .fx .r{font-size:21px}
+:root[data-ui="B"] .ct-s .fx .r span,:root[data-ui="B"] .ct-s .mm{color:color-mix(in srgb,var(--bg) 65%,transparent)}
+:root[data-ui="B"] .ct-s .try input,:root[data-ui="B"] .ct-s .try select{background:color-mix(in srgb,var(--bg) 12%,var(--ink));color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
+:root[data-ui="B"] .ct-s .try button{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+:root[data-ui="B"] .ct-s .try button.q{background:transparent;color:var(--bg)}
+:root[data-ui="B"] .ct-s .ct-vd.정답{color:var(--bg)}
+:root[data-ui="B"] .ct-s .ct-vd.오답,:root[data-ui="B"] .ct-s .ct-vd.단위,:root[data-ui="B"] .ct-s .ct-vd.근접{color:var(--accent)}
+:root[data-ui="B"] .ct-s .tf button{background:transparent;color:var(--bg);border-color:var(--bg)}
+:root[data-ui="B"] .ct-s h4 .ans{color:var(--bg);border-color:var(--bg)}
+:root[data-ui="B"] .ct-in{border-style:dashed}
+
+/* ── 안 C: 넓은 화면 2단(왼쪽 문제·값, 오른쪽 풀이), 휴대폰에서는 값 칸을 접는다 ── */
+@media (min-width:900px){
+  :root[data-ui="C"] .page{max-width:1080px}
+  :root[data-ui="C"] #solve{display:grid;grid-template-columns:400px 1fr;gap:20px;align-items:start}
+  :root[data-ui="C"] #solve .ct-steps{margin-top:0}
+}
+@media (max-width:899px){
+  :root[data-ui="C"] .ct-in.fold2 .ct-f{display:none}
+  :root[data-ui="C"] .ct-in.fold2 .sumline{display:block}
+}
+.ct-in .sumline{display:none;font-family:var(--mono);font-size:14px;line-height:1.7;padding:6px 0;color:var(--ink-2);cursor:pointer}
+.ct-in .sumline u{text-decoration:none;color:var(--ink);font-weight:800;margin-left:6px}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1 id="ttl">계산기</h1></div>
+  <div class="ct-seg" id="seg"><a href="calc.html" data-tab="type">유형별 풀이</a><a href="calc.html?tab=kp" data-tab="kp">공학용 계산기</a></div>
+  <div id="stage"></div>
+  <div class="ct-ui" id="uisel"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gsilgi.js"></script>
+<script src="js/gcalc.js"></script>
+<script src="js/judge.js"></script>
+<script src="js/gstore.js"></script>
+<script src="js/calc.js"></script>
+<script>
+(function(){
+  GS.내비("silgi.html");
+  var CF=window.CF||{계산기:[],유형:{}}, SG=window.SG||{문항:[]}, C=window.CALC, e=GS.esc, P=new URLSearchParams(location.search);
+  function el(x){return document.getElementById(x);}
+  var 계들=CF.계산기, 표={}; 계들.forEach(function(c){표[c.id]=c;});
+  var 탭=P.get("tab")==="kp"?"kp":"type";
+  document.querySelectorAll("#seg a").forEach(function(a){ if(a.dataset.tab===탭) a.classList.add("on"); });
+  /* 안 고르기(대표님 시안 비교용) — ?ui=A|B|C, 고른 안은 이 기기에 남는다 */
+  var ui=document.documentElement.dataset.ui;
+  el("uisel").innerHTML='화면 안 '+["A","B","C"].map(function(u){
+    var q=new URLSearchParams(location.search); q.set("ui",u);
+    return '<a href="?'+q.toString()+'" data-u="'+u+'" class="'+(u===ui?"on":"")+'">'+u+'</a>';}).join("");
+  el("uisel").addEventListener("click",function(ev){var a=ev.target.closest("a[data-u]"); if(a){try{localStorage.setItem("gisa.calc.ui",a.dataset.u);}catch(_){}}});
+
+  if(탭==="kp") return 공학용();
+
+  /* ── 문항에서 왔으면 그 문항과 주어진 값 ── */
+  var 문항=null, qid=P.get("q");
+  if(qid) 문항=SG.문항.filter(function(x){return x.id===qid;})[0]||null;
+  var cid=P.get("c"), 연결=null;
+  if(문항 && 문항.cx && P.get("s")!=null){ 연결=문항.cx[Number(P.get("s"))]||null; if(연결&&표[연결.c]&&!cid) cid=연결.c; }
+  if(!cid && 문항 && 문항.c && 표[문항.c]) cid=문항.c;
+  var 유형=P.get("t")||(문항&&(문항.tp||문항.t))||"";   /* 소방 유형코드는 tp(앱생성이 옮김) */
+  if(!cid && 유형) cid=고른계산기(유형, 문항&&문항.v);
+  if(!cid || !표[cid]) return 목록();
+  return 풀이(표[cid]);
+
+  function 고른계산기(t, v){
+    var 후보=계들.filter(function(c){return c.t===t;});
+    if(!후보.length) return null;
+    if(!v) return 후보[0].id;
+    var 키=값목록(v).map(function(o){return o.k||o.이름;});
+    후보.sort(function(a,b){return 맞는수(b,키)-맞는수(a,키);});
+    return 후보[0].id;
+  }
+  function 맞는수(c,키){return 키.filter(function(k){return !!입력찾기(c,k);}).length;}
+  function 값목록(v){
+    if(!v) return [];
+    if(Array.isArray(v)) return v.map(function(o){return {k:o.k, 이름:o.이름, 값:o.값!=null?o.값:o.v, 단위:o.단위||o.u||""};});
+    return Object.keys(v).map(function(k){var x=v[k];
+      if(Array.isArray(x)) return {k:k,값:x[0],단위:x[1]||""};
+      if(x&&typeof x==="object") return {k:k,값:x.값!=null?x.값:x.v,단위:x.단위||x.u||""};
+      return {k:k,값:x,단위:""};});
+  }
+  function 입력찾기(c,k){
+    if(!k) return null;
+    return c.입력.filter(function(i){return i.k===k;})[0]||c.입력.filter(function(i){return i.이름===k;})[0]||
+      c.입력.filter(function(i){return k.length>=2&&(i.이름.indexOf(k)>=0||k.indexOf(i.이름)>=0);})[0]||null;
+  }
+
+  /* ── 유형 목록 ── */
+  function 목록(){
+    el("ttl").textContent="계산기";
+    var 쓰인={}; SG.문항.forEach(function(x){ var u=x.tp||x.t; if(u) 쓰인[u]=(쓰인[u]||0)+1; });
+    var ts=[]; 계들.forEach(function(c){ if(ts.indexOf(c.t)<0) ts.push(c.t); });
+    var 유=CF.유형||{};
+    el("stage").innerHTML=(계들.length?'':'<div class="none">이 종목은 계산기를 준비하고 있습니다.</div>')+
+      '<div class="ct-types">'+ts.map(function(t){
+        var u=유[t]||{};
+        var n=쓰인[t]||u.n||0;
+        return '<div class="ct-type"><h3><b>'+e(t)+'</b>'+e(u.이름||t)+(n?'<small>기출 '+n+'문항</small>':'')+'</h3><div class="ls">'+
+          계들.filter(function(c){return c.t===t;}).map(function(c){return '<a href="calc.html?c='+c.id+'">'+e(c.이름)+'</a>';}).join("")+'</div></div>';
+      }).join("")+'</div>';
+  }
+
+  /* ── 풀이 화면 ── */
+  function 풀이(계){
+    el("ttl").textContent=계.이름;
+    var 모드=P.get("m")==="see"?"see":"try";
+    var 같은=계들.filter(function(c){return c.t===계.t;});
+    var h='';
+    if(문항){
+      h+='<details class="ct-q" open><summary>문제 · '+e(문항.y+"년 "+문항.r+"회 "+문항.n+"번")+(연결&&연결.no?' · '+e(연결.no)+' 풀이':'')+'</summary><p>'+e(문항.q)+'</p>'+
+        (문항.img||[]).map(function(f){return '<img loading="lazy" alt="" src="img/silgi/'+e(f)+'">';}).join("")+'</details>';
+    }
+    if(같은.length>1) h+='<div class="ct-other">'+같은.map(function(c){
+      var q=new URLSearchParams(location.search); q.set("c",c.id); q.delete("t");
+      return '<a class="'+(c.id===계.id?"on":"")+'" href="?'+q.toString()+'">'+e(c.이름)+'</a>';}).join("")+'</div>';
+    h+='<div id="solve"><div class="colL"><div class="ct-in" id="ins"><h3>주어진 값</h3><div class="sumline" id="sumline"></div>'+계.입력.map(function(i){return 입력칸(i,계);}).join("")+'</div>'+
+      '<div class="ct-mode" id="mode"><button data-m="try" aria-pressed="'+(모드==="try")+'">단계마다 내가 풀기</button><button data-m="see" aria-pressed="'+(모드==="see")+'">풀이 바로 보기</button></div>'+
+      '<button class="b main" id="go">풀기</button><div class="ct-left" id="left"></div></div>'+
+      '<div class="colR"><div class="ct-steps" id="steps"></div><div id="sum"></div></div></div>'+
+      '<p class="ct-src">근거: '+e(계.출처||"")+' · 정답 판정은 상대오차 0.5% 또는 마지막 자리 ±1 까지 맞힘으로 봅니다.</p>'+
+      (문항?'<div class="b2"><a class="b" href="silgi.html">실기 목록</a><a class="b" href="calc.html">계산기 목록</a></div>':'<div class="b2"><a class="b" href="calc.html">계산기 목록</a><a class="b" href="calc.html?tab=kp">공학용 계산기</a></div>');
+    el("stage").innerHTML=h;
+    if(연결&&연결.c===계.id) 채우기(계, 연결.입력);
+    else if(문항&&문항.v) 채우기(계, 문항.v);
+    else if(P.get("v")){ try{ 채우기(계, JSON.parse(P.get("v"))); }catch(_){} }
+    if(문항&&문항.y&&문항.y<=2021) 계.입력.forEach(function(i){ if(i.옛기본!=null){ var s=el("in_"+i.k); if(s&&!s.dataset.set) s.value=String(i.옛기본); }});
+    document.querySelectorAll("#mode button").forEach(function(b){ b.onclick=function(){
+      모드=b.dataset.m; document.querySelectorAll("#mode button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});
+      if(el("steps").innerHTML) 실행(); }; });
+    el("go").onclick=실행;
+    el("ins").addEventListener("change",function(ev){ var s=ev.target;
+      if(s.tagName==="SELECT"&&s.classList.contains("g")){ var x=el("inx_"+s.id.slice(3)); if(x){ x.hidden=s.value!=="직접"; if(!x.hidden) x.focus(); } } });
+    el("sumline").onclick=function(){ el("ins").classList.remove("fold2"); };
+    function 실행(){
+      var 넣=읽기(계), 빠=C.빠진입력(계, 넣);
+      document.querySelectorAll(".ct-f").forEach(function(f){f.classList.remove("miss");});
+      if(빠.length){ 빠.forEach(function(i){ el("f_"+i.k).classList.add("miss"); });
+        el("left").textContent="빈칸: "+빠.map(function(i){return i.이름;}).join(", "); el("steps").innerHTML=""; el("sum").innerHTML=""; return; }
+      var r;
+      try{ r=C.풀기(계, 넣); }catch(err){ el("left").textContent="계산할 수 없는 값: "+err.message; return; }
+      el("left").textContent="";
+      var 쓸=계.단계.filter(function(d){return r[d.k]!=null;});
+      var 빠진=계.단계.filter(function(d){return r[d.k]==null;});
+      for(var j=0;j<쓸.length;j++){ var v=r[쓸[j].k]; if(typeof v==="number"&&!isFinite(v)){ el("left").textContent=쓸[j].이름+" 값을 구할 수 없습니다. 주어진 값을 확인하세요."; el("steps").innerHTML=""; return; } }
+      /* 휴대폰 안 C: 값 칸을 한 줄로 접는다 */
+      el("sumline").innerHTML=계.입력.filter(function(i){return 넣[i.k]!=null||i.기본!=null;}).map(function(i){var v=넣[i.k]!=null?넣[i.k]:i.기본; return e(i.k)+'='+C.수(v,6);}).join(" · ")+'<u>고치기</u>';
+      el("ins").classList.add("fold2");
+      var 결과=[];
+      el("sum").innerHTML="";
+      el("steps").innerHTML=쓸.map(function(d,j){ return 단계칸(d,j,r,모드); }).join("")+
+        (빠진.length?'<div class="ct-skip">값이 없어 건너뛴 단계: '+빠진.map(function(d){return e(d.이름)+"("+(d.필요||[]).map(function(k){var i=계.입력.filter(function(x){return x.k===k;})[0];return e(i?i.이름:k);}).join(", ")+" 필요)";}).join(" · ")+'</div>':'');
+      if(모드==="see") return;
+      var 차례=0;
+      function 다음(){
+        document.querySelectorAll("#steps .ct-s").forEach(function(s,j){ s.style.display=j<=차례?"":"none"; });
+        if(차례>=쓸.length){
+          var 맞=결과.filter(function(x){return x==="정답";}).length;
+          el("sum").innerHTML='<div class="ct-sum"><span>단계 '+쓸.length+'개 중 맞힘</span><b>'+맞+' / '+쓸.length+'</b></div>';
+          if(window.ZZ&&쓸.length){ var p=맞/쓸.length; ZZ.stars(p>=1?3:p>=.7?2:p>=.4?1:0); }
+        } else { var s=document.querySelectorAll("#steps .ct-s")[차례]; var f=s.querySelector("input"); if(f&&window.innerWidth>700) f.focus({preventScroll:true}); s.scrollIntoView({behavior:"smooth",block:"nearest"}); }
+      }
+      document.querySelectorAll("#steps .ct-s").forEach(function(s,j){
+        var d=쓸[j];
+        function 펼침(판,설명){
+          결과[j]=판; s.querySelector(".fx").style.display=""; s.querySelector(".mm")&&(s.querySelector(".mm").style.display="");
+          var t=s.querySelector(".try,.tf"); if(t) t.remove();
+          var vd=document.createElement("div"); vd.className="ct-vd "+판; vd.textContent=(판==="정답"?"맞음":판==="근접"?"거의 맞음":판==="단위"?"단위 확인":판==="모름"?"풀이 확인":"틀림")+(설명?" — "+설명:""); s.appendChild(vd);
+          if(판!=="모름") s.classList.add(판==="정답"?"ok":"no");
+          if(window.ZZ){ if(판==="정답") ZZ.ok(vd); else if(판!=="모름") ZZ.no(vd); }
+          차례=j+1; 다음();
+        }
+        var ok=s.querySelector("button.c"), q=s.querySelector("button.q");
+        if(ok) ok.onclick=function(){
+          var x=parseFloat(String(s.querySelector("input").value).replace(/,/g,""));
+          if(isNaN(x)){ s.querySelector("input").focus(); return; }
+          var u=s.querySelector("select")?s.querySelector("select").value:"";
+          var 판=C.채점(x,u,r[d.k],d); 펼침(판[0],판[1]);
+        };
+        if(q) q.onclick=function(){ 펼침("모름",""); };
+        var inp=s.querySelector(".try input"); if(inp) inp.addEventListener("keydown",function(ev){ if(ev.key==="Enter") ok.click(); });
+        s.querySelectorAll(".tf button").forEach(function(b){ b.onclick=function(){ var 참=b.dataset.v==="1"; 펼침(참===r[d.k]?"정답":"오답",""); }; });
+      });
+      다음();
+    }
+  }
+  function 입력칸(i,계){
+    var id="in_"+i.k, 칸;
+    if(i.고르기){
+      var 번호=i.고정||계.단계.some(function(d){return d.식.indexOf("pick("+i.k+",")>=0;});   /* 번호로 고르는 칸은 직접 입력 없음 */
+      칸='<select class="g" id="'+id+'">'+i.고르기.map(function(o){return '<option value="'+o[0]+'"'+(o[0]==i.기본?' selected':'')+'>'+e(o[1])+'</option>';}).join("")+
+        (번호?'':'<option value="직접">직접 입력</option>')+'</select>'+
+        (번호?'':'<input class="x" id="inx_'+i.k+'" inputmode="decimal" autocomplete="off" placeholder="'+e(C.단위글(i.단위)||"값")+'" hidden>');
+    } else {
+      var 단=C.같은차원(i.단위);
+      칸='<input id="'+id+'" inputmode="decimal" autocomplete="off" placeholder="'+(i.기본!=null?C.수(i.기본,6):i.선택?"있으면":"")+'">'+
+        (단.length>1?'<select class="u" id="u_'+i.k+'">'+단.map(function(u){return '<option value="'+e(u)+'"'+(u===i.단위?' selected':'')+'>'+e(C.단위글(u))+'</option>';}).join("")+'</select>':
+          '<span class="ut">'+e(C.단위글(i.단위))+'</span>');
+    }
+    return '<div class="ct-f" id="f_'+i.k+'"><label for="'+id+'"><b>'+e(i.k)+'</b>'+e(i.이름)+(i.선택?' <i>(있으면)</i>':'')+'</label><div class="w">'+칸+'</div></div>';
+  }
+  function 읽기(계){
+    var o={};
+    계.입력.forEach(function(i){
+      var x=el("in_"+i.k); if(!x) return;
+      if(x.value==="직접") x=el("inx_"+i.k);
+      var s=String(x.value).replace(/,/g,"").trim(); if(s==="") return;
+      var v=Number(s); if(isNaN(v)) return;
+      var us=el("u_"+i.k);
+      if(us && us.value!==i.단위){ var c=C.변환(v,us.value,i.단위); if(c!=null) v=c; }
+      o[i.k]=v;
+    });
+    return o;
+  }
+  function 채우기(계, v){
+    var 남=[];
+    값목록(v).forEach(function(o){
+      var i=입력찾기(계, o.k||o.이름);
+      if(!i||o.값==null||o.값===""){ 남.push(o); return; }
+      var x=el("in_"+i.k); if(!x){ 남.push(o); return; }
+      if(i.고르기){ var 맞=i.고르기.filter(function(g){return Number(g[0])===Number(o.값);})[0]; if(맞){ x.value=String(맞[0]); x.dataset.set="1"; }
+        else if(el("inx_"+i.k)){ x.value="직접"; x.dataset.set="1"; el("inx_"+i.k).hidden=false; el("inx_"+i.k).value=String(o.값); }
+        else 남.push(o);
+        return; }
+      x.value=String(o.값); x.dataset.set="1";
+      var us=el("u_"+i.k);
+      if(o.단위 && us){ var u=단위정리(o.단위); if(C.같은차원(i.단위).indexOf(u)>=0) us.value=u; }
+    });
+    if(남.length) el("ins").insertAdjacentHTML("beforeend",'<div class="ct-left">문제의 다른 값: '+남.map(function(o){return e((o.이름||o.k)+" "+o.값+(o.단위?" "+o.단위:""));}).join(" · ")+'</div>');
+  }
+  function 단위정리(u){ return String(u).replace(/㎥|m³/g,"m3").replace(/㎡|m²/g,"m2").replace(/㎫/g,"MPa").replace(/㎪/g,"kPa").replace(/ℓ/g,"L").replace(/㎜/g,"mm").replace(/\s/g,"").replace(/^l\//,"L/").replace(/^°C$/,"℃"); }
+  function 단계칸(d,j,r,모드){
+    var 값=r[d.k], 식=r["@"+d.k]||{}, 자리=d.자리==null?2:d.자리, 숨=모드==="try";
+    var 결=d.판정? '<div class="r">→ '+e(값?d.판정[1]:d.판정[0])+'</div>' :
+      '<div class="r">= '+e(C.수(값,자리))+'<span>'+e(C.단위글(d.단위))+'</span></div>';
+    var fx='<div class="fx"'+(숨?' style="display:none"':'')+'><div>'+e(d.k)+' = '+e(식.기호||"")+'</div>'+
+      (d.판정?'<div>'+e(식.대입||"")+'</div>':'<div>= '+e(식.대입||"")+'</div>')+결+'</div>'+
+      (d.메모?'<div class="mm"'+(숨?' style="display:none"':'')+'>'+e(d.메모)+'</div>':'');
+    var 풀칸="";
+    if(숨){
+      if(d.판정) 풀칸='<div class="tf"><button data-v="0">'+e(d.판정[0])+'</button><button data-v="1">'+e(d.판정[1])+'</button></div>';
+      else { var 단=C.같은차원(d.단위);
+        풀칸='<div class="try"><input inputmode="decimal" autocomplete="off" placeholder="'+e(d.k)+' 값">'+
+          (d.단위&&단.length>1?'<select><option value="">단위</option>'+단.map(function(u){return '<option value="'+e(u)+'">'+e(C.단위글(u))+'</option>';}).join("")+'</select>':
+           d.단위?'<select><option value="">단위</option><option value="'+e(d.단위)+'">'+e(C.단위글(d.단위))+'</option></select>':'')+
+          '<button class="c">확인</button><button class="q">모르겠음</button></div>'; }
+    }
+    return '<div class="ct-s"><h4><em>'+(j+1)+'</em>'+e(d.이름)+(d.답?'<span class="ans">답</span>':'')+'</h4>'+풀칸+fx+'</div>';
+  }
+
+  /* ── 공학용 계산기 ── */
+  function 공학용(){
+    el("ttl").textContent="공학용 계산기";
+    var 키=[["sin","f"],["(","f"],[")","f"],["⌫","ac"],["AC","ac"],
+            ["√","f"],["x²","f"],["^","f"],["log","f"],["ln","f"],
+            ["7"],["8"],["9"],["÷","op"],["π","f"],
+            ["4"],["5"],["6"],["×","op"],["E","f"],
+            ["1"],["2"],["3"],["−","op"],["Ans","f"],
+            ["0"],["."],["±","f"],["+","op"],["=","eq"]];
+    키[0]=["10ˣ","f"];
+    el("stage").innerHTML='<div class="ct-kp"><div class="ct-disp"><input id="ex" aria-label="계산식" autocomplete="off" spellcheck="false"><output id="out">0</output></div>'+
+      '<div class="ct-keys">'+키.map(function(k){return '<button class="'+(k[1]||"")+'" data-k="'+e(k[0])+'">'+e(k[0])+'</button>';}).join("")+'</div><div class="ct-hist" id="hist"></div></div>'+
+      '<div class="ct-cv"><h3>단위 바꾸기</h3><div class="row"><input id="cvx" inputmode="decimal" value="1"><select id="cva"></select></div>'+
+      '<div class="row"><div class="out" id="cvo">—</div><select id="cvb"></select></div>'+
+      '<div class="qk" id="cvq"></div></div>';
+    var ex=el("ex"), ans=0, 끝=false;
+    function 넣(s){ if(끝&&/^[0-9.(√πE]/.test(s)){ ex.value=""; } 끝=false; var p=ex.selectionStart!=null&&document.activeElement===ex?ex.selectionStart:ex.value.length; ex.value=ex.value.slice(0,p)+s+ex.value.slice(p); 미리(); }
+    /* 화면 기호 → 식 문법. 2π·3√(…)·2(…) 처럼 곱셈 기호를 빼먹어도 곱으로 읽는다 */
+    function 정리(s){ return s.replace(/×/g,"*").replace(/÷/g,"/").replace(/−/g,"-").replace(/π/g,"pi").replace(/√/g,"sqrt").replace(/Ans/g,"ans")
+      .replace(/(\d)E(-?\d+(?:\.\d+)?)/g,"$1*10^($2)")
+      .replace(/(\d|\))\s*(?=(?![eE][-+]?\d)[A-Za-z(])/g,"$1*").replace(/(pi|ans)\s*(?=[A-Za-z0-9(])/g,"$1*"); }
+    function 값(){ var s=정리(ex.value); var o=(s.match(/\(/g)||[]).length-(s.match(/\)/g)||[]).length; while(o-->0) s+=")"; return C.식값(s,{ans:ans}); }
+    function 미리(){ try{ var v=값(); el("out").textContent=isFinite(v)?C.수(v,8):"—"; }catch(_){ el("out").textContent="…"; } }
+    function 계산(){ try{ var v=값(); if(!isFinite(v)) throw 0; el("hist").insertAdjacentHTML("afterbegin",'<div data-v="'+v+'"><span>'+e(ex.value)+'</span><b>'+e(C.수(v,8))+'</b></div>'); ans=v; el("out").textContent=C.수(v,8); 끝=true; }catch(_){ el("out").textContent="식 확인"; } }
+    document.querySelector(".ct-keys").onclick=function(ev){
+      var b=ev.target.closest("button"); if(!b) return; var k=b.dataset.k;
+      if(k==="=") return 계산();
+      if(k==="AC"){ ex.value=""; el("out").textContent="0"; return; }
+      if(k==="⌫"){ ex.value=ex.value.slice(0,-1); 미리(); return; }
+      if(k==="√") return 넣("√(");
+      if(k==="x²") return 넣("^2");
+      if(k==="log") return 넣("log(");
+      if(k==="ln") return 넣("ln(");
+      if(k==="10ˣ") return 넣("10^");
+      if(k==="±"){ ex.value=ex.value?"−("+ex.value+")":"−"; 미리(); return; }
+      if(k==="Ans"){ if(끝){ex.value="";끝=false;} return 넣("Ans"); }
+      if(끝&&/[+−×÷^]/.test(k)){ ex.value="Ans"; 끝=false; }
+      넣(k);
+    };
+    ex.addEventListener("input",미리);
+    ex.addEventListener("keydown",function(ev){ if(ev.key==="Enter"){ev.preventDefault();계산();} if(ev.key==="Escape"){ex.value="";미리();} });
+    el("hist").onclick=function(ev){ var d=ev.target.closest("div[data-v]"); if(d){ 넣(C.수(Number(d.dataset.v),10)); } };
+    /* 단위 바꾸기 */
+    var 이름={"유량":"유량","부피":"부피","압력":"압력·수두","길이":"길이","질량":"질량","시간":"시간","동력":"동력","넓이":"넓이","질량유량":"질량유량"};
+    var 전부=[]; Object.keys(C.단위표).forEach(function(d){ Object.keys(C.단위표[d]).forEach(function(u){ 전부.push([d,u]); }); }); 전부.push(["온도","℃"],["온도","K"]);
+    var a=el("cva"), b=el("cvb");
+    a.innerHTML=Object.keys(이름).concat(["온도"]).map(function(d){ return '<optgroup label="'+(이름[d]||d)+'">'+전부.filter(function(x){return x[0]===d;}).map(function(x){return '<option value="'+e(x[1])+'">'+e(C.단위글(x[1]))+'</option>';}).join("")+'</optgroup>'; }).join("");
+    function b채움(){ var 같=C.같은차원(a.value); var 전=b.value; b.innerHTML=같.map(function(u){return '<option value="'+e(u)+'">'+e(C.단위글(u))+'</option>';}).join(""); if(같.indexOf(전)>=0&&전!==a.value) b.value=전; else b.value=같.filter(function(u){return u!==a.value;})[0]||a.value; }
+    function 바꿈(){ var x=Number(String(el("cvx").value).replace(/,/g,"")); var r=C.변환(x,a.value,b.value); el("cvo").textContent=r==null||isNaN(r)?"—":C.수(r,8); }
+    a.onchange=function(){ b채움(); 바꿈(); }; b.onchange=바꿈; el("cvx").oninput=바꿈;
+    var 빠른=[["L/min","m3/s"],["L/min","m3/min"],["kPa","mAq"],["MPa","mAq"],["mmHg","mmAq"],["℃","K"],["m3/h","m3/min"],["L","m3"]];
+    el("cvq").innerHTML=빠른.map(function(p){return '<button data-a="'+e(p[0])+'" data-b="'+e(p[1])+'">'+e(C.단위글(p[0]))+' → '+e(C.단위글(p[1]))+'</button>';}).join("");
+    el("cvq").onclick=function(ev){ var t=ev.target.closest("button"); if(!t) return; a.value=t.dataset.a; b채움(); b.value=t.dataset.b; 바꿈(); };
+    a.value="L/min"; b채움(); b.value="m3/s"; 바꿈();
+  }
+})();
+</script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+</body></html>

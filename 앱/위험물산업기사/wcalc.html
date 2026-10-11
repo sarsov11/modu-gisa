@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>지정수량 배수: 모두의 위산기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/q.css">
+<script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
+<style>
+/* 1011 위험물산업기사 실기: 지정수량 배수·소요단위. 물질을 고르면 품명·지정수량이 자동으로 붙고 풀이 줄이 그대로 나온다 */
+.page{padding-bottom:120px}
+.wc-seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:14px 0}
+.wc-seg button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);padding:12px 6px;font:800 15px/1.2 var(--sans);cursor:pointer}
+.wc-seg button.on{border-color:var(--ink);background:var(--surface)}
+.wc-row{display:grid;grid-template-columns:1fr 92px 40px;gap:6px;align-items:center;margin:0 0 8px}
+.wc-row select,.wc-row input,.wc-f input,.wc-f select{width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);font:600 15.5px/1.3 var(--sans);padding:11px 8px}
+.wc-row .u{font-size:14px;color:var(--ink-3);text-align:center}
+.wc-row small{grid-column:1/-1;margin:-4px 2px 0;font-size:12.5px;color:var(--ink-3)}
+.wc-x{appearance:none;border:0;background:none;color:var(--ink-3);font-size:20px;cursor:pointer}
+.wc-add{appearance:none;width:100%;border:1.5px dashed var(--line-2);background:none;color:var(--ink-2);border-radius:10px;padding:11px;font:700 15px var(--sans);cursor:pointer;margin:2px 0 14px}
+.wc-out{border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--surface);padding:14px 16px;margin:6px 0 14px;font-size:15.5px;line-height:1.8}
+.wc-out .big{font-size:24px;font-weight:900;letter-spacing:-.02em}
+.wc-out .ln{font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.wc-f{display:grid;gap:6px;margin:0 0 10px}
+.wc-f label{font-size:13.5px;font-weight:700;color:var(--ink-3)}
+.wc-tip{font-size:13px;color:var(--ink-3);line-height:1.6;margin:4px 0 12px}
+.wc-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 18px}
+.wc-tbl th,.wc-tbl td{border-bottom:1px solid var(--line-2);padding:7px 4px;text-align:left}
+.wc-tbl td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+</style>
+</head><body>
+<div class="page">
+  <div class="hd"><h1 id="ttl">지정수량 배수·소요단위</h1></div>
+  <div class="wc-seg" id="seg"><button data-t="b" class="on">지정수량 배수</button><button data-t="u">소요단위</button></div>
+  <div id="stage"></div>
+</div>
+<script src="js/gdata.js"></script>
+<script src="js/gjisu.js"></script>
+<script src="js/gstore.js"></script>
+<script>
+(function(){
+  GS.내비("silgi.html");
+  var J=window.JS||{품명:[],물질:[]}, e=GS.esc, P=new URLSearchParams(location.search);
+  function el(x){return document.getElementById(x);}
+  var 품={}; J.품명.forEach(function(p){품[p.품명]=p;});
+  function 수(x){ return Math.round(x*1e4)/1e4; }
+  function 쉼(x){ return 수(x).toLocaleString("ko-KR",{maximumFractionDigits:4}); }
+  /* 고르기 목록: 물질(품명) 다음에 품명 그대로 */
+  var 고를것=J.물질.map(function(m){return {이름:m[0], 품:품[m[1]]};}).filter(function(x){return x.품;})
+    .concat(J.품명.map(function(p){return {이름:"(품명) "+p.품명, 품:p};}));
+  function 옵션(){ return '<option value="">물질 고르기</option>'+[1,2,3,4,5,6].map(function(r){
+      return '<optgroup label="제'+r+'류">'+고를것.map(function(x,i){return x.품.류===r?'<option value="'+i+'">'+e(x.이름)+'</option>':"";}).join("")+'</optgroup>';}).join(""); }
+  var 줄들=[{k:"",q:""},{k:"",q:""}], 탭=P.get("t")==="u"?"u":"b";
+
+  function 배수결과(){
+    var 쓴=줄들.filter(function(r){return r.k!==""&&r.q!==""&&!isNaN(+r.q);});
+    if(!쓴.length) return '<div class="wc-out"><span class="ln">물질과 양을 넣으면 풀이가 여기에 나옵니다.</span></div>';
+    var 합=0, 식=[];
+    var ln=쓴.map(function(r){ var x=고를것[+r.k], p=x.품, b=+r.q/p.수; 합+=b; 식.push(쉼(b));
+      return '<div class="ln">'+e(x.이름.replace("(품명) ",""))+': '+쉼(+r.q)+p.단위+' ÷ '+쉼(p.수)+p.단위+' = '+쉼(b)+'</div>'; }).join("");
+    return '<div class="wc-out">'+ln+'<div class="ln">합 = '+식.join(" + ")+'</div><div class="big">'+쉼(합)+' 배</div>'+
+      '<div class="ln">'+(합>=1?"지정수량 이상: 위험물안전관리법 규제 대상(제조소등 허가)":"지정수량 미만: 시·도 조례로 규제")+'</div></div>';
+  }
+  function 배수(){
+    var h='<p class="wc-tip">같은 장소에 여러 물질이 있으면 물질마다 저장량 ÷ 지정수량을 구해 모두 더합니다. 고른 물질의 품명·지정수량은 법령 표대로 붙습니다.</p>';
+    h+=줄들.map(function(r,i){
+      var x=r.k!==""?고를것[+r.k]:null;
+      return '<div class="wc-row"><select data-i="'+i+'" data-f="k">'+옵션()+'</select>'+
+        '<input data-i="'+i+'" data-f="q" inputmode="decimal" placeholder="양" value="'+e(r.q)+'"><button class="wc-x" data-del="'+i+'" aria-label="지우기">×</button>'+
+        (x?'<small>제'+x.품.류+'류 '+e(x.품.품명)+' · 지정수량 '+쉼(x.품.수)+x.품.단위+' · 위험등급 '+x.품.등급+'</small>':'')+'</div>';
+    }).join("")+'<button class="wc-add" id="add">+ 물질 더하기</button><div id="out">'+배수결과()+'</div>';
+    h+='<details class="fold"><summary>지정수량 표 <span class="chip">'+J.품명.length+'</span></summary><div class="in"><table class="wc-tbl"><thead><tr><th>유별</th><th>품명</th><th>지정수량</th><th>등급</th></tr></thead><tbody>'+
+      J.품명.map(function(p){return '<tr><td>제'+p.류+'류</td><td>'+e(p.품명)+'</td><td class="n">'+쉼(p.수)+p.단위+'</td><td>'+p.등급+'</td></tr>';}).join("")+'</tbody></table></div></details>';
+    el("stage").innerHTML=h;
+    document.querySelectorAll("#stage select").forEach(function(s){ s.value=줄들[+s.dataset.i].k; });
+    el("stage").oninput=function(ev){ var t=ev.target; if(!t.dataset.f) return; 줄들[+t.dataset.i][t.dataset.f]=t.value;
+      if(t.dataset.f==="k") return 배수(); el("out").innerHTML=배수결과(); };
+    el("stage").onclick=function(ev){ var t=ev.target;
+      if(t.id==="add"){ 줄들.push({k:"",q:""}); 배수(); }
+      if(t.dataset.del!=null){ 줄들.splice(+t.dataset.del,1); if(!줄들.length) 줄들.push({k:"",q:""}); 배수(); } };
+  }
+  function 소요(){
+    var h='<p class="wc-tip">소요단위는 소화설비를 얼마나 둘지 정하는 기준입니다. 건축물은 연면적으로, 위험물은 지정수량의 10배를 1단위로 셉니다. 둘 다 있으면 더합니다.</p>'+
+      '<div class="wc-f"><label>건축물</label><select id="kind"><option value="100,50">제조소·취급소</option><option value="150,75">저장소</option></select></div>'+
+      '<div class="wc-f"><label>외벽</label><select id="fire"><option value="0">내화구조</option><option value="1">내화구조가 아님</option></select></div>'+
+      '<div class="wc-f"><label>연면적(m²) · 옥외 공작물은 수평투영면적</label><input id="A" inputmode="decimal" placeholder="예: 300"></div>'+
+      '<div class="wc-f"><label>위험물 지정수량 배수 (앞 탭에서 구한 값을 넣어도 됨)</label><input id="X" inputmode="decimal" placeholder="예: 25"></div><div id="out2"></div>';
+    el("stage").innerHTML=h;
+    function 풀(){
+      var 기=el("kind").value.split(",")[+el("fire").value], A=+el("A").value||0, X=+el("X").value||0, a=A/기, b=X/10;
+      el("out2").innerHTML='<div class="wc-out">'+(A?'<div class="ln">건축물: '+쉼(A)+'m² ÷ '+기+'m² = '+쉼(a)+'단위</div>':'')+
+        (X?'<div class="ln">위험물: '+쉼(X)+'배 ÷ 10 = '+쉼(b)+'단위</div>':'')+
+        '<div class="big">'+쉼(a+b)+' 단위</div><div class="ln">1소요단위: 제조소·취급소 내화 100m²·비내화 50m², 저장소 내화 150m²·비내화 75m², 위험물은 지정수량 10배</div></div>';
+    }
+    el("stage").oninput=풀; el("stage").onchange=풀; 풀();
+  }
+  function 그리기(){ document.querySelectorAll("#seg button").forEach(function(b){b.classList.toggle("on",b.dataset.t===탭);}); (탭==="b"?배수:소요)(); }
+  el("seg").onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; 탭=b.dataset.t; 그리기(); };
+  그리기();
+})();
+</script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+</body></html>
