@@ -1,0 +1,45 @@
+<svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 치수 -->
+  <line class="th" x1="60" y1="28" x2="60" y2="50"/><line class="th" x1="204" y1="28" x2="204" y2="50"/><line class="th" x1="444" y1="28" x2="444" y2="50"/>
+  <line class="dm" x1="60" y1="38" x2="204" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="204" y1="38" x2="444" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="112" y="32">6 m</text><text class="tx" x="316" y="32">10 m</text>
+  <line class="th" x1="26" y1="50" x2="60" y2="50"/><line class="th" x1="26" y1="242" x2="60" y2="242"/><line class="th" x1="26" y1="290" x2="60" y2="290"/>
+  <line class="dm" x1="34" y1="50" x2="34" y2="242" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="34" y1="242" x2="34" y2="290" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="2" y="152">8 m</text><text class="tx" x="2" y="272">2 m</text>
+  <line class="th" x1="444" y1="50" x2="474" y2="50"/><line class="th" x1="444" y1="122" x2="474" y2="122"/><line class="th" x1="444" y1="290" x2="474" y2="290"/>
+  <line class="dm" x1="466" y1="50" x2="466" y2="122" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="466" y1="122" x2="466" y2="290" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="476" y="92">3 m</text><text class="tx" x="476" y="212">7 m</text>
+  <!-- 방호구역 -->
+  <rect class="m" x="60" y="50" width="384" height="240"/>
+  <line class="ln" x1="204" y1="50" x2="204" y2="290"/>
+  <line class="ln" x1="60" y1="242" x2="204" y2="242"/>
+  <line class="ln" x1="204" y1="122" x2="444" y2="122"/>
+  <text class="tb" x="96" y="140">전기설비실</text><text class="tx" x="98" y="160">8 m × 6 m</text>
+  <text class="tb" x="82" y="262">케이블실</text><text class="tx" x="86" y="280">2 m × 6 m</text>
+  <text class="tb" x="290" y="82">모피창고</text><text class="tx" x="286" y="102">10 m × 3 m</text>
+  <text class="tb" x="316" y="200">서고</text><text class="tx" x="286" y="220">10 m × 7 m</text>
+  <!-- 저장용기실 (별도) -->
+  <rect class="m" x="60" y="336" width="108" height="64"/>
+  <text class="tb" x="76" y="364">저장용기실</text><text class="tx" x="78" y="384">2 m × 3 m</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 연결송수구 ㉮ -->
+  <path class="sup" d="M56,44 A18,16 0 0,0 56,76 Z"/>
+  <circle class="nd" cx="44" cy="96" r="10"/>
+  <text class="tb" x="38" y="101">㉮</text>
+  <!-- 가로 40A 4 m -->
+  <line class="m" x1="56" y1="60" x2="200" y2="60"/>
+  <text class="tx" x="104" y="82">40A</text>
+  <line class="th" x1="44" y1="28" x2="44" y2="52"/><line class="th" x1="200" y1="28" x2="200" y2="56"/>
+  <line class="dm" x1="44" y1="38" x2="200" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="112" y="32">4 m</text>
+  <!-- 세로 40A 10 m -->
+  <line class="m" x1="200" y1="60" x2="200" y2="200"/>
+  <circle class="rb" cx="200" cy="60" r="4"/>
+  <text class="tx" x="156" y="136">40A</text>
+  <line class="th" x1="204" y1="60" x2="248" y2="60"/><line class="th" x1="204" y1="200" x2="248" y2="200"/>
+  <line class="dm" x1="240" y1="60" x2="240" y2="200" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="248" y="136">10 m</text>
+  <!-- 분기점 ㉯ -->
+  <circle class="rb" cx="200" cy="200" r="4"/>
+  <circle class="nd" cx="226" cy="216" r="10"/>
+  <text class="tb" x="220" y="221">㉯</text>
+  <!-- 오른쪽 위 가지: 32A 경사 + 가로, 개방형 헤드 3개 -->
+  <polyline class="m" fill="none" points="200,200 330,140 570,140"/>
+  <text class="tx" x="262" y="190">32A</text>
+  <circle class="rb" cx="410" cy="140" r="4"/><line class="ln" x1="410" y1="140" x2="410" y2="130"/><polygon class="nd" points="402,130 418,130 410,114"/>
+  <circle class="rb" cx="470" cy="140" r="4"/><line class="ln" x1="470" y1="140" x2="470" y2="130"/><polygon class="nd" points="462,130 478,130 470,114"/>
+  <circle class="rb" cx="530" cy="140" r="4"/><line class="ln" x1="530" y1="140" x2="530" y2="130"/><polygon class="nd" points="522,130 538,130 530,114"/>
+  <text class="ts" x="410" y="106">개방형 헤드</text>
+  <!-- 왼쪽 아래 가지: 32A 경사 2 m -->
+  <line class="m" x1="200" y1="200" x2="90" y2="262"/>
+  <line class="dm" x1="188" y1="179" x2="78" y2="241" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="102" y="204">2 m</text>
+  <text class="tx" x="176" y="234">32A</text>
+  <!-- 아래 가로 가지: C B A -->
+  <line class="m" x1="90" y1="262" x2="530" y2="262"/>
+  <text class="tx" x="126" y="254">32A</text>
+  <text class="tx" x="250" y="254">25A</text>
+  <text class="tx" x="380" y="254">25A</text>
+  <circle class="rb" cx="200" cy="262" r="4"/><line class="ln" x1="200" y1="262" x2="200" y2="252"/><polygon class="nd" points="192,252 208,252 200,236"/>
+  <circle class="rb" cx="330" cy="262" r="4"/><line class="ln" x1="330" y1="262" x2="330" y2="252"/><polygon class="nd" points="322,252 338,252 330,236"/>
+  <circle class="rb" cx="460" cy="262" r="4"/><line class="ln" x1="460" y1="262" x2="460" y2="252"/><polygon class="nd" points="452,252 468,252 460,236"/>
+  <text class="tb" x="194" y="282">C</text><text class="tb" x="324" y="282">B</text><text class="tb" x="454" y="282">A</text>
+  <line class="th" x1="90" y1="268" x2="90" y2="310"/><line class="th" x1="200" y1="268" x2="200" y2="310"/><line class="th" x1="330" y1="268" x2="330" y2="310"/><line class="th" x1="460" y1="268" x2="460" y2="310"/>
+  <line class="dm" x1="90" y1="302" x2="200" y2="302" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="200" y1="302" x2="330" y2="302" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="330" y1="302" x2="460" y2="302" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="128" y="324">0.5 m</text><text class="tx" x="256" y="324">1.5 m</text><text class="tx" x="386" y="324">1.5 m</text>
+</svg>

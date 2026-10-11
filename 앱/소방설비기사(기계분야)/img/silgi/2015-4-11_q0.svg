@@ -1,0 +1,87 @@
+<svg viewBox="0 0 580 640" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 층 기준선 -->
+  <line class="th" x1="60" y1="40" x2="226" y2="40"/>
+  <line class="th" x1="60" y1="80" x2="470" y2="80"/>
+  <line class="th" x1="60" y1="126" x2="470" y2="126"/>
+  <line class="th" x1="60" y1="174" x2="470" y2="174"/>
+  <line class="th" x1="60" y1="222" x2="470" y2="222"/>
+  <line class="th" x1="60" y1="270" x2="470" y2="270"/>
+  <line class="th" x1="60" y1="318" x2="470" y2="318"/>
+  <line class="th" x1="60" y1="366" x2="470" y2="366"/>
+  <line class="th" x1="60" y1="414" x2="470" y2="414"/>
+  <line class="m" x1="60" y1="462" x2="110" y2="462"/><line class="m" x1="450" y1="462" x2="470" y2="462"/>
+  <!-- 고가수조 -->
+  <rect class="fl" x="230" y="26" width="96" height="54"/>
+  <polyline class="ln" points="230,26 230,80 326,80 326,26"/>
+  <line class="th" x1="230" y1="40" x2="326" y2="40"/>
+  <line class="th" x1="262" y1="50" x2="294" y2="50"/><line class="th" x1="270" y1="58" x2="286" y2="58"/>
+  <rect x="226" y="80" width="104" height="10" fill="url(#hat)"/>
+  <text class="tx" x="336" y="36">고가수조</text>
+  <!-- 입상관 -->
+  <polyline class="m" points="326,66 376,66 376,450 410,450"/>
+  <circle class="rb" cx="376" cy="104" r="6"/><text class="tb" x="388" y="109">P<tspan dy="4" class="ts">1</tspan></text>
+  <!-- 층별 소화전함 (6층 ~ 1층, 지하 1층) -->
+  <rect class="rb" x="318" y="150" width="22" height="24"/><line class="ln" x1="340" y1="162" x2="376" y2="162"/><text class="tx" x="430" y="168">6층</text>
+  <rect class="rb" x="318" y="198" width="22" height="24"/><line class="ln" x1="340" y1="210" x2="376" y2="210"/><text class="tx" x="430" y="216">5층</text>
+  <rect class="rb" x="318" y="246" width="22" height="24"/><line class="ln" x1="340" y1="258" x2="376" y2="258"/><text class="tx" x="430" y="264">4층</text>
+  <rect class="rb" x="318" y="294" width="22" height="24"/><line class="ln" x1="340" y1="306" x2="376" y2="306"/><text class="tx" x="430" y="312">3층</text>
+  <rect class="rb" x="318" y="342" width="22" height="24"/><line class="ln" x1="340" y1="354" x2="376" y2="354"/><text class="tx" x="430" y="360">2층</text>
+  <rect class="rb" x="318" y="390" width="22" height="24"/><line class="ln" x1="340" y1="402" x2="376" y2="402"/><text class="tx" x="430" y="408">1층</text>
+  <rect class="rb" x="410" y="438" width="22" height="24"/><text class="tx" x="436" y="456">지하 1층</text>
+  <!-- 6층 호스 접결구 높이 2 m -->
+  <line class="th" x1="270" y1="150" x2="300" y2="150"/>
+  <line class="dm" x1="286" y1="150" x2="286" y2="174" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="250" y="166">2 m</text>
+  <!-- 펌프 P1, P2 -->
+  <circle class="nd" cx="200" cy="448" r="14"/><circle class="nd" cx="262" cy="448" r="14"/>
+  <text class="tb" x="140" y="446">P<tspan dy="4" class="ts">1</tspan></text><text class="tb" x="284" y="446">P<tspan dy="4" class="ts">2</tspan></text>
+  <polyline class="m" points="200,434 200,420 376,420"/>
+  <!-- 저수조 -->
+  <rect class="fl" x="110" y="480" width="340" height="100"/>
+  <polyline class="m" points="110,462 110,580 450,580 450,462"/>
+  <rect x="92" y="462" width="18" height="130" fill="url(#hat)"/><rect x="450" y="462" width="18" height="130" fill="url(#hat)"/><rect x="92" y="580" width="376" height="12" fill="url(#hat)"/>
+  <line class="th" x1="110" y1="480" x2="450" y2="480"/>
+  <polygon class="nd" points="322,466 338,466 330,478"/>
+  <line class="th" x1="290" y1="500" x2="370" y2="500"/><line class="th" x1="305" y1="516" x2="355" y2="516"/><line class="th" x1="318" y1="532" x2="342" y2="532"/>
+  <text class="tx" x="474" y="528">저수조</text>
+  <!-- 후드밸브 -->
+  <polyline class="ln" points="186,448 170,448 170,540"/>
+  <rect class="rb" x="163" y="540" width="14" height="22"/>
+  <polyline class="ln" points="248,448 232,448 232,500"/>
+  <rect class="rb" x="225" y="500" width="14" height="22"/>
+  <text class="tx" x="300" y="618">후드밸브</text>
+  <line class="th" x1="316" y1="602" x2="244" y2="526" marker-end="url(#ai)"/>
+  <line class="th" x1="300" y1="606" x2="184" y2="556" marker-end="url(#ai)"/>
+  <!-- 높이 치수 -->
+  <line class="th" x1="60" y1="506" x2="226" y2="506"/><line class="th" x1="60" y1="546" x2="160" y2="546"/><line class="th" x1="60" y1="580" x2="110" y2="580"/>
+  <line class="dm" x1="72" y1="40" x2="72" y2="80" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="66" text-anchor="end">2 m</text>
+  <line class="dm" x1="72" y1="80" x2="72" y2="126" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="108" text-anchor="end">2.5 m</text>
+  <line class="dm" x1="72" y1="126" x2="72" y2="174" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="155" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="174" x2="72" y2="222" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="203" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="222" x2="72" y2="270" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="251" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="270" x2="72" y2="318" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="299" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="318" x2="72" y2="366" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="347" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="366" x2="72" y2="414" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="395" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="414" x2="72" y2="462" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="443" text-anchor="end">3 m</text>
+  <line class="dm" x1="72" y1="462" x2="72" y2="506" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="489" text-anchor="end">1 m</text>
+  <line class="dm" x1="72" y1="506" x2="72" y2="546" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="530" text-anchor="end">0.8 m</text>
+  <line class="dm" x1="72" y1="546" x2="72" y2="580" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="62" y="568" text-anchor="end">0.2 m</text>
+</svg>

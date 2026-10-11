@@ -1,0 +1,54 @@
+<svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 가로 주배관, 왼쪽 끝 캡 -->
+  <polyline class="m" fill="none" points="44,100 553,100 553,232"/>
+  <polyline class="ln" fill="none" points="50,90 38,90 38,110 50,110"/>
+  <!-- 아래 가로 배관 (양 끝 파단) -->
+  <line class="m" x1="486" y1="232" x2="632" y2="232"/>
+  <path class="ln" fill="none" d="M486,224 q-8,4 0,8 q8,4 0,8"/>
+  <path class="ln" fill="none" d="M632,224 q8,4 0,8 q-8,4 0,8"/>
+  <!-- 가지배관 4조 : 각 조 = 헤드 내림관 + ㄷ자 가지 -->
+  <polyline class="m" fill="none" points="90,40 90,146"/>
+  <polyline class="m" fill="none" points="90,40 128,40 128,100"/>
+  <polygon class="nd" points="80,146 100,146 90,162"/>
+  <polyline class="m" fill="none" points="200,40 200,146"/>
+  <polyline class="m" fill="none" points="200,40 238,40 238,100"/>
+  <polygon class="nd" points="190,146 210,146 200,162"/>
+  <polyline class="m" fill="none" points="310,40 310,146"/>
+  <polyline class="m" fill="none" points="310,40 348,40 348,100"/>
+  <polygon class="nd" points="300,146 320,146 310,162"/>
+  <polyline class="m" fill="none" points="420,40 420,146"/>
+  <polyline class="m" fill="none" points="420,40 458,40 458,100"/>
+  <polygon class="nd" points="410,146 430,146 420,162"/>
+  <!-- 이음 표시(짧은 가로 선) : 가지 오른쪽 세로관 -->
+  <line class="th" x1="122" y1="56" x2="134" y2="56"/><line class="th" x1="122" y1="72" x2="134" y2="72"/><line class="th" x1="122" y1="86" x2="134" y2="86"/>
+  <line class="th" x1="232" y1="56" x2="244" y2="56"/><line class="th" x1="232" y1="72" x2="244" y2="72"/><line class="th" x1="232" y1="86" x2="244" y2="86"/>
+  <line class="th" x1="342" y1="56" x2="354" y2="56"/><line class="th" x1="342" y1="72" x2="354" y2="72"/><line class="th" x1="342" y1="86" x2="354" y2="86"/>
+  <line class="th" x1="452" y1="56" x2="464" y2="56"/><line class="th" x1="452" y1="72" x2="464" y2="72"/><line class="th" x1="452" y1="86" x2="464" y2="86"/>
+  <!-- 주배관 이음 표시 -->
+  <line class="th" x1="62" y1="94" x2="62" y2="106"/>
+  <line class="th" x1="147" y1="94" x2="147" y2="106"/><line class="th" x1="257" y1="94" x2="257" y2="106"/><line class="th" x1="367" y1="94" x2="367" y2="106"/><line class="th" x1="477" y1="94" x2="477" y2="106"/>
+  <line class="th" x1="547" y1="130" x2="559" y2="130"/><line class="th" x1="547" y1="208" x2="559" y2="208"/>
+  <line class="th" x1="540" y1="226" x2="540" y2="238"/><line class="th" x1="580" y1="226" x2="580" y2="238"/>
+  <!-- 연결점 -->
+  <circle class="rb" cx="90" cy="100" r="3"/><circle class="rb" cx="200" cy="100" r="3"/><circle class="rb" cx="310" cy="100" r="3"/><circle class="rb" cx="420" cy="100" r="3"/>
+  <circle class="rb" cx="128" cy="100" r="3"/><circle class="rb" cx="238" cy="100" r="3"/><circle class="rb" cx="348" cy="100" r="3"/><circle class="rb" cx="458" cy="100" r="3"/>
+  <circle class="rb" cx="553" cy="232" r="3"/>
+</svg>

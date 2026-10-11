@@ -1,0 +1,80 @@
+<svg viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 냉동기 -->
+  <rect class="nd" x="20" y="226" width="64" height="38"/><text class="tb" x="30" y="250">냉동기</text>
+  <line class="ln" x1="84" y1="244" x2="182" y2="244"/>
+  <!-- 저장탱크 -->
+  <rect class="fl" x="180" y="190" width="270" height="80" rx="36"/>
+  <rect class="m" x="180" y="190" width="270" height="80" rx="36"/>
+  <text class="tb" x="276" y="236">저장탱크</text>
+  <!-- 액면계 / 압력계 -->
+  <circle class="nd" cx="120" cy="150" r="16"/><line class="ln" x1="113" y1="158" x2="127" y2="142" marker-end="url(#ai)"/>
+  <circle class="nd" cx="166" cy="150" r="16"/><line class="ln" x1="159" y1="158" x2="173" y2="142" marker-end="url(#ai)"/>
+  <polyline class="ln" points="120,166 120,222 184,222"/>
+  <polyline class="ln" points="166,166 166,208 184,208"/>
+  <text class="tx" x="90" y="156" text-anchor="end">액면계</text>
+  <text class="tx" x="188" y="156">압력계</text>
+  <!-- 선택밸브 방향 / ① 원밸브 / ③ -->
+  <polyline class="m" points="250,190 250,64 214,64"/>
+  <polygon class="rb" points="214,58 214,70 204,64"/>
+  <text class="tx" x="120" y="70">선택밸브로</text>
+  <polygon class="nd" points="242,98 258,114 242,114 258,98"/><circle class="nd" cx="274" cy="107" r="10"/><text class="tb" x="270" y="112">1</text>
+  <polygon class="nd" points="242,142 258,158 242,158 258,142"/><circle class="nd" cx="274" cy="151" r="10"/><text class="tb" x="270" y="156">3</text>
+  <text class="tx" x="292" y="50">원밸브</text>
+  <line class="th" x1="298" y1="56" x2="262" y2="96" marker-end="url(#ai)"/>
+  <!-- 통기관 / ④ -->
+  <polyline class="m" points="372,190 372,114"/>
+  <polygon class="rb" points="366,114 378,114 372,104"/>
+  <polygon class="nd" points="364,142 380,158 364,158 380,142"/><circle class="nd" cx="344" cy="151" r="10"/><text class="tb" x="340" y="156">4</text>
+  <text class="tx" x="342" y="84">통기관</text>
+  <!-- 우측 배관: ⑨ 게이트밸브 -->
+  <polyline class="m" points="450,214 640,214"/>
+  <polygon class="nd" points="512,206 528,222 512,222 528,206"/><circle class="nd" cx="520" cy="195" r="10"/><text class="tb" x="516" y="200">9</text>
+  <text class="tx" x="540" y="252">게이트밸브</text>
+  <line class="th" x1="556" y1="238" x2="526" y2="224" marker-end="url(#ai)"/>
+  <!-- 분기 1 : ⑥ + 파판식 안전밸브 + ⑤ 브리다 밸브 -->
+  <line class="m" x1="590" y1="214" x2="590" y2="84"/>
+  <polygon class="nd" points="582,162 598,178 582,178 598,162"/><circle class="nd" cx="568" cy="171" r="10"/><text class="tb" x="564" y="176">6</text>
+  <rect class="nd" x="578" y="60" width="24" height="24"/>
+  <text class="tx" x="614" y="50">안전밸브 (파판식)</text>
+  <line class="th" x1="618" y1="56" x2="604" y2="68" marker-end="url(#ai)"/>
+  <line class="ln" x1="590" y1="122" x2="552" y2="122"/>
+  <polygon class="rb" points="552,115 552,129 540,122"/>
+  <circle class="nd" cx="542" cy="143" r="10"/><text class="tb" x="538" y="148">5</text>
+  <text class="tx" x="420" y="50">브리다 밸브</text>
+  <line class="th" x1="480" y1="56" x2="540" y2="112" marker-end="url(#ai)"/>
+  <!-- 분기 2 : ⑧ + ⑦ 안전밸브 -->
+  <line class="m" x1="680" y1="214" x2="680" y2="130"/>
+  <polygon class="nd" points="672,162 688,178 672,178 688,162"/><circle class="nd" cx="658" cy="171" r="10"/><text class="tb" x="654" y="176">8</text>
+  <polygon class="nd" points="672,130 688,130 680,112"/><line class="ln" x1="670" y1="108" x2="690" y2="108"/>
+  <circle class="nd" cx="708" cy="117" r="10"/><text class="tb" x="704" y="122">7</text>
+  <text class="tx" x="696" y="86">안전밸브</text>
+  <line class="th" x1="700" y1="90" x2="688" y2="106" marker-end="url(#ai)"/>
+  <!-- 충전관: ② + 체크밸브 -->
+  <polyline class="m" points="436,266 462,288 560,288"/>
+  <polygon class="nd" points="560,280 576,296 560,296 576,280"/>
+  <line class="m" x1="576" y1="288" x2="640" y2="288"/>
+  <polygon class="nd" points="640,280 660,288 640,296"/><line class="ln" x1="642" y1="278" x2="642" y2="298"/>
+  <line class="m" x1="660" y1="288" x2="730" y2="288"/>
+  <line class="ld" x1="700" y1="312" x2="660" y2="312" marker-end="url(#ar)"/>
+  <circle class="nd" cx="582" cy="311" r="10"/><text class="tb" x="578" y="316">2</text>
+  <text class="tx" x="440" y="322">충전관</text>
+  <line class="th" x1="464" y1="308" x2="470" y2="292" marker-end="url(#ai)"/>
+</svg>

@@ -1,0 +1,49 @@
+<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- Ⓐ 수직 주배관 -->
+  <line class="m" x1="80" y1="40" x2="80" y2="404"/>
+  <circle class="nd" cx="60" cy="339" r="10"/><text class="tb" x="55" y="344">A</text>
+  <!-- 펌프 -->
+  <polyline class="m" points="80,340 176,340 176,306"/>
+  <circle class="nd" cx="176" cy="284" r="22"/><polygon class="rb" points="165,294 187,294 176,272"/>
+  <!-- Ⓑ 수평주행배관 -->
+  <polyline class="m" points="176,262 176,245 445,245"/>
+  <circle class="nd" cx="440" cy="263" r="10"/><text class="tb" x="435" y="268">B</text>
+  <!-- 교차배관 3줄 (끝은 생략 표시) -->
+  <line class="m" x1="205" y1="150" x2="320" y2="342"/>
+  <line class="m" x1="300" y1="150" x2="415" y2="342"/>
+  <line class="m" x1="395" y1="150" x2="512" y2="342"/>
+  <path class="th" d="M198,152 q4,-6 10,-2"/><path class="th" d="M293,152 q4,-6 10,-2"/><path class="th" d="M388,152 q4,-6 10,-2"/>
+  <path class="th" d="M313,344 q4,6 10,2"/><path class="th" d="M408,344 q4,6 10,2"/><path class="th" d="M505,344 q4,6 10,2"/>
+  <!-- 끝 가지 -->
+  <path class="th" d="M480,236 q4,-6 10,-2"/>
+  <line class="m" x1="487" y1="236" x2="487" y2="302"/>
+  <!-- Ⓒ 입상관 -->
+  <line class="m" x1="440" y1="56" x2="440" y2="222"/>
+  <circle class="nd" cx="410" cy="199" r="10"/><text class="tb" x="405" y="204">C</text>
+  <!-- Ⓓ 가지배관 + 헤드 -->
+  <line class="m" x1="320" y1="56" x2="570" y2="56"/>
+  <path class="th" d="M314,58 q4,-6 10,-2"/><path class="th" d="M564,58 q4,-6 10,-2"/>
+  <circle class="nd" cx="466" cy="39" r="10"/><text class="tb" x="461" y="44">D</text>
+  <line class="ln" x1="352" y1="56" x2="352" y2="68"/><polygon class="rb" points="342,68 362,68 352,90"/>
+  <line class="ln" x1="396" y1="56" x2="396" y2="68"/><polygon class="rb" points="386,68 406,68 396,90"/>
+  <line class="ln" x1="484" y1="56" x2="484" y2="68"/><polygon class="rb" points="474,68 494,68 484,90"/>
+  <line class="ln" x1="528" y1="56" x2="528" y2="68"/><polygon class="rb" points="518,68 538,68 528,90"/>
+</svg>

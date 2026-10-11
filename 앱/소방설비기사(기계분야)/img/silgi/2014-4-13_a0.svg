@@ -1,0 +1,93 @@
+<svg viewBox="0 0 760 350" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 구역 -->
+  <rect class="m" x="100" y="70" width="480" height="240"/>
+  <line class="ln" x1="260" y1="70" x2="260" y2="310"/>
+  <line class="ln" x1="420" y1="70" x2="420" y2="310"/>
+  <text class="tb" x="162" y="196">A구역</text>
+  <text class="tb" x="322" y="196">B구역</text>
+  <text class="tb" x="482" y="196">C구역</text>
+  <!-- 급기 Fan실 -->
+  <rect class="ln" fill="none" x="590" y="72" width="84" height="24"/>
+  <line class="ld" x1="668" y1="84" x2="636" y2="84" marker-end="url(#ar)"/>
+  <text class="tb" x="598" y="89">급기</text>
+  <text class="tx" x="610" y="114">Fan실</text>
+  <!-- 배기 Fan실 -->
+  <rect class="ln" fill="none" x="16" y="280" width="84" height="24"/>
+  <line class="ld" x1="96" y1="292" x2="62" y2="292" marker-end="url(#ar)"/>
+  <text class="tb" x="22" y="297">배기</text><text class="tx" x="30" y="324">Fan실</text>
+  <!-- 치수 -->
+  <line class="th" x1="100" y1="40" x2="100" y2="70"/><line class="th" x1="260" y1="40" x2="260" y2="70"/><line class="th" x1="420" y1="40" x2="420" y2="70"/><line class="th" x1="580" y1="40" x2="580" y2="70"/>
+  <line class="dm" x1="100" y1="52" x2="260" y2="52" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="260" y1="52" x2="420" y2="52" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="420" y1="52" x2="580" y2="52" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="162" y="46">20 m</text><text class="tx" x="322" y="46">20 m</text><text class="tx" x="482" y="46">20 m</text>
+  <line class="th" x1="684" y1="70" x2="714" y2="70"/><line class="th" x1="584" y1="310" x2="714" y2="310"/>
+  <line class="dm" x1="704" y1="70" x2="704" y2="310" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="710" y="196">30 m</text>
+  <!-- 급기 주덕트 -->
+  <line class="ln" x1="590" y1="84" x2="580" y2="84"/>
+  <line class="ln" x1="580" y1="84" x2="180" y2="84"/>
+  <!-- 구역 중심 180 급기 -->
+  <line class="ln" x1="180" y1="84" x2="180" y2="97"/>
+  <circle class="nd" cx="180" cy="104" r="7"/><line class="ln" x1="175" y1="109" x2="185" y2="99"/>
+  <line class="ln" x1="180" y1="111" x2="180" y2="124"/>
+  <line class="ln" x1="150" y1="124" x2="210" y2="124"/>
+  <line class="ln" x1="150" y1="124" x2="150" y2="132"/><line class="ln" x1="180" y1="124" x2="180" y2="132"/><line class="ln" x1="210" y1="124" x2="210" y2="132"/>
+  <rect class="sup" x="146" y="132" width="8" height="8"/><rect class="sup" x="176" y="132" width="8" height="8"/><rect class="sup" x="206" y="132" width="8" height="8"/>
+  <rect class="sup" x="140" y="236" width="8" height="8"/><rect class="sup" x="164" y="236" width="8" height="8"/><rect class="sup" x="188" y="236" width="8" height="8"/><rect class="sup" x="212" y="236" width="8" height="8"/>
+  <line class="ln" x1="144" y1="244" x2="144" y2="252"/><line class="ln" x1="168" y1="244" x2="168" y2="252"/><line class="ln" x1="192" y1="244" x2="192" y2="252"/><line class="ln" x1="216" y1="244" x2="216" y2="252"/>
+  <line class="ln" x1="144" y1="252" x2="216" y2="252"/>
+  <line class="ln" x1="180" y1="252" x2="180" y2="265"/>
+  <circle class="nd" cx="180" cy="272" r="7"/><line class="ln" x1="175" y1="277" x2="185" y2="267"/>
+  <line class="ln" x1="180" y1="279" x2="180" y2="292"/>
+  <!-- 구역 중심 340 급기 -->
+  <line class="ln" x1="340" y1="84" x2="340" y2="97"/>
+  <circle class="nd" cx="340" cy="104" r="7"/><line class="ln" x1="335" y1="109" x2="345" y2="99"/>
+  <line class="ln" x1="340" y1="111" x2="340" y2="124"/>
+  <line class="ln" x1="310" y1="124" x2="370" y2="124"/>
+  <line class="ln" x1="310" y1="124" x2="310" y2="132"/><line class="ln" x1="340" y1="124" x2="340" y2="132"/><line class="ln" x1="370" y1="124" x2="370" y2="132"/>
+  <rect class="sup" x="306" y="132" width="8" height="8"/><rect class="sup" x="336" y="132" width="8" height="8"/><rect class="sup" x="366" y="132" width="8" height="8"/>
+  <rect class="sup" x="300" y="236" width="8" height="8"/><rect class="sup" x="324" y="236" width="8" height="8"/><rect class="sup" x="348" y="236" width="8" height="8"/><rect class="sup" x="372" y="236" width="8" height="8"/>
+  <line class="ln" x1="304" y1="244" x2="304" y2="252"/><line class="ln" x1="328" y1="244" x2="328" y2="252"/><line class="ln" x1="352" y1="244" x2="352" y2="252"/><line class="ln" x1="376" y1="244" x2="376" y2="252"/>
+  <line class="ln" x1="304" y1="252" x2="376" y2="252"/>
+  <line class="ln" x1="340" y1="252" x2="340" y2="265"/>
+  <circle class="nd" cx="340" cy="272" r="7"/><line class="ln" x1="335" y1="277" x2="345" y2="267"/>
+  <line class="ln" x1="340" y1="279" x2="340" y2="292"/>
+  <!-- 구역 중심 500 급기 -->
+  <line class="ln" x1="500" y1="84" x2="500" y2="97"/>
+  <circle class="nd" cx="500" cy="104" r="7"/><line class="ln" x1="495" y1="109" x2="505" y2="99"/>
+  <line class="ln" x1="500" y1="111" x2="500" y2="124"/>
+  <line class="ln" x1="470" y1="124" x2="530" y2="124"/>
+  <line class="ln" x1="470" y1="124" x2="470" y2="132"/><line class="ln" x1="500" y1="124" x2="500" y2="132"/><line class="ln" x1="530" y1="124" x2="530" y2="132"/>
+  <rect class="sup" x="466" y="132" width="8" height="8"/><rect class="sup" x="496" y="132" width="8" height="8"/><rect class="sup" x="526" y="132" width="8" height="8"/>
+  <rect class="sup" x="460" y="236" width="8" height="8"/><rect class="sup" x="484" y="236" width="8" height="8"/><rect class="sup" x="508" y="236" width="8" height="8"/><rect class="sup" x="532" y="236" width="8" height="8"/>
+  <line class="ln" x1="464" y1="244" x2="464" y2="252"/><line class="ln" x1="488" y1="244" x2="488" y2="252"/><line class="ln" x1="512" y1="244" x2="512" y2="252"/><line class="ln" x1="536" y1="244" x2="536" y2="252"/>
+  <line class="ln" x1="464" y1="252" x2="536" y2="252"/>
+  <line class="ln" x1="500" y1="252" x2="500" y2="265"/>
+  <circle class="nd" cx="500" cy="272" r="7"/><line class="ln" x1="495" y1="277" x2="505" y2="267"/>
+  <line class="ln" x1="500" y1="279" x2="500" y2="292"/>
+  <!-- 배기 주덕트 -->
+  <line class="ln" x1="500" y1="292" x2="100" y2="292"/>
+  <text class="tx" x="108" y="160">급기구</text>
+  <line class="th" x1="136" y1="150" x2="146" y2="138" marker-end="url(#ai)"/>
+  <text class="ts" x="108" y="228">배기구</text>
+  <line class="th" x1="132" y1="232" x2="140" y2="238" marker-end="url(#ai)"/>
+</svg>

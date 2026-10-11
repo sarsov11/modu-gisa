@@ -1,0 +1,57 @@
+<svg viewBox="0 0 580 480" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 주배관 (펌프 토출측) -->
+  <circle class="nd" cx="66" cy="436" r="15"/><polygon class="rb" points="58,444 74,444 66,428"/>
+  <line class="m" x1="66" y1="421" x2="66" y2="56"/>
+  <!-- 게이트밸브 -->
+  <polygon class="nd" points="58,210 74,226 58,226 74,210"/>
+  <!-- 체크밸브 -->
+  <polygon class="nd" points="58,254 74,270 58,270 74,254"/>
+  <line class="ln" x1="54" y1="276" x2="78" y2="248"/>
+  <line class="ld" x1="88" y1="300" x2="88" y2="276" marker-end="url(#ar)"/>
+  <text class="tb" x="10" y="296">주배관</text>
+  <!-- 분기 + V1 -->
+  <polyline class="m" points="66,160 112,160 112,320 138,320"/>
+  <polygon class="nd" points="140,310 160,330 140,330 160,310"/>
+  <line class="m" x1="160" y1="320" x2="242" y2="320"/>
+  <text class="tb" x="140" y="352">V<tspan dy="4" class="ts">1</tspan></text>
+  <!-- 압력챔버 -->
+  <rect class="fl" x="242" y="86" width="150" height="310" rx="72"/>
+  <rect class="m" x="242" y="86" width="150" height="310" rx="72"/>
+  <text class="tb" x="284" y="246">압력챔버</text>
+  <!-- V3 안전밸브 (위) -->
+  <line class="m" x1="317" y1="86" x2="317" y2="62"/>
+  <polygon class="nd" points="309,36 325,52 309,52 325,36"/><line class="m" x1="317" y1="36" x2="317" y2="26"/>
+  <text class="tb" x="276" y="46">V<tspan dy="4" class="ts">3</tspan></text><text class="tx" x="338" y="50">안전밸브</text>
+  <!-- V2 배수밸브 (아래) -->
+  <line class="m" x1="317" y1="396" x2="317" y2="420"/>
+  <polygon class="nd" points="309,420 325,436 309,436 325,420"/><line class="m" x1="317" y1="436" x2="317" y2="456"/>
+  <text class="tb" x="276" y="434">V<tspan dy="4" class="ts">2</tspan></text><text class="tx" x="338" y="434">배수밸브</text>
+  <!-- 압력계 -->
+  <circle class="nd" cx="202" cy="210" r="14"/><line class="ln" x1="196" y1="218" x2="208" y2="202" marker-end="url(#ai)"/>
+  <polyline class="ln" points="202,224 202,244 242,244"/>
+  <text class="tx" x="168" y="180">압력계</text>
+  <!-- 압력스위치 -->
+  <line class="m" x1="392" y1="244" x2="440" y2="244"/><line class="ln" x1="440" y1="244" x2="440" y2="226"/>
+  <rect class="nd" x="418" y="198" width="44" height="28"/><text class="tb" x="425" y="218">P/S</text>
+  <text class="tx" x="400" y="274">압력스위치</text>
+  <polyline class="dsh" points="440,198 440,150 500,150"/>
+  <text class="tx" x="508" y="156">제어반</text>
+</svg>

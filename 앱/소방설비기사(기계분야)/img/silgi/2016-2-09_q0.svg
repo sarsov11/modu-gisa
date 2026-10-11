@@ -1,0 +1,49 @@
+<svg viewBox="0 0 640 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 차동식감지기 -->
+  <text class="tx" x="300" y="30">차동식감지기</text>
+  <path class="ln" d="M343,50 H377 A17,17 0 0 1 343,50 Z"/>
+  <polyline class="ln" points="360,67 360,92 428,92"/>
+  <!-- 전선 및 전선관 -->
+  <text class="tx" x="392" y="30">전선 및 전선관</text>
+  <rect class="nd" x="428" y="64" width="12" height="104"/>
+  <!-- 설비수신반 -->
+  <rect class="nd" x="540" y="178" width="92" height="56"/>
+  <line class="ln" x1="540" y1="178" x2="632" y2="234"/><line class="ln" x1="632" y1="178" x2="540" y2="234"/>
+  <line class="ln" x1="540" y1="206" x2="632" y2="206"/>
+  <text class="tx" x="548" y="262">설비수신반</text>
+  <!-- 배선 (감지기, 압력스위치, 전자밸브 → 수신반) -->
+  <polyline class="ln" points="440,92 580,92 580,178"/>
+  <polyline class="ln" points="196,118 428,118"/><polyline class="ln" points="440,118 604,118 604,178"/>
+  <polyline class="ln" points="85,148 40,148 40,284 358,284 358,148 428,148"/><polyline class="ln" points="440,148 624,148 624,178"/>
+  <!-- 압력스위치 -->
+  <text class="tx" x="150" y="100">압력스위치</text>
+  <rect class="nd" x="152" y="108" width="44" height="22"/><text class="tb" x="160" y="124">P/S</text>
+  <line class="ln" x1="160" y1="130" x2="160" y2="160"/>
+  <!-- 전자밸브 -->
+  <text class="tx" x="56" y="126">전자밸브</text>
+  <circle class="nd" cx="96" cy="148" r="11"/><text class="tb" x="91" y="153">S</text>
+  <polyline class="ln" points="96,159 96,176 72,176"/><line class="ln" x1="96" y1="176" x2="122" y2="176"/>
+  <!-- 준비작동식 밸브 -->
+  <polygon class="nd" points="145,152 172,178 145,204 118,178"/>
+  <line class="ln" x1="145" y1="152" x2="145" y2="204"/><line class="ln" x1="118" y1="178" x2="172" y2="178"/>
+  <line class="ln" x1="145" y1="204" x2="145" y2="230"/>
+  <text class="tx" x="184" y="172">준비작동식</text><text class="tx" x="184" y="192">밸브</text>
+</svg>

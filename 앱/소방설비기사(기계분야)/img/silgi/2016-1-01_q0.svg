@@ -1,0 +1,37 @@
+<svg viewBox="0 0 580 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <rect class="ln" x="24" y="30" width="226" height="120"/>
+  <rect class="ln" x="250" y="30" width="230" height="120"/>
+  <rect class="ln" x="250" y="150" width="230" height="120"/>
+  <circle class="nd" cx="137" cy="90" r="12"/><text class="tb" x="130" y="95">가</text>
+  <!-- 문: 벽 위 굵은 선 + 틈새 표시 -->
+  <line class="crit" x1="250" y1="70" x2="250" y2="110"/>
+  <line class="th" x1="242" y1="70" x2="258" y2="70"/><line class="th" x1="242" y1="110" x2="258" y2="110"/>
+  <text class="tb" x="266" y="96">A<tspan dy="4" class="ts">1</tspan></text>
+  <line class="crit" x1="480" y1="70" x2="480" y2="110"/>
+  <line class="th" x1="472" y1="70" x2="488" y2="70"/><line class="th" x1="472" y1="110" x2="488" y2="110"/>
+  <text class="tb" x="496" y="96">A<tspan dy="4" class="ts">2</tspan></text>
+  <line class="crit" x1="350" y1="150" x2="390" y2="150"/>
+  <line class="th" x1="350" y1="142" x2="350" y2="158"/><line class="th" x1="390" y1="142" x2="390" y2="158"/>
+  <text class="tb" x="362" y="176">A<tspan dy="4" class="ts">3</tspan></text>
+  <line class="crit" x1="350" y1="270" x2="390" y2="270"/>
+  <line class="th" x1="350" y1="262" x2="350" y2="278"/><line class="th" x1="390" y1="262" x2="390" y2="278"/>
+  <text class="tb" x="362" y="296">A<tspan dy="4" class="ts">4</tspan></text>
+</svg>

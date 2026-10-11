@@ -1,0 +1,38 @@
+<svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 가지배관 (경사) -->
+  <line class="m" x1="40" y1="70" x2="344" y2="222"/>
+  <!-- 헤드 H-1 ~ H-5 -->
+  <line class="ln" x1="80" y1="90" x2="80" y2="58"/><polygon class="nd" points="71,58 89,58 80,40"/><text class="tb" x="94" y="48">H-1</text>
+  <line class="ln" x1="140" y1="120" x2="140" y2="88"/><polygon class="nd" points="131,88 149,88 140,70"/><text class="tb" x="154" y="78">H-2</text>
+  <line class="ln" x1="200" y1="150" x2="200" y2="118"/><polygon class="nd" points="191,118 209,118 200,100"/><text class="tb" x="214" y="108">H-3</text>
+  <line class="ln" x1="260" y1="180" x2="260" y2="148"/><polygon class="nd" points="251,148 269,148 260,130"/><text class="tb" x="274" y="138">H-4</text>
+  <line class="ln" x1="320" y1="210" x2="320" y2="178"/><polygon class="nd" points="311,178 329,178 320,160"/><text class="tb" x="334" y="168">H-5</text>
+  <!-- B에서 꺾여 수직 배관 A 로 -->
+  <path class="m" d="M344,222 L376,238 Q404,252 404,286 L404,330"/>
+  <!-- B~A 구간 압력손실 -->
+  <path class="dsh" d="M360,212 Q424,200 418,262"/>
+  <text class="tr" x="424" y="206">0.03 MPa</text>
+  <circle class="nd" cx="348" cy="262" r="12"/><text class="tb" x="343" y="267">B</text>
+  <circle class="nd" cx="404" cy="296" r="12"/><text class="tb" x="399" y="301">A</text>
+  <!-- 교차배관 -->
+  <line class="m" x1="60" y1="364" x2="450" y2="330"/>
+  <text class="tx" x="250" y="388">교차배관</text>
+</svg>

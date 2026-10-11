@@ -1,0 +1,43 @@
+<svg viewBox="0 0 440 380" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 고가수조 -->
+  <text class="tx" x="108" y="28">고가수조</text>
+  <rect class="fl" x="80" y="40" width="130" height="60"/>
+  <line class="th" x1="80" y1="52" x2="210" y2="52"/>
+  <line class="dsh" x1="92" y1="64" x2="198" y2="64"/>
+  <line class="dsh" x1="92" y1="76" x2="198" y2="76"/>
+  <line class="dsh" x1="92" y1="88" x2="198" y2="88"/>
+  <line class="m" x1="80" y1="40" x2="80" y2="100"/><line class="m" x1="210" y1="40" x2="210" y2="100"/><line class="m" x1="80" y1="100" x2="210" y2="100"/>
+  <!-- 입상관 -->
+  <polyline class="m" fill="none" points="210,88 340,88 340,300"/>
+  <!-- 위층 가지배관 -->
+  <line class="m" x1="40" y1="180" x2="340" y2="180"/>
+  <line class="ln" x1="60" y1="180" x2="60" y2="190"/><polygon class="nd" points="52,190 68,190 60,204"/>
+  <line class="ln" x1="130" y1="180" x2="130" y2="190"/><polygon class="nd" points="122,190 138,190 130,204"/>
+  <line class="ln" x1="200" y1="180" x2="200" y2="190"/><polygon class="nd" points="192,190 208,190 200,204"/>
+  <line class="ln" x1="270" y1="180" x2="270" y2="190"/><polygon class="nd" points="262,190 278,190 270,204"/>
+  <text class="tb" x="54" y="228">A</text>
+  <!-- 아래층 가지배관 -->
+  <line class="m" x1="40" y1="300" x2="340" y2="300"/>
+  <line class="ln" x1="60" y1="300" x2="60" y2="310"/><polygon class="nd" points="52,310 68,310 60,324"/>
+  <line class="ln" x1="130" y1="300" x2="130" y2="310"/><polygon class="nd" points="122,310 138,310 130,324"/>
+  <line class="ln" x1="200" y1="300" x2="200" y2="310"/><polygon class="nd" points="192,310 208,310 200,324"/>
+  <line class="ln" x1="270" y1="300" x2="270" y2="310"/><polygon class="nd" points="262,310 278,310 270,324"/>
+</svg>
