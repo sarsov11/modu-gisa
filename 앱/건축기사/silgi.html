@@ -25,6 +25,7 @@
 .sg-self button[data-v="2"]{border-color:var(--ink)}
 .sg-self button[data-v="0"]{border-color:var(--accent);color:var(--accent)}
 .sg-hh{white-space:normal}.sg-hh table{border-collapse:collapse;margin:8px 0;font-size:14px}.sg-hh td,.sg-hh th{border:1px solid var(--line-2);padding:4px 8px}.sg-hh img,.sg-hh svg{max-width:100%;height:auto}
+.sg-wh{margin-top:6px}.sg-wh summary{cursor:pointer;font-size:13.5px;font-weight:800;color:var(--ink-3)}.sg-wh .h{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink-2)}
 .sg-note{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:18px 0 96px}
 /* 영역 고르기(전략·방어) */
 .zone{margin:22px 0 0}
@@ -66,12 +67,23 @@
 <script src="js/judge.js"></script>
 <script src="js/gstore.js"></script>
 <script src="js/sgx.js?v=1011"></script>
+<script src="js/hwa.js?v=1011"></script>
 <script>
-(function(){
+(function 시작(){
+  /* 1011 실전 모의 세트는 따로 불러온다(js/gsilgi_m<세트>.js → SG_M) — 다 불러온 뒤 다시 시작 */
+  var _m=new URLSearchParams(location.search).get("m");
+  if(_m && window.SG && window.SG.모의){   /* 아래에 var SG 가 있어 여기서는 window.SG 로 직접 */
+    var _s=window.SG.모의.filter(function(m){return String(m.세트)===_m;})[0];
+    if(_s && !_s.문항){
+      if(window.SG_M && SG_M[_m]){ _s.문항=SG_M[_m]; }
+      else { var _sc=document.createElement("script"); _sc.src="js/gsilgi_m"+_m+".js?v="+window.SG.문항.length; _sc.onload=시작; document.head.appendChild(_sc); return; }
+    }
+  }
   GS.내비("silgi.html");
   var SG=window.SG||{문항:[],파트:[]}, e=GS.esc, P=new URLSearchParams(location.search), S=GS.S;
   S.실기=S.실기||{};                        /* id → {n:푼 횟수, v:마지막 채점 2맞힘·1헷갈림·0틀림, t:날짜} */
   function el(x){return document.getElementById(x);}
+  if(SG.화학식&&window.HWA) HWA.붙이기(el("stage"));   /* 1011 위산기: H2O → H₂O 로 보여 준다(입력칸은 그대로) */
   function 기록(id){return S.실기[id]||null;}
   function 회차명(x){return x.y+"년 "+x.r+"회";}
   /* 1011 소방 실기 계산기(calc.html) — 계산기가 있는 종목만 js/gcalc.js(window.CF)가 실린다.
@@ -96,6 +108,8 @@
       '<a class="hot" href="silgi.html?mix=1">무작위 10문항</a>'+
       '<a href="silgi.html?wrong=1">다시 볼 문항 <i>'+틀+'</i></a>'+
       (CF&&CF.계산기.length?'<a href="calc.html">계산기 <i>'+CF.계산기.length+'</i></a>':'')+'</div>';
+    /* 1011 종목 전용 연습 화면(위산기: 반응식 쓰기·지정수량 배수) */
+    if(SG.연습&&SG.연습.length) h+='<div class="zone">'+SG.연습.map(function(z){return '<a class="zc hot" style="display:block" href="'+e(z.href)+'"><span class="nm" style="display:block">'+e(z.이름)+' →</span><span class="n" style="display:block;text-align:left;white-space:normal;margin-top:3px">'+e(z.설명||"")+'</span></a>';}).join("")+'</div>';
     if(묶음표){
       var 최대=Math.max.apply(null,묶음표.map(function(z){return z.회당||0;}));
       var 전=묶음표.filter(function(z){return z.역할==="전략";}), 방=묶음표.filter(function(z){return z.역할==="방어";}), 버=묶음표.filter(function(z){return z.역할==="버림";});
@@ -118,7 +132,7 @@
     }
     /* 실전 모의(따로 만든 세트) */
     if(SG.모의&&SG.모의.length) h+='<div class="lab">실전 모의 <span style="font-weight:500;color:var(--ink-3)">· 시간 재며 끝까지 푼 뒤 한 번에 채점</span></div><div class="pick">'+
-      SG.모의.map(function(m){return '<a class="hot" href="silgi.html?m='+m.세트+'">'+e(m.제목||("실전 모의 "+m.세트))+' <i>'+m.문항.length+'</i></a>';}).join("")+'</div>';
+      SG.모의.map(function(m){return '<a class="hot" href="silgi.html?m='+m.세트+'">'+e(m.제목||("실전 모의 "+m.세트))+' <i>'+(m.n||(m.문항||[]).length)+'</i></a>';}).join("")+'</div>';
     var 회들=[]; SG.문항.forEach(function(x){var k=x.y+"-"+x.r; if(x.y&&회들.indexOf(k)<0) 회들.push(k);});
     회들.sort(function(a,b){return b.localeCompare(a,"en",{numeric:true});});
     h+='<div class="lab">기출 회차 <span style="font-weight:500;color:var(--ink-3)">· 100점 중 60점 합격</span></div><div class="pick">'+회들.map(function(k){
@@ -230,12 +244,20 @@
       if(window.ZZ){ if(r.v===2) ZZ.ok(el("go")); else ZZ.no(el("go")); }
       el("res").innerHTML='<div class="x-res '+(r.v===2?"ok":"no")+'"><h3>'+(r.v===2?"정답":"오답")+'</h3>'+r.상세+(x.hh?'<div class="x-h sg-hh">'+x.hh+'</div>':x.h?'<div class="x-h">'+e(x.h)+'</div>':'')+
         (r.v<2?'<button class="x-fix" id="fix">채점이 틀렸다면 맞힌 걸로 치기</button>':'')+'</div>'+
-        (x.trace&&x.trace.length?'<button class="b" id="tr" style="margin-bottom:10px">한 줄씩 따라가기</button>':'')+
+        ((x.trace&&x.trace.length)||x.tr?'<button class="b" id="tr" style="margin-bottom:10px">한 줄씩 따라가기</button>':'')+
         '<button class="b main" id="nx">다음 문항</button>';
       el("go").style.display="none";
       var v=r.v;
       if(el("fix")) el("fix").onclick=function(){ v=2; this.textContent="맞힌 걸로 기록했습니다"; this.disabled=true; };
-      if(el("tr")) el("tr").onclick=function(){ el("tr").style.display="none"; SGX.재생기(el("cb"),x); el("cb").scrollIntoView({behavior:"smooth",block:"start"}); };
+      if(el("tr")) el("tr").onclick=function(){
+        el("tr").style.display="none";
+        function 틀기(){ SGX.재생기(el("cb"),x); el("cb").scrollIntoView({behavior:"smooth",block:"start"}); }
+        if(x.trace) return 틀기();
+        /* 따라가기 기록은 js/gsilgi_t.js 에 따로 있다 — 처음 누를 때 한 번 불러온다 */
+        function 붙여(){ x.trace=(window.SG_T||{})[x.id]||[]; 틀기(); }
+        if(window.SG_T) return 붙여();
+        var sc=document.createElement("script"); sc.src="js/gsilgi_t.js?v="+SG.문항.length; sc.onload=붙여; document.head.appendChild(sc);
+      };
       el("nx").onclick=function(){ 기록하기(x,v); 결과[i]=v; i++; 그리기(); };
       el("res").scrollIntoView({behavior:"smooth",block:"start"});
     });
@@ -266,6 +288,7 @@
     },1000);
   }
   function 끝(){
+    if(typeof 시계!=="undefined") clearInterval(시계);   /* 모의 채점 화면에서 시계가 돌지 않게 */
     el("prog").innerHTML=""; el("tm").innerHTML="";
     if(모의세트) return 모의끝();
     var 맞=결과.filter(function(v){return v===2;}).length, 헷=결과.filter(function(v){return v===1;}).length;
@@ -277,14 +300,20 @@
     if(window.ZZ&&결과.length>0){ var _p=맞/결과.length; ZZ.stars(_p>=1?3:_p>=.7?2:_p>=.4?1:0); }
     결과화면(맞, 헷, 점);
   }
+  function 채점안내(){   /* 1011 자동 채점 문항이 섞이면 그 사실도 밝힌다 */
+    var 자=문제.filter(자동).length, 스=문제.length-자;
+    if(!자) return "점수는 정답을 보고 스스로 고른 맞힘·헷갈림·틀림의 합. 실제 채점과 다를 수 있음";
+    if(!스) return "점수는 쓴 답을 정답과 기계로 맞춰 본 결과. 실제 채점은 부분 점수·표기 차이를 다르게 볼 수 있음";
+    return "자동 채점 "+자+"문항은 기계로 맞춰 본 결과, 나머지 "+스+"문항은 스스로 고른 결과. 실제 채점과 다를 수 있음";
+  }
   function 결과화면(맞, 헷, 점){
     var 틀=문제.filter(function(_,j){return 결과[j]<2;});
-    var 목록=(틀.length?'<ul class="wl">'+틀.map(function(x){return '<li><b>'+e(x.q.length>70?x.q.slice(0,70)+"…":x.q)+'</b><span>'+e(x.a.length>60?x.a.slice(0,60)+"…":x.a)+'</span></li>';}).join("")+'</ul>':'');
+    var 목록=(틀.length?'<ul class="wl">'+틀.map(function(x){return '<li><b>'+e(x.q.length>70?x.q.slice(0,70)+"…":x.q)+'</b><span>'+e(x.a.length>60?x.a.slice(0,60)+"…":x.a)+'</span>'+((x.hh||x.h)?'<details class="sg-wh"><summary>해설</summary>'+해설(x)+'</details>':'')+'</li>';}).join("")+'</ul>':'');
     el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2>'+
       '<div class="tally">'+(점||'<div><b>'+맞+' / '+결과.length+'</b><span>맞힘</span></div>')+
       '<div><b>'+헷+'</b><span>헷갈림</span></div><div><b>'+(결과.length-맞-헷)+'</b><span>틀림</span></div></div>'+
       /* 자가채점 범위를 밝힌다 — 자동 채점·합격 예측이 아니다(2026-10-11 외부 검수 F) */
-      '<p style="margin:6px 0 12px;font-size:13.5px;color:var(--ink-3)">점수는 정답을 보고 스스로 고른 맞힘·헷갈림·틀림의 합. 실제 채점과 다를 수 있음</p>'+
+      '<p style="margin:6px 0 12px;font-size:13.5px;color:var(--ink-3)">'+채점안내()+'</p>'+
       '<div class="act">'+(틀.length?'<a class="b main" href="silgi.html?wrong=1">다시 볼 문항</a>':'')+
       '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div></div>'+목록+'</div>';
   }
