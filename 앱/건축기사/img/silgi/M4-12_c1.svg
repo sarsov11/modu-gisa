@@ -1,0 +1,36 @@
+<svg class="gk" viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- L형강을 펼친 판 (1 mm = 1.5 px): 폭 193 mm = 100 + 100 - 7 -->
+  <rect class="fl" x="60" y="70" width="290" height="130"/>
+  <rect class="ln" x="60" y="70" width="290" height="130" fill="none"/>
+  <line class="dsh" x1="205" y1="62" x2="205" y2="208"/>
+  <text class="ts" x="205" y="52" text-anchor="middle">꺾임선(모서리)</text>
+  <!-- 볼트 구멍 2개 (지름 22 mm) -->
+  <circle class="ln" cx="135" cy="135" r="16.5" fill="none"/><circle class="ln" cx="275" cy="135" r="16.5" fill="none"/>
+  <line class="th" x1="119" y1="135" x2="151" y2="135"/><line class="th" x1="135" y1="119" x2="135" y2="151"/>
+  <line class="th" x1="259" y1="135" x2="291" y2="135"/><line class="th" x1="275" y1="119" x2="275" y2="151"/>
+  <!-- 순단면 위치 -->
+  <line class="crit" x1="48" y1="135" x2="362" y2="135"/>
+  <text class="tr" x="368" y="140">순단면</text>
+  <!-- 인장력 -->
+  <line class="ld" x1="205" y1="202" x2="205" y2="232" marker-end="url(#ar)"/>
+  <text class="tr" x="217" y="226">P</text>
+  <line class="ld" x1="300" y1="68" x2="300" y2="38" marker-end="url(#ar)"/>
+  <text class="tr" x="312" y="50">P</text>
+  <!-- 치수 -->
+  <line class="th" x1="60" y1="204" x2="60" y2="262"/><line class="th" x1="350" y1="204" x2="350" y2="262"/>
+  <line class="dm" x1="60" y1="254" x2="350" y2="254" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="205" y="282" text-anchor="middle">100 + 100 − 7 = 193 mm</text>
+  <text class="ts" x="150" y="108" text-anchor="middle">Ø22</text>
+  <text class="ts" x="290" y="108" text-anchor="middle">Ø22</text>
+  <!-- 식 -->
+  <text class="tb" x="440" y="196">A<tspan dy="4" class="ts">g</tspan><tspan dy="-4"> = 193 × 7 = 1,351 mm²</tspan></text>
+  <text class="tx" x="440" y="222">구멍 2개 : 2 × 22 × 7 = 308 mm²</text>
+  <text class="tr" x="440" y="250">A<tspan dy="4" class="ts">n</tspan><tspan dy="-4"> = 1,043 mm²</tspan></text>
+  <text class="ts" x="60" y="312">M20 볼트의 구멍 지름은 20 + 2 = 22 mm</text>
+</svg>

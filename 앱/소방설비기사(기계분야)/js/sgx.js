@@ -190,7 +190,7 @@
   SGX.본문HTML = function(q){
     var L = String(q||"").replace(/\r\n?/g,"\n").split("\n"), out = [], 표 = [];
     function 칸(l){ return l.trim().replace(/^\||\|$/g,"").split("|").map(function(c){return c.trim();}); }
-    function 굵게(t){ return esc(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>"); }
+    function 굵게(t){ return esc(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/&lt;br\s*\/?&gt;/gi,"<br>"); }
     function 닫기(){
       if (!표.length) return;
       var 줄 = 표.filter(function(l){return !/^\s*\|?\s*:?-{2,}/.test(l);}).map(칸);

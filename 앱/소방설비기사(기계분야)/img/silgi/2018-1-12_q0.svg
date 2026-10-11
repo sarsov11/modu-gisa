@@ -1,0 +1,49 @@
+<svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 직육면체 -->
+  <polygon class="fl" points="90,150 330,150 330,230 90,230"/>
+  <polygon class="fl" points="90,150 150,100 390,100 330,150"/>
+  <polygon class="fl" points="330,150 390,100 390,180 330,230"/>
+  <polyline class="ln" points="90,230 90,150 330,150 330,230 90,230"/>
+  <polyline class="ln" points="90,150 150,100 390,100 330,150"/>
+  <polyline class="ln" points="390,100 390,180 330,230"/>
+  <text class="tx" x="118" y="196">위험물 저장탱크</text>
+  <!-- 배관 -->
+  <line class="m" x1="108" y1="82" x2="372" y2="82"/>
+  <line class="m" x1="240" y1="82" x2="240" y2="52"/>
+  <line class="ln" x1="108" y1="82" x2="108" y2="116"/><line class="ln" x1="372" y1="82" x2="372" y2="116"/>
+  <line class="ln" x1="170" y1="82" x2="170" y2="116"/><line class="ln" x1="312" y1="82" x2="312" y2="116"/>
+  <!-- 헤드 4개 -->
+  <polygon class="rb" points="99,116 117,116 108,134"/>
+  <polygon class="rb" points="161,116 179,116 170,134"/>
+  <polygon class="rb" points="303,116 321,116 312,134"/>
+  <polygon class="rb" points="363,116 381,116 372,134"/>
+  <text class="ts" x="196" y="44">저장용기 쪽 배관</text>
+  <!-- 치수 -->
+  <line class="th" x1="90" y1="236" x2="90" y2="266"/><line class="th" x1="330" y1="236" x2="330" y2="266"/>
+  <line class="dm" x1="90" y1="258" x2="330" y2="258" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="198" y="282">3 m</text>
+  <line class="th" x1="336" y1="238" x2="396" y2="190"/><line class="th" x1="336" y1="244" x2="400" y2="194"/>
+  <line class="dm" x1="338" y1="250" x2="398" y2="202" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="376" y="248">1 m</text>
+  <line class="th" x1="398" y1="100" x2="440" y2="100"/><line class="th" x1="398" y1="180" x2="440" y2="180"/>
+  <line class="dm" x1="432" y1="100" x2="432" y2="180" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="446" y="146">1 m</text>
+</svg>

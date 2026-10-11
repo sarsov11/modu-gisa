@@ -132,7 +132,8 @@
     return (과목맵캐시 = m);
   }
   function 시험성적() {
-    var 모 = (S.모의 || []).slice(-3), 합 = {}, i;
+    /* 답한 문항이 절반 미만인 모의(중도 제출)는 실력 추정에서 뺀다(2026-10-11 외부 검수 부가) */
+    var 모 = (S.모의 || []).filter(function (r) { return r.답 == null || r.답 * 2 >= r.총문; }).slice(-3), 합 = {}, i;
     if (모.length) {
       모.forEach(function (r) { (r.과목 || []).forEach(function (g) {
         var a = 합[g.n] = 합[g.n] || { 점: 0, n: 0 }; a.점 += g.점; a.n++; }); });
@@ -152,7 +153,8 @@
     var 키 = Object.keys(r.과목); if (!키.length || 키.length < r.총과목 * 0.6) return null;   // 표본 부족 — 숨김
     var 합 = 0, 위험 = [];
     키.forEach(function (n) { 합 += r.과목[n]; if (과락있음 && r.과목[n] < 40) 위험.push(n); });
-    return { 점: Math.round(합 / 키.length), 선: 60, 과락: 위험, 과락있음: 과락있음, 출처: r.출처, 과목: r.과목 };
+    return { 점: Math.round(합 / 키.length), 선: 60, 과락: 위험, 과락있음: 과락있음, 출처: r.출처, 과목: r.과목,
+             측정: 키.length, 총과목: r.총과목, 일부: 키.length < r.총과목 };   // 일부 = 측정 안 된 과목이 있다 — 전체 시험 가늠으로 읽히지 않게 표시
   }
   function 가중(t) {                                             // 작을수록 먼저
     var e = 과목추정(t.s), r = 역할()[t.s], adj = 0;
@@ -165,9 +167,17 @@
 
   /* ── 오늘 할 테마 ───────────────────────────────
      ① 시작했는데 아직 70% 가 안 되는 테마  ② 아직 4번 안 푼 테마. 둘 다 가중(과락·방어·전략·진단) 순. */
+  /* 테마에서 실제로 낼 수 있는 고유 기출 수 — 세션은 같은 기출을 한 번만 낸다(o.q).
+     O·X 문장 수로 후보를 고르면 고유 기출 2개짜리 테마가 추천됐다(2026-10-11 외부 검수 C) */
+  var 고유캐시 = {};
+  function 고유기출(k) {
+    if (고유캐시[k] != null) return 고유캐시[k];
+    var m = {}; (테마별[k] || []).forEach(function (o) { if (!o.x) m[o.q] = 1; });
+    return (고유캐시[k] = Object.keys(m).length);
+  }
   function 테마고르기(제외) {
     제외 = 제외 || [];
-    var 후보 = D.테마.filter(function (t) { return !t.x && (테마별[t.k] || []).length >= 4 && 제외.indexOf(t.k) < 0; });
+    var 후보 = D.테마.filter(function (t) { return !t.x && 고유기출(t.k) >= 4 && 제외.indexOf(t.k) < 0; });
     var 약한 = 후보.filter(function (t) {
       var m = 숙련(t.k); return 본적있나(t.k) && m != null && m < 0.7;
     }).sort(function (a, b) { return (가중(a) - 가중(b)) || (숙련(a.k) - 숙련(b.k)); });
@@ -229,10 +239,24 @@
   function 루틴() {
     var F = 플로(), 다음 = null, d = S.날[오늘()] || {};
     for (var i = 0; i < F.items.length; i++) if (F.done.indexOf(F.items[i].id) < 0) { 다음 = F.items[i]; break; }
-    var 오늘분 = Math.round(d.fm || 0), 목표 = S.목표분 || 15;
+    /* ★ 예상 분량과 실제 사용 시간을 나눈다(2026-10-11 외부 검수 E). 예상 = 끝낸 세트의 표준 분(d.fm),
+       실제 = 화면이 보이고 90초 안에 손을 댄 시간(d.am, 15초 단위). 통계에는 실제만 쓴다 */
+    var 예상 = 0; F.items.forEach(function (x) { 예상 += x.분; });
+    var 실제분 = Math.round((d.am || 0) / 60), 목표 = S.목표분 || 15;
     return { k: F.k, t: F.k ? 테마맵[F.k] : null, items: F.items, done: F.done, 다음: 다음, 완료: !다음,
-             처음: F.done.length === 0, 오늘분: 오늘분, 목표분: 목표, 남은: Math.max(0, 목표 - 오늘분) };
+             처음: F.done.length === 0, 오늘분: 실제분, 실제분: 실제분, 예상분: 예상, 완료세트: F.done.length,
+             목표분: 목표, 남은: Math.max(0, 목표 - 실제분) };
   }
+  /* 실제 사용 시간 — 탭이 뒤에 있거나 90초 넘게 손을 안 대면 쌓지 않는다 */
+  var 손 = Date.now();
+  ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (ev) {
+    try { window.addEventListener(ev, function () { 손 = Date.now(); }, { passive: true, capture: true }); } catch (e) {}
+  });
+  setInterval(function () {
+    if (document.hidden || Date.now() - 손 > 90000) return;
+    var 날 = 오늘(), d = S.날[날] = S.날[날] || { n: 0, ok: 0, ms: 0 };
+    d.am = (d.am || 0) + 15; 쓰기();
+  }, 15000);
   function 루틴완료(종류, k) {
     var F = 플로(), it = null;
     for (var i = 0; i < F.items.length; i++) {
@@ -406,6 +430,16 @@
     과목표: 과목표, 가늠: 가늠, 역할: 역할, 진단뽑기: 진단뽑기, 진단결과: 진단결과,
     기록: 기록, 카드봄: 카드봄, 디데이: 디데이, 과목성적: 과목성적, 이번주: 이번주,
     내비: 내비, esc: esc,
+    고유기출: 고유기출,
+    /* 기록 옮기기 — 이 종목 기록 전부를 앱·종목·판 표시와 함께 내보낸다. 가져올 때 종목이 다르면 거절(다른 종목 기록을 덮지 않게) */
+    내보내기: function () { return JSON.stringify({ 앱: "modu-gisa", 종목: D.종목, 판: 2, 날: 오늘(), 기록: S }); },
+    가져오기: function (글) {
+      var o; try { o = JSON.parse(글); } catch (e) { return "파일을 읽지 못함"; }
+      if (!o || o.앱 !== "modu-gisa" || !o.기록) return "모두의 기사 기록 파일이 아님";
+      if (o.종목 !== D.종목) return "다른 종목(" + o.종목 + ") 기록이라 넣지 않음";
+      try { localStorage.setItem(KEY, JSON.stringify(o.기록)); } catch (e) { return "저장 실패"; }
+      return "";
+    },
     저장: function () { 캐시 = null; 쓰기(); },
     초기화: function () { try { localStorage.removeItem(KEY); } catch (e) {} }
   };

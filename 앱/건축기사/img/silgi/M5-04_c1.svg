@@ -1,0 +1,25 @@
+<svg class="gk" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 석고보드 복합패널 수평 단면: 석고보드 / 벽체틀 + 단열재 / 석고보드 -->
+  <rect class="fl" x="60" y="90" width="380" height="14"/><rect class="ln" x="60" y="90" width="380" height="14"/>
+  <rect class="fl" x="60" y="160" width="380" height="14"/><rect class="ln" x="60" y="160" width="380" height="14"/>
+  <rect class="hl" x="60" y="104" width="380" height="56"/>
+  <rect class="sup" x="60" y="104" width="14" height="56"/>
+  <rect class="sup" x="193" y="104" width="14" height="56"/>
+  <rect class="sup" x="326" y="104" width="14" height="56"/>
+  <rect class="sup" x="426" y="104" width="14" height="56"/>
+  <text class="tb" x="60" y="40">④ 석고보드 (1면)</text>
+  <line class="th" x1="130" y1="46" x2="130" y2="88" marker-end="url(#ai)"/>
+  <text class="tb" x="60" y="228">④ 석고보드 (2면)</text>
+  <line class="th" x1="130" y1="206" x2="130" y2="178" marker-end="url(#ai)"/>
+  <text class="tb" x="224" y="40">② 단열재</text>
+  <line class="th" x1="260" y1="46" x2="260" y2="130" marker-end="url(#ai)"/>
+  <text class="tb" x="300" y="228">① 벽체틀 (스터드)</text>
+  <line class="th" x1="333" y1="206" x2="333" y2="164" marker-end="url(#ai)"/>
+  <text class="ts" x="30" y="252">③ 바탕처리 → ① 벽체틀 → ④ 석고보드 → ② 단열재 → ④ 석고보드 → ⑤ 마감</text>
+</svg>

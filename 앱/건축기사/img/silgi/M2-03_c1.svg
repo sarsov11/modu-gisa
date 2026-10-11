@@ -1,0 +1,32 @@
+<svg class="gk" viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 스캘럽: 웨브 하단을 부채꼴로 따낸 모양 -->
+  <path class="fl" d="M40,40 H300 V130 H184 A24,24 0 0 0 136,130 H40 Z"/>
+  <path class="ln" fill="none" d="M40,40 H300 V130 H184 A24,24 0 0 0 136,130 H40 Z"/>
+  <rect class="sup" x="20" y="130" width="300" height="22"/>
+  <line class="m" x1="40" y1="130" x2="136" y2="130"/><line class="m" x1="184" y1="130" x2="300" y2="130"/>
+  <line class="dsh" x1="160" y1="30" x2="160" y2="106"/>
+  <text class="tb" x="40" y="26">웨브</text>
+  <text class="tb" x="40" y="176">플랜지</text>
+  <line class="th" x1="160" y1="108" x2="160" y2="196"/>
+  <text class="tb" x="104" y="198">스캘럽</text>
+  <text class="ts" x="60" y="218">굵은 선 = 필릿 용접선, 점선 = 교차하는 맞대기 용접선</text>
+  <!-- 뒷댐재 -->
+  <g transform="translate(380,0)">
+    <polygon class="fl" points="20,60 130,60 155,120 20,120"/><polygon class="ln" points="20,60 130,60 155,120 20,120" fill="none"/>
+    <polygon class="fl" points="190,60 300,60 300,120 165,120"/><polygon class="ln" points="190,60 300,60 300,120 165,120" fill="none"/>
+    <polygon class="hl" points="130,60 190,60 165,120 155,120"/><polyline class="ln" points="130,60 155,120 165,120 190,60" fill="none"/>
+    <rect class="sup" x="130" y="120" width="60" height="14"/>
+    <text class="tb" x="20" y="44">뒷댐재와 맞대기 용접</text>
+    <line class="th" x1="160" y1="134" x2="200" y2="174"/>
+    <text class="tb" x="190" y="192">뒷댐재</text>
+    <line class="th" x1="160" y1="92" x2="220" y2="92" marker-start="url(#ai)"/>
+    <text class="tx" x="226" y="96">용착금속</text>
+    <text class="ts" x="20" y="218">루트 아래에 대어 용융금속이 흘러내리지 않게 한다</text>
+  </g>
+</svg>

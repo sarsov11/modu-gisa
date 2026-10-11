@@ -127,10 +127,12 @@
     el("vd").innerHTML='<div class="vd '+(ok?"":"bad")+'"><div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
       '<span class="pl">정답 '+QL.번호[맞칸]+'</span>'+
       '<span class="meta">'+(x.r!=null?"정답률 "+x.r+"%":"")+'</span></div>'+
-      (x.k&&t?'<div class="lk"><a href="ox.html?k='+encodeURIComponent(x.k)+'">O·X</a><a href="card.html?k='+encodeURIComponent(x.k)+'">개념</a></div>':'')+'</div>';
+      (x.k&&t?'<div class="lk"><a href="ox.html?k='+encodeURIComponent(x.k)+'">O·X</a><a href="card.html?k='+encodeURIComponent(x.k)+'">개념</a></div>':'')+
+      (window.TerraBeta&&TerraBeta.report?'<button type="button" class="b sm" id="rp" style="margin-top:8px">이 문항 신고</button>':'')+'</div>';
     el("go").textContent=(i+1>=문제.length)?"결과":"다음";
     el("go").disabled=false;
     el("go").onclick=function(){ i++; 그리기(); };
+    var rp=el("rp"); if(rp) rp.onclick=function(){ TerraBeta.report({app:"modu-gisa", 종목:GS.D.종목, id:x.id, 과목:x.s||"", 테마:x.k||"", 유형:"문제풀이", 화면:"quiz"}); };   // 2026-10-11 외부 검수 D
     el("vd").scrollIntoView({behavior:"smooth",block:"start"});
   }
   function 끝(){
@@ -159,5 +161,5 @@
   그리기();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

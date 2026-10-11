@@ -1,0 +1,36 @@
+<svg class="gk" viewBox="0 0 560 310" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 연약 점토층 / 단단한 지반 -->
+  <rect class="fl" x="40" y="90" width="380" height="140"/>
+  <rect x="40" y="230" width="380" height="34" fill="url(#hat)"/>
+  <line class="ln" x1="40" y1="90" x2="420" y2="90"/><line class="ln" x1="40" y1="230" x2="420" y2="230"/>
+  <!-- 모래 깔개 -->
+  <rect class="hl" x="90" y="70" width="330" height="20"/><rect class="ln" x="90" y="70" width="330" height="20" fill="none"/>
+  <!-- 성토 하중 -->
+  <line class="ld" x1="110" y1="30" x2="110" y2="66" marker-end="url(#ar)"/><line class="ld" x1="170" y1="30" x2="170" y2="66" marker-end="url(#ar)"/>
+  <line class="ld" x1="230" y1="30" x2="230" y2="66" marker-end="url(#ar)"/><line class="ld" x1="290" y1="30" x2="290" y2="66" marker-end="url(#ar)"/>
+  <line class="ld" x1="350" y1="30" x2="350" y2="66" marker-end="url(#ar)"/><line class="ld" x1="405" y1="30" x2="405" y2="66" marker-end="url(#ar)"/>
+  <text class="tr" x="250" y="20" text-anchor="middle">성토 하중</text>
+  <!-- 모래기둥 -->
+  <rect class="hl" x="130" y="90" width="20" height="140"/><rect class="ln" x="130" y="90" width="20" height="140" fill="none"/>
+  <rect class="hl" x="210" y="90" width="20" height="140"/><rect class="ln" x="210" y="90" width="20" height="140" fill="none"/>
+  <rect class="hl" x="290" y="90" width="20" height="140"/><rect class="ln" x="290" y="90" width="20" height="140" fill="none"/>
+  <rect class="hl" x="370" y="90" width="20" height="140"/><rect class="ln" x="370" y="90" width="20" height="140" fill="none"/>
+  <!-- 물의 흐름: 점토 → 모래기둥 → 모래 깔개 → 밖 -->
+  <line class="ln" x1="180" y1="160" x2="154" y2="160" marker-end="url(#ai)"/><line class="ln" x1="180" y1="160" x2="206" y2="160" marker-end="url(#ai)"/>
+  <line class="ln" x1="260" y1="160" x2="234" y2="160" marker-end="url(#ai)"/><line class="ln" x1="260" y1="160" x2="286" y2="160" marker-end="url(#ai)"/>
+  <line class="ln" x1="340" y1="160" x2="314" y2="160" marker-end="url(#ai)"/><line class="ln" x1="340" y1="160" x2="366" y2="160" marker-end="url(#ai)"/>
+  <line class="ln" x1="140" y1="200" x2="140" y2="112" marker-end="url(#ai)"/><line class="ln" x1="220" y1="200" x2="220" y2="112" marker-end="url(#ai)"/>
+  <line class="ln" x1="300" y1="200" x2="300" y2="112" marker-end="url(#ai)"/><line class="ln" x1="380" y1="200" x2="380" y2="112" marker-end="url(#ai)"/>
+  <line class="ln" x1="90" y1="80" x2="52" y2="80" marker-end="url(#ai)"/><line class="ln" x1="420" y1="80" x2="460" y2="80" marker-end="url(#ai)"/>
+  <!-- 이름표 -->
+  <text class="ts" x="430" y="108">모래 깔개</text>
+  <text class="tx" x="430" y="170">연약 점토층</text>
+  <text class="tx" x="430" y="252">단단한 지반</text>
+  <text class="ts" x="130" y="292">모래기둥 지름 40~60 cm · 물은 모래기둥을 타고 올라 깔개로 빠진다</text>
+</svg>

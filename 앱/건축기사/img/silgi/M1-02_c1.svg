@@ -1,0 +1,37 @@
+<svg class="gk" viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 양단 힌지 K=1 -->
+  <polygon class="sup" points="90,54 80,72 100,72"/><line class="ln" x1="76" y1="72" x2="104" y2="72"/>
+  <polygon class="sup" points="90,196 80,178 100,178"/><line class="ln" x1="76" y1="178" x2="104" y2="178"/>
+  <line class="dsh" x1="90" y1="54" x2="90" y2="196"/>
+  <path class="m" d="M90,54 C135,100 135,150 90,196" fill="none"/>
+  <text class="tb" x="90" y="238" text-anchor="middle">양단 힌지</text>
+  <text class="tr" x="90" y="264" text-anchor="middle">K = 1.0</text>
+  <!-- 양단 고정 K=0.5 -->
+  <rect class="sup" x="246" y="42" width="48" height="8"/><rect x="246" y="34" width="48" height="8" fill="url(#hat)"/>
+  <rect class="sup" x="246" y="196" width="48" height="8"/><rect x="246" y="204" width="48" height="8" fill="url(#hat)"/>
+  <line class="dsh" x1="270" y1="50" x2="270" y2="196"/>
+  <path class="m" d="M270,50 C270,88 312,88 312,123 C312,158 270,158 270,196" fill="none"/>
+  <text class="tb" x="270" y="238" text-anchor="middle">양단 고정</text>
+  <text class="tr" x="270" y="264" text-anchor="middle">K = 0.5</text>
+  <!-- 고정-자유 K=2 -->
+  <rect class="sup" x="426" y="196" width="48" height="8"/><rect x="426" y="204" width="48" height="8" fill="url(#hat)"/>
+  <line class="dsh" x1="450" y1="196" x2="450" y2="50"/>
+  <path class="m" d="M450,196 C450,130 478,100 506,56" fill="none"/>
+  <text class="ts" x="506" y="44" text-anchor="middle">자유단</text>
+  <text class="tb" x="450" y="238" text-anchor="middle">고정 - 자유</text>
+  <text class="tr" x="450" y="264" text-anchor="middle">K = 2.0</text>
+  <!-- 힌지-고정 K=0.7 -->
+  <polygon class="sup" points="630,54 620,72 640,72"/><line class="ln" x1="616" y1="72" x2="644" y2="72"/>
+  <rect class="sup" x="606" y="196" width="48" height="8"/><rect x="606" y="204" width="48" height="8" fill="url(#hat)"/>
+  <line class="dsh" x1="630" y1="54" x2="630" y2="196"/>
+  <path class="m" d="M630,54 C690,92 630,140 630,196" fill="none"/>
+  <text class="tb" x="630" y="238" text-anchor="middle">힌지 - 고정</text>
+  <text class="tr" x="630" y="264" text-anchor="middle">K = 0.7</text>
+  <text class="ts" x="360" y="290" text-anchor="middle">좌굴길이 = K × 기둥 길이</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg class="gk" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 크리프 곡선: 하중 재하(t=0) → 일정 하중 유지 → 제하(t1) -->
+  <line class="ln" x1="60" y1="230" x2="60" y2="24" marker-end="url(#ai)"/>
+  <line class="ln" x1="60" y1="230" x2="452" y2="230" marker-end="url(#ai)"/>
+  <text class="tx" x="14" y="22">변형률</text>
+  <text class="tx" x="410" y="252">시간</text>
+  <line class="m" x1="60" y1="230" x2="60" y2="170"/>
+  <path class="crit" d="M60,170 C100,120 180,98 300,90"/>
+  <line class="m" x1="300" y1="90" x2="300" y2="150"/>
+  <path class="m" d="M300,150 C330,170 370,178 430,180"/>
+  <line class="dsh" x1="60" y1="90" x2="300" y2="90"/>
+  <line class="dsh" x1="300" y1="150" x2="300" y2="230"/>
+  <line class="dsh" x1="300" y1="180" x2="430" y2="180"/>
+  <text class="tm" x="296" y="250">t</text><text class="ts" x="304" y="254">1</text>
+  <text class="tx" x="68" y="206">탄성변형</text>
+  <text class="tr" x="150" y="76">크리프 변형</text>
+  <text class="tx" x="310" y="124">순간 회복</text>
+  <text class="tx" x="330" y="212">잔류변형</text>
+  <text class="tx" x="336" y="150">크리프 회복</text>
+  <text class="ts" x="76" y="106">하중 일정 유지</text>
+</svg>

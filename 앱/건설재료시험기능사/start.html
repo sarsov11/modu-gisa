@@ -162,6 +162,8 @@
     if(window.ZZ&&!건너뜀&&_n>0){ var _p=_m/_n; ZZ.stars(_p>=1?3:_p>=.7?2:_p>=.4?1:0); }
     el("stage").innerHTML=
       (줄?'<div class="rbox res">'+줄+'</div>':'')+
+      /* 진단은 과목 단위다 — 개념 하나하나를 짚은 것이 아니다(2026-10-11 외부 검수 C). 무엇이 바뀌는지 그대로 적는다 */
+      '<p style="margin:10px 2px 0;font-size:14px;color:var(--ink-3)">과목별 O·X 10문항으로 본 과목 단위 결과. 가장 약한 과목의 테마부터 오늘 할 일에 올림. 개념별 약점은 풀어 갈수록 테마 정답률로 잡힘</p>'+
       (R.다음?'<a class="b main" id="go" href="'+e(R.다음.주소)+'">'+e(GS.큰단추(R))+'</a>':'<a class="b main" id="go" href="index.html">홈</a>')+
       '<div class="b2" style="margin-top:10px"><a class="b sm" href="index.html">홈</a><a class="b sm" href="tree.html">개념트리</a></div>';
   }
@@ -169,5 +171,5 @@
   if(재진단) 진단시작(); else 일화면();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

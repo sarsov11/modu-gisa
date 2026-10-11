@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/g.css">
 <link rel="stylesheet" href="css/q.css">
+<link rel="stylesheet" href="css/hh.css">
 <link rel="stylesheet" href="css/sgx.css?v=1011">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
@@ -23,6 +24,7 @@
 .sg-self button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);padding:13px 6px;font:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
 .sg-self button[data-v="2"]{border-color:var(--ink)}
 .sg-self button[data-v="0"]{border-color:var(--accent);color:var(--accent)}
+.sg-hh{white-space:normal}.sg-hh table{border-collapse:collapse;margin:8px 0;font-size:14px}.sg-hh td,.sg-hh th{border:1px solid var(--line-2);padding:4px 8px}.sg-hh img,.sg-hh svg{max-width:100%;height:auto}
 .sg-note{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:18px 0 96px}
 /* 영역 고르기(전략·방어) */
 .zone{margin:22px 0 0}
@@ -159,7 +161,7 @@
     if(i>=문제.length) return 끝();
     var x=문제[i];
     var 위='<div class="qwrap"><div class="qtag"><b>'+e(x.p||"")+(x.kw?' · '+e(x.kw):'')+'</b><span>'+(i+1)+' / '+문제.length+'</span>'+
-        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+(x.y?'<span class="src">'+e(회차명(x))+' '+x.n+'번</span>':'')+'</div>'+
+        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+(x.y?'<span class="src">'+e(회차명(x))+' '+x.n+'번</span>':(x.of?'<span class="src">'+e(x.of.replace(/^(\d+)-(\d+)-0?(\d+)$/,"$1년 $2회 $3번"))+' 변형</span>':''))+'</div>'+
         '<p class="qstem">'+(SGX.본문HTML?SGX.본문HTML(x.q):e(x.q))+'</p>'+
         ((x.t==="code"||x.t==="codeblank")&&x.code?'<div id="cb">'+SGX.코드HTML(x)+'</div>':'')+
         (x.t==="sqlout"&&(x.sql||x.code)?'<div id="cb">'+SGX.코드HTML({code:x.sql||x.code,lang:"sql"})+'</div>':'')+
@@ -167,7 +169,7 @@
         (x.img||[]).map(function(f){return '<img class="sg-fig" loading="lazy" alt="" src="img/silgi/'+e(f)+'">';}).join("")+'</div>';
     var 아래;
     if(!자동(x)){
-      아래='<textarea class="sg-memo" id="memo" placeholder="답을 적어 보기 (저장 안 됨)"></textarea>'+(모의세트?'':계산단추(x))+'<div id="ans"></div><button class="b main" id="go">정답 보기</button>';
+      아래='<textarea class="sg-memo" id="memo" placeholder="'+(모의세트?"답을 적으세요. 끝나고 정답과 맞춰 봅니다":"답을 적어 보기 (저장 안 됨)")+'"></textarea>'+(모의세트?'':계산단추(x))+'<div id="ans"></div><button class="b main" id="go">정답 보기</button>';
     } else {
       var 칸=칸들(x), 입력;
       if(x.t==="sql") 입력='<label for="in0">SQL</label><textarea class="x-in sql" id="in0" spellcheck="false" autocapitalize="off" placeholder="SELECT …"></textarea>'+
@@ -180,7 +182,10 @@
     }
     el("stage").innerHTML=위+아래;
     if(x.schema&&el("sch")) SGX.스키마표(x).then(function(h){el("sch").innerHTML=h;}).catch(function(){});
-    if(!자동(x)) el("go").onclick=펼치기;
+    if(!자동(x)){
+      if(모의세트){ el("go").textContent="다음"; el("go").onclick=function(){ 답모음[i]=[el("memo").value]; 결과[i]=-1; i++; 그리기(); }; }
+      else el("go").onclick=펼치기;
+    }
     else {
       el("go").onclick=function(){ 채점(x); };
       if(el("run")) el("run").onclick=function(){
@@ -223,7 +228,7 @@
     판정(x, 답).then(function(r){
       if(r.칸결과) r.칸결과.forEach(function(ok,k){ var n=el("in"+k); if(n) n.classList.add(ok?"ok":"no"); });
       if(window.ZZ){ if(r.v===2) ZZ.ok(el("go")); else ZZ.no(el("go")); }
-      el("res").innerHTML='<div class="x-res '+(r.v===2?"ok":"no")+'"><h3>'+(r.v===2?"정답":"오답")+'</h3>'+r.상세+(x.h?'<div class="x-h">'+e(x.h)+'</div>':'')+
+      el("res").innerHTML='<div class="x-res '+(r.v===2?"ok":"no")+'"><h3>'+(r.v===2?"정답":"오답")+'</h3>'+r.상세+(x.hh?'<div class="x-h sg-hh">'+x.hh+'</div>':x.h?'<div class="x-h">'+e(x.h)+'</div>':'')+
         (r.v<2?'<button class="x-fix" id="fix">채점이 틀렸다면 맞힌 걸로 치기</button>':'')+'</div>'+
         (x.trace&&x.trace.length?'<button class="b" id="tr" style="margin-bottom:10px">한 줄씩 따라가기</button>':'')+
         '<button class="b main" id="nx">다음 문항</button>';
@@ -238,7 +243,7 @@
   function 펼치기(){
     var x=문제[i];
     el("ans").innerHTML='<div class="sg-ans"><h3>정답</h3><div class="a">'+e(x.a)+'</div>'+
-      (x.h?'<div class="h">'+e(x.h)+'</div>':'')+(x.ai?'<img class="sg-fig" loading="lazy" alt="" src="img/silgi/'+e(x.ai)+'">':'')+'</div>'+
+      해설(x)+(x.ai?'<img class="sg-fig" loading="lazy" alt="" src="img/silgi/'+e(x.ai)+'">':'')+'</div>'+
       (모의세트?'<button class="b main" id="nx">다음</button>':'<div class="sg-self" id="self"><button data-v="2">맞힘</button><button data-v="1">헷갈림</button><button data-v="0">틀림</button></div>');
     el("go").style.display="none";
     if(모의세트){ el("nx").onclick=function(){ 답모음[i]=[el("memo").value]; 결과[i]=-1; i++; 그리기(); }; }
@@ -278,21 +283,47 @@
     el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2>'+
       '<div class="tally">'+(점||'<div><b>'+맞+' / '+결과.length+'</b><span>맞힘</span></div>')+
       '<div><b>'+헷+'</b><span>헷갈림</span></div><div><b>'+(결과.length-맞-헷)+'</b><span>틀림</span></div></div>'+
+      /* 자가채점 범위를 밝힌다 — 자동 채점·합격 예측이 아니다(2026-10-11 외부 검수 F) */
+      '<p style="margin:6px 0 12px;font-size:13.5px;color:var(--ink-3)">점수는 정답을 보고 스스로 고른 맞힘·헷갈림·틀림의 합. 실제 채점과 다를 수 있음</p>'+
       '<div class="act">'+(틀.length?'<a class="b main" href="silgi.html?wrong=1">다시 볼 문항</a>':'')+
       '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div></div>'+목록+'</div>';
   }
   function 모의끝(){
-    /* 자동 채점 문항은 기계로, 나머지(free)는 틀림으로 두고 결과 화면에서 정답을 보여 준다 */
-    var 일=문제.map(function(x,j){ return 자동(x)?판정(x, 답모음[j]||[""]).then(function(r){return r.v;}):Promise.resolve(0); });
+    /* 1) 자동 채점 문항은 기계로 2) 스스로 채점 문항은 하나씩 내 답·정답을 보여 주고 고르게 3) 배점(pt, 없으면 5) 합산 — 맞힘 전부·헷갈림 절반 */
+    var 일=문제.map(function(x,j){ return 자동(x)?판정(x, 답모음[j]||[""]).then(function(r){return r.v;}):Promise.resolve(null); });
     Promise.all(일).then(function(vs){
-      결과=vs; vs.forEach(function(v,j){ 기록하기(문제[j], v); });
-      var 맞=vs.filter(function(v){return v===2;}).length, 만=문제.length*5, 합=맞*5;
-      if(window.ZZ){ var _p=맞/vs.length; ZZ.stars(_p>=.8?3:_p>=.6?2:_p>=.4?1:0); }
-      결과화면(맞, 0, '<div><b>'+합+' / '+만+'</b><span>'+(합>=만*0.6?"합격선 넘음":"합격선 "+Math.ceil(만*0.6))+'</span></div>');
+      var 남=vs.map(function(v,j){return v==null?j:-1;}).filter(function(j){return j>=0;}), k=0;
+      function 하나(){
+        if(k>=남.length) return 합산(vs);
+        var j=남[k], x=문제[j];
+        el("ttl").textContent="스스로 채점 "+(k+1)+" / "+남.length;
+        el("stage").innerHTML='<div class="qwrap"><div class="qtag"><b>'+e(x.p||"")+'</b><span>'+(j+1)+'번</span>'+(x.pt?'<span class="pl">'+x.pt+'점</span>':'')+'</div>'+
+          '<p class="qstem">'+(SGX.본문HTML?SGX.본문HTML(x.q):e(x.q))+'</p></div>'+
+          '<div class="sg-ans"><h3>내 답</h3><div class="a" style="font-weight:500">'+e((답모음[j]||[""]).join("\n")||"(비움)")+'</div></div>'+
+          '<div class="sg-ans"><h3>정답</h3><div class="a">'+e(x.a)+'</div>'+해설(x)+'</div>'+
+          '<div class="sg-self" id="self"><button data-v="2">맞힘</button><button data-v="1">헷갈림</button><button data-v="0">틀림</button></div>';
+        document.querySelectorAll("#self button").forEach(function(b){ b.onclick=function(){ vs[j]=Number(b.dataset.v); k++; 하나(); }; });
+        window.scrollTo({top:0});
+      }
+      하나();
     });
+    function 합산(vs){
+      결과=vs; vs.forEach(function(v,j){ 기록하기(문제[j], v); });
+      var 합=0, 만=0;
+      문제.forEach(function(x,j){ var p=x.pt||5; 만+=p; if(vs[j]===2) 합+=p; else if(vs[j]===1) 합+=Math.floor(p/2); });
+      var 맞=vs.filter(function(v){return v===2;}).length, 헷=vs.filter(function(v){return v===1;}).length;
+      if(window.ZZ){ var _p=합/(만||1); ZZ.stars(_p>=.8?3:_p>=.6?2:_p>=.4?1:0); }
+      el("ttl").textContent=모의세트.제목||("실전 모의 "+모의세트.세트);
+      결과화면(맞, 헷, '<div><b>'+합+' / '+만+'</b><span>'+(합>=만*0.6?"합격선 넘음":"합격선 "+Math.ceil(만*0.6))+'</span></div>');
+    }
+  }
+  /* 해설: hh(우리 조판기가 만든 HTML 조각)가 있으면 그것을, 없으면 h 글 */
+  function 해설(x){
+    if(x.hh) return '<div class="h sg-hh">'+x.hh+'</div>';
+    return x.h?'<div class="h">'+e(x.h)+'</div>':'';
   }
   그리기();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

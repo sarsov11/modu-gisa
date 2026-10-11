@@ -164,10 +164,14 @@
         /* 1005 근거: 같은 테마에서 O 로 판정된 비슷한 문장(지어낸 글 없음, 짝 없으면 생략) */
         (o.e&&GS.oxMap[o.e]?'<div class="why" style="font-size:14.5px;line-height:1.55;margin:0 0 8px;font-weight:700"><span style="color:var(--accent);font-weight:900">O ▸</span> '+e(깨(GS.oxMap[o.e].c))+'</div>':'')+
         /* 0925: 판정 아래엔 설명문 없이 기출 원문과 정답만 둔다 */
-        '<div class="orig"><p>'+e(깨(q.q))+'</p><ol>'+선지+'</ol></div>'+
+        /* 해설이 따로 없다는 것을 숨기지 않는다 — 원문과 정답 표시뿐(2026-10-11 외부 검수 D) */
+        '<div class="orig"><p style="font-size:12.5px;color:var(--ink-3);margin:0 0 4px">원래 기출과 정답(해설 없음)</p><p>'+e(깨(q.q))+'</p><ol>'+선지+'</ol></div>'+
+        /* 오류 신고 — 문항 ID·과목·테마가 자동으로 붙는다. 공통 베타 모듈이 없으면 단추를 안 그린다 */
+        (window.TerraBeta&&TerraBeta.report?'<button type="button" class="b sm" id="rp" style="margin-top:8px">이 문항 신고</button>':'')+
       '</div>'+
       '<div class="next"><button class="b main" id="nx">'+다음+'</button></div>';
     el("nx").onclick=function(){ i++; 그리기(); };
+    var rp=el("rp"); if(rp) rp.onclick=function(){ TerraBeta.report({app:"modu-gisa", 종목:GS.D.종목, id:o.i, 원문항:o.q, 과목:t.s||"", 테마:o.k||"", 유형:"O·X", 화면:"ox"}); };
     el("vd").scrollIntoView({behavior:"smooth",block:"start"});
   }
 
@@ -202,5 +206,5 @@
   그리기();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

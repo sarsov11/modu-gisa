@@ -1,0 +1,67 @@
+/* 실기 확장 (코드·SQL·따라가기) — sgx.js 짝 */
+.x-code{--cbg:var(--surface);--cln:var(--ink-4);--cink:var(--ink);--chi:rgba(255,196,0,.22);--chl:#e0a800;
+  --ckw:#7c3aed;--cst:#0f7b3f;--cnu:#c2410c;--ccm:#8a8f98;--cfn:#1d5fd1;
+  position:relative;border:1px solid var(--line-2);border-radius:var(--r3);background:var(--cbg);margin:14px 0 0;overflow:hidden}
+.x-code.dark,.v-b .x-code{--cbg:#15171c;--cln:#5b6170;--cink:#e6e8ee;--chi:rgba(255,214,10,.16);--chl:#ffd60a;
+  --ckw:#c792ea;--cst:#a5e075;--cnu:#f9a35c;--ccm:#6b7280;--cfn:#82aaff;border-color:#262a33}
+.x-lang{position:absolute;top:6px;right:10px;font:700 11.5px/1 var(--sans);color:var(--cln);letter-spacing:.04em}
+.x-code ol{list-style:none;margin:0;padding:10px 0;max-height:62vh;overflow:auto;counter-reset:none}
+.x-code li{display:flex;align-items:flex-start;min-height:21px;padding:0 10px 0 0;border-left:3px solid transparent}
+.x-code li.on{background:var(--chi);border-left-color:var(--chl)}
+.x-ln{flex:0 0 30px;text-align:right;padding-right:10px;color:var(--cln);font:500 12.5px/21px ui-monospace,Consolas,"D2Coding",monospace;user-select:none}
+.x-code code{flex:1;white-space:pre;color:var(--cink);font:500 13.5px/21px ui-monospace,Consolas,"D2Coding",monospace;overflow-x:visible}
+.x-iv{flex:0 0 auto;font:700 12px/21px ui-monospace,Consolas,monospace;color:var(--chl);font-style:normal;padding-left:8px;white-space:nowrap}
+.x-code ol{overflow-x:auto}
+.x-kw{color:var(--ckw);font-weight:700}.x-st{color:var(--cst)}.x-nu{color:var(--cnu)}.x-cm{color:var(--ccm);font-style:italic}.x-fn{color:var(--cfn)}
+
+/* 답 칸 */
+.x-ansbox{margin:14px 0}
+.x-ansbox label{display:block;font-size:14px;font-weight:800;color:var(--ink-3);margin:0 0 6px}
+.x-in{width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface-2);color:var(--ink);
+  font:500 16px/1.55 ui-monospace,Consolas,"D2Coding",monospace;padding:12px 14px;resize:vertical}
+.x-in.sql{min-height:110px}
+.x-in:focus{outline:none;border-color:var(--ink)}
+.x-rule{font-size:12.5px;line-height:1.55;color:var(--ink-3);margin:6px 2px 0}
+
+/* 채점 결과 */
+.x-res{border-radius:var(--r2);padding:14px 16px;margin:0 0 14px;border:1.5px solid var(--line-2);background:var(--surface)}
+.x-res.ok{border-color:var(--ink)}
+.x-res.no{border-color:var(--accent)}
+.x-res h3{margin:0 0 8px;font-size:16px;font-weight:900}
+.x-res.no h3{color:var(--accent)}
+.x-cmp{width:100%;border-collapse:collapse;font:500 14px/1.5 ui-monospace,Consolas,monospace}
+.x-cmp td,.x-cmp th{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:top;white-space:pre-wrap;word-break:break-all}
+.x-cmp th{font:800 12px/1.4 var(--sans);color:var(--ink-3)}
+.x-cmp tr.bad td:nth-child(2){color:var(--accent);font-weight:800}
+.x-h{margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7;color:var(--ink-2);word-break:keep-all}
+
+/* 따라가기 */
+.x-trace{margin:12px 0 0;display:grid;gap:10px}
+.x-frame{font-size:13px;color:var(--ink-3)}
+.x-frame span{display:inline-block;font-weight:800;color:var(--ink);background:var(--surface-3);border-radius:99px;padding:3px 10px;margin-right:6px}
+.x-vars{width:100%;border-collapse:collapse;font:500 14px/1.45 ui-monospace,Consolas,monospace;border:1px solid var(--line-2);border-radius:var(--r3);overflow:hidden}
+.x-vars th{font:800 12px/1.4 var(--sans);color:var(--ink-3);text-align:left;padding:7px 10px;background:var(--surface-2)}
+.x-vars td{padding:7px 10px;border-top:1px solid var(--line);word-break:break-all}
+.x-vars td:first-child{width:34%;color:var(--ink-2);font-weight:700}
+.x-vars tr.x-ch td{background:rgba(255,196,0,.18)}
+.x-vars tr.x-ch td:last-child{font-weight:900}
+.x-none{color:var(--ink-4);font-family:var(--sans)}
+.x-out{border:1px solid var(--line-2);border-radius:var(--r3);padding:8px 12px;background:var(--surface-2)}
+.x-out b{display:block;font-size:12px;color:var(--ink-3);margin-bottom:2px}
+.x-out pre{margin:0;min-height:21px;font:600 14.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;color:var(--ink)}
+.x-bar{display:flex;align-items:center;gap:6px;margin:12px 0 0}
+.x-bar button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r3);
+  font:800 15px/1 var(--sans);padding:12px 12px;cursor:pointer;min-width:44px}
+.x-bar .x-next{flex:1;white-space:nowrap;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.x-cnt{font:700 13px/1 var(--sans);color:var(--ink-3);font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
+
+/* SQL 표 */
+.x-tbl{margin:12px 0 0;overflow-x:auto}
+.x-tbl b{display:block;font-size:13.5px;margin:0 0 4px}
+.x-tbl table{border-collapse:collapse;font-size:14px;min-width:60%}
+.x-tbl th,.x-tbl td{border:1px solid var(--line-2);padding:5px 9px;text-align:left;white-space:nowrap}
+.x-tbl th{background:var(--surface-2);font-weight:800}
+.x-sqlrun{display:flex;gap:8px;margin:8px 0 0}
+.x-sqlrun button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r3);font:700 14px/1 var(--sans);padding:10px 12px;cursor:pointer}
+.x-err{color:var(--accent);font:600 13.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;margin:6px 0 0}
+@media (max-width:420px){.x-code code{font-size:12.5px}.x-ln{flex-basis:24px;padding-right:7px}}

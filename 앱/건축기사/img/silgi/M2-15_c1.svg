@@ -1,0 +1,24 @@
+<svg class="gk" viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 매입형: 철골을 철근콘크리트로 감싼 단면 -->
+  <rect class="fl" x="50" y="40" width="200" height="200"/><rect class="ln" x="50" y="40" width="200" height="200" fill="none"/>
+  <rect class="th" x="62" y="52" width="176" height="176" rx="6" fill="none"/>
+  <circle class="rb" cx="74" cy="64" r="6"/><circle class="rb" cx="226" cy="64" r="6"/><circle class="rb" cx="74" cy="216" r="6"/><circle class="rb" cx="226" cy="216" r="6"/>
+  <circle class="rb" cx="150" cy="64" r="6"/><circle class="rb" cx="150" cy="216" r="6"/><circle class="rb" cx="74" cy="140" r="6"/><circle class="rb" cx="226" cy="140" r="6"/>
+  <rect class="sup" x="104" y="94" width="92" height="12"/><rect class="sup" x="104" y="174" width="92" height="12"/><rect class="sup" x="144" y="106" width="12" height="68"/>
+  <text class="tb" x="50" y="26">매입형 (SRC)</text>
+  <text class="ts" x="50" y="266">H형강 + 주철근 + 띠철근, 바깥은 콘크리트</text>
+  <!-- 충전형 -->
+  <g transform="translate(380,0)">
+    <rect class="fl" x="50" y="40" width="200" height="200"/><rect class="sup" x="50" y="40" width="200" height="200" fill="none"/>
+    <rect class="ln" x="62" y="52" width="176" height="176" fill="none"/>
+    <text class="tx" x="150" y="146" text-anchor="middle">콘크리트</text>
+    <text class="tb" x="50" y="26">충전형 (CFT)</text>
+    <text class="ts" x="50" y="266">강관 속에 콘크리트를 채운 단면</text>
+  </g>
+</svg>

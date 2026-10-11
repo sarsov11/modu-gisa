@@ -23,7 +23,15 @@
     if (t && t.x) return true;
     return !!(G.현행 && G.현행.length && G.현행.indexOf(x.s) < 0 && !(t && !t.x && G.현행.indexOf(t.s) >= 0));   // 현행 과목이 아닌 옛 과목 문항
   }
-  function 키(s) { return String(s || "").replace(/[\W_]+/g, "").slice(0, 60); }
+  /* 같은 문제 판별 키 — 발문과 선지를 함께 본다(2026-10-11 외부 검수 A: 예전 /[\W_]+/ 는 한글까지 지워
+     건축기사 4,688문항 중 3,424문항이 빈 키가 됐다 → 서로 다른 한글 문제가 한 세트에 하나만 남았다).
+     글자·숫자(한글 포함)만 남겨 비교하고, 선지는 순서와 무관하게 묶는다. 발문만 같고 선지가 다르면 다른 문제다. */
+  function 정(s) { return String(s == null ? "" : s).normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, ""); }
+  function 키(x) {
+    var c = x && x.c, 선 = Array.isArray(c) ? c.map(정).sort().join("/") : 정(c);
+    var k = 정(x && x.q) + "|" + 선;
+    return k === "|" ? "id:" + (x && x.id) : k;   // 발문·선지가 다 비면 문항 ID 로(빈 키끼리 합치지 않는다)
+  }
   function 섞기(a) {
     for (var i = a.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t;
@@ -50,7 +58,7 @@
     var 차례 = 섞기(풀.slice()).sort(function (a, b) { return 층(a) - 층(b); });
     var 쓴 = {}, 뽑음 = [];
     for (var i = 0; i < 차례.length && 뽑음.length < n; i++) {
-      var h = 키(차례[i].q); if (쓴[h]) continue; 쓴[h] = 1; 뽑음.push(차례[i]);
+      var h = 키(차례[i]); if (쓴[h]) continue; 쓴[h] = 1; 뽑음.push(차례[i]);
     }
     return 뽑음;
   }

@@ -1,0 +1,24 @@
+<svg class="gk" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 강재 응력-변형률 곡선: 항복강도 fy, 인장강도 Fu -->
+  <line class="ln" x1="60" y1="250" x2="60" y2="24" marker-end="url(#ai)"/>
+  <line class="ln" x1="60" y1="250" x2="452" y2="250" marker-end="url(#ai)"/>
+  <text class="tx" x="14" y="22">응력</text>
+  <text class="tx" x="400" y="272">변형률</text>
+  <path class="crit" d="M60,250 L110,140 L170,138 C220,108 260,70 300,66 C340,66 366,86 390,120"/>
+  <circle class="nd" cx="110" cy="140" r="5"/><circle class="nd" cx="300" cy="66" r="5"/><circle class="nd" cx="390" cy="120" r="5"/>
+  <line class="dsh" x1="60" y1="140" x2="110" y2="140"/>
+  <line class="dsh" x1="60" y1="66" x2="300" y2="66"/>
+  <text class="tm" x="30" y="146">f</text><text class="ts" x="38" y="150">y</text>
+  <text class="tm" x="28" y="72">F</text><text class="ts" x="38" y="76">u</text>
+  <text class="tx" x="118" y="164">항복점</text>
+  <text class="tx" x="226" y="52">인장강도</text>
+  <text class="tx" x="396" y="122">파단</text>
+  <text class="ts" x="176" y="128">변형 경화</text>
+  <text class="tb" x="260" y="214">항복비 = <tspan class="tm">f</tspan><tspan dy="4" class="ts">y</tspan><tspan dy="-4" class="tb"> / </tspan><tspan class="tm">F</tspan><tspan dy="4" class="ts">u</tspan></text>
+</svg>

@@ -1,0 +1,26 @@
+<svg class="gk" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 건물 외곽 -->
+  <rect class="fl" x="150" y="90" width="220" height="120"/>
+  <rect class="m" x="150" y="90" width="220" height="120"/>
+  <!-- 쌍줄비계: 외벽에서 0.9 m 띄운 둘레 -->
+  <rect class="dsh" x="116" y="56" width="288" height="188"/>
+  <rect class="ln" x="116" y="56" width="288" height="188" fill="none"/>
+  <text class="tb" x="260" y="156" text-anchor="middle">건물 평면</text>
+  <text class="ts" x="260" y="176" text-anchor="middle">외벽 둘레 L</text>
+  <!-- 0.9 m 치수 -->
+  <line class="dm" x1="150" y1="40" x2="116" y2="40" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="th" x1="150" y1="86" x2="150" y2="34"/><line class="th" x1="116" y1="52" x2="116" y2="34"/>
+  <text class="tr" x="100" y="28">0.9 m</text>
+  <line class="dm" x1="404" y1="130" x2="370" y2="130" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tr" x="410" y="134">0.9 m</text>
+  <!-- 모서리 4곳 -->
+  <circle class="nd" cx="116" cy="56" r="5"/><circle class="nd" cx="404" cy="56" r="5"/><circle class="nd" cx="116" cy="244" r="5"/><circle class="nd" cx="404" cy="244" r="5"/>
+  <text class="ts" x="20" y="276">비계 둘레 = L + 8×0.9 (모서리 4곳, 곳마다 0.9 m×2)</text>
+  <text class="ts" x="20" y="294">비계면적 = 높이 × (L + 8×0.9)</text>
+</svg>

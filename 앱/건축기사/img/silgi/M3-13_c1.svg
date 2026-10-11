@@ -1,0 +1,27 @@
+<svg class="gk" viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 지반선과 지하수위 -->
+  <line class="ln" x1="20" y1="60" x2="540" y2="60"/>
+  <rect x="20" y="60" width="150" height="240" fill="url(#hat)"/><rect x="390" y="60" width="150" height="240" fill="url(#hat)"/>
+  <line class="dsh" x1="20" y1="120" x2="540" y2="120"/><text class="ts" x="26" y="112">지하수위</text>
+  <!-- 지하 구조물 -->
+  <rect class="fl" x="170" y="80" width="220" height="150"/><rect class="m" x="170" y="80" width="220" height="150"/>
+  <text class="tb" x="280" y="176" text-anchor="middle">지하 구조물</text>
+  <line class="ld" x1="280" y1="100" x2="280" y2="146" marker-end="url(#ar)"/><text class="tr" x="292" y="124">자중</text>
+  <!-- 부력 -->
+  <line class="ld" x1="240" y1="292" x2="240" y2="236" marker-end="url(#ar)"/><line class="ld" x1="320" y1="292" x2="320" y2="236" marker-end="url(#ar)"/>
+  <text class="tr" x="280" y="318" text-anchor="middle">부력</text>
+  <!-- 락앵커 -->
+  <line class="m" x1="200" y1="230" x2="200" y2="318"/><circle class="nd" cx="200" cy="318" r="5"/>
+  <line class="m" x1="360" y1="230" x2="360" y2="318"/><circle class="nd" cx="360" cy="318" r="5"/>
+  <text class="ts" x="20" y="316">락앵커로 암반에 정착</text>
+  <!-- 배수로 낮춘 수위 -->
+  <line class="dsh" x1="400" y1="200" x2="540" y2="200"/>
+  <line class="ln" x1="470" y1="124" x2="470" y2="196" marker-end="url(#ai)"/>
+  <text class="ts" x="400" y="222">배수 후 수위</text>
+</svg>

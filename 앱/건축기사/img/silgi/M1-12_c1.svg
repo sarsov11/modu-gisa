@@ -1,0 +1,30 @@
+<svg class="gk" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 길이켜 (맨 위) -->
+  <rect class="fl" x="100" y="40" width="80" height="28"/><rect class="fl" x="180" y="40" width="80" height="28"/><rect class="fl" x="260" y="40" width="80" height="28"/><rect class="fl" x="340" y="40" width="80" height="28"/>
+  <rect class="ln" x="100" y="40" width="80" height="28" fill="none"/><rect class="ln" x="180" y="40" width="80" height="28" fill="none"/><rect class="ln" x="260" y="40" width="80" height="28" fill="none"/><rect class="ln" x="340" y="40" width="80" height="28" fill="none"/>
+  <!-- 마구리켜 : 양 끝 이오토막 -->
+  <rect class="hl" x="100" y="68" width="20" height="28"/><rect class="hl" x="400" y="68" width="20" height="28"/>
+  <rect class="fl" x="120" y="68" width="40" height="28"/><rect class="fl" x="160" y="68" width="40" height="28"/><rect class="fl" x="200" y="68" width="40" height="28"/><rect class="fl" x="240" y="68" width="40" height="28"/><rect class="fl" x="280" y="68" width="40" height="28"/><rect class="fl" x="320" y="68" width="40" height="28"/><rect class="fl" x="360" y="68" width="40" height="28"/>
+  <rect class="ln" x="100" y="68" width="20" height="28" fill="none"/><rect class="ln" x="120" y="68" width="40" height="28" fill="none"/><rect class="ln" x="160" y="68" width="40" height="28" fill="none"/><rect class="ln" x="200" y="68" width="40" height="28" fill="none"/><rect class="ln" x="240" y="68" width="40" height="28" fill="none"/><rect class="ln" x="280" y="68" width="40" height="28" fill="none"/><rect class="ln" x="320" y="68" width="40" height="28" fill="none"/><rect class="ln" x="360" y="68" width="40" height="28" fill="none"/><rect class="ln" x="400" y="68" width="20" height="28" fill="none"/>
+  <!-- 길이켜 -->
+  <rect class="fl" x="100" y="96" width="320" height="28"/>
+  <rect class="ln" x="100" y="96" width="80" height="28" fill="none"/><rect class="ln" x="180" y="96" width="80" height="28" fill="none"/><rect class="ln" x="260" y="96" width="80" height="28" fill="none"/><rect class="ln" x="340" y="96" width="80" height="28" fill="none"/>
+  <!-- 마구리켜 -->
+  <rect class="hl" x="100" y="124" width="20" height="28"/><rect class="hl" x="400" y="124" width="20" height="28"/>
+  <rect class="fl" x="120" y="124" width="280" height="28"/>
+  <rect class="ln" x="100" y="124" width="20" height="28" fill="none"/><rect class="ln" x="120" y="124" width="40" height="28" fill="none"/><rect class="ln" x="160" y="124" width="40" height="28" fill="none"/><rect class="ln" x="200" y="124" width="40" height="28" fill="none"/><rect class="ln" x="240" y="124" width="40" height="28" fill="none"/><rect class="ln" x="280" y="124" width="40" height="28" fill="none"/><rect class="ln" x="320" y="124" width="40" height="28" fill="none"/><rect class="ln" x="360" y="124" width="40" height="28" fill="none"/><rect class="ln" x="400" y="124" width="20" height="28" fill="none"/>
+  <line class="m" x1="90" y1="152" x2="430" y2="152"/>
+  <!-- 켜 이름 -->
+  <text class="tb" x="14" y="59">길이켜</text><text class="tb" x="14" y="87">마구리켜</text><text class="tb" x="14" y="115">길이켜</text><text class="tb" x="14" y="143">마구리켜</text>
+  <!-- 이오토막 지시 -->
+  <line class="th" x1="420" y1="82" x2="446" y2="82"/><text class="tr" x="452" y="87">이오토막</text>
+  <text class="ts" x="452" y="104">모서리 끝</text>
+  <text class="ts" x="100" y="186">길이켜와 마구리켜를 번갈아 쌓는다. 세로줄눈이 켜마다 어긋나 통줄눈이 생기지 않는다.</text>
+  <text class="ts" x="100" y="208">(정면에서 본 모양)</text>
+</svg>

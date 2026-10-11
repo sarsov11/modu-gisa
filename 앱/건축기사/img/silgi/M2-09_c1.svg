@@ -1,0 +1,28 @@
+<svg class="gk" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 쪼갬인장 시험: 원기둥을 눕혀 선하중 -->
+  <circle class="fl" cx="140" cy="140" r="64"/><circle class="ln" cx="140" cy="140" r="64" fill="none"/>
+  <rect class="sup" x="70" y="66" width="140" height="10"/><rect class="sup" x="70" y="204" width="140" height="10"/>
+  <line class="ld" x1="140" y1="22" x2="140" y2="64" marker-end="url(#ar)"/>
+  <line class="ld" x1="140" y1="258" x2="140" y2="216" marker-end="url(#ar)"/>
+  <text class="tr" x="152" y="42">P</text><text class="tr" x="152" y="250">P</text>
+  <line class="dsh" x1="140" y1="76" x2="140" y2="204"/>
+  <line class="th" x1="140" y1="140" x2="96" y2="140" marker-end="url(#ai)"/><line class="th" x1="140" y1="140" x2="184" y2="140" marker-end="url(#ai)"/>
+  <text class="ts" x="122" y="164">인장</text>
+  <line class="th" x1="204" y1="76" x2="236" y2="76"/><line class="th" x1="204" y1="204" x2="236" y2="204"/>
+  <line class="dm" x1="228" y1="76" x2="228" y2="204" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="236" y="146">D</text>
+  <!-- 측면 -->
+  <rect class="fl" x="320" y="76" width="160" height="128"/><rect class="ln" x="320" y="76" width="160" height="128" fill="none"/>
+  <rect class="sup" x="320" y="66" width="160" height="10"/><rect class="sup" x="320" y="204" width="160" height="10"/>
+  <line class="dm" x1="320" y1="234" x2="480" y2="234" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="th" x1="320" y1="206" x2="320" y2="244"/><line class="th" x1="480" y1="206" x2="480" y2="244"/>
+  <text class="tx" x="394" y="256">L</text>
+  <line class="dsh" x1="320" y1="140" x2="480" y2="140"/>
+  <text class="tb" x="320" y="48">측면</text><text class="tb" x="30" y="48">단면</text>
+</svg>

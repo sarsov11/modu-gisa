@@ -1,0 +1,31 @@
+<svg class="gk" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 용기 안 골재 모형: 위 36.54% 공극, 아래 63.46% 골재 실체 (높이 200 기준) -->
+  <rect class="fl" x="80" y="87" width="140" height="127"/>
+  <line class="dsh" x1="80" y1="87" x2="220" y2="87"/>
+  <polyline class="m" points="80,20 80,214 220,214 220,20" fill="none"/>
+  <circle class="th" cx="110" cy="190" r="14" fill="none"/><circle class="th" cx="150" cy="195" r="16" fill="none"/><circle class="th" cx="195" cy="190" r="14" fill="none"/>
+  <circle class="th" cx="125" cy="155" r="13" fill="none"/><circle class="th" cx="170" cy="158" r="15" fill="none"/>
+  <circle class="th" cx="105" cy="122" r="12" fill="none"/><circle class="th" cx="148" cy="120" r="12" fill="none"/><circle class="th" cx="195" cy="125" r="13" fill="none"/>
+  <text class="tb" x="150" y="62" text-anchor="middle">공극</text>
+  <text class="tb" x="150" y="238" text-anchor="middle">골재 실체</text>
+  <!-- 비율 -->
+  <line class="th" x1="226" y1="20" x2="250" y2="20"/><line class="th" x1="226" y1="87" x2="250" y2="87"/><line class="th" x1="226" y1="214" x2="250" y2="214"/>
+  <line class="dm" x1="244" y1="20" x2="244" y2="87" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="244" y1="87" x2="244" y2="214" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tr" x="258" y="58">공극률 36.54 %</text>
+  <text class="tr" x="258" y="156">실적률 63.46 %</text>
+  <!-- 식 -->
+  <text class="tb" x="400" y="52">계산 순서</text>
+  <text class="tx" x="400" y="84">① 1,650 kg/m³ = 1.65 t/m³</text>
+  <text class="tx" x="400" y="112">② 실적률 = 1.65 ÷ 2.60 × 100</text>
+  <text class="tx" x="400" y="140">③ 공극률 = 100 − 실적률</text>
+  <text class="ts" x="400" y="176">밀도의 단위(g/cm³ = t/m³)에</text>
+  <text class="ts" x="400" y="196">단위용적질량을 맞춘 뒤 나눈다</text>
+  <text class="ts" x="80" y="288">용기 부피 100 중 골재 실체가 차지하는 비율이 실적률이다</text>
+</svg>

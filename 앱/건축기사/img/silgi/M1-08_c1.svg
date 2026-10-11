@@ -1,0 +1,26 @@
+<svg class="gk" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 고정단 -->
+  <rect class="sup" x="40" y="62" width="16" height="96"/><rect x="24" y="62" width="16" height="96" fill="url(#hat)"/>
+  <!-- 봉 -->
+  <rect class="fl" x="56" y="92" width="360" height="36"/><rect class="ln" x="56" y="92" width="360" height="36" fill="none"/>
+  <text class="tx" x="236" y="115" text-anchor="middle">단면적 <tspan class="tm">A</tspan> · 탄성계수 <tspan class="tm">E</tspan></text>
+  <!-- 늘어난 위치 -->
+  <line class="dsh" x1="448" y1="80" x2="448" y2="140"/>
+  <line class="dsh" x1="416" y1="80" x2="416" y2="92"/>
+  <!-- 하중 -->
+  <line class="ld" x1="416" y1="110" x2="500" y2="110" marker-end="url(#ar)"/>
+  <text class="tr" x="506" y="116"><tspan class="tm">P</tspan></text>
+  <!-- 치수 -->
+  <line class="th" x1="56" y1="136" x2="56" y2="172"/><line class="th" x1="416" y1="136" x2="416" y2="172"/>
+  <line class="dm" x1="56" y1="164" x2="416" y2="164" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="236" y="188" text-anchor="middle"><tspan class="tm">L</tspan></text>
+  <line class="dm" x1="416" y1="70" x2="448" y2="70" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="432" y="56" text-anchor="middle"><tspan class="tm">δ</tspan></text>
+  <text class="tr" x="236" y="220" text-anchor="middle"><tspan class="tm">k</tspan> = <tspan class="tm">P</tspan> / <tspan class="tm">δ</tspan> = <tspan class="tm">EA</tspan> / <tspan class="tm">L</tspan></text>
+</svg>

@@ -81,10 +81,11 @@
     var 이름=it.종류==="review"?"복습":(it.종류==="card"?"개념":(it.종류==="quiz"?"문제풀이":"O·X"));
     return '<li class="'+(끝?"dn":(지금?"now":""))+'">'+(끝?"✓ ":"")+이름+'<small>'+it.분+'분</small></li>';
   }).join("");
-  var 비율=Math.min(100,Math.round(R.오늘분*100/R.목표분));
+  /* 막대 = 오늘 세트 진행, 글 = 실제 사용 시간(화면을 쓴 시간)과 세트 예상 분량을 따로(2026-10-11 외부 검수 E) */
+  var 비율=R.items.length?Math.min(100,Math.round(R.done.length*100/R.items.length)):0;
   document.getElementById("flow").innerHTML=
     '<div class="flowbar"><i style="width:'+비율+'%"></i></div>'+
-    '<div class="flowmeta"><b>오늘 '+R.오늘분+'분</b><span>'+(R.완료||R.남은===0?"목표 "+R.목표분+"분 완료":"남은 "+R.남은+"분 · 목표 "+R.목표분+"분")+'</span></div>'+
+    '<div class="flowmeta"><b>오늘 공부 '+R.실제분+'분</b><span>세트 '+R.done.length+'/'+R.items.length+(R.완료?' 끝':'')+', 예상 '+R.예상분+'분 분량</span></div>'+
     '<ul class="fl">'+칩+'</ul>';
 
   /* ── 작은 단추 — 개념은 직전·오늘 테마로 ── */
@@ -104,7 +105,7 @@
   if(가){
     var 차=가.점-가.선;
     document.getElementById("gm").innerHTML=
-      '<div class="lab">합격 가늠 · '+(가.출처==="모의"?"모의고사":"문제풀이")+'</div>'+
+      '<div class="lab">합격 가늠 · '+(가.출처==="모의"?"모의고사":"문제풀이")+(가.일부?' (측정 과목 '+가.측정+'/'+가.총과목+' 평균, 전체 시험 가늠 아님)':'')+'</div>'+
       '<div class="gm"><b>'+가.점+'</b><span>/ 합격선 '+가.선+'</span>'+
       '<i class="'+(차>=0?"up":"dn")+'">'+(차>=0?"+":"")+차+'</i>'+
       (가.과락.length?'<i class="wn">⚠ 과락 '+가.과락.length+'</i>':'')+'</div>'+
@@ -133,5 +134,5 @@
   }else document.getElementById("wk").remove();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

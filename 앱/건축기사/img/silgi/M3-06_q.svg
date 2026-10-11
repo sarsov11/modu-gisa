@@ -1,0 +1,30 @@
+<svg class="gk" viewBox="0 0 520 350" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 평면 (1 m = 18 px) -->
+  <polygon class="fl" points="142,60 376,60 376,285 286,285 286,240 70,240 70,186 142,186"/>
+  <polygon class="ln" points="142,60 376,60 376,285 286,285 286,240 70,240 70,186 142,186"/>
+  <text class="tb" x="259" y="122" text-anchor="middle">쌍줄비계</text>
+  <text class="tx" x="259" y="148" text-anchor="middle">건물높이 16.5 m</text>
+  <text class="ts" x="259" y="168" text-anchor="middle">(단위 mm)</text>
+  <!-- 상단 치수 -->
+  <line class="th" x1="70" y1="182" x2="70" y2="30"/><line class="th" x1="142" y1="56" x2="142" y2="30"/><line class="th" x1="376" y1="56" x2="376" y2="30"/>
+  <line class="dm" x1="70" y1="38" x2="142" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="142" y1="38" x2="376" y2="38" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="72" y="26">4,000</text><text class="tx" x="226" y="26">13,000</text>
+  <!-- 좌측 치수 -->
+  <line class="th" x1="138" y1="60" x2="36" y2="60"/><line class="th" x1="66" y1="186" x2="36" y2="186"/><line class="th" x1="66" y1="240" x2="36" y2="240"/><line class="th" x1="282" y1="285" x2="36" y2="285"/>
+  <line class="dm" x1="44" y1="60" x2="44" y2="186" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="44" y1="186" x2="44" y2="240" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="44" y1="240" x2="44" y2="285" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="2" y="128">7,000</text><text class="ts" x="2" y="218">3,000</text><text class="ts" x="2" y="268">2,500</text>
+  <!-- 하단 치수 -->
+  <line class="th" x1="70" y1="244" x2="70" y2="318"/><line class="th" x1="286" y1="289" x2="286" y2="318"/><line class="th" x1="376" y1="289" x2="376" y2="318"/>
+  <line class="dm" x1="70" y1="310" x2="286" y2="310" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="286" y1="310" x2="376" y2="310" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="150" y="334">12,000</text><text class="tx" x="304" y="334">5,000</text>
+</svg>

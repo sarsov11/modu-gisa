@@ -1,0 +1,36 @@
+<svg class="gk" viewBox="0 0 640 310" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 1 고정매입법 -->
+  <text class="tb" x="110" y="34" text-anchor="middle">고정매입법</text>
+  <rect class="fl" x="40" y="140" width="140" height="110"/><rect class="ln" x="40" y="140" width="140" height="110" fill="none"/>
+  <rect class="sup" x="50" y="128" width="120" height="12"/>
+  <line class="m" x1="80" y1="86" x2="80" y2="214"/><line class="m" x1="140" y1="86" x2="140" y2="214"/>
+  <line class="m" x1="70" y1="214" x2="90" y2="214"/><line class="m" x1="130" y1="214" x2="150" y2="214"/>
+  <rect class="sup" x="73" y="108" width="14" height="16"/><rect class="sup" x="133" y="108" width="14" height="16"/>
+  <line class="dsh" x1="56" y1="184" x2="164" y2="184"/><text class="ts" x="110" y="176" text-anchor="middle">고정 틀</text>
+  <text class="ts" x="110" y="276" text-anchor="middle">볼트를 틀로 고정하고</text><text class="ts" x="110" y="294" text-anchor="middle">콘크리트와 함께 타설</text>
+  <!-- 2 가동매입법 -->
+  <text class="tb" x="320" y="34" text-anchor="middle">가동매입법</text>
+  <rect class="fl" x="250" y="140" width="140" height="110"/><rect class="ln" x="250" y="140" width="140" height="110" fill="none"/>
+  <rect class="sup" x="260" y="128" width="120" height="12"/>
+  <rect class="dsh" x="282" y="140" width="16" height="74"/><rect class="dsh" x="342" y="140" width="16" height="74"/>
+  <line class="m" x1="290" y1="86" x2="290" y2="214"/><line class="m" x1="350" y1="86" x2="350" y2="214"/>
+  <rect class="sup" x="283" y="108" width="14" height="16"/><rect class="sup" x="343" y="108" width="14" height="16"/>
+  <text class="ts" x="320" y="236" text-anchor="middle">슬리브</text>
+  <text class="ts" x="320" y="276" text-anchor="middle">슬리브 안에서 볼트 위치를</text><text class="ts" x="320" y="294" text-anchor="middle">조정할 수 있게 매입</text>
+  <!-- 3 나중매입법 -->
+  <text class="tb" x="530" y="34" text-anchor="middle">나중매입법</text>
+  <rect class="fl" x="460" y="140" width="140" height="110"/><rect class="ln" x="460" y="140" width="140" height="110" fill="none"/>
+  <rect class="hl" x="480" y="140" width="40" height="84"/><rect class="hl" x="540" y="140" width="40" height="84"/>
+  <rect class="dsh" x="480" y="140" width="40" height="84"/><rect class="dsh" x="540" y="140" width="40" height="84"/>
+  <rect class="sup" x="470" y="128" width="120" height="12"/>
+  <line class="m" x1="500" y1="86" x2="500" y2="214"/><line class="m" x1="560" y1="86" x2="560" y2="214"/>
+  <rect class="sup" x="493" y="108" width="14" height="16"/><rect class="sup" x="553" y="108" width="14" height="16"/>
+  <text class="ts" x="530" y="242" text-anchor="middle">모르타르 충전</text>
+  <text class="ts" x="530" y="276" text-anchor="middle">타설 때 구멍을 만들고</text><text class="ts" x="530" y="294" text-anchor="middle">볼트를 넣은 뒤 충전</text>
+</svg>

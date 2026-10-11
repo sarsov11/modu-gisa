@@ -1,0 +1,36 @@
+<svg class="gk" viewBox="0 0 500 270" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- CIP 시공 순서 4단계 (단면) -->
+  <rect class="fl" x="20" y="40" width="100" height="150"/><rect class="ln" x="20" y="40" width="100" height="150"/>
+  <rect class="nd" x="58" y="40" width="24" height="130"/>
+  <line class="m" x1="70" y1="16" x2="70" y2="168"/>
+  <text class="tb" x="44" y="216">① 천공</text><text class="ts" x="26" y="236">오거로 구멍 뚫기</text>
+
+  <rect class="fl" x="140" y="40" width="100" height="150"/><rect class="ln" x="140" y="40" width="100" height="150"/>
+  <rect class="nd" x="178" y="40" width="24" height="130"/>
+  <line class="m" x1="184" y1="30" x2="184" y2="162"/><line class="m" x1="196" y1="30" x2="196" y2="162"/>
+  <text class="tb" x="154" y="216">② 철근 삽입</text><text class="ts" x="154" y="236">철근을 세움</text>
+
+  <rect class="fl" x="260" y="40" width="100" height="150"/><rect class="ln" x="260" y="40" width="100" height="150"/>
+  <rect class="nd" x="298" y="40" width="24" height="130"/>
+  <line class="m" x1="304" y1="30" x2="304" y2="162"/><line class="m" x1="316" y1="30" x2="316" y2="162"/>
+  <line class="ln" x1="310" y1="20" x2="310" y2="162"/>
+  <circle class="rb" cx="302" cy="158" r="3"/><circle class="rb" cx="318" cy="158" r="3"/><circle class="rb" cx="310" cy="152" r="3"/><circle class="rb" cx="302" cy="146" r="3"/><circle class="rb" cx="318" cy="146" r="3"/><circle class="rb" cx="310" cy="140" r="3"/>
+  <text class="tb" x="270" y="216">③ 자갈 채움</text><text class="ts" x="270" y="236">주입관 설치</text>
+
+  <rect class="fl" x="380" y="40" width="100" height="150"/><rect class="ln" x="380" y="40" width="100" height="150"/>
+  <rect class="nd" x="418" y="40" width="24" height="130"/>
+  <rect class="hl" x="419" y="110" width="22" height="59"/>
+  <line class="m" x1="424" y1="30" x2="424" y2="162"/><line class="m" x1="436" y1="30" x2="436" y2="162"/>
+  <line class="ln" x1="430" y1="20" x2="430" y2="162"/>
+  <text class="tb" x="388" y="216">④ 모르타르</text><text class="ts" x="386" y="236">아래에서 위로 주입</text>
+
+  <line class="th" x1="124" y1="110" x2="136" y2="110" marker-end="url(#ai)"/>
+  <line class="th" x1="244" y1="110" x2="256" y2="110" marker-end="url(#ai)"/>
+  <line class="th" x1="364" y1="110" x2="376" y2="110" marker-end="url(#ai)"/>
+</svg>

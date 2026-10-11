@@ -1,0 +1,32 @@
+<svg class="gk" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 상부구조 -->
+  <rect class="fl" x="170" y="40" width="260" height="130"/>
+  <rect class="ln" x="170" y="40" width="260" height="130" fill="none"/>
+  <line class="th" x1="170" y1="83" x2="430" y2="83"/><line class="th" x1="170" y1="126" x2="430" y2="126"/>
+  <text class="tb" x="300" y="68" text-anchor="middle">상부구조</text>
+  <!-- 기초 슬래브(위) -->
+  <line class="m" x1="150" y1="174" x2="450" y2="174"/>
+  <!-- 적층고무 받침 -->
+  <rect class="hl" x="205" y="178" width="44" height="34"/><rect class="ln" x="205" y="178" width="44" height="34" fill="none"/>
+  <line class="th" x1="205" y1="186" x2="249" y2="186"/><line class="th" x1="205" y1="194" x2="249" y2="194"/><line class="th" x1="205" y1="202" x2="249" y2="202"/>
+  <rect class="hl" x="351" y="178" width="44" height="34"/><rect class="ln" x="351" y="178" width="44" height="34" fill="none"/>
+  <line class="th" x1="351" y1="186" x2="395" y2="186"/><line class="th" x1="351" y1="194" x2="395" y2="194"/><line class="th" x1="351" y1="202" x2="395" y2="202"/>
+  <!-- 하부 기초 -->
+  <line class="m" x1="150" y1="216" x2="450" y2="216"/>
+  <rect class="fl" x="100" y="216" width="400" height="26"/>
+  <rect x="100" y="216" width="400" height="26" fill="url(#hat)"/>
+  <!-- 지진동 -->
+  <line class="ld" x1="230" y1="266" x2="370" y2="266" marker-start="url(#ar)" marker-end="url(#ar)"/>
+  <text class="tr" x="300" y="290" text-anchor="middle">지진동 (큼)</text>
+  <line class="ld" x1="270" y1="22" x2="330" y2="22" marker-start="url(#ar)" marker-end="url(#ar)"/>
+  <text class="tr" x="340" y="27">상부 흔들림 (작음)</text>
+  <!-- 지시선 -->
+  <line class="th" x1="395" y1="196" x2="470" y2="196"/><text class="tb" x="476" y="193">적층고무 받침</text><text class="ts" x="476" y="211">면진층</text>
+  <line class="th" x1="150" y1="174" x2="96" y2="150"/><text class="ts" x="20" y="146">기초 슬래브</text>
+</svg>

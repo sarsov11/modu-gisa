@@ -1,0 +1,42 @@
+<svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 물 -->
+  <rect class="fl" x="96" y="70" width="248" height="156"/>
+  <!-- 탱크 벽 -->
+  <path class="ln" d="M96,40 V226 H344 V176 M344,164 V40"/>
+  <rect class="sup" x="84" y="226" width="272" height="12"/>
+  <!-- 수면 -->
+  <polygon class="nd" points="112,56 126,56 119,68"/>
+  <line class="th" x1="96" y1="70" x2="344" y2="70"/>
+  <line class="th" x1="150" y1="82" x2="290" y2="82"/><line class="th" x1="180" y1="92" x2="260" y2="92"/><line class="th" x1="206" y1="102" x2="234" y2="102"/>
+  <!-- 최저 유효 수면 -->
+  <line class="dsh" x1="40" y1="170" x2="470" y2="170"/>
+  <!-- 토출관 -->
+  <line class="ln" x1="344" y1="164" x2="430" y2="164"/>
+  <line class="ln" x1="344" y1="176" x2="430" y2="176"/>
+  <line class="ld" x1="440" y1="170" x2="478" y2="170" marker-end="url(#ar)"/>
+  <text class="tx" x="486" y="175">안지름 = 80 mm</text>
+  <!-- 높이 H -->
+  <line class="th" x1="40" y1="70" x2="96" y2="70"/>
+  <line class="dm" x1="62" y1="70" x2="62" y2="170" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tm" x="12" y="114">H</text><text class="tx" x="26" y="114">(10 m)</text>
+  <text class="ts" x="14" y="200">최저 유효 수면</text>
+  <text class="tx" x="366" y="64">수면의 면적 = 36 m²</text>
+</svg>

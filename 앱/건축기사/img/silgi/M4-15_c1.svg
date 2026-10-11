@@ -1,0 +1,31 @@
+<svg class="gk" viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 기초와 편심하중 (1 m = 80 px, 중심 x=240, e=0.4 m = 32 px) -->
+  <rect class="fl" x="60" y="70" width="360" height="30"/>
+  <rect class="ln" x="60" y="70" width="360" height="30" fill="none"/>
+  <line class="ld" x1="272" y1="14" x2="272" y2="68" marker-end="url(#ar)"/>
+  <text class="tr" x="286" y="34">P = 1,200 kN</text>
+  <line class="dsh" x1="240" y1="40" x2="240" y2="104"/>
+  <!-- 접지압 분포: 오른쪽이 큼 -->
+  <polygon class="hl" points="60,100 420,100 420,200 60,130"/>
+  <polygon class="ln" points="60,100 420,100 420,200 60,130" fill="none"/>
+  <line class="ld" x1="60" y1="130" x2="60" y2="102" marker-end="url(#ar)"/>
+  <line class="ld" x1="150" y1="147" x2="150" y2="102" marker-end="url(#ar)"/>
+  <line class="ld" x1="240" y1="165" x2="240" y2="102" marker-end="url(#ar)"/>
+  <line class="ld" x1="330" y1="182" x2="330" y2="102" marker-end="url(#ar)"/>
+  <line class="ld" x1="420" y1="200" x2="420" y2="102" marker-end="url(#ar)"/>
+  <text class="tx" x="60" y="152" text-anchor="middle">σ<tspan dy="4" class="ts">min</tspan></text>
+  <text class="tr" x="60" y="172" text-anchor="middle">41.5</text>
+  <text class="tx" x="420" y="222" text-anchor="middle">σ<tspan dy="4" class="ts">max</tspan></text>
+  <text class="tr" x="420" y="242" text-anchor="middle">136.3 kN/m²</text>
+  <!-- 식 -->
+  <text class="tb" x="40" y="236">σ = P/A ± M/Z</text>
+  <text class="tx" x="40" y="264">P/A = 88.9 kN/m²</text>
+  <text class="tx" x="40" y="288">M/Z = 47.4 kN/m²</text>
+  <text class="ts" x="40" y="318">e = 0.4 m &lt; B/6 = 0.75 m 이므로 접지면 전체가 압축이다</text>
+</svg>

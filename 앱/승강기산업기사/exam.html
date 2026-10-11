@@ -118,7 +118,8 @@
       var 총맞=과목들.reduce(function(a,s){return a+s.맞;},0);
       var 쓴분=Math.max(1,Math.round((Date.now()-시작)/60000));
       문제.forEach(function(z){ QL.기록(z.x.id, z.고름!=null && z.순[z.고름]===z.x.a-1); });
-      var rec={t:GS.오늘(), ts:Date.now(), 종목:D.종목, 유형:유형, 합:판.합, 평균:판.평균, 총맞:총맞, 총문:총, 분:쓴분,
+      /* 답:답한 문항 수 — 절반 미만이면 합격 가늠에서 뺀다(GS.시험성적, 2026-10-11 외부 검수) */
+      var rec={t:GS.오늘(), ts:Date.now(), 종목:D.종목, 유형:유형, 합:판.합, 평균:판.평균, 총맞:총맞, 총문:총, 답:답수(), 분:쓴분,
                통과선:판.통과선, 과락선:판.과락선, 과목:과목들};
       GS.S.모의=(GS.S.모의||[]).concat([rec]).slice(-30); GS.저장();
       window.__결과=rec;
@@ -132,6 +133,8 @@
     var 틀=문제.filter(function(z){return z.고름==null || z.순[z.고름]!==z.x.a-1;});
     var 큰=유형==="기능사" ? '<strong>'+판.평균+' / 60</strong>' : '<strong>평균 '+판.평균+' / 60</strong>';
     var h='<div class="big"><span class="pl '+(판.합?"pass":"fail")+'">'+(판.합?"합격":"불합격")+'</span>'+큰+'</div>';
+    var 비운=문제.filter(function(z){return z.고름==null;}).length;
+    if(비운*2>총) h+='<p style="margin:8px 0 0;font-size:14px;color:var(--ink-3)">답하지 않은 문항 '+비운+'개. 절반 넘게 비워서 합격 가늠에는 넣지 않음</p>';
     h+='<div class="tally"><div><b>'+총맞+' / '+총+'</b><span>정답</span></div><div><b>'+틀.length+'</b><span>오답</span></div><div><b>'+쓴분+'</b><span>분</span></div></div>';
     if(유형!=="기능사") h+='<div class="sub">'+과목들.map(function(s){
       return '<div class="r'+(s.락?' lk2':'')+'"><b>'+e(QL.이름(s.n))+(s.락?'<span class="pl lock">과락</span>':'')+'</b><em>'+s.점+'점</em>'+
@@ -166,5 +169,5 @@
   시작화면();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

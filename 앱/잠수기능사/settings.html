@@ -41,6 +41,9 @@
     <div class="sk" id="cheer"></div>
   </div></details>
   <details class="fold"><summary>기록</summary><div class="in">
+    <p style="margin:0 0 10px;font-size:14px;color:var(--ink-3)">기록은 이 기기·이 브라우저에만 저장됨. 다른 기기로 옮기려면 내보낸 파일을 거기서 가져오기. 이 종목 기록만 옮겨짐.</p>
+    <button class="b" id="exp">기록 내보내기</button>
+    <label class="b" style="display:inline-block">기록 가져오기<input type="file" id="imp" accept=".json,application/json" style="display:none"></label>
     <button class="b" id="reset">기록 전부 지우기</button>
   </div></details>
 </div>
@@ -121,10 +124,23 @@
   }
   연출그리기();
 
+  /* 기록 옮기기 — 종목·판 표시가 든 파일. 다른 종목 파일은 거절(2026-10-11 외부 검수 G) */
+  document.getElementById("exp").onclick=function(){
+    var b=new Blob([GS.내보내기()],{type:"application/json"}), a=document.createElement("a");
+    a.href=URL.createObjectURL(b); a.download="모두의기사_"+GS.D.종목+"_"+GS.오늘()+".json"; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500);
+  };
+  document.getElementById("imp").onchange=function(){
+    var f=this.files&&this.files[0]; if(!f) return;
+    var r=new FileReader(); r.onload=function(){
+      if(!confirm("지금 이 종목 기록을 파일 내용으로 바꿈")) return;
+      var 오=GS.가져오기(String(r.result)); if(오){ alert(오); return; } location.href="index.html";
+    }; r.readAsText(f);
+  };
   document.getElementById("reset").onclick=function(){
     if(confirm("기록 전부 삭제 · 복구 불가")){ GS.초기화(); location.href="index.html"; }
   };
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

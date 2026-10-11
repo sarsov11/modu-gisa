@@ -1,0 +1,29 @@
+<svg class="gk" viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 단순보 (1 m = 45 px) -->
+  <line class="m" x1="40" y1="110" x2="400" y2="110"/>
+  <polygon class="sup" points="40,112 24,138 56,138"/><line class="ln" x1="14" y1="138" x2="66" y2="138"/>
+  <polygon class="sup" points="400,112 384,136 416,136"/><circle class="nd" cx="392" cy="141" r="4"/><circle class="nd" cx="408" cy="141" r="4"/><line class="ln" x1="374" y1="146" x2="426" y2="146"/>
+  <text class="tb" x="22" y="100">A</text><text class="tb" x="412" y="100">B</text>
+  <!-- 하중 -->
+  <line class="ld" x1="220" y1="36" x2="220" y2="107" marker-end="url(#ar)"/>
+  <text class="tr" x="182" y="28">240 kN</text>
+  <!-- 치수 -->
+  <line class="th" x1="40" y1="150" x2="40" y2="190"/><line class="th" x1="220" y1="116" x2="220" y2="190"/><line class="th" x1="400" y1="150" x2="400" y2="190"/>
+  <line class="dm" x1="40" y1="182" x2="220" y2="182" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="220" y1="182" x2="400" y2="182" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="118" y="206">4 m</text><text class="tx" x="298" y="206">4 m</text>
+  <!-- 단면 250 x 500 mm -->
+  <rect class="fl" x="500" y="40" width="80" height="160"/><rect class="ln" x="500" y="40" width="80" height="160"/>
+  <line class="th" x1="584" y1="40" x2="614" y2="40"/><line class="th" x1="584" y1="200" x2="614" y2="200"/>
+  <line class="dm" x1="606" y1="40" x2="606" y2="200" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="616" y="125">500 mm</text>
+  <line class="th" x1="500" y1="204" x2="500" y2="230"/><line class="th" x1="580" y1="204" x2="580" y2="230"/>
+  <line class="dm" x1="500" y1="224" x2="580" y2="224" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="508" y="248">250 mm</text>
+</svg>

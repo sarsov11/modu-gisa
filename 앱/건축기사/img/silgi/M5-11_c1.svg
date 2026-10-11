@@ -1,0 +1,25 @@
+<svg class="gk" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg"><style>svg.gk{background:#FFFFFF}svg.gk .m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}svg.gk .ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}svg.gk .th{stroke:#5B6475;stroke-width:1.1;fill:none}svg.gk .dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}svg.gk .ld{stroke:#E0313A;stroke-width:1.8;fill:none}svg.gk .dm{stroke:#8C95A8;stroke-width:1.1;fill:none}svg.gk .crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}svg.gk .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}svg.gk .rb{fill:#1F2533;stroke:none}svg.gk .fl{fill:#EEF1F6;stroke:none}svg.gk .hl{fill:#FDE7E8;stroke:none}svg.gk .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}svg.gk .tx,svg.gk .tb,svg.gk .ts,svg.gk .tr,svg.gk .tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}svg.gk .tb{font-weight:800}svg.gk .ts{font-size:12.5px;fill:#5B6475}svg.gk .tr{fill:#E0313A;font-weight:800}svg.gk .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 히빙: 연약 점토에서 벽 뒤쪽 흙이 벽 아래를 돌아 굴착저면으로 솟음 -->
+  <polygon class="fl" points="30,60 166,60 166,250 30,250"/>
+  <polygon class="fl" points="174,140 450,140 450,250 174,250"/>
+  <line class="ln" x1="30" y1="60" x2="166" y2="60"/>
+  <line class="ln" x1="174" y1="140" x2="450" y2="140"/>
+  <rect class="sup" x="166" y="60" width="8" height="130"/>
+  <path class="ld" d="M110,80 C110,236 330,236 330,150" marker-end="url(#ar)"/>
+  <path class="dsh" d="M174,140 Q312,112 450,140"/>
+  <text class="tb" x="40" y="48">지표면</text>
+  <text class="tx" x="196" y="40">흙막이벽</text>
+  <line class="th" x1="214" y1="46" x2="176" y2="86" marker-end="url(#ai)"/>
+  <text class="tr" x="290" y="104">굴착저면 융기 (히빙)</text>
+  <text class="tx" x="48" y="226">연약 점토</text>
+  <text class="ts" x="220" y="262">흙의 이동 방향</text>
+  <line class="th" x1="178" y1="190" x2="226" y2="190"/>
+  <line class="dm" x1="212" y1="140" x2="212" y2="190" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="222" y="170">근입</text>
+</svg>
