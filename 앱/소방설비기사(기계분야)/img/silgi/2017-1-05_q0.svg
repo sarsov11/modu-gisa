@@ -1,0 +1,39 @@
+<svg viewBox="0 0 520 330" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 배관 내경 300 mm -->
+  <path class="m" d="M40,50 L480,50"/><path class="m" d="M40,110 L480,110"/>
+  <path class="ln" d="M40,50 Q28,80 40,110"/><path class="ln" d="M480,50 Q492,80 480,110"/>
+  <line class="dm" x1="80" y1="50" x2="80" y2="110" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="88" y="86">내경 300 mm</text>
+  <!-- 오리피스 구경 150 mm -->
+  <line class="m" x1="280" y1="50" x2="280" y2="65"/><line class="m" x1="280" y1="95" x2="280" y2="110"/>
+  <line class="dm" x1="296" y1="65" x2="296" y2="95" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="304" y="84">150 mm</text>
+  <!-- U자관 (수은) -->
+  <path fill="url(#hat)" d="M220,240 A60,60 0 0 0 340,240 L340,140 L320,140 L320,240 A40,40 0 0 1 240,240 Z"/>
+  <path class="ln" d="M220,110 L220,240 A60,60 0 0 0 340,240 L340,110"/>
+  <path class="ln" d="M240,110 L240,240 A40,40 0 0 0 320,240 L320,110"/>
+  <line class="ln" x1="220" y1="240" x2="240" y2="240"/><line class="ln" x1="320" y1="140" x2="340" y2="140"/>
+  <text class="tx" x="262" y="268">수은</text>
+  <!-- 높이차 h -->
+  <line class="th" x1="344" y1="140" x2="390" y2="140"/><line class="th" x1="244" y1="240" x2="390" y2="240"/>
+  <line class="dm" x1="380" y1="140" x2="380" y2="240" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="388" y="196">h = 500 mm</text>
+</svg>

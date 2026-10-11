@@ -1,0 +1,88 @@
+<svg viewBox="0 0 640 262" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <g transform="translate(8 14)">
+    <!-- 교차배관 H - G - F -->
+    <path class="ln" d="M62,113 H338"/>
+    <circle class="rb" cx="62" cy="113" r="3"/>
+    <text class="tx" x="55" y="130">H</text>
+    <text class="tx" x="80" y="102">3000</text>
+    <text class="tx" x="82" y="130">(50A)</text>
+    <text class="tx" x="180" y="134">G</text>
+    <text class="tx" x="217" y="130">40A</text>
+    <text class="tx" x="277" y="102">3000</text>
+    <text class="tx" x="343" y="124">F</text>
+
+    <!-- G 에서 100 올라가는 가지 (왼쪽 가지배관) -->
+    <path class="ln" d="M187,113 V94"/>
+    <text class="tx" x="194" y="106">100</text>
+    <path class="ln" d="M60,190 L258,40"/>
+    <path class="ln" d="M60,181 V190"/>
+    <path class="ln" d="M60,181 H95 V210"/><polygon class="nd" points="88,210 102,210 95,222"/>
+    <path class="ln" d="M102,158 V150 H137 V180"/><polygon class="nd" points="130,180 144,180 137,192"/>
+    <path class="ln" d="M145,125 V118 H180 V150"/><polygon class="nd" points="173,150 187,150 180,162"/>
+    <path class="ln" d="M208,77 V72 H245 V100"/><polygon class="nd" points="238,100 252,100 245,112"/>
+    <path class="ln" d="M255,42 V40 H288 V68"/><polygon class="nd" points="281,68 295,68 288,80"/>
+
+    <!-- F 에서 100 올라가 E : 오른쪽 가지배관 -->
+    <path class="ln" d="M338,113 V97"/>
+    <text class="tx" x="357" y="103">100</text>
+    <text class="tx" x="331" y="88">E</text>
+    <path class="ln" d="M212,191 L410,40"/>
+    <circle class="rb" cx="212" cy="191" r="3"/>
+    <circle class="rb" cx="255" cy="158" r="3"/>
+    <circle class="rb" cx="298" cy="125" r="3"/>
+    <circle class="rb" cx="338" cy="97" r="3"/>
+    <text class="tx" x="196" y="206">B</text>
+    <!-- B 점의 헤드 A -->
+    <path class="ln" d="M212,191 V179 H247 V211"/><polygon class="nd" points="240,211 254,211 247,223"/>
+    <text class="tx" x="241" y="242">A</text>
+    <text class="tx" x="178" y="196">100</text>
+    <text class="tx" x="206" y="170">100</text>
+    <text class="tx" x="252" y="200">300</text>
+    <!-- 중간 헤드 -->
+    <path class="ln" d="M255,158 V150 H290 V180"/><polygon class="nd" points="283,180 297,180 290,192"/>
+    <path class="ln" d="M298,125 V118 H332 V150"/><polygon class="nd" points="325,150 339,150 332,162"/>
+    <path class="ln" d="M362,76 V70 H397 V100"/><polygon class="nd" points="390,100 404,100 397,112"/>
+    <path class="ln" d="M410,40 H441 V68"/><polygon class="nd" points="434,68 448,68 441,80"/>
+    <!-- 구간 관경 -->
+    <text class="tx" x="292" y="147">(25A)</text>
+    <text class="tx" x="248" y="178">(25A)</text>
+    <text class="tx" x="340" y="136">(32A)</text>
+
+    <!-- 오른쪽 : 헤드 간격 -->
+    <path class="ln" d="M383,203 L590,54"/>
+    <path class="th" d="M380,198 H404 M419,170 H443 M455,142 H479 M492,116 H516 M529,88 H553 M566,62 H590"/>
+    <circle class="rb" cx="392" cy="198" r="3.5"/>
+    <circle class="rb" cx="430" cy="170" r="3.5"/>
+    <circle class="rb" cx="467" cy="142" r="3.5"/>
+    <circle class="rb" cx="504" cy="116" r="3.5"/>
+    <circle class="rb" cx="541" cy="88" r="3.5"/>
+    <circle class="rb" cx="578" cy="62" r="3.5"/>
+    <text class="tx" x="406" y="203">(B점)</text>
+    <text class="tx" x="443" y="175">(C점)</text>
+    <text class="tx" x="480" y="148">(D점)</text>
+    <text class="tx" x="515" y="121">(E점)</text>
+    <text class="tx" x="364" y="178">2000</text>
+    <text class="tx" x="403" y="150">2000</text>
+    <text class="tx" x="438" y="124">1500</text>
+    <text class="tx" x="474" y="97">500</text>
+    <text class="tx" x="512" y="72">2000</text>
+  </g>
+</svg>

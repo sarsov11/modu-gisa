@@ -1,0 +1,36 @@
+<svg viewBox="0 0 400 235" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tx" x="50" y="65" text-anchor="middle">O</text>
+  <text class="tx" x="110" y="65" text-anchor="middle">C</text>
+  <text class="tx" x="170" y="65" text-anchor="middle">O</text>
+  <text class="tx" x="230" y="65" text-anchor="middle">O</text>
+  <text class="tx" x="290" y="65" text-anchor="middle">C</text>
+  <text class="tx" x="350" y="65" text-anchor="middle">O</text>
+  <line class="ln" x1="63" y1="57" x2="97" y2="57"/><line class="ln" x1="63" y1="63" x2="97" y2="63"/>
+  <line class="ln" x1="123" y1="60" x2="157" y2="60"/>
+  <line class="ln" x1="183" y1="60" x2="217" y2="60"/>
+  <line class="ln" x1="243" y1="60" x2="277" y2="60"/>
+  <line class="ln" x1="303" y1="57" x2="337" y2="57"/><line class="ln" x1="303" y1="63" x2="337" y2="63"/>
+  <line class="ln" x1="110" y1="73" x2="110" y2="100"/>
+  <line class="ln" x1="290" y1="73" x2="290" y2="100"/>
+  <g transform="translate(110,140)"><path class="ln" d="M0,-40 L34.6,-20 L34.6,20 L0,40 L-34.6,20 L-34.6,-20 Z"/><line class="ln" x1="1.3" y1="-32.3" x2="27.3" y2="-17.3"/><line class="ln" x1="27.3" y1="17.3" x2="1.3" y2="32.3"/><line class="ln" x1="-28.6" y1="-15" x2="-28.6" y2="15"/></g>
+  <g transform="translate(290,140)"><path class="ln" d="M0,-40 L34.6,-20 L34.6,20 L0,40 L-34.6,20 L-34.6,-20 Z"/><line class="ln" x1="1.3" y1="-32.3" x2="27.3" y2="-17.3"/><line class="ln" x1="27.3" y1="17.3" x2="1.3" y2="32.3"/><line class="ln" x1="-28.6" y1="-15" x2="-28.6" y2="15"/></g>
+  <text class="tb" x="200" y="222" text-anchor="middle">과산화벤조일</text>
+</svg>

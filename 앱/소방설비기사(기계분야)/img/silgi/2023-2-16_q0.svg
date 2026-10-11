@@ -1,0 +1,52 @@
+<svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 벤투리관 -->
+  <polyline class="m" points="90,30 190,30 250,56 310,56 370,30 440,30"/>
+  <polyline class="m" points="90,110 190,110 250,84 310,84 370,110 440,110"/>
+  <path class="ln" d="M90,30 Q100,50 90,70 Q80,90 90,110"/>
+  <path class="ln" d="M440,30 Q450,50 440,70 Q430,90 440,110"/>
+  <!-- 유속 V1, V2 -->
+  <line class="ld" x1="105" y1="68" x2="160" y2="68" marker-end="url(#ar)"/>
+  <text class="tm" x="124" y="96">V<tspan dy="4" class="ts">1</tspan></text>
+  <line class="ld" x1="326" y1="78" x2="380" y2="78" marker-end="url(#ar)"/>
+  <text class="tm" x="340" y="64">V<tspan dy="4" class="ts">2</tspan></text>
+  <!-- 관경 -->
+  <line class="th" x1="56" y1="30" x2="86" y2="30"/><line class="th" x1="56" y1="110" x2="86" y2="110"/>
+  <line class="dm" x1="64" y1="30" x2="64" y2="110" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" transform="rotate(-90 50 100)" x="50" y="100">φ390 mm</text>
+  <line class="dm" x1="280" y1="56" x2="280" y2="84" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="th" x1="270" y1="29" x2="280" y2="52"/>
+  <text class="tx" x="226" y="22">φ180 mm</text>
+  <!-- 액주계 연결관 -->
+  <polyline class="ln" points="158,110 158,153 208,153 208,212"/>
+  <polyline class="ln" points="172,110 172,139 222,139 222,212"/>
+  <polyline class="ln" points="287,84 287,153 262,153 262,212"/>
+  <polyline class="ln" points="273,84 273,139 248,139 248,212"/>
+  <!-- U자관 수은 -->
+  <path class="hl" d="M208,190 L222,190 L222,212 A13,13 0 0 0 248,212 L248,165 L262,165 L262,212 A27,27 0 0 1 208,212 Z"/>
+  <path class="ln" d="M208,212 A27,27 0 0 0 262,212"/>
+  <path class="ln" d="M222,212 A13,13 0 0 0 248,212"/>
+  <!-- 수은 높이차 -->
+  <line class="dsh" x1="100" y1="165" x2="248" y2="165"/><line class="dsh" x1="100" y1="190" x2="208" y2="190"/>
+  <line class="dm" x1="120" y1="165" x2="120" y2="190" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="20" y="183">Δh = 30 cm</text>
+  <line class="th" x1="256" y1="236" x2="278" y2="244"/>
+  <text class="tx" x="282" y="250">수은</text>
+</svg>

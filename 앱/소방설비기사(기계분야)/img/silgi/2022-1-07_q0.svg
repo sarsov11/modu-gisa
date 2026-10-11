@@ -1,0 +1,84 @@
+<svg viewBox="0 0 680 440" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 옥상 수조 -->
+  <path class="ln" d="M97,17 V68 H206 V17"/>
+  <path class="th" d="M107,32 H175 M120,38 H149 M107,47 H162 M120,53 H146"/>
+  <rect class="sup" x="170" y="44" width="15" height="9"/>
+  <!-- 옥상 수조 배관 : 밸브 · 체크밸브 -->
+  <path class="ln" d="M185,49 H230 M242,49 H255 M267,49 H294 V235"/>
+  <path class="nd" d="M230,44 L242,54 V44 L230,54 Z"/>
+  <path class="nd" d="M255,44 L267,54 V44 L255,54 Z"/>
+  <line class="ln" x1="261" y1="42" x2="261" y2="56"/>
+  <line class="th" x1="254" y1="37" x2="270" y2="37" marker-end="url(#ai)"/>
+  <!-- 기준선 : 5 m, 40 m -->
+  <path class="dsh" d="M45,118 H294"/>
+  <path class="th" d="M45,42 H72 M45,344 H72"/>
+  <line class="dm" x1="63" y1="42" x2="63" y2="118" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="63" y1="118" x2="63" y2="344" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="26" y="84">5 m</text>
+  <text class="tx" x="22" y="236">40 m</text>
+  <!-- 주배관(헤드 쪽) -->
+  <path class="ln" d="M337,118 H646 M646,111 V125"/>
+  <!-- 습식 경보밸브와 개폐밸브, 시험·배수 배관 -->
+  <path class="ln" d="M337,118 V141 M337,167 V219 H294 M337,180 H374 V266"/>
+  <circle class="nd" cx="337" cy="154" r="13"/>
+  <polygon class="rb" points="337,146 330,161 344,161"/>
+  <path class="nd" d="M332,195 L342,207 H332 L342,195 Z"/>
+  <path class="nd" d="M369,213 L379,225 H369 L379,213 Z"/>
+  <!-- 압력챔버와 펌프 토출 배관 -->
+  <path class="ln" d="M294,235 H241 V329"/>
+  <path class="nd" d="M234,217 V202 A7.5,7.5 0 0 1 249,202 V217 Z"/>
+  <line class="ln" x1="241" y1="217" x2="241" y2="235"/>
+  <path class="nd" d="M236,268 L246,280 H236 L246,268 Z"/>
+  <path class="ln" d="M236,289 H246 L236,301 H246"/>
+  <!-- 펌프 -->
+  <circle class="nd" cx="241" cy="346" r="17"/>
+  <text class="tx" x="241" y="351" text-anchor="middle">P</text>
+  <path class="ln" d="M230,361 L224,373 M252,361 L258,373 M209,373 H275"/>
+  <rect fill="url(#hat)" x="209" y="373" width="66" height="7"/>
+  <!-- 흡입 배관 · 진공계 -->
+  <path class="ln" d="M224,346 H136 V405"/>
+  <path class="ln" d="M191,346 V332"/>
+  <circle class="nd" cx="191" cy="324" r="8"/>
+  <circle class="nd" cx="191" cy="324" r="3"/>
+  <text class="tx" x="140" y="307">500 mmHg</text>
+  <!-- 지하 수조와 후드밸브 -->
+  <path class="ln" d="M81,375 V425 H192 V375"/>
+  <path class="dsh" d="M86,391 H187 M86,399 H187 M86,407 H187 M86,415 H187"/>
+  <rect class="sup" x="127" y="405" width="19" height="12"/>
+  <!-- 가지배관 1열 (경사선) -->
+  <path class="ln" d="M461,191 L565,38"/>
+  <path class="th" d="M456,188 L466,194 M560,35 L570,41"/>
+  <path class="ln" d="M542,72 V54 H561 V68"/><polygon class="rb" points="556,68 566,68 561,77"/>
+  <path class="ln" d="M518,107 V89 H539 V104"/><polygon class="rb" points="534,104 544,104 539,113"/>
+  <path class="ln" d="M490,148 V132 H510 V146"/><polygon class="rb" points="505,146 515,146 510,155"/>
+  <path class="ln" d="M469,179 V161 H492 V175"/><polygon class="rb" points="487,175 497,175 492,184"/>
+  <circle class="rb" cx="511" cy="118" r="3"/>
+  <!-- 가지배관 2열 (경사선) -->
+  <path class="ln" d="M547,191 L651,38"/>
+  <path class="th" d="M542,188 L552,194 M646,35 L656,41"/>
+  <path class="ln" d="M628,72 V54 H647 V68"/><polygon class="rb" points="642,68 652,68 647,77"/>
+  <path class="ln" d="M604,107 V89 H625 V104"/><polygon class="rb" points="620,104 630,104 625,113"/>
+  <path class="ln" d="M576,148 V132 H596 V146"/><polygon class="rb" points="591,146 601,146 596,155"/>
+  <path class="ln" d="M555,179 V161 H578 V175"/><polygon class="rb" points="573,175 583,175 578,184"/>
+  <circle class="rb" cx="597" cy="118" r="3"/>
+  <circle class="nd" cx="557" cy="212" r="9"/>
+  <text class="ts" x="557" y="216" text-anchor="middle">A</text>
+</svg>

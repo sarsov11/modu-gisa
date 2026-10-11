@@ -1,0 +1,79 @@
+<svg viewBox="0 0 640 780" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <g transform="translate(0,0)">
+    <text class="tx" x="40" y="110" text-anchor="middle">H</text><text class="tx" x="100" y="110" text-anchor="middle">C</text><text class="tx" x="160" y="110" text-anchor="middle">C</text><text class="tx" x="220" y="110" text-anchor="middle">C</text><text class="tx" x="280" y="110" text-anchor="middle">H</text>
+    <line class="ln" x1="52" y1="105" x2="87" y2="105"/><line class="ln" x1="113" y1="105" x2="147" y2="105"/><line class="ln" x1="173" y1="105" x2="207" y2="105"/><line class="ln" x1="233" y1="105" x2="268" y2="105"/>
+    <line class="ln" x1="100" y1="93" x2="100" y2="66"/><text class="tx" x="100" y="58" text-anchor="middle">H</text>
+    <line class="ln" x1="160" y1="93" x2="160" y2="66"/><text class="tx" x="160" y="58" text-anchor="middle">H</text>
+    <line class="ln" x1="220" y1="93" x2="220" y2="66"/><text class="tx" x="220" y="58" text-anchor="middle">H</text>
+    <line class="ln" x1="100" y1="117" x2="100" y2="144"/><text class="tx" x="100" y="165" text-anchor="middle">ONO<tspan dy="4" class="ts">2</tspan></text>
+    <line class="ln" x1="160" y1="117" x2="160" y2="144"/><text class="tx" x="160" y="165" text-anchor="middle">ONO<tspan dy="4" class="ts">2</tspan></text>
+    <line class="ln" x1="220" y1="117" x2="220" y2="144"/><text class="tx" x="220" y="165" text-anchor="middle">ONO<tspan dy="4" class="ts">2</tspan></text>
+    <text class="tb" x="160" y="242" text-anchor="middle">가. 나이트로글리세린</text>
+  </g>
+  <g transform="translate(320,0)">
+    <g transform="translate(160,125)"><path class="ln" d="M0,-40 L34.6,-20 L34.6,20 L0,40 L-34.6,20 L-34.6,-20 Z"/><line class="ln" x1="1.3" y1="-32.3" x2="27.3" y2="-17.3"/><line class="ln" x1="27.3" y1="17.3" x2="1.3" y2="32.3"/><line class="ln" x1="-28.6" y1="-15" x2="-28.6" y2="15"/></g>
+    <line class="ln" x1="160" y1="85" x2="160" y2="59"/>
+    <text class="tx" x="160" y="50" text-anchor="middle">CH<tspan dy="4" class="ts">3</tspan></text>
+    <line class="ln" x1="125.4" y1="105" x2="101.2" y2="91"/>
+    <text class="tx" x="98" y="96" text-anchor="end">O<tspan dy="4" class="ts">2</tspan><tspan dy="-4">N</tspan></text>
+    <line class="ln" x1="194.6" y1="105" x2="218.8" y2="91"/>
+    <text class="tx" x="222" y="96">NO<tspan dy="4" class="ts">2</tspan></text>
+    <line class="ln" x1="160" y1="165" x2="160" y2="191"/>
+    <text class="tx" x="160" y="210" text-anchor="middle">NO<tspan dy="4" class="ts">2</tspan></text>
+    <text class="tb" x="160" y="242" text-anchor="middle">나. 트라이나이트로톨루엔</text>
+  </g>
+  <g transform="translate(0,260)">
+    <g transform="translate(160,125)"><path class="ln" d="M0,-40 L34.6,-20 L34.6,20 L0,40 L-34.6,20 L-34.6,-20 Z"/><line class="ln" x1="1.3" y1="-32.3" x2="27.3" y2="-17.3"/><line class="ln" x1="27.3" y1="17.3" x2="1.3" y2="32.3"/><line class="ln" x1="-28.6" y1="-15" x2="-28.6" y2="15"/></g>
+    <line class="ln" x1="160" y1="85" x2="160" y2="59"/>
+    <text class="tx" x="160" y="50" text-anchor="middle">OH</text>
+    <line class="ln" x1="125.4" y1="105" x2="101.2" y2="91"/>
+    <text class="tx" x="98" y="96" text-anchor="end">O<tspan dy="4" class="ts">2</tspan><tspan dy="-4">N</tspan></text>
+    <line class="ln" x1="194.6" y1="105" x2="218.8" y2="91"/>
+    <text class="tx" x="222" y="96">NO<tspan dy="4" class="ts">2</tspan></text>
+    <line class="ln" x1="160" y1="165" x2="160" y2="191"/>
+    <text class="tx" x="160" y="210" text-anchor="middle">NO<tspan dy="4" class="ts">2</tspan></text>
+    <text class="tb" x="160" y="242" text-anchor="middle">다. 트라이나이트로페놀</text>
+  </g>
+  <g transform="translate(320,260)">
+    <g transform="translate(80,150)"><path class="ln" d="M0,-40 L34.6,-20 L34.6,20 L0,40 L-34.6,20 L-34.6,-20 Z"/><line class="ln" x1="1.3" y1="-32.3" x2="27.3" y2="-17.3"/><line class="ln" x1="27.3" y1="17.3" x2="1.3" y2="32.3"/><line class="ln" x1="-28.6" y1="-15" x2="-28.6" y2="15"/></g>
+    <g transform="translate(237.6,150)"><path class="ln" d="M0,-40 L34.6,-20 L34.6,20 L0,40 L-34.6,20 L-34.6,-20 Z"/><line class="ln" x1="1.3" y1="-32.3" x2="27.3" y2="-17.3"/><line class="ln" x1="27.3" y1="17.3" x2="1.3" y2="32.3"/><line class="ln" x1="-28.6" y1="-15" x2="-28.6" y2="15"/></g>
+    <line class="ln" x1="114.6" y1="130" x2="132" y2="120"/>
+    <text class="tx" x="138.8" y="121" text-anchor="middle">N</text>
+    <line class="ln" x1="146" y1="113" x2="171" y2="113"/><line class="ln" x1="146" y1="119" x2="171" y2="119"/>
+    <text class="tx" x="178.8" y="121" text-anchor="middle">N</text>
+    <line class="ln" x1="185" y1="122" x2="203" y2="130"/>
+    <text class="tb" x="160" y="242" text-anchor="middle">라. 아조벤젠</text>
+  </g>
+  <g transform="translate(0,520)">
+    <text class="tx" x="46" y="156" text-anchor="middle">H<tspan dy="4" class="ts">3</tspan><tspan dy="-4">C</tspan></text>
+    <line class="ln" x1="66" y1="150" x2="110" y2="150"/>
+    <text class="tx" x="122" y="156" text-anchor="middle">O</text>
+    <line class="ln" x1="134" y1="150" x2="172" y2="150"/>
+    <text class="tx" x="184" y="156" text-anchor="middle">N</text>
+    <circle class="th" cx="197" cy="139" r="5"/><line class="th" x1="194.5" y1="139" x2="199.5" y2="139"/><line class="th" x1="197" y1="136.5" x2="197" y2="141.5"/>
+    <line class="ln" x1="181" y1="138" x2="181" y2="108"/><line class="ln" x1="187" y1="138" x2="187" y2="108"/>
+    <text class="tx" x="184" y="98" text-anchor="middle">O</text>
+    <line class="ln" x1="196" y1="150" x2="238" y2="150"/>
+    <text class="tx" x="250" y="156" text-anchor="middle">O</text>
+    <circle class="th" cx="266" cy="144" r="5"/><line class="th" x1="263.5" y1="144" x2="268.5" y2="144"/>
+    <text class="tb" x="160" y="242" text-anchor="middle">마. 질산메틸</text>
+  </g>
+</svg>

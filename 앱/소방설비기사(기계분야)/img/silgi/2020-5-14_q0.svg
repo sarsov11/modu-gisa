@@ -1,0 +1,50 @@
+<svg viewBox="0 0 580 250" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 오리피스 배관 -->
+  <path class="m" d="M120,40 H250 L296,54 H344 L390,40 H540"/>
+  <path class="m" d="M120,95 H250 L296,81 H344 L390,95 H540"/>
+  <path class="th" d="M120,34 L114,40 L126,48 L120,56 M120,80 L114,86 L126,95 L120,102"/>
+  <path class="th" d="M540,34 L534,40 L546,48 L540,56 M540,80 L534,86 L546,95 L540,102"/>
+  <!-- 흐름 -->
+  <text class="tx" x="140" y="72">물</text>
+  <line class="ln" x1="166" y1="68" x2="222" y2="68" marker-end="url(#ai)"/>
+  <!-- φ100 -->
+  <line class="th" x1="92" y1="40" x2="118" y2="40"/><line class="th" x1="92" y1="95" x2="118" y2="95"/>
+  <line class="dm" x1="100" y1="40" x2="100" y2="95" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="8" y="72"><tspan class="tm">φ</tspan>100 mm</text>
+  <!-- 지점 1, 2, φ50 -->
+  <text class="tx" x="238" y="30" text-anchor="middle">1</text>
+  <text class="tx" x="320" y="44" text-anchor="middle">2</text>
+  <text class="tx" x="262" y="22"><tspan class="tm">φ</tspan>50 mm</text>
+  <line class="th" x1="300" y1="26" x2="306" y2="52" marker-end="url(#ai)"/>
+  <!-- 압력 측정관 -->
+  <path class="ln" d="M238,95 V135 H258 V150"/>
+  <path class="ln" d="M320,81 V135 H298 V150"/>
+  <!-- U자관 + 수은 -->
+  <path class="rb" d="M250,185 H266 V200 A12,8 0 0 0 290,200 V155 H306 V200 A28,22 0 0 1 250,200 Z"/>
+  <path class="ln" d="M250,150 V200 A28,22 0 0 0 306,200 V150"/>
+  <path class="ln" d="M266,150 V200 A12,8 0 0 0 290,200 V150"/>
+  <text class="tx" x="330" y="228">수은</text>
+  <line class="th" x1="328" y1="216" x2="300" y2="205" marker-end="url(#ai)"/>
+  <!-- 수은주 높이차 25 mm -->
+  <line class="th" x1="206" y1="155" x2="306" y2="155"/><line class="th" x1="206" y1="185" x2="250" y2="185"/>
+  <line class="dm" x1="214" y1="155" x2="214" y2="185" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="204" y="176" text-anchor="end">(수은주) 25 mm</text>
+</svg>

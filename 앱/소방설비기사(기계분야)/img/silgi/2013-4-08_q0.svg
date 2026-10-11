@@ -1,0 +1,36 @@
+<svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 가로 배관과 공급 배관 -->
+  <path class="m" d="M50,76 H580 V200"/>
+  <!-- 구간 호칭경·길이 -->
+  <text class="tx" x="86" y="40">25A</text><text class="tx" x="84" y="60">3.4 m</text>
+  <text class="tx" x="206" y="40">32A</text><text class="tx" x="204" y="60">3.4 m</text>
+  <text class="tx" x="326" y="40">40A</text><text class="tx" x="324" y="60">3.4 m</text>
+  <text class="tx" x="446" y="40">40A</text><text class="tx" x="444" y="60">3.4 m</text>
+  <!-- 개방형 헤드 ①~⑤ -->
+  <g>
+    <line class="ln" x1="50" y1="76" x2="50" y2="104"/><polygon class="sup" points="38,104 62,104 50,132"/>
+    <line class="ln" x1="170" y1="76" x2="170" y2="104"/><polygon class="sup" points="158,104 182,104 170,132"/>
+    <line class="ln" x1="290" y1="76" x2="290" y2="104"/><polygon class="sup" points="278,104 302,104 290,132"/>
+    <line class="ln" x1="410" y1="76" x2="410" y2="104"/><polygon class="sup" points="398,104 422,104 410,132"/>
+    <line class="ln" x1="530" y1="76" x2="530" y2="104"/><polygon class="sup" points="518,104 542,104 530,132"/>
+  </g>
+  <text class="tx" x="42" y="158">①</text><text class="tx" x="162" y="158">②</text><text class="tx" x="282" y="158">③</text><text class="tx" x="402" y="158">④</text><text class="tx" x="522" y="158">⑤</text>
+</svg>

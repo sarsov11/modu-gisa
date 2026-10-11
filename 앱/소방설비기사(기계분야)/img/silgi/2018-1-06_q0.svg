@@ -1,0 +1,48 @@
+<svg viewBox="0 0 660 360" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 경유저장탱크 (콘루프) -->
+  <rect class="fl" x="270" y="130" width="180" height="130"/>
+  <polygon class="fl" points="270,130 360,82 450,130"/>
+  <polyline class="ln" points="270,260 270,130 360,82 450,130 450,260 270,260"/>
+  <line class="th" x1="290" y1="170" x2="430" y2="170"/><line class="th" x1="305" y1="182" x2="415" y2="182"/><line class="th" x1="325" y1="194" x2="395" y2="194"/>
+  <text class="tx" x="300" y="236">경유저장탱크</text>
+  <!-- 탱크 치수 -->
+  <line class="th" x1="270" y1="264" x2="270" y2="290"/><line class="th" x1="450" y1="264" x2="450" y2="290"/>
+  <line class="dm" x1="270" y1="282" x2="450" y2="282" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="326" y="306">직경 10 m</text>
+  <line class="th" x1="454" y1="130" x2="490" y2="130"/><line class="th" x1="454" y1="260" x2="490" y2="260"/>
+  <line class="dm" x1="480" y1="130" x2="480" y2="260" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="486" y="198">높이 7 m</text>
+  <!-- 펌프 + 혼합장치 + 폼챔버 -->
+  <polygon class="sup" points="58,300 102,300 94,288 66,288"/><circle class="nd" cx="80" cy="268" r="20"/><text class="tb" x="80" y="274" text-anchor="middle">P</text>
+  <polyline class="m" points="80,248 80,172 236,172 236,116 250,116"/>
+  <rect class="sup" x="120" y="164" width="50" height="16"/>
+  <line class="ln" x1="145" y1="180" x2="145" y2="204"/>
+  <rect class="fl" x="105" y="204" width="80" height="50"/><rect class="ln" x="105" y="204" width="80" height="50"/><line class="th" x1="112" y1="218" x2="178" y2="218"/>
+  <rect x="250" y="104" width="20" height="24" fill="url(#hat)"/><rect class="ln" x="250" y="104" width="20" height="24"/>
+  <text class="tx" x="30" y="52">폼챔버 방사압력 0.3 MPa</text>
+  <line class="th" x1="200" y1="58" x2="256" y2="100" marker-end="url(#ai)"/>
+  <text class="tx" x="30" y="340">포소화약제 (3% 수성막포)</text>
+  <line class="th" x1="145" y1="326" x2="145" y2="258" marker-end="url(#ai)"/>
+  <!-- 보조포소화전 x2 (점선 배관) -->
+  <polyline class="dsh" points="236,172 236,310 600,310"/>
+  <line class="dsh" x1="540" y1="310" x2="540" y2="252"/><line class="dsh" x1="600" y1="310" x2="600" y2="252"/>
+  <circle class="nd" cx="540" cy="240" r="12"/><circle class="rb" cx="540" cy="240" r="4"/>
+  <circle class="nd" cx="600" cy="240" r="12"/><circle class="rb" cx="600" cy="240" r="4"/>
+  <text class="tx" x="500" y="344">보조포소화전 × 2개</text>
+</svg>

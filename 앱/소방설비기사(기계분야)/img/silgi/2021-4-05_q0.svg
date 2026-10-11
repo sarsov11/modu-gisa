@@ -1,0 +1,61 @@
+<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 루프배관 B-C-D-F-E-A-B (호칭 50 mm) -->
+  <path class="m" d="M135,57 H362 V228 H135 Z"/>
+  <!-- 유입 A점 (80 mm) / 유출 D점 -->
+  <path class="m" d="M30,190 H135"/>
+  <path class="m" d="M362,152 H430"/>
+  <text class="tx" x="36" y="182">80 mm</text>
+  <line class="ld" x1="40" y1="204" x2="92" y2="204" marker-end="url(#ar)"/>
+  <text class="tx" x="36" y="226">500 L/min</text>
+  <line class="ld" x1="372" y1="168" x2="424" y2="168" marker-end="url(#ar)"/>
+  <text class="tx" x="372" y="190">500 L/min</text>
+  <!-- 유량 Q1, Q2 -->
+  <line class="ld" x1="205" y1="73" x2="245" y2="73" marker-end="url(#ar)"/>
+  <text class="tm" x="215" y="96">Q<tspan class="ts" dy="4">1</tspan></text>
+  <text class="tm" x="215" y="207">Q<tspan class="ts" dy="4">2</tspan></text>
+  <line class="ld" x1="205" y1="217" x2="245" y2="217" marker-end="url(#ar)"/>
+  <!-- 점 이름 -->
+  <text class="tb" x="118" y="54">B</text>
+  <text class="tb" x="370" y="54">C</text>
+  <text class="tb" x="118" y="242">E</text>
+  <text class="tb" x="370" y="242">F</text>
+  <text class="tb" x="143" y="184">A</text>
+  <text class="tb" x="370" y="146">D</text>
+  <!-- 가로 치수 -->
+  <path class="th" d="M135,24 V54 M362,24 V54"/>
+  <line class="dm" x1="135" y1="32" x2="362" y2="32" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="226" y="24">10 m</text>
+  <path class="th" d="M135,232 V268 M362,232 V268"/>
+  <line class="dm" x1="135" y1="262" x2="362" y2="262" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="226" y="285">10 m</text>
+  <!-- 세로 치수 -->
+  <path class="th" d="M96,57 H131"/>
+  <line class="dm" x1="104" y1="57" x2="104" y2="190" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="68" y="128">8 m</text>
+  <line class="dm" x1="160" y1="190" x2="160" y2="228" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <path class="th" d="M135,190 H166"/>
+  <text class="tx" x="168" y="214">2 m</text>
+  <path class="th" d="M336,152 H362"/>
+  <line class="dm" x1="340" y1="57" x2="340" y2="152" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="302" y="108">6 m</text>
+  <line class="dm" x1="340" y1="152" x2="340" y2="228" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="302" y="196">4 m</text>
+</svg>

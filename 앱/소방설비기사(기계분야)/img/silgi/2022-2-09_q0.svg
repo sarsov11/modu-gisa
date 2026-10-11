@@ -1,0 +1,112 @@
+<svg viewBox="0 0 690 510" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 지반 -->
+  <rect fill="url(#hat)" x="347" y="157" width="263" height="8"/>
+  <path class="th" d="M347,157 H610"/>
+  <rect fill="url(#hat)" x="27" y="436" width="565" height="40"/>
+  <path class="th" d="M27,436 H592 M27,476 H592"/>
+  <!-- 플루팅루프탱크 -->
+  <text class="tx" x="440" y="35">(Floating Roof Tank)</text>
+  <path class="ln" d="M442,50 V152 H567 V50"/>
+  <path class="ln" d="M430,183 V160 Q430,152 442,152 M578,183 V160 Q578,152 567,152"/>
+  <path class="m" d="M442,87 H567"/>
+  <rect class="sup" x="450" y="80" width="17" height="7"/>
+  <rect class="sup" x="546" y="80" width="17" height="7"/>
+  <path class="th" d="M458,92 H553 M480,96 H543 M483,100 H537 M493,103 H530 M503,107 H520"/>
+  <!-- 방유제 · 보조포소화전 -->
+  <rect class="rb" x="406" y="140" width="4" height="17"/>
+  <rect class="rb" x="599" y="140" width="4" height="17"/>
+  <text class="tx" x="627" y="152">방유제</text>
+  <line class="th" x1="624" y1="147" x2="606" y2="147" marker-end="url(#ai)"/>
+  <rect class="sup" x="351" y="142" width="8" height="15"/>
+  <text class="tx" x="290" y="112">보조포소화전</text>
+  <line class="th" x1="327" y1="118" x2="350" y2="140" marker-end="url(#ai)"/>
+  <!-- 보조포소화전 배관 -->
+  <path class="ln" d="M354,157 V207 H545 V353"/>
+  <path class="ln" d="M327,182 H354"/>
+  <path class="nd" d="M334,177 L346,187 V177 L334,187 Z"/>
+  <path class="nd" d="M540,336 L550,348 H540 L550,336 Z"/>
+  <!-- 탱크 쪽 송액 배관 -->
+  <path class="ln" d="M430,183 H578 V353"/>
+  <path class="ln" d="M578,238 H607"/>
+  <path class="nd" d="M586,233 L598,243 V233 L586,243 Z"/>
+  <path class="nd" d="M573,336 L583,348 H573 L583,336 Z"/>
+  <text class="tx" x="560" y="346">2</text>
+  <!-- Header · 배액밸브 -->
+  <rect class="sup" x="499" y="353" width="89" height="9"/>
+  <path class="ln" d="M585,362 V395"/>
+  <path class="nd" d="M580,376 L590,388 H580 L590,376 Z"/>
+  <text class="tx" x="519" y="378">Header</text>
+  <text class="tx" x="562" y="408">배액밸브</text>
+  <!-- 송액관 · foam mixer · 약제저장탱크 -->
+  <path class="ln" d="M313,358 H336 M374,358 H499"/>
+  <rect class="sup" x="338" y="354" width="34" height="8"/>
+  <path class="th" d="M336,350 V366 M374,350 V366"/>
+  <text class="tx" x="295" y="308">foam mixer</text>
+  <line class="th" x1="343" y1="313" x2="355" y2="352" marker-end="url(#ai)"/>
+  <text class="tx" x="397" y="333">송액관</text>
+  <line class="th" x1="414" y1="339" x2="424" y2="356" marker-end="url(#ai)"/>
+  <path class="ln" d="M343,362 V388 M365,362 V420"/>
+  <path class="nd" d="M312,381 H394 A15,23 0 0 1 394,428 H312 A15,23 0 0 1 312,381 Z"/>
+  <path class="dsh" d="M304,392 H402 M302,400 H404 M302,408 H404 M304,416 H402"/>
+  <path class="ln" d="M343,362 V388 M365,362 V420"/>
+  <rect class="sup" x="320" y="428" width="10" height="8"/>
+  <rect class="sup" x="377" y="428" width="10" height="8"/>
+  <text class="tx" x="441" y="410">약제저장탱크</text>
+  <line class="th" x1="437" y1="405" x2="411" y2="405" marker-end="url(#ai)"/>
+  <!-- 급수관 · 스트레이너 -->
+  <path class="ln" d="M167,357 H277 M290,357 H336"/>
+  <path class="nd" d="M184,352 L196,362 V352 L184,362 Z"/>
+  <path class="nd" d="M277,352 L289,362 V352 L277,362 Z"/>
+  <path class="nd" d="M296,352 L304,357 L296,362 Z"/>
+  <path class="th" d="M299,364 L309,350 M313,353 V361"/>
+  <text class="tx" x="201" y="320">급수관</text>
+  <line class="th" x1="220" y1="326" x2="220" y2="354" marker-end="url(#ai)"/>
+  <text class="tx" x="268" y="328">strainer</text>
+  <line class="th" x1="297" y1="334" x2="304" y2="352" marker-end="url(#ai)"/>
+  <!-- 소화펌프 -->
+  <path class="ln" d="M167,407 V357"/>
+  <path class="nd" d="M162,367 L172,377 H162 L172,367 Z"/>
+  <path class="ln" d="M163,386 H171 L163,396 H171"/>
+  <path class="ln" d="M143,404 H167"/>
+  <circle class="nd" cx="167" cy="415" r="9"/>
+  <path class="ln" d="M161,423 L158,431 M173,423 L176,431"/>
+  <rect class="sup" x="152" y="431" width="30" height="5"/>
+  <text class="tx" x="90" y="428">소화펌프</text>
+  <path class="ln" d="M176,416 H211 V461"/>
+  <rect class="sup" x="206" y="461" width="10" height="9"/>
+  <text class="tx" x="186" y="492">foot valve</text>
+  <!-- 물올림장치 -->
+  <text class="tx" x="52" y="310">물올림장치</text>
+  <path class="ln" d="M51,321 V373 H117 V321"/>
+  <path class="th" d="M52,347 q6,-3 12,0 t12,0 t12,0 t12,0 t12,0 M62,353 H105 M66,358 H100"/>
+  <path class="ln" d="M40,344 H51 V344 M40,344 V445"/>
+  <polygon class="rb" points="36,445 44,445 40,454"/>
+  <path class="ln" d="M40,405 H69 V373"/>
+  <path class="nd" d="M64,384 L74,396 H64 L74,384 Z"/>
+  <path class="ln" d="M117,344 H143 V404 M100,373 V404 H143"/>
+  <path class="nd" d="M105,399 L117,409 V399 L105,409 Z"/>
+  <path class="nd" d="M127,399 L137,404 L127,409 Z"/>
+  <line class="ln" x1="137" y1="398" x2="137" y2="410"/>
+  <line class="th" x1="110" y1="389" x2="130" y2="389" marker-end="url(#ai)"/>
+  <polygon class="rb" points="138,371 148,371 143,363"/>
+  <path class="th" d="M139,356 L147,350 M139,360 L147,354"/>
+  <polygon class="nd" points="160,360 160,368 151,364"/>
+</svg>

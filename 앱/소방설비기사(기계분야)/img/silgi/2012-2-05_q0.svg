@@ -1,0 +1,46 @@
+<svg viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 위: 급수관 (H - G - E - F) -->
+  <text class="tb" x="16" y="26">급수관</text>
+  <line class="m" x1="80" y1="70" x2="440" y2="70"/>
+  <line class="m" x1="440" y1="70" x2="440" y2="96"/>
+  <circle class="rb" cx="80" cy="70" r="5"/><circle class="rb" cx="260" cy="70" r="5"/><circle class="rb" cx="440" cy="70" r="5"/><circle class="rb" cx="440" cy="96" r="5"/>
+  <text class="tx" x="72" y="52">H</text><text class="tx" x="254" y="52">G</text><text class="tx" x="428" y="52">E</text><text class="tx" x="412" y="108">F</text>
+  <text class="ts" x="96" y="52">0.15 MPa</text>
+  <text class="tx" x="150" y="62">3000</text><text class="tx" x="330" y="62">3000</text>
+  <text class="tx" x="140" y="92">(50A)</text><text class="tx" x="330" y="92">(40A)</text>
+  <line class="dm" x1="260" y1="70" x2="260" y2="92" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="268" y="88">100</text>
+  <line class="th" x1="444" y1="70" x2="474" y2="70"/><line class="th" x1="444" y1="96" x2="474" y2="96"/>
+  <line class="dm" x1="466" y1="70" x2="466" y2="96" marker-start="url(#dmk)" marker-end="url(#dmk)"/><text class="tx" x="474" y="88">100</text>
+  <line class="dsh" x1="440" y1="102" x2="440" y2="254"/>
+  <text class="ts" x="448" y="180">아래 가지배관의 E점</text>
+  <!-- 아래: 가지배관 (B - C - D - E - 말단) -->
+  <text class="tb" x="16" y="212">가지배관</text>
+  <line class="m" x1="110" y1="260" x2="590" y2="260"/>
+  <polyline class="m" points="110,260 110,238 70,238 70,300"/>
+  <circle class="nd" cx="70" cy="308" r="8"/>
+  <text class="tx" x="116" y="254">100</text><text class="tx" x="76" y="230">100</text><text class="tx" x="78" y="274">300</text>
+  <text class="tb" x="86" y="314">A</text>
+  <circle class="rb" cx="110" cy="260" r="5"/><circle class="rb" cx="230" cy="260" r="5"/><circle class="rb" cx="350" cy="260" r="5"/><circle class="rb" cx="440" cy="260" r="5"/><circle class="rb" cx="470" cy="260" r="5"/><circle class="rb" cx="590" cy="260" r="5"/>
+  <text class="tx" x="150" y="252">2000</text><text class="tx" x="270" y="252">2000</text><text class="tx" x="372" y="252">1500</text><text class="ts" x="446" y="250">500</text><text class="tx" x="512" y="252">2000</text>
+  <text class="tx" x="150" y="284">(25A)</text><text class="tx" x="270" y="284">(25A)</text><text class="tx" x="372" y="284">(32A)</text>
+  <text class="tx" x="104" y="296">B점</text><text class="tx" x="214" y="298">C점</text><text class="tx" x="334" y="298">D점</text><text class="tx" x="424" y="298">E점</text>
+  <text class="ts" x="130" y="328">단위 mm · 헤드 15A · 개방 헤드 A점 1개, 방수량 80 L/min</text>
+</svg>

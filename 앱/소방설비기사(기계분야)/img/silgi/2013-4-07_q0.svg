@@ -1,0 +1,138 @@
+<svg viewBox="0 0 680 430" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <g transform="translate(16 16) scale(0.74)">
+    <!-- 지반·지하수조 -->
+    <line class="m" x1="40" y1="402" x2="915" y2="402"/>
+    <path class="fl" d="M165,430 H455 V540 H165 Z"/>
+    <path class="ln" d="M165,402 V540 H455 V402"/>
+    <line class="th" x1="200" y1="432" x2="250" y2="432"/><line class="th" x1="215" y1="450" x2="262" y2="450"/><line class="th" x1="395" y1="436" x2="440" y2="436"/><line class="th" x1="200" y1="500" x2="240" y2="500"/><line class="th" x1="400" y1="520" x2="430" y2="520"/>
+    <!-- 후드밸브 2개 -->
+    <rect class="sup" x="300" y="500" width="30" height="20"/><path class="th" d="M300,500 L330,520 M330,500 L300,520"/>
+    <rect class="sup" x="337" y="500" width="30" height="20"/><path class="th" d="M337,500 L367,520 M367,500 L337,520"/>
+
+    <!-- 주펌프 흡입측 -->
+    <path class="ln" d="M181,372 H315 V500"/>
+    <rect x="205" y="360" width="20" height="16" fill="url(#hat)"/><rect class="ln" x="205" y="360" width="20" height="16"/>
+    <path class="ln" d="M250,366 V378 M262,366 V378 M250,378 L262,366"/>
+    <polygon class="nd" points="283,364 299,380 299,364 283,380"/>
+    <circle class="nd" cx="195" cy="345" r="8"/><path class="th" d="M189,351 L201,339 M195,353 V372"/>
+    <!-- 주펌프 -->
+    <circle class="nd" cx="165" cy="375" r="16"/>
+    <path class="ln" d="M148,392 H182"/>
+    <rect class="nd" x="108" y="364" width="22" height="20"/><text class="ts" x="113" y="379">M</text>
+    <line class="ln" x1="130" y1="374" x2="149" y2="374"/>
+
+    <!-- 주펌프 토출측 -->
+    <path class="ln" d="M165,359 V45"/>
+    <rect x="157" y="322" width="16" height="18" fill="url(#hat)"/><rect class="ln" x="157" y="322" width="16" height="18"/>
+    <path class="ln" d="M157,238 H173 L157,254 H173"/>
+    <line class="ln" x1="182" y1="244" x2="182" y2="226" marker-end="url(#ai)"/>
+    <polygon class="nd" points="157,197 173,197 157,213 173,213"/>
+    <circle class="nd" cx="188" cy="128" r="9"/><path class="th" d="M182,134 L194,122 M188,137 V152 H165"/>
+    <path class="sup" d="M152,62 A13,13 0 0 1 178,62 Z"/>
+    <circle class="rb" cx="165" cy="175" r="3"/><circle class="rb" cx="165" cy="290" r="3"/><circle class="rb" cx="165" cy="270" r="3"/>
+    <!-- 성능시험배관 -->
+    <path class="ln" d="M165,175 H25 V205"/>
+    <polygon class="nd" points="37,167 53,183 53,167 37,183"/><polygon class="nd" points="107,167 123,183 123,167 107,183"/>
+    <circle class="nd" cx="80" cy="152" r="11"/><text class="ts" x="74" y="157">M</text><line class="ln" x1="80" y1="163" x2="80" y2="175"/>
+    <!-- 릴리프밸브 -->
+    <path class="ln" d="M165,270 H105 V290"/>
+    <polygon class="rb" points="97,290 113,290 105,306"/><line class="ln" x1="105" y1="306" x2="105" y2="316"/>
+
+    <!-- 두 펌프 사이 가로 배관 -->
+    <path class="ln" d="M165,290 H535"/>
+    <path class="ln" d="M254,282 V298 M270,282 V298 M254,298 L270,282"/>
+    <path class="ln" d="M427,282 V298 M443,282 V298 M427,298 L443,282"/>
+    <line class="ln" x1="274" y1="272" x2="248" y2="272" marker-end="url(#ai)"/>
+    <line class="ln" x1="424" y1="272" x2="450" y2="272" marker-end="url(#ai)"/>
+
+    <!-- 물올림장치 -->
+    <rect class="fl" x="300" y="140" width="74" height="40"/><rect class="ln" x="300" y="140" width="74" height="40"/>
+    <line class="th" x1="312" y1="152" x2="362" y2="152"/><line class="th" x1="318" y1="160" x2="356" y2="160"/><line class="th" x1="326" y1="168" x2="350" y2="168"/>
+    <circle class="nd" cx="326" cy="150" r="4"/><path class="ln" d="M326,150 L372,122 H440"/>
+    <polygon class="nd" points="396,112 412,128 412,112 396,128"/>
+    <path class="ln" d="M300,148 H278 V232"/>
+    <path class="ln" d="M278,198 H290 M306,198 H335 V180"/><polygon class="rb" points="290,190 306,206 306,190 290,206"/>
+    <path class="ln" d="M350,180 V290"/>
+    <polygon class="nd" points="342,217 358,217 342,233 358,233"/>
+    <path class="ln" d="M342,248 H358 L342,264 H358"/>
+    <line class="ln" x1="370" y1="248" x2="370" y2="268" marker-end="url(#ai)"/>
+    <circle class="rb" cx="350" cy="290" r="3"/>
+
+    <!-- 충압펌프 -->
+    <circle class="nd" cx="530" cy="375" r="16"/><text class="ts" x="525" y="380">P</text>
+    <path class="ln" d="M514,392 H546"/>
+    <rect class="nd" x="578" y="364" width="22" height="20"/><text class="ts" x="583" y="379">M</text>
+    <line class="ln" x1="546" y1="374" x2="578" y2="374"/>
+    <!-- 충압펌프 흡입측 -->
+    <path class="ln" d="M514,372 H350 V500"/>
+    <rect x="440" y="360" width="20" height="16" fill="url(#hat)"/><rect class="ln" x="440" y="360" width="20" height="16"/>
+    <path class="th" d="M398,366 L414,378 M398,378 L414,366"/>
+    <polygon class="nd" points="368,364 384,380 384,364 368,380"/>
+    <circle class="nd" cx="485" cy="345" r="8"/><path class="th" d="M479,351 L491,339 M485,353 V372"/>
+    <!-- 충압펌프 토출측 -->
+    <path class="ln" d="M535,359 V68"/>
+    <rect x="527" y="322" width="16" height="18" fill="url(#hat)"/><rect class="ln" x="527" y="322" width="16" height="18"/>
+    <circle class="nd" cx="556" cy="298" r="9"/><path class="th" d="M550,304 L562,292 M547,298 H535"/>
+    <polygon class="nd" points="527,187 543,187 527,203 543,203"/>
+    <path class="ln" d="M527,160 H543 L527,174 H543"/>
+    <line class="ln" x1="552" y1="172" x2="552" y2="152" marker-end="url(#ai)"/>
+    <path class="sup" d="M522,62 A13,13 0 0 1 548,62 Z"/>
+    <circle class="rb" cx="535" cy="290" r="3"/>
+    <!-- 상부 주배관 -->
+    <path class="ln" d="M165,68 H700 V35"/>
+
+    <!-- 압력챔버 -->
+    <path class="ln" d="M620,100 V320 H632 M648,320 H672"/>
+    <polygon class="nd" points="632,312 648,328 648,312 632,328"/>
+    <path class="fl" d="M672,258 A22,22 0 0 1 716,258 V338 A22,22 0 0 1 672,338 Z"/>
+    <path class="ln" d="M672,258 A22,22 0 0 1 716,258 V338 A22,22 0 0 1 672,338 Z"/>
+    <path class="ln" d="M694,236 V200 M687,200 H701"/>
+    <polygon class="nd" points="686,207 702,207 686,223 702,223"/>
+    <circle class="nd" cx="738" cy="218" r="9"/><path class="th" d="M732,224 L744,212 M738,227 V240 L714,250"/>
+    <rect class="nd" x="738" y="262" width="14" height="16"/><rect class="nd" x="762" y="262" width="14" height="16"/>
+    <path class="ln" d="M716,290 H745 V278 M745,290 H769 V278"/>
+    <path class="ln" d="M694,360 V402"/><polygon class="rb" points="686,380 702,380 686,396 702,396"/>
+    <!-- 제어반 -->
+    <rect class="nd" x="790" y="355" width="65" height="40"/><path class="th" d="M790,355 L855,395 M855,355 L790,395 M822,355 V395 M790,375 H855"/>
+    <path class="dsh" d="M777,270 H838 V355"/>
+    <path class="dsh" d="M838,130 V270"/>
+    <path class="dsh" d="M600,374 H790"/>
+  </g>
+  <!-- 명칭 -->
+  <text class="tx" x="152" y="56">수격방지기</text>
+  <text class="tx" x="14" y="196">성능시험배관</text>
+  <text class="tx" x="46" y="251">릴리프밸브</text>
+  <text class="tx" x="40" y="296">주펌프</text>
+  <text class="tx" x="24" y="336">플렉시블조인트</text>
+  <path class="th" d="M120,330 L170,296" marker-end="url(#ai)"/>
+  <text class="tx" x="299" y="134">물올림장치</text>
+  <text class="ts" x="299" y="149">(100ℓ 이상)</text>
+  <text class="ts" x="204" y="136">오</text><text class="ts" x="204" y="150">버</text><text class="ts" x="204" y="164">플</text><text class="ts" x="204" y="178">로</text><text class="ts" x="204" y="192">관</text>
+  <text class="tx" x="206" y="214">배수밸브</text>
+  <text class="tx" x="422" y="224">압력계</text>
+  <text class="tx" x="580" y="205">압력스위치</text>
+  <text class="tx" x="552" y="262">압력챔버</text><text class="ts" x="552" y="277">(100ℓ 이상)</text>
+  <text class="tx" x="604" y="330">제어반</text>
+  <text class="tx" x="404" y="336">충압펌프</text>
+  <text class="tx" x="290" y="336">스트레이너</text>
+  <text class="tx" x="296" y="368">지하수조</text>
+  <text class="tx" x="160" y="400">후드밸브</text>
+</svg>

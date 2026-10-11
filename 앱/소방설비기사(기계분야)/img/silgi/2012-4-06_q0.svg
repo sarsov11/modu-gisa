@@ -1,0 +1,48 @@
+<svg viewBox="0 0 300 450" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 포챔버 뚜껑(⑥)과 경사면(⑧), 포방출구(③)측 안내판 -->
+  <path class="m" d="M90,56 H262 V108 L204,146"/>
+  <path class="m" d="M90,56 V112 H24"/>
+  <path class="m" d="M24,176 L98,214 L140,192"/>
+  <!-- 챔버 본체(①) -->
+  <path class="fl" d="M140,84 V214 L152,236 V362 H196 V236 L200,214 V84 Z"/>
+  <path class="ln" d="M140,84 V214 L152,236 V362 M200,84 V214 L196,236 V362"/>
+  <!-- 봉판(④) -->
+  <rect class="sup" x="130" y="72" width="80" height="8"/>
+  <!-- 폼메이커(②) : 위아래 플랜지 -->
+  <rect class="sup" x="144" y="262" width="58" height="6"/><rect class="sup" x="144" y="282" width="58" height="6"/>
+  <rect x="152" y="268" width="44" height="14" fill="url(#hat)"/>
+  <rect class="sup" x="144" y="346" width="58" height="6"/><rect class="sup" x="144" y="364" width="58" height="6"/>
+  <rect x="152" y="352" width="44" height="12" fill="url(#hat)"/>
+  <!-- 공기흡입구(⑤) -->
+  <line class="ln" x1="152" y1="318" x2="128" y2="318"/>
+  <polygon class="sup" points="128,304 128,330 92,330"/>
+  <!-- 스트레이너(⑦) -->
+  <polygon points="152,370 196,370 186,424 174,412 162,424" fill="url(#hat)"/><polygon class="ln" points="152,370 196,370 186,424 174,412 162,424"/>
+  <!-- 번호 -->
+  <text class="tx" x="206" y="34">⑥</text><line class="th" x1="204" y1="40" x2="190" y2="54"/>
+  <text class="tx" x="40" y="150">③</text>
+  <text class="tx" x="226" y="70">④</text><line class="th" x1="224" y1="66" x2="210" y2="74"/>
+  <text class="tx" x="216" y="104">①</text><line class="th" x1="214" y1="100" x2="202" y2="96"/>
+  <text class="tx" x="244" y="146">⑧</text><line class="th" x1="242" y1="140" x2="230" y2="128"/>
+  <text class="tx" x="30" y="316">⑤</text><line class="th" x1="46" y1="318" x2="94" y2="324"/>
+  <text class="tx" x="212" y="296">②</text><line class="th" x1="210" y1="292" x2="198" y2="278"/>
+  <text class="tx" x="212" y="414">⑦</text><line class="th" x1="210" y1="410" x2="190" y2="404"/>
+</svg>

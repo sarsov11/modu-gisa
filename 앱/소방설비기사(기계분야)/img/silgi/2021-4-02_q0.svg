@@ -1,0 +1,37 @@
+<svg viewBox="0 0 580 320" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 가지배관(왼쪽 아래 끝 막힘, 오른쪽 위가 입구 쪽) -->
+  <path class="m" d="M19,272 L479,25"/>
+  <path class="ln" d="M16,263 V281"/>
+  <!-- 헤드 4개 : 가지배관에서 올라갔다 내려오는 헤드 분기 -->
+  <path class="ln" d="M60,250 V202 H99 V288"/>
+  <polygon class="rb" points="91,288 107,288 99,302"/>
+  <path class="ln" d="M157,198 V147 H195 V237"/>
+  <polygon class="rb" points="187,237 203,237 195,251"/>
+  <path class="ln" d="M257,144 V93 H295 V182"/>
+  <polygon class="rb" points="287,182 303,182 295,196"/>
+  <path class="ln" d="M353,92 V41 H391 V130"/>
+  <polygon class="rb" points="383,130 399,130 391,144"/>
+  <!-- 오른쪽 위 끝 : 아래로 내려오는 입구 연결 -->
+  <path class="ln" d="M479,25 V153"/>
+  <!-- 교차배관 -->
+  <path class="ln" d="M432,60 L552,164"/>
+  <path class="th" d="M427,64 L437,56 M547,170 L557,158"/>
+</svg>

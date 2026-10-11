@@ -1,0 +1,93 @@
+<svg viewBox="0 0 580 456" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <g transform="translate(0,16)">
+  <!-- 외벽·구획 -->
+  <rect class="ln" x="30" y="40" width="480" height="360"/>
+  <line class="ln" x1="390" y1="40" x2="390" y2="400"/>
+  <polyline class="ln" points="210,40 210,220 390,220"/>
+  <line class="ln" x1="390" y1="220" x2="510" y2="220"/>
+  <line class="ln" x1="390" y1="280" x2="510" y2="280"/>
+  <!-- 실 이름 -->
+  <text class="tb" x="140" y="322">A실 전기실</text>
+  <text class="tb" x="255" y="150">B실 발전기실</text>
+  <text class="tb" x="398" y="214">C실 방재반실</text>
+  <text class="tb" x="398" y="274">D실 배터리실</text>
+  <text class="ts" x="420" y="314">할론저장용기</text>
+  <text class="ts" x="420" y="330">할론실린더실</text>
+  <!-- 치수 -->
+  <line class="th" x1="30" y1="40" x2="30" y2="14"/><line class="th" x1="210" y1="40" x2="210" y2="14"/><line class="th" x1="390" y1="40" x2="390" y2="14"/><line class="th" x1="510" y1="40" x2="510" y2="14"/>
+  <line class="dm" x1="30" y1="24" x2="210" y2="24" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="210" y1="24" x2="390" y2="24" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="390" y1="24" x2="510" y2="24" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="104" y="18">15 m</text><text class="tx" x="284" y="18">15 m</text><text class="tx" x="432" y="18">10 m</text>
+  <line class="dm" x1="54" y1="40" x2="54" y2="400" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" transform="rotate(-90 48 230)" x="48" y="230">30 m</text>
+  <line class="dm" x1="216" y1="40" x2="216" y2="220" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" transform="rotate(-90 234 140)" x="234" y="140">15 m</text>
+  <line class="th" x1="514" y1="220" x2="540" y2="220"/><line class="th" x1="514" y1="280" x2="540" y2="280"/><line class="th" x1="514" y1="400" x2="540" y2="400"/>
+  <line class="dm" x1="532" y1="220" x2="532" y2="280" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="532" y1="280" x2="532" y2="400" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" transform="rotate(-90 552 256)" x="552" y="256">5 m</text>
+  <text class="tx" transform="rotate(-90 552 346)" x="552" y="346">10 m</text>
+
+  <!-- A실 왼쪽 수직 배관(헤드 5) -->
+  <line class="ln" x1="80" y1="79" x2="80" y2="363"/>
+  <circle class="nd" cx="80" cy="79" r="6"/><circle class="nd" cx="80" cy="139" r="6"/><circle class="nd" cx="80" cy="199" r="6"/><circle class="nd" cx="80" cy="258" r="6"/><circle class="nd" cx="80" cy="317" r="6"/>
+  <text class="ts" x="88" y="113">25</text><text class="ts" x="88" y="173">32</text><text class="ts" x="88" y="232">40</text><text class="ts" x="88" y="290">50</text><text class="ts" x="88" y="344">60</text>
+  <!-- A실 두 번째 수직 배관(헤드 3) -->
+  <line class="ln" x1="161" y1="79" x2="161" y2="259"/>
+  <circle class="nd" cx="161" cy="79" r="6"/><circle class="nd" cx="161" cy="139" r="6"/><circle class="nd" cx="161" cy="199" r="6"/>
+  <text class="ts" x="169" y="113">25</text><text class="ts" x="169" y="173">32</text><text class="ts" x="169" y="232">40</text>
+  <!-- A실 가운데 가로 배관(헤드 4) -->
+  <line class="ln" x1="161" y1="259" x2="370" y2="259"/>
+  <circle class="nd" cx="173" cy="259" r="6"/><circle class="nd" cx="232" cy="259" r="6"/><circle class="nd" cx="291" cy="259" r="6"/><circle class="nd" cx="350" cy="259" r="6"/>
+  <text class="ts" x="196" y="275">50</text><text class="ts" x="255" y="275">50</text><text class="ts" x="314" y="275">50</text><text class="ts" x="354" y="280">60</text>
+  <!-- A실 아래 가로 배관(헤드 5) -->
+  <line class="ln" x1="80" y1="363" x2="440" y2="363"/>
+  <line class="ln" x1="370" y1="259" x2="370" y2="363"/>
+  <circle class="nd" cx="114" cy="363" r="6"/><circle class="nd" cx="173" cy="363" r="6"/><circle class="nd" cx="232" cy="363" r="6"/><circle class="nd" cx="291" cy="363" r="6"/><circle class="nd" cx="350" cy="363" r="6"/>
+  <text class="ts" x="136" y="381">50</text><text class="ts" x="196" y="381">65</text><text class="ts" x="255" y="381">65</text><text class="ts" x="314" y="381">65</text><text class="ts" x="352" y="381">65</text>
+  <text class="ts" x="356" y="345">B<tspan dy="4" class="ts">0</tspan></text>
+  <!-- B실 -->
+  <line class="ln" x1="231" y1="100" x2="375" y2="100"/><line class="ln" x1="231" y1="181" x2="375" y2="181"/>
+  <line class="ln" x1="375" y1="100" x2="375" y2="358"/>
+  <circle class="nd" cx="242" cy="100" r="6"/><circle class="nd" cx="301" cy="100" r="6"/><circle class="nd" cx="359" cy="100" r="6"/>
+  <circle class="nd" cx="242" cy="181" r="6"/><circle class="nd" cx="301" cy="181" r="6"/><circle class="nd" cx="359" cy="181" r="6"/>
+  <text class="ts" x="264" y="116">25</text><text class="ts" x="322" y="116">32</text>
+  <text class="ts" x="264" y="197">25</text><text class="ts" x="322" y="197">32</text>
+  <text class="ts" x="340" y="146">40</text>
+  <line class="ln" x1="375" y1="358" x2="440" y2="358"/>
+  <!-- C실 -->
+  <line class="ln" x1="454" y1="77" x2="454" y2="196"/>
+  <circle class="nd" cx="454" cy="77" r="6"/><circle class="nd" cx="454" cy="137" r="6"/><circle class="nd" cx="454" cy="196" r="6"/>
+  <text class="ts" x="462" y="110">25</text><text class="ts" x="462" y="170">32</text>
+  <polyline class="ln" points="454,196 381,196 381,354 440,354"/>
+  <text class="ts" x="408" y="190">32</text>
+  <!-- D실 -->
+  <line class="ln" x1="387" y1="248" x2="462" y2="248"/>
+  <circle class="nd" cx="462" cy="248" r="6"/>
+  <text class="ts" x="424" y="242">25</text>
+  <polyline class="ln" points="387,248 387,350 440,350"/>
+  <!-- 집합관 -->
+  <line class="m" x1="440" y1="342" x2="440" y2="370"/>
+  <text class="ts" x="448" y="372">집합관</text>
+  </g>
+  <circle class="nd" cx="40" cy="448" r="6"/><text class="ts" x="54" y="452">헤드(배관 옆 숫자는 호칭구경 mm)</text>
+</svg>

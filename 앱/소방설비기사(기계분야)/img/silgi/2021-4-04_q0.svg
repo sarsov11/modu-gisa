@@ -1,0 +1,43 @@
+<svg viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 벽 -->
+  <path class="ln" d="M30,137 V30 H310 V137"/>
+  <path class="ln" d="M30,137 H166"/>
+  <path class="ln" d="M166,30 V60 M166,90 V190 M166,220 V273"/>
+  <path class="ln" d="M166,137 H215 M245,137 H454"/>
+  <path class="ln" d="M310,137 V190 M310,220 V273"/>
+  <path class="ln" d="M454,137 V190 M454,220 V273"/>
+  <path class="ln" d="M166,273 H215 M245,273 H454"/>
+  <!-- 문 A1 ~ A6 -->
+  <path class="th" d="M166,90 H196 M196,90 A30,30 0 0 0 166,60"/>
+  <path class="th" d="M215,137 V167 M215,167 A30,30 0 0 0 245,137"/>
+  <path class="th" d="M166,220 H136 M136,220 A30,30 0 0 1 166,190"/>
+  <path class="th" d="M215,273 V303 M215,303 A30,30 0 0 0 245,273"/>
+  <path class="th" d="M310,220 H340 M340,220 A30,30 0 0 0 310,190"/>
+  <path class="th" d="M454,220 H484 M484,220 A30,30 0 0 0 454,190"/>
+  <!-- 이름 -->
+  <text class="tb" x="72" y="90">A실</text>
+  <text class="tx" x="203" y="78">A<tspan class="ts" dy="4">1</tspan></text>
+  <text class="tx" x="252" y="160">A<tspan class="ts" dy="4">2</tspan></text>
+  <text class="tx" x="104" y="238">A<tspan class="ts" dy="4">3</tspan></text>
+  <text class="tx" x="222" y="260">A<tspan class="ts" dy="4">4</tspan></text>
+  <text class="tx" x="346" y="212">A<tspan class="ts" dy="4">5</tspan></text>
+  <text class="tx" x="490" y="236">A<tspan class="ts" dy="4">6</tspan></text>
+</svg>

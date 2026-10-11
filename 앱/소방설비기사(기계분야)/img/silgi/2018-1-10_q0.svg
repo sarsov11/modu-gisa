@@ -29,11 +29,11 @@ svg{background:#FFFFFF}
   <!-- ⑤ 개폐밸브 -->
   <polygon class="nd" points="142,271 156,280 142,289"/><polygon class="nd" points="170,271 156,280 170,289"/>
   <line class="th" x1="156" y1="280" x2="156" y2="266"/><line class="th" x1="150" y1="266" x2="162" y2="266"/>
-  <text class="tx" x="148" y="256">⑤</text>
+  <circle class="nd" cx="154" cy="250" r="9"/><text class="tb" x="149.5" y="255">5</text>
   <!-- ⑥ 체크밸브 -->
   <line class="ln" x1="206" y1="266" x2="226" y2="280"/><line class="ln" x1="206" y1="266" x2="206" y2="294"/>
   <line class="ld" x1="196" y1="300" x2="230" y2="300" marker-end="url(#ar)"/>
-  <text class="tx" x="206" y="256">⑥</text>
+  <circle class="nd" cx="212" cy="250" r="9"/><text class="tb" x="207.5" y="255">6</text>
   <!-- 펌프 -->
   <circle class="nd" cx="300" cy="280" r="19"/><text class="tb" x="294" y="286">P</text>
   <text class="tx" x="326" y="286">펌프</text>
@@ -44,22 +44,22 @@ svg{background:#FFFFFF}
   <line class="m" x1="300" y1="261" x2="300" y2="48"/>
   <!-- ① ② 위쪽 -->
   <polygon class="nd" points="291,64 300,78 309,64"/><polygon class="nd" points="291,92 300,78 309,92"/>
-  <text class="tx" x="320" y="82">①</text>
+  <circle class="nd" cx="326" cy="78" r="9"/><text class="tb" x="321.5" y="83">1</text>
   <line class="ln" x1="288" y1="124" x2="312" y2="124"/><line class="ln" x1="312" y1="124" x2="288" y2="146"/><line class="ln" x1="288" y1="146" x2="312" y2="146"/>
   <line class="ld" x1="276" y1="146" x2="276" y2="110" marker-end="url(#ar)"/>
-  <text class="tx" x="320" y="140">②</text>
+  <circle class="nd" cx="326" cy="136" r="9"/><text class="tb" x="321.5" y="141">2</text>
   <path class="th" d="M300,48 q-5,-6 0,-10 q5,-4 0,-10"/>
   <text class="ts" x="318" y="36">스프링클러 배관</text>
   <!-- ④ 압력계 -->
   <circle class="nd" cx="226" cy="132" r="15"/><line class="th" x1="215" y1="143" x2="238" y2="121"/>
   <line class="th" x1="226" y1="147" x2="226" y2="170"/><line class="th" x1="226" y1="170" x2="300" y2="170"/>
-  <text class="tx" x="204" y="106">④</text>
+  <circle class="nd" cx="210" cy="100" r="9"/><text class="tb" x="205.5" y="105">4</text>
   <!-- 성능시험배관 분기 -->
   <line class="m" x1="300" y1="200" x2="520" y2="200"/>
   <line class="m" x1="520" y1="200" x2="520" y2="236"/>
   <polygon class="rb" points="352,190 366,200 352,210"/><polygon class="rb" points="380,190 366,200 380,210"/>
-  <text class="tx" x="358" y="180">③</text>
+  <circle class="nd" cx="364" cy="176" r="9"/><text class="tb" x="359.5" y="181">3</text>
   <line class="th" x1="430" y1="200" x2="430" y2="168"/>
   <circle class="nd" cx="430" cy="154" r="14"/><line class="th" x1="421" y1="164" x2="440" y2="145"/>
-  <text class="tx" x="436" y="130">⑦</text>
+  <circle class="nd" cx="442" cy="126" r="9"/><text class="tb" x="437.5" y="131">7</text>
 </svg>

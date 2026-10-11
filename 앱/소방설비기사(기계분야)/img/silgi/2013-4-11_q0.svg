@@ -1,0 +1,94 @@
+<svg viewBox="0 0 590 456" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 옥상 수조 -->
+  <rect class="fl" x="70" y="46" width="97" height="35"/>
+  <path class="ln" d="M70,36 V81 H167 V36"/>
+  <line class="th" x1="70" y1="46" x2="167" y2="46"/>
+  <line class="th" x1="80" y1="53" x2="132" y2="53"/><line class="th" x1="84" y1="59" x2="120" y2="59"/><line class="th" x1="92" y1="65" x2="125" y2="65"/>
+  <rect class="nd" x="135" y="60" width="12" height="8"/>
+  <line class="ln" x1="98" y1="26" x2="98" y2="44" marker-end="url(#ai)"/>
+  <!-- 수조 출구 배관: 개폐밸브·체크밸브 -->
+  <path class="ln" d="M167,58 H246 V230 H198"/>
+  <polygon class="nd" points="186,51 202,65 202,51 186,65"/>
+  <path class="ln" d="M210,52 H222 L210,64 H222"/>
+  <line class="ln" x1="210" y1="45" x2="226" y2="45" marker-end="url(#ai)"/>
+  <!-- 높이 치수 5 m / 45 m -->
+  <line class="th" x1="22" y1="58" x2="60" y2="58"/>
+  <line class="dsh" x1="22" y1="125" x2="283" y2="125"/>
+  <line class="th" x1="22" y1="353" x2="60" y2="353"/>
+  <line class="dm" x1="40" y1="58" x2="40" y2="125" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="40" y1="125" x2="40" y2="353" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="48" y="98">5 m</text><text class="tx" x="48" y="244">45 m</text>
+  <!-- 상부 헤더 -->
+  <path class="ln" d="M284,125 H557 M557,119 V131"/>
+  <!-- 충압(보조)펌프 -->
+  <path class="ln" d="M284,125 V143"/>
+  <circle class="nd" cx="284" cy="157" r="13"/><polygon class="rb" points="284,148 293,163 275,163"/>
+  <path class="ln" d="M284,170 V216 H246"/>
+  <polygon class="nd" points="276,186 292,186 276,200 292,200"/>
+  <path class="ln" d="M297,157 H317 V232"/>
+  <polygon class="nd" points="309,186 325,186 309,200 325,200"/>
+  <path class="th" d="M311,232 C314,228 318,236 323,232"/>
+  <!-- 가지배관 2열 (각 4개 헤드) -->
+  <line class="ln" x1="482" y1="54" x2="394" y2="193"/><line class="th" x1="477" y1="50" x2="488" y2="57"/><line class="th" x1="389" y1="190" x2="400" y2="197"/>
+  <path class="ln" d="M464,82 V70 H482 V83"/><polygon class="rb" points="478,83 487,83 482,93"/>
+  <path class="ln" d="M444,115 V101 H462 V114"/><polygon class="rb" points="458,114 467,114 462,124"/>
+  <path class="ln" d="M420,150 V137 H439 V150"/><polygon class="rb" points="435,150 444,150 439,160"/>
+  <path class="ln" d="M402,177 V164 H421 V177"/><polygon class="rb" points="417,177 426,177 421,187"/>
+  <line class="ln" x1="557" y1="52" x2="462" y2="202"/><line class="th" x1="552" y1="48" x2="563" y2="55"/>
+  <path class="ln" d="M539,82 V70 H557 V83"/><polygon class="rb" points="553,83 562,83 557,93"/>
+  <path class="ln" d="M519,114 V101 H538 V114"/><polygon class="rb" points="534,114 543,114 538,124"/>
+  <path class="ln" d="M495,150 V137 H514 V150"/><polygon class="rb" points="510,150 519,150 514,160"/>
+  <path class="ln" d="M478,177 V164 H496 V177"/><polygon class="rb" points="492,177 501,177 496,187"/>
+  <!-- 시험밸브 장치 -->
+  <circle class="nd" cx="479" cy="201" r="8"/><path class="th" d="M473,207 L485,195"/>
+  <path class="ln" d="M479,209 V218 H462 M462,202 V258"/>
+  <polygon class="nd" points="454,226 470,226 454,240 470,240"/>
+  <polygon class="nd" points="456,243 468,243 456,253 468,253"/>
+  <path class="th" d="M456,258 C459,254 464,262 468,258"/>
+  <!-- 주펌프 토출측 -->
+  <path class="ln" d="M198,216 V342 M198,253 H256 V374 H278 M294,374 H321"/>
+  <path class="sup" d="M190,216 V209 A8,8 0 0 1 206,209 V216 Z"/>
+  <polygon class="nd" points="190,282 206,282 190,298 206,298"/>
+  <path class="ln" d="M190,305 H206 L190,319 H206"/>
+  <line class="ln" x1="214" y1="318" x2="214" y2="302" marker-end="url(#ai)"/>
+  <polygon class="nd" points="278,366 294,366 278,382 294,382"/>
+  <circle class="rb" cx="198" cy="230" r="3"/><circle class="rb" cx="198" cy="253" r="3"/><circle class="rb" cx="246" cy="230" r="0"/>
+  <!-- 주펌프 -->
+  <circle class="nd" cx="198" cy="356" r="14"/><text class="ts" x="193" y="361">P</text>
+  <path class="ln" d="M184,370 L179,378 M212,370 L217,378"/>
+  <rect x="169" y="378" width="58" height="8" fill="url(#hat)"/><line class="ln" x1="169" y1="378" x2="227" y2="378"/>
+  <!-- 흡입측 : 연성계 -0.05 MPa, 지하 수조 -->
+  <path class="ln" d="M184,354 H105 V404"/>
+  <circle class="nd" cx="155" cy="338" r="6"/><path class="th" d="M155,344 V354"/>
+  <text class="tx" x="108" y="324">-0.05 MPa</text>
+  <rect class="fl" x="57" y="394" width="97" height="30"/>
+  <path class="ln" d="M57,378 V424 H154 V378"/>
+  <line class="th" x1="57" y1="394" x2="154" y2="394"/><line class="th" x1="64" y1="402" x2="90" y2="402"/><line class="th" x1="64" y1="410" x2="82" y2="410"/>
+  <rect class="nd" x="100" y="404" width="11" height="15"/>
+  <!-- 압력챔버 -->
+  <path class="sup" d="M321,350 A15.5,10 0 0 1 352,350 V400 A15.5,10 0 0 1 321,400 Z"/>
+  <path class="ln" d="M323,408 V435 M349,408 V435 M336,410 V435"/>
+  <rect x="311" y="435" width="51" height="8" fill="url(#hat)"/><line class="ln" x1="311" y1="435" x2="362" y2="435"/>
+  <polygon class="nd" points="329,415 343,415 329,429 343,429"/>
+  <path class="ln" d="M336,340 V312 M330,312 H342"/>
+  <polygon class="nd" points="329,324 343,324 329,338 343,338"/>
+  <circle class="nd" cx="368" cy="346" r="7"/><path class="th" d="M363,351 L373,341 M368,353 V364 H352"/>
+</svg>

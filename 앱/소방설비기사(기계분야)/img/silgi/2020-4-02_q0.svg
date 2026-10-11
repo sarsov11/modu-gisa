@@ -1,0 +1,56 @@
+<svg viewBox="0 0 540 420" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 방호구역 -->
+  <rect class="m" x="22" y="24" width="303" height="162"/>
+  <rect class="m" x="325" y="76" width="172" height="110"/>
+  <rect class="m" x="215" y="186" width="282" height="123"/>
+  <path class="m" d="M63,186 V330 H215"/>
+  <rect class="m" x="215" y="309" width="109" height="91"/>
+  <text class="tx" x="172" y="70" text-anchor="middle">B실 (12 m × 7 m)</text>
+  <text class="tx" x="411" y="104" text-anchor="middle">A실 (6 m × 5 m)</text>
+  <text class="tx" x="438" y="240" text-anchor="middle">D실</text><text class="tx" x="438" y="260" text-anchor="middle">(10 m × 5 m)</text>
+  <text class="tx" x="92" y="298">C실 (6 m × 6 m)</text>
+  <!-- 분사헤드와 배관 -->
+  <circle class="nd" cx="87" cy="63" r="5"/><circle class="nd" cx="87" cy="148" r="5"/><circle class="nd" cx="261" cy="63" r="5"/><circle class="nd" cx="261" cy="148" r="5"/>
+  <path class="ln" d="M87,68 V143 M87,105 H261 M261,68 V143 M174,105 V200 H258 V309"/>
+  <circle class="nd" cx="410" cy="131" r="5"/>
+  <path class="ln" d="M405,131 H269 V309"/>
+  <circle class="nd" cx="376" cy="208" r="5"/><circle class="nd" cx="376" cy="286" r="5"/>
+  <path class="ln" d="M376,213 V281 M376,247 H281 V309"/>
+  <circle class="nd" cx="140" cy="259" r="5"/>
+  <path class="ln" d="M145,259 H246 V309"/>
+  <text class="tx" x="425" y="165">분사헤드</text>
+  <line class="th" x1="424" y1="156" x2="413" y2="136" marker-end="url(#ai)"/>
+  <!-- 저장용기실 -->
+  <line class="ln" x1="234" y1="314" x2="234" y2="378"/>
+  <line class="ln" x1="234" y1="324" x2="290" y2="324"/>
+  <circle class="nd" cx="225" cy="314" r="5"/><circle class="nd" cx="225" cy="326" r="5"/><circle class="nd" cx="225" cy="338" r="5"/><circle class="nd" cx="225" cy="350" r="5"/><circle class="nd" cx="225" cy="362" r="5"/><circle class="nd" cx="225" cy="374" r="5"/>
+  <path class="ln" d="M230,314 H234 M230,326 H234 M230,338 H234 M230,350 H234 M230,362 H234 M230,374 H234"/>
+  <circle class="nd" cx="246" cy="314" r="5"/><circle class="nd" cx="258" cy="314" r="5"/><circle class="nd" cx="269" cy="314" r="5"/><circle class="nd" cx="281" cy="314" r="5"/>
+  <path class="ln" d="M246,319 V324 M258,319 V324 M269,319 V324 M281,319 V324"/>
+  <circle class="nd" cx="294" cy="324" r="5"/>
+  <text class="tx" x="244" y="354">할론약제</text><text class="tx" x="244" y="374">저장용기실</text>
+  <text class="tx" x="342" y="322">선택밸브</text>
+  <line class="th" x1="340" y1="318" x2="288" y2="314" marker-end="url(#ai)"/>
+  <text class="tx" x="342" y="358">안전밸브</text>
+  <line class="th" x1="340" y1="352" x2="299" y2="328" marker-end="url(#ai)"/>
+  <text class="tx" x="20" y="402">할론저장용기 50 kg</text>
+  <line class="th" x1="150" y1="394" x2="221" y2="378" marker-end="url(#ai)"/>
+</svg>

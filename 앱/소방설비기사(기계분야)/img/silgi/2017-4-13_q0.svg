@@ -1,0 +1,35 @@
+<svg viewBox="0 0 400 370" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 가지배관 + 헤드 -->
+  <polyline class="m" points="40,92 250,232 250,306"/>
+  <line class="ln" x1="60" y1="105" x2="60" y2="70"/><polygon class="sup" points="53,70 67,70 60,56"/><text class="tx" x="68" y="62">H-1</text>
+  <line class="ln" x1="90" y1="125" x2="90" y2="90"/><polygon class="sup" points="83,90 97,90 90,76"/><text class="tx" x="98" y="82">H-2</text>
+  <line class="ln" x1="120" y1="145" x2="120" y2="110"/><polygon class="sup" points="113,110 127,110 120,96"/><text class="tx" x="128" y="102">H-3</text>
+  <line class="ln" x1="150" y1="165" x2="150" y2="130"/><polygon class="sup" points="143,130 157,130 150,116"/><text class="tx" x="158" y="122">H-4</text>
+  <line class="ln" x1="180" y1="185" x2="180" y2="150"/><polygon class="sup" points="173,150 187,150 180,136"/><text class="tx" x="188" y="142">H-5</text>
+  <!-- B, A 지점 -->
+  <circle class="nd" cx="206" cy="201" r="11"/><text class="tb" x="206" y="206" text-anchor="middle">B</text>
+  <circle class="nd" cx="250" cy="262" r="11"/><text class="tb" x="250" y="267" text-anchor="middle">A</text>
+  <path class="dsh" d="M216,192 Q290,190 258,251" marker-end="url(#ai)"/>
+  <text class="tr" x="280" y="214">0.03 MPa</text>
+  <!-- 교차배관 -->
+  <line class="m" x1="40" y1="340" x2="340" y2="310"/>
+  <text class="tx" x="130" y="362">교차배관</text>
+</svg>

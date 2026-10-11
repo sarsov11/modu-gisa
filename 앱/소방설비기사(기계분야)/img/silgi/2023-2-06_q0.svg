@@ -1,0 +1,53 @@
+<svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 외벽·내벽 (문 자리는 틈) -->
+  <polyline class="m" points="133,105 133,40 415,40 415,115"/>
+  <polyline class="m" points="133,140 133,205 22,205 22,335 185,335"/>
+  <polyline class="m" points="225,335 330,335"/>
+  <polyline class="m" points="365,335 415,335 415,285"/>
+  <polyline class="m" points="415,255 415,150"/>
+  <polyline class="m" points="135,205 135,225"/>
+  <polyline class="m" points="135,255 135,335"/>
+  <polyline class="m" points="135,205 190,205"/>
+  <polyline class="m" points="225,205 275,205 275,335"/>
+  <polyline class="m" points="275,40 275,115"/>
+  <polyline class="m" points="275,150 275,205"/>
+  <!-- 문(틈) 표시 -->
+  <line class="dsh" x1="133" y1="105" x2="133" y2="140"/>
+  <line class="dsh" x1="135" y1="225" x2="135" y2="255"/>
+  <line class="dsh" x1="190" y1="205" x2="225" y2="205"/>
+  <line class="dsh" x1="185" y1="335" x2="225" y2="335"/>
+  <line class="dsh" x1="275" y1="115" x2="275" y2="150"/>
+  <line class="dsh" x1="415" y1="115" x2="415" y2="150"/>
+  <line class="dsh" x1="415" y1="255" x2="415" y2="285"/>
+  <line class="dsh" x1="330" y1="335" x2="365" y2="335"/>
+  <!-- 문 이름 -->
+  <text class="tm" x="142" y="128">A<tspan dy="4" class="ts">4</tspan></text>
+  <text class="tm" x="282" y="136">A<tspan dy="4" class="ts">3</tspan></text>
+  <text class="tm" x="141" y="276">A<tspan dy="4" class="ts">1</tspan></text>
+  <text class="tm" x="198" y="226">A<tspan dy="4" class="ts">2</tspan></text>
+  <text class="tm" x="198" y="360">A<tspan dy="4" class="ts">8</tspan></text>
+  <text class="tm" x="338" y="360">A<tspan dy="4" class="ts">7</tspan></text>
+  <text class="tm" x="388" y="136">A<tspan dy="4" class="ts">5</tspan></text>
+  <text class="tm" x="388" y="276">A<tspan dy="4" class="ts">6</tspan></text>
+  <!-- 실 이름 -->
+  <text class="tb" x="52" y="262">X실</text>
+  <text class="tx" x="38" y="284">급기가압</text>
+</svg>

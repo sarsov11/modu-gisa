@@ -1,0 +1,111 @@
+<svg viewBox="0 0 780 640" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 교차배관: 펌프 입상 → 65A → 50A → 40A -->
+  <polyline class="m" points="127,346 127,275"/>
+  <polyline class="m" points="127,275 240,210"/>
+  <polyline class="m" points="240,210 345,150"/>
+  <polyline class="m" points="345,150 445,108"/>
+  <line class="m" x1="445" y1="108" x2="445" y2="93"/>
+  <!-- 가지배관 1 (헤드 A 쪽) -->
+  <polyline class="m" points="322,45 698,192"/>
+  <!-- 가지배관 2 -->
+  <polyline class="m" points="222,100 597,248"/>
+  <!-- 가지배관 3 -->
+  <polyline class="m" points="118,158 495,305"/>
+  <!-- 헤드: 가지배관 1 -->
+  <g>
+    <line class="th" x1="322" y1="45" x2="322" y2="58"/><polygon class="rb" points="316,58 328,58 322,68"/>
+    <line class="th" x1="413" y1="81" x2="413" y2="94"/><polygon class="rb" points="407,94 419,94 413,104"/>
+    <line class="th" x1="507" y1="117" x2="507" y2="130"/><polygon class="rb" points="501,130 513,130 507,140"/>
+    <line class="th" x1="601" y1="154" x2="601" y2="167"/><polygon class="rb" points="595,167 607,167 601,177"/>
+    <line class="th" x1="698" y1="192" x2="698" y2="205"/><polygon class="rb" points="692,205 704,205 698,215"/>
+  </g>
+  <!-- 헤드: 가지배관 2 -->
+  <g>
+    <line class="th" x1="222" y1="100" x2="222" y2="113"/><polygon class="rb" points="216,113 228,113 222,123"/>
+    <line class="th" x1="312" y1="135" x2="312" y2="148"/><polygon class="rb" points="306,148 318,148 312,158"/>
+    <line class="th" x1="405" y1="172" x2="405" y2="185"/><polygon class="rb" points="399,185 411,185 405,195"/>
+    <line class="th" x1="497" y1="208" x2="497" y2="221"/><polygon class="rb" points="491,221 503,221 497,231"/>
+    <line class="th" x1="595" y1="244" x2="595" y2="257"/><polygon class="rb" points="589,257 601,257 595,267"/>
+  </g>
+  <!-- 헤드: 가지배관 3 -->
+  <g>
+    <line class="th" x1="118" y1="158" x2="118" y2="171"/><polygon class="rb" points="112,171 124,171 118,181"/>
+    <line class="th" x1="208" y1="193" x2="208" y2="206"/><polygon class="rb" points="202,206 214,206 208,216"/>
+    <line class="th" x1="300" y1="229" x2="300" y2="242"/><polygon class="rb" points="294,242 306,242 300,252"/>
+    <line class="th" x1="397" y1="267" x2="397" y2="280"/><polygon class="rb" points="391,280 403,280 397,290"/>
+    <line class="th" x1="492" y1="304" x2="492" y2="317"/><polygon class="rb" points="486,317 498,317 492,327"/>
+  </g>
+  <!-- 구경·길이: 입상·교차배관 -->
+  <text class="tx" x="30" y="318">65A (3 m)</text>
+  <text class="tx" transform="rotate(-30 134 252)" x="134" y="252">65A (5 m)</text>
+  <text class="tx" transform="rotate(-30 252 186)" x="252" y="186">50A (2 m)</text>
+  <text class="tx" transform="rotate(-30 358 126)" x="358" y="126">40A (2 m)</text>
+  <line class="th" x1="446" y1="102" x2="462" y2="152"/><text class="tx" x="452" y="170">40A (0.15 m)</text>
+  <!-- 구경·길이: 가지배관 1 -->
+  <text class="ts" transform="rotate(21 334 41)" x="334" y="41">25A (2 m)</text>
+  <text class="ts" transform="rotate(21 409 70)" x="409" y="70">25A (1 m)</text>
+  <text class="ts" transform="rotate(21 484 99)" x="484" y="99">32A (1 m)</text>
+  <text class="ts" transform="rotate(21 559 129)" x="559" y="129">25A (2 m)</text>
+  <text class="ts" transform="rotate(21 634 158)" x="634" y="158">25A (2 m)</text>
+  <text class="tb" x="684" y="238">A</text>
+  <!-- 확대: 헤드 A 앞 -->
+  <circle class="dsh" cx="640" cy="388" r="78"/>
+  <line class="dsh" x1="698" y1="222" x2="582" y2="330"/>
+  <line class="dsh" x1="700" y1="222" x2="712" y2="314"/>
+  <polyline class="m" points="682,376 682,334 610,334 610,404"/>
+  <polygon class="rb" points="598,404 622,404 610,424"/>
+  <text class="tx" x="590" y="302">25A (0.1 m)</text>
+  <text class="tx" x="474" y="372">25A (0.3 m)</text>
+  <text class="tx" x="690" y="360">25A (0.1 m)</text>
+  <!-- 펌프·밸브·수조 -->
+  <circle class="nd" cx="127" cy="358" r="12"/>
+  <polygon class="rb" points="127,350 120,364 134,364"/>
+  <path class="ln" d="M120,372 L134,372 L120,386 L134,386 Z"/>
+  <polyline class="ln" points="119,411 135,411 119,425 135,425"/>
+  <line class="m" x1="127" y1="370" x2="127" y2="372"/>
+  <line class="ln" x1="127" y1="386" x2="127" y2="411"/>
+  <line class="ln" x1="127" y1="425" x2="127" y2="446"/>
+  <!-- 높이 치수 -->
+  <line class="th" x1="52" y1="348" x2="114" y2="348"/><line class="th" x1="52" y1="388" x2="114" y2="388"/><line class="th" x1="52" y1="410" x2="114" y2="410"/><line class="th" x1="52" y1="428" x2="114" y2="428"/><line class="th" x1="52" y1="446" x2="114" y2="446"/>
+  <line class="dm" x1="64" y1="348" x2="64" y2="388" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="64" y1="388" x2="64" y2="410" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="64" y1="410" x2="64" y2="428" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="64" y1="428" x2="64" y2="446" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="20" y="372">0.6 m</text>
+  <text class="ts" x="16" y="403">0.3 m</text>
+  <text class="ts" x="16" y="423">0.3 m</text>
+  <text class="ts" x="16" y="441">0.3 m</text>
+  <!-- 수조 1 -->
+  <rect class="ln" x="120" y="446" width="14" height="12"/>
+  <circle class="fl" cx="127" cy="486" r="30"/><circle class="ln" cx="127" cy="486" r="30"/>
+  <rect class="sup" x="104" y="516" width="46" height="12"/>
+  <line class="th" x1="62" y1="525" x2="100" y2="510"/>
+  <text class="tx" x="20" y="544">수조</text>
+  <!-- 수조 2, 압력탱크 모양 용기 -->
+  <polyline class="th" points="135,432 230,462 230,508"/>
+  <line class="th" x1="230" y1="462" x2="338" y2="520"/>
+  <rect class="ln" x="224" y="506" width="12" height="10"/>
+  <circle class="fl" cx="230" cy="544" r="26"/><circle class="ln" cx="230" cy="544" r="26"/>
+  <rect class="sup" x="208" y="570" width="44" height="10"/>
+  <line class="th" x1="170" y1="594" x2="206" y2="574"/>
+  <text class="tx" x="130" y="604">수조</text>
+  <rect class="fl" x="330" y="520" width="16" height="50" rx="8"/><rect class="ln" x="330" y="520" width="16" height="50" rx="8"/>
+</svg>

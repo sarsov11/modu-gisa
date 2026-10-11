@@ -1,0 +1,156 @@
+<svg viewBox="0 0 660 800" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 감시·동력 제어 신호선 -->
+  <polyline class="dsh" points="176,30 298,30 298,285 545,285 545,432 558,432"/>
+  <polyline class="dsh" points="178,300 178,285 298,285"/>
+  <line class="dsh" x1="518" y1="432" x2="545" y2="432"/>
+  <polyline class="dsh" points="310,593 312,610 545,610 545,577 558,577"/>
+
+  <!-- 옥상수조 -->
+  <rect class="ln" x="82" y="45" width="112" height="65"/>
+  <line class="th" x1="115" y1="62" x2="165" y2="62"/>
+  <text class="tx" x="110" y="98">옥상수조</text>
+  <path class="ln" d="M160,38 A8,8 0 0 1 176,38 Z"/><line class="th" x1="168" y1="38" x2="168" y2="45"/>
+  <text class="tx" x="184" y="40">감수경보장치</text>
+  <text class="tx" x="30" y="86">오버</text><text class="tx" x="24" y="104">플로관</text>
+  <line class="ln" x1="82" y1="70" x2="82" y2="165"/>
+  <line class="ln" x1="82" y1="128" x2="96" y2="128"/>
+  <path class="ln" d="M96,122 L110,134 L110,122 L96,134 Z"/>
+  <text class="tx" x="118" y="146">배수관</text>
+  <!-- 옥상수조 출구: 밸브, 체크밸브 -->
+  <line class="ln" x1="194" y1="97" x2="205" y2="97"/>
+  <path class="ln" d="M205,91 L219,103 L219,91 L205,103 Z"/>
+  <line class="ln" x1="219" y1="97" x2="229" y2="97"/>
+  <polyline class="ln" points="229,103 229,91 241,103 241,91"/>
+  <line class="th" x1="241" y1="97" x2="272" y2="97"/>
+  <line class="th" x1="238" y1="86" x2="248" y2="86" marker-end="url(#ai)"/>
+
+  <!-- 주 입상관 -->
+  <line class="m" x1="272" y1="97" x2="272" y2="580"/>
+
+  <!-- 옥내소화전함 3 -->
+  <line class="ln" x1="272" y1="212" x2="475" y2="212"/>
+  <line class="ln" x1="350" y1="212" x2="350" y2="205"/><line class="ln" x1="410" y1="212" x2="410" y2="205"/><line class="ln" x1="470" y1="212" x2="470" y2="205"/>
+  <g>
+    <rect class="ln" x="330" y="165" width="40" height="40"/><polygon class="sup" points="330,205 370,205 370,182"/><text class="ts" x="333" y="180">P B L</text>
+    <rect class="ln" x="390" y="165" width="40" height="40"/><polygon class="sup" points="390,205 430,205 430,182"/><text class="ts" x="393" y="180">P B L</text>
+    <rect class="ln" x="450" y="165" width="40" height="40"/><polygon class="sup" points="450,205 490,205 490,182"/><text class="ts" x="453" y="180">P B L</text>
+  </g>
+  <text class="tx" x="504" y="178">옥내</text><text class="tx" x="504" y="198">소화전함</text>
+
+  <!-- 송수구 -->
+  <line class="ln" x1="272" y1="248" x2="484" y2="248"/>
+  <polyline class="ln" points="484,254 484,242 496,254 496,242"/>
+  <line class="ln" x1="496" y1="248" x2="530" y2="248"/>
+  <path class="ln" d="M530,240 L530,256 Q548,256 548,248 Q548,240 530,240 Z"/>
+  <rect class="ln" x="513" y="258" width="14" height="14"/>
+
+  <!-- 입상관 밸브·체크밸브 -->
+  <path class="ln" d="M266,338 L278,352 L266,352 L278,338 Z"/>
+  <polyline class="ln" points="266,368 278,368 266,382 278,382"/>
+  <line class="th" x1="262" y1="384" x2="262" y2="370" marker-end="url(#ai)"/>
+
+  <!-- 압력챔버 쪽 분기 -->
+  <polyline class="ln" points="272,322 415,322 415,415 425,415"/>
+  <path class="ln" d="M425,409 L439,421 L439,409 L425,421 Z"/>
+  <line class="ln" x1="439" y1="415" x2="446" y2="415"/>
+  <!-- 압력챔버 -->
+  <rect class="ln" x="446" y="368" width="72" height="110" rx="26"/>
+  <line class="ln" x1="482" y1="352" x2="482" y2="368"/>
+  <path class="rb" d="M476,346 L488,360 L476,360 L488,346 Z"/>
+  <line class="ln" x1="482" y1="478" x2="482" y2="490"/>
+  <path class="rb" d="M476,484 L488,498 L476,498 L488,484 Z"/>
+  <text class="ts" x="450" y="404">압력스위치</text>
+  <rect class="ln" x="452" y="412" width="28" height="15"/><text class="ts" x="456" y="424">P·S</text>
+  <rect class="ln" x="484" y="412" width="28" height="15"/><text class="ts" x="488" y="424">P·S</text>
+  <text class="ts" x="458" y="450">압력챔버</text>
+  <text class="ts" x="452" y="470">(30L 이상)</text>
+  <circle class="nd" cx="526" cy="388" r="7"/><line class="th" x1="521" y1="393" x2="531" y2="383"/>
+
+  <!-- 제어반 -->
+  <rect class="ln" x="558" y="418" width="57" height="44"/><line class="th" x1="558" y1="418" x2="615" y2="462"/><line class="th" x1="558" y1="462" x2="615" y2="418"/>
+  <text class="tx" x="548" y="484">감시제어반</text>
+  <rect class="ln" x="558" y="555" width="57" height="44"/><line class="th" x1="558" y1="555" x2="615" y2="599"/><line class="th" x1="558" y1="599" x2="615" y2="555"/>
+  <text class="tx" x="548" y="620">동력제어반</text>
+
+  <!-- 물올림탱크 -->
+  <line class="ln" x1="30" y1="300" x2="75" y2="300"/>
+  <path class="ln" d="M75,294 L89,306 L89,294 L75,306 Z"/>
+  <polyline class="ln" points="89,300 124,300 124,328"/>
+  <circle class="nd" cx="134" cy="334" r="4"/><line class="th" x1="120" y1="328" x2="130" y2="333"/>
+  <text class="tx" x="36" y="288">자동급수밸브</text>
+  <text class="tx" x="28" y="322">급수배관</text><text class="ts" x="20" y="340">(15 mm 이상)</text>
+  <rect class="ln" x="110" y="318" width="112" height="112"/>
+  <text class="tx" x="118" y="356">볼탭</text>
+  <text class="tx" x="118" y="392">물올림탱크</text>
+  <path class="ln" d="M170,314 A8,8 0 0 1 186,314 Z"/><line class="th" x1="178" y1="314" x2="178" y2="345"/>
+  <text class="tx" x="146" y="278">감수경보장치</text>
+  <!-- 오버플로관·배수관 -->
+  <polyline class="ln" points="110,400 82,400 82,432"/>
+  <line class="ln" x1="82" y1="432" x2="96" y2="432"/>
+  <path class="ln" d="M96,426 L110,438 L110,426 L96,438 Z"/>
+  <text class="tx" x="30" y="366">오버</text><text class="tx" x="24" y="384">플로관</text><text class="ts" x="14" y="402">(50 mm 이상)</text>
+  <text class="tx" x="118" y="456">배수관</text>
+  <!-- 물올림관 -->
+  <polyline class="ln" points="196,430 196,442 208,442"/>
+  <path class="ln" d="M208,436 L222,448 L222,436 L208,448 Z"/>
+  <line class="ln" x1="222" y1="442" x2="232" y2="442"/>
+  <polyline class="ln" points="232,448 232,436 244,448 244,436"/>
+  <line class="th" x1="244" y1="442" x2="272" y2="442"/>
+  <text class="tx" x="168" y="476">물올림관</text><text class="ts" x="160" y="494">(25 mm 이상)</text>
+  <!-- 순환배관 -->
+  <polyline class="ln" points="272,468 245,468 245,476"/>
+  <path class="ln" d="M239,476 L251,490 L239,490 L251,476 Z"/>
+  <line class="ln" x1="245" y1="490" x2="245" y2="500"/>
+  <text class="tx" x="196" y="520">순환</text><text class="tx" x="196" y="538">배관</text><text class="ts" x="170" y="556">(15 mm 이상)</text>
+
+  <!-- 성능시험배관 -->
+  <polyline class="ln" points="272,522 440,522 440,545"/>
+  <path class="ln" d="M317,516 L329,528 L329,516 L317,528 Z"/>
+  <path class="ln" d="M399,516 L411,528 L411,516 L399,528 Z"/>
+  <line class="ln" x1="370" y1="522" x2="370" y2="509"/>
+  <circle class="nd" cx="370" cy="500" r="9"/><text class="ts" x="365" y="504">M</text>
+  <circle class="nd" cx="286" cy="536" r="6"/><line class="th" x1="282" y1="540" x2="290" y2="532"/><line class="th" x1="286" y1="530" x2="286" y2="522"/>
+  <text class="tx" x="298" y="552">유량조절밸브</text>
+  <text class="tx" x="382" y="552">개폐밸브</text>
+
+  <!-- 펌프 -->
+  <circle class="nd" cx="273" cy="590" r="14"/><circle class="th" cx="273" cy="590" r="5" fill="none"/>
+  <rect class="sup" x="260" y="604" width="26" height="6"/>
+  <rect class="ln" x="292" y="577" width="18" height="16"/><text class="ts" x="296" y="589">M</text>
+  <text class="tx" x="252" y="632">주펌프</text>
+  <!-- 흡입측 -->
+  <polyline class="ln" points="143,588 259,590"/>
+  <polyline class="ln" points="150,594 150,582 162,594 162,582"/>
+  <polyline class="ln" points="172,594 180,584"/>
+  <rect class="sup" x="205" y="582" width="22" height="14"/>
+  <circle class="nd" cx="227" cy="572" r="6"/><line class="th" x1="227" y1="578" x2="227" y2="587"/>
+  <text class="tx" x="40" y="574">버터플라이</text><text class="tx" x="56" y="594">밸브</text>
+  <line class="ln" x1="143" y1="588" x2="143" y2="722"/>
+  <rect class="ln" x="130" y="722" width="26" height="16"/><line class="th" x1="130" y1="722" x2="156" y2="738"/><line class="th" x1="130" y1="738" x2="156" y2="722"/>
+
+  <!-- 수원 -->
+  <polyline class="m" points="85,612 85,780 515,780 515,612 300,612"/>
+  <polyline class="m" points="85,612 245,612"/>
+  <line class="th" x1="92" y1="655" x2="440" y2="655"/>
+  <polygon class="ln" points="455,648 471,648 463,662"/>
+  <text class="tx" x="395" y="735">수원</text>
+  <path class="ln" d="M485,606 A8,8 0 0 1 501,606 Z"/><line class="th" x1="493" y1="606" x2="493" y2="772"/>
+</svg>

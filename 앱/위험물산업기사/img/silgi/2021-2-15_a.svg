@@ -1,0 +1,40 @@
+<svg viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <text class="tb" x="60" y="155" text-anchor="middle">H</text>
+  <text class="tb" x="120" y="155" text-anchor="middle">C</text>
+  <text class="tb" x="200" y="155" text-anchor="middle">C</text>
+  <text class="tb" x="280" y="155" text-anchor="middle">C</text>
+  <text class="tb" x="340" y="155" text-anchor="middle">H</text>
+  <text class="tb" x="200" y="86" text-anchor="middle">O</text>
+  <line class="ln" x1="194" y1="138" x2="194" y2="96"/>
+  <line class="ln" x1="206" y1="138" x2="206" y2="96"/>
+  <line class="ln" x1="72" y1="150" x2="108" y2="150"/>
+  <line class="ln" x1="132" y1="150" x2="188" y2="150"/>
+  <line class="ln" x1="212" y1="150" x2="268" y2="150"/>
+  <line class="ln" x1="292" y1="150" x2="328" y2="150"/>
+  <line class="ln" x1="120" y1="138" x2="120" y2="118"/>
+  <text class="tb" x="120" y="108" text-anchor="middle">H</text>
+  <line class="ln" x1="120" y1="162" x2="120" y2="182"/>
+  <text class="tb" x="120" y="200" text-anchor="middle">H</text>
+  <line class="ln" x1="280" y1="138" x2="280" y2="118"/>
+  <text class="tb" x="280" y="108" text-anchor="middle">H</text>
+  <line class="ln" x1="280" y1="162" x2="280" y2="182"/>
+  <text class="tb" x="280" y="200" text-anchor="middle">H</text>
+</svg>

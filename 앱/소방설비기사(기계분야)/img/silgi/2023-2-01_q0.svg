@@ -1,0 +1,38 @@
+<svg viewBox="0 0 520 250" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 수조 -->
+  <rect class="fl" x="40" y="110" width="260" height="110"/>
+  <polyline class="ln" points="40,110 40,220 300,220 300,80"/>
+  <line class="ln" x1="40" y1="110" x2="300" y2="110"/>
+  <line class="th" x1="70" y1="124" x2="180" y2="124"/><line class="th" x1="90" y1="136" x2="160" y2="136"/>
+  <!-- 대기압 -->
+  <text class="tx" x="48" y="30">대기압</text>
+  <line class="ld" x1="62" y1="42" x2="62" y2="104" marker-end="url(#ar)"/><line class="ld" x1="94" y1="42" x2="94" y2="104" marker-end="url(#ar)"/><line class="ld" x1="126" y1="42" x2="126" y2="104" marker-end="url(#ar)"/>
+  <!-- 흡입관 : 풋밸브 - 입상 - 수평 - 펌프 -->
+  <polyline class="m" points="220,190 220,56 380,56"/>
+  <polygon class="sup" points="210,206 230,206 220,190"/>
+  <!-- 높이 4 m -->
+  <line class="th" x1="146" y1="56" x2="214" y2="56"/>
+  <line class="dm" x1="170" y1="56" x2="170" y2="110" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="176" y="88">4 m</text>
+  <!-- 펌프 -->
+  <polygon class="sup" points="368,92 412,92 404,78 376,78"/><circle class="nd" cx="390" cy="56" r="22"/><text class="tb" x="390" y="62" text-anchor="middle">P</text>
+  <line class="ln" x1="412" y1="56" x2="480" y2="56" marker-end="url(#ai)"/>
+</svg>

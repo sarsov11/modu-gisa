@@ -138,6 +138,7 @@
     var 맞=결과.filter(function(v){return v===2;}).length, 헷=결과.filter(function(v){return v===1;}).length;
     var 틀=문제.filter(function(_,j){return 결과[j]<2;});
     if(window.ZZ&&결과.length){ var p=맞/결과.length; ZZ.stars(p>=1?3:p>=.7?2:p>=.4?1:0); }
+    if(window.TerraBeta&&TerraBeta.event) TerraBeta.event("set_done",{종류:"반응식",테마:el("ttl").textContent,맞:맞,총:결과.length});
     el("stage").innerHTML='<div class="done"><h2>'+e(el("ttl").textContent)+'</h2><div class="tally"><div><b>'+맞+' / '+결과.length+'</b><span>한 번에</span></div>'+
       '<div><b>'+헷+'</b><span>다시 써서</span></div><div><b>'+(결과.length-맞-헷)+'</b><span>정답 봄</span></div></div>'+
       '<div class="act">'+(틀.length?'<a class="b main" href="banung.html?wrong=1">다시 볼 식</a>':'')+
@@ -147,5 +148,5 @@
   그리기();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

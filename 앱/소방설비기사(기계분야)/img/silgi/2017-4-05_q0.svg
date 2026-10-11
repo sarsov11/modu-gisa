@@ -1,0 +1,51 @@
+<svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 왼쪽: 기호 설명 -->
+  <polyline class="m" points="160,82 160,70 20,70 20,150 160,150 160,118"/>
+  <line class="ln" x1="152" y1="82" x2="168" y2="82"/><line class="ln" x1="152" y1="118" x2="168" y2="118"/>
+  <text class="tx" x="176" y="44">급기하고자 하는 실</text>
+  <line class="th" x1="200" y1="50" x2="90" y2="86" marker-end="url(#ai)"/>
+  <text class="tx" x="184" y="80">문의 틈새면적 A</text>
+  <line class="th" x1="182" y1="86" x2="165" y2="97" marker-end="url(#ai)"/>
+  <line class="ld" x1="90" y1="132" x2="210" y2="132" marker-end="url(#ar)"/>
+  <text class="tx" x="216" y="137">Q (누출공기량)</text>
+  <!-- 오른쪽: 평면도 -->
+  <polyline class="m" points="440,110 340,110 340,50 540,50 540,110 640,110 640,135"/>
+  <line class="m" x1="640" y1="155" x2="640" y2="180"/>
+  <polyline class="m" points="640,180 510,180"/><polyline class="m" points="470,180 440,180 440,155"/>
+  <line class="m" x1="440" y1="135" x2="440" y2="110"/>
+  <line class="m" x1="440" y1="110" x2="470" y2="110"/><line class="m" x1="510" y1="110" x2="540" y2="110"/>
+  <line class="m" x1="440" y1="50" x2="440" y2="70"/><line class="m" x1="440" y1="90" x2="440" y2="110"/>
+  <line class="m" x1="540" y1="110" x2="540" y2="135"/><line class="m" x1="540" y1="155" x2="540" y2="180"/>
+  <!-- 문 틈새 표시 -->
+  <line class="ln" x1="434" y1="70" x2="446" y2="70"/><line class="ln" x1="434" y1="90" x2="446" y2="90"/>
+  <line class="ln" x1="470" y1="104" x2="470" y2="116"/><line class="ln" x1="510" y1="104" x2="510" y2="116"/>
+  <line class="ln" x1="434" y1="135" x2="446" y2="135"/><line class="ln" x1="434" y1="155" x2="446" y2="155"/>
+  <line class="ln" x1="470" y1="174" x2="470" y2="186"/><line class="ln" x1="510" y1="174" x2="510" y2="186"/>
+  <line class="ln" x1="534" y1="135" x2="546" y2="135"/><line class="ln" x1="534" y1="155" x2="546" y2="155"/>
+  <line class="ln" x1="634" y1="135" x2="646" y2="135"/><line class="ln" x1="634" y1="155" x2="646" y2="155"/>
+  <text class="tb" x="372" y="86">A실</text><text class="tb" x="474" y="86">B실</text><text class="tb" x="474" y="152">C실</text><text class="tb" x="578" y="152">D실</text>
+  <text class="tm" x="448" y="68">A<tspan dy="4" class="ts">1</tspan></text>
+  <text class="tm" x="482" y="128">A<tspan dy="4" class="ts">2</tspan></text>
+  <text class="tm" x="404" y="150">A<tspan dy="4" class="ts">3</tspan></text>
+  <text class="tm" x="482" y="204">A<tspan dy="4" class="ts">4</tspan></text>
+  <text class="tm" x="548" y="130">A<tspan dy="4" class="ts">5</tspan></text>
+  <text class="tm" x="652" y="150">A<tspan dy="4" class="ts">6</tspan></text>
+</svg>

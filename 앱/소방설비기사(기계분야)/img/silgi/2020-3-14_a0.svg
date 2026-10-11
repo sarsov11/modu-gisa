@@ -47,8 +47,8 @@ svg{background:#FFFFFF}
   <text class="tr" x="110" y="50">(0.519)</text>
   <text class="tr" x="222" y="92">(0.448)</text>
   <text class="tr" x="318" y="160">(0.31)</text>
-  <text class="tr" x="344" y="228">(0.172)</text>
-  <text class="tr" x="446" y="262">(0.103)</text>
+  <text class="tr" x="396" y="222">(0.172)</text>
+  <text class="tr" x="506" y="262">(0.103)</text>
   <text class="tb" x="250" y="30" text-anchor="start">경사선의 elevation</text>
   <!-- pipe profile (gauge elevation) -->
   <polyline class="ln" points="120,306 215,286 310,313 405,320 500,303"/>

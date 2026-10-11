@@ -88,9 +88,9 @@ svg{background:#FFFFFF}
   <line class="th" x1="150" y1="388" x2="330" y2="388"/>
   <polygon class="nd" points="296,378 308,378 302,386"/>
   <!-- 흡입관·후드밸브 -->
-  <line class="m" x1="175" y1="364" x2="175" y2="400"/><line class="m" x1="225" y1="364" x2="225" y2="400"/>
-  <rect class="nd" x="167" y="400" width="16" height="12"/>
-  <rect class="nd" x="217" y="400" width="16" height="12"/>
-  <text class="tx" x="120" y="448">후드밸브</text><line class="th" x1="160" y1="436" x2="170" y2="414"/>
-  <text class="tx" x="230" y="448">후드밸브</text><line class="th" x1="245" y1="436" x2="228" y2="414"/>
+  <line class="m" x1="175" y1="364" x2="175" y2="404"/><line class="m" x1="225" y1="364" x2="225" y2="392"/>
+  <rect class="nd" x="167" y="404" width="16" height="12"/>
+  <rect class="nd" x="217" y="392" width="16" height="12"/>
+  <text class="tx" x="120" y="448">후드밸브</text><line class="th" x1="160" y1="436" x2="170" y2="418"/>
+  <text class="tx" x="230" y="448">후드밸브</text><line class="th" x1="245" y1="436" x2="230" y2="406"/>
 </svg>

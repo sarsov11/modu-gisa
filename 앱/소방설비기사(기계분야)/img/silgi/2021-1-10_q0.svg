@@ -1,0 +1,48 @@
+<svg viewBox="0 0 600 290" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 압력수조: 물(아래)과 공기(위) -->
+  <path class="fl" d="M325.7,70 A62,62 0 1 0 434.3,70 Z"/>
+  <circle class="ln" cx="380" cy="100" r="62"/>
+  <line class="th" x1="325.7" y1="70" x2="434.3" y2="70"/>
+  <line class="th" x1="345" y1="82" x2="415" y2="82"/><line class="th" x1="358" y1="92" x2="402" y2="92"/>
+  <!-- 받침 -->
+  <rect class="sup" x="324" y="172" width="112" height="14"/>
+  <line class="ln" x1="344" y1="148" x2="344" y2="172"/><line class="ln" x1="416" y1="148" x2="416" y2="172"/>
+  <line class="th" x1="344" y1="148" x2="416" y2="172"/><line class="th" x1="344" y1="172" x2="416" y2="148"/>
+  <!-- 압력계 -->
+  <line class="th" x1="414" y1="46" x2="426" y2="34"/>
+  <circle class="nd" cx="432" cy="28" r="8"/>
+  <line class="th" x1="426" y1="34" x2="438" y2="22"/>
+  <!-- 송수 배관(수조 아래쪽에서 오른쪽으로) -->
+  <line class="m" x1="436" y1="152" x2="520" y2="152"/>
+  <path class="ln" d="M520,152 q8,-10 16,0 t16,0"/>
+  <!-- 수면~바닥 3.5 m -->
+  <line class="th" x1="440" y1="70" x2="490" y2="70"/><line class="th" x1="440" y1="162" x2="490" y2="162"/>
+  <line class="dm" x1="480" y1="70" x2="480" y2="162" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="490" y="122">3.5 m</text>
+  <!-- 공기압축기 -->
+  <rect class="sup" x="24" y="206" width="110" height="38" rx="19"/>
+  <text class="tx" x="79" y="230" text-anchor="middle">공기압축기</text>
+  <line class="ln" x1="48" y1="244" x2="40" y2="262"/><line class="ln" x1="110" y1="244" x2="118" y2="262"/><line class="ln" x1="34" y1="262" x2="126" y2="262"/>
+  <!-- 공기 배관 -->
+  <polyline class="m" points="134,225 190,225 190,60 322,60" marker-end="url(#ar)"/>
+  <text class="tx" x="150" y="196">공기</text>
+  <text class="tx" x="198" y="50">공기압 0.5 MPa</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg viewBox="0 0 610 180" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 벤츄리관 : 본관 내경 36 cm, 목 내경 13 cm -->
+  <path class="m" d="M100,40 H250 C290,40 300,72 340,72 H520"/>
+  <path class="m" d="M100,140 H250 C290,140 300,108 340,108 H520"/>
+  <!-- 본관 치수 -->
+  <path class="th" d="M70,40 H96 M70,140 H96"/>
+  <line class="dm" x1="76" y1="40" x2="76" y2="140" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="16" y="94">36 cm</text>
+  <!-- 목 치수 -->
+  <path class="th" d="M524,72 H554 M524,108 H554"/>
+  <line class="dm" x1="546" y1="72" x2="546" y2="108" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="556" y="94">13 cm</text>
+  <!-- 압력·속도 -->
+  <text class="tm" x="128" y="97">P<tspan class="ts" dy="4">1</tspan></text>
+  <line class="ld" x1="160" y1="108" x2="216" y2="108" marker-end="url(#ar)"/>
+  <text class="tm" x="176" y="98">v<tspan class="ts" dy="4">1</tspan></text>
+  <line class="ld" x1="352" y1="98" x2="408" y2="98" marker-end="url(#ar)"/>
+  <text class="tm" x="368" y="64">v<tspan class="ts" dy="4">2</tspan></text>
+  <text class="tm" x="446" y="94">P<tspan class="ts" dy="4">2</tspan></text>
+</svg>

@@ -1,0 +1,71 @@
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <rect class="ln" x="30" y="50" width="493" height="374"/>
+  <!-- 헤드 9 x 7 -->
+  <g class="rb">
+    <circle cx="56" cy="71" r="4.5"/><circle cx="111" cy="71" r="4.5"/><circle cx="166" cy="71" r="4.5"/><circle cx="221" cy="71" r="4.5"/><circle cx="277" cy="71" r="4.5"/><circle cx="332" cy="71" r="4.5"/><circle cx="387" cy="71" r="4.5"/><circle cx="442" cy="71" r="4.5"/><circle cx="498" cy="71" r="4.5"/>
+    <circle cx="56" cy="126" r="4.5"/><circle cx="111" cy="126" r="4.5"/><circle cx="166" cy="126" r="4.5"/><circle cx="221" cy="126" r="4.5"/><circle cx="277" cy="126" r="4.5"/><circle cx="332" cy="126" r="4.5"/><circle cx="387" cy="126" r="4.5"/><circle cx="442" cy="126" r="4.5"/><circle cx="498" cy="126" r="4.5"/>
+    <circle cx="56" cy="182" r="4.5"/><circle cx="111" cy="182" r="4.5"/><circle cx="166" cy="182" r="4.5"/><circle cx="221" cy="182" r="4.5"/><circle cx="277" cy="182" r="4.5"/><circle cx="332" cy="182" r="4.5"/><circle cx="387" cy="182" r="4.5"/><circle cx="442" cy="182" r="4.5"/><circle cx="498" cy="182" r="4.5"/>
+    <circle cx="56" cy="237" r="4.5"/><circle cx="111" cy="237" r="4.5"/><circle cx="166" cy="237" r="4.5"/><circle cx="221" cy="237" r="4.5"/><circle cx="277" cy="237" r="4.5"/><circle cx="332" cy="237" r="4.5"/><circle cx="387" cy="237" r="4.5"/><circle cx="442" cy="237" r="4.5"/><circle cx="498" cy="237" r="4.5"/>
+    <circle cx="56" cy="292" r="4.5"/><circle cx="111" cy="292" r="4.5"/><circle cx="166" cy="292" r="4.5"/><circle cx="221" cy="292" r="4.5"/><circle cx="277" cy="292" r="4.5"/><circle cx="332" cy="292" r="4.5"/><circle cx="387" cy="292" r="4.5"/><circle cx="442" cy="292" r="4.5"/><circle cx="498" cy="292" r="4.5"/>
+    <circle cx="56" cy="347" r="4.5"/><circle cx="111" cy="347" r="4.5"/><circle cx="166" cy="347" r="4.5"/><circle cx="221" cy="347" r="4.5"/><circle cx="277" cy="347" r="4.5"/><circle cx="332" cy="347" r="4.5"/><circle cx="387" cy="347" r="4.5"/><circle cx="442" cy="347" r="4.5"/><circle cx="498" cy="347" r="4.5"/>
+    <circle cx="56" cy="403" r="4.5"/><circle cx="111" cy="403" r="4.5"/><circle cx="166" cy="403" r="4.5"/><circle cx="221" cy="403" r="4.5"/><circle cx="277" cy="403" r="4.5"/><circle cx="332" cy="403" r="4.5"/><circle cx="387" cy="403" r="4.5"/><circle cx="442" cy="403" r="4.5"/><circle cx="498" cy="403" r="4.5"/>
+  </g>
+  <!-- 가로 치수 1.5 + 3.25 x 8 + 1.5 -->
+  <path class="th" d="M30,28 V48 M56,28 V66 M111,28 V66 M166,28 V66 M221,28 V66 M277,28 V66 M332,28 V66 M387,28 V66 M442,28 V66 M498,28 V66 M523,28 V48"/>
+  <line class="dm" x1="30" y1="36" x2="56" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="56" y1="36" x2="111" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="111" y1="36" x2="166" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="166" y1="36" x2="221" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="221" y1="36" x2="277" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="277" y1="36" x2="332" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="332" y1="36" x2="387" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="387" y1="36" x2="442" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="442" y1="36" x2="498" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="498" y1="36" x2="523" y2="36" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="26" y="26">1.5 m</text>
+  <text class="ts" x="66" y="26">3.25 m</text>
+  <text class="ts" x="121" y="26">3.25 m</text>
+  <text class="ts" x="176" y="26">3.25 m</text>
+  <text class="ts" x="231" y="26">3.25 m</text>
+  <text class="ts" x="287" y="26">3.25 m</text>
+  <text class="ts" x="342" y="26">3.25 m</text>
+  <text class="ts" x="397" y="26">3.25 m</text>
+  <text class="ts" x="452" y="26">3.25 m</text>
+  <text class="ts" x="494" y="26">1.5 m</text>
+  <!-- 세로 치수 1.25 + 3.25 x 6 + 1.25 -->
+  <path class="th" d="M527,50 H561 M502,71 H561 M502,126 H561 M502,182 H561 M502,237 H561 M502,292 H561 M502,347 H561 M502,403 H561 M527,424 H561"/>
+  <line class="dm" x1="553" y1="50" x2="553" y2="71" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="71" x2="553" y2="126" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="126" x2="553" y2="182" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="182" x2="553" y2="237" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="237" x2="553" y2="292" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="292" x2="553" y2="347" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="347" x2="553" y2="403" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <line class="dm" x1="553" y1="403" x2="553" y2="424" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="ts" x="560" y="64">1.25 m</text>
+  <text class="ts" x="560" y="103">3.25 m</text>
+  <text class="ts" x="560" y="158">3.25 m</text>
+  <text class="ts" x="560" y="214">3.25 m</text>
+  <text class="ts" x="560" y="269">3.25 m</text>
+  <text class="ts" x="560" y="324">3.25 m</text>
+  <text class="ts" x="560" y="379">3.25 m</text>
+  <text class="ts" x="560" y="418">1.25 m</text>
+</svg>

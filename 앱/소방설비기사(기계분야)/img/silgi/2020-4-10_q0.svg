@@ -1,0 +1,49 @@
+<svg viewBox="0 0 620 270" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 배관 윤곽 -->
+  <path class="m" d="M90,82 H220 L375,185 H540"/>
+  <path class="m" d="M90,128 H230 L375,228 H540"/>
+  <path class="th" d="M90,76 L84,82 L96,90 L90,96 M90,114 L84,120 L96,128 L90,134"/>
+  <!-- 50 mm -->
+  <line class="th" x1="74" y1="82" x2="90" y2="82"/><line class="th" x1="74" y1="128" x2="90" y2="128"/>
+  <line class="dm" x1="80" y1="82" x2="80" y2="128" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="14" y="110">50 mm</text>
+  <!-- 중심선 -->
+  <line class="dsh" x1="110" y1="105" x2="212" y2="105"/>
+  <line class="dsh" x1="150" y1="207" x2="450" y2="207"/>
+  <!-- 높이차 10 m -->
+  <line class="dm" x1="170" y1="105" x2="170" y2="207" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="160" y="162" text-anchor="end">10 m</text>
+  <!-- 지점 -->
+  <circle class="rb" cx="130" cy="105" r="3.5"/><circle class="nd" cx="131" cy="118" r="10"/><text class="tb" x="131" y="123" text-anchor="middle">A</text>
+  <circle class="rb" cx="205" cy="105" r="3.5"/><circle class="nd" cx="206" cy="118" r="10"/><text class="tb" x="206" y="123" text-anchor="middle">B</text>
+  <circle class="rb" cx="440" cy="207" r="3.5"/><circle class="nd" cx="441" cy="220" r="10"/><text class="tb" x="441" y="225" text-anchor="middle">C</text>
+  <!-- 압력계 -->
+  <line class="ln" x1="130" y1="63" x2="130" y2="82"/><circle class="nd" cx="130" cy="52" r="11"/><line class="th" x1="122" y1="60" x2="138" y2="44"/>
+  <text class="tx" x="137" y="78">12 kPa</text>
+  <line class="ln" x1="205" y1="63" x2="205" y2="82"/><circle class="nd" cx="205" cy="52" r="11"/><line class="th" x1="197" y1="60" x2="213" y2="44"/>
+  <text class="tx" x="212" y="78">11.5 kPa</text>
+  <line class="ln" x1="465" y1="161" x2="465" y2="185"/><circle class="nd" cx="465" cy="150" r="11"/><line class="th" x1="457" y1="158" x2="473" y2="142"/>
+  <text class="tx" x="472" y="178">10.5 kPa</text>
+  <!-- 30 mm -->
+  <line class="th" x1="540" y1="185" x2="564" y2="185"/><line class="th" x1="540" y1="228" x2="564" y2="228"/>
+  <line class="dm" x1="558" y1="185" x2="558" y2="228" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="568" y="212">30 mm</text>
+</svg>

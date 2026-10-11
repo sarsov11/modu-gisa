@@ -1,0 +1,46 @@
+<svg viewBox="0 0 620 290" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 흡입구 3개와 가로 덕트 -->
+  <path class="m" d="M45,120 H240 V145 H345"/>
+  <line class="ln" x1="65" y1="120" x2="65" y2="150"/><line class="ln" x1="110" y1="120" x2="110" y2="150"/><line class="ln" x1="168" y1="120" x2="168" y2="150"/>
+  <polygon class="nd" points="47,150 83,150 87,174 43,174"/>
+  <polygon class="nd" points="92,150 128,150 132,174 88,174"/>
+  <polygon class="nd" points="150,150 186,150 190,174 146,174"/>
+  <!-- 아래쪽 덕트 -->
+  <path class="m" d="M265,145 V235 H548"/>
+  <!-- 위쪽 덕트와 외부 연결 -->
+  <path class="m" d="M345,145 V75 H548"/>
+  <line class="m" x1="548" y1="235" x2="548" y2="52"/>
+  <path class="th" d="M540,48 Q544,40 548,48 Q552,56 556,48"/>
+  <!-- 배출기 -->
+  <line class="m" x1="345" y1="145" x2="444" y2="145"/>
+  <circle class="nd" cx="462" cy="145" r="18"/><circle class="rb" cx="462" cy="145" r="3.5"/>
+  <line class="m" x1="462" y1="163" x2="462" y2="235"/>
+  <text class="tx" x="440" y="112">배출기</text>
+  <!-- 절환댐퍼 D1~D4 -->
+  <circle class="nd" cx="292" cy="145" r="14"/><line class="th" x1="284" y1="153" x2="300" y2="137"/><line class="th" x1="280" y1="145" x2="292" y2="133"/><line class="th" x1="292" y1="157" x2="304" y2="145"/>
+  <circle class="nd" cx="375" cy="235" r="14"/><line class="th" x1="367" y1="243" x2="383" y2="227"/><line class="th" x1="363" y1="235" x2="375" y2="223"/><line class="th" x1="375" y1="247" x2="387" y2="235"/>
+  <circle class="nd" cx="510" cy="235" r="14"/><line class="th" x1="502" y1="243" x2="518" y2="227"/><line class="th" x1="498" y1="235" x2="510" y2="223"/><line class="th" x1="510" y1="247" x2="522" y2="235"/>
+  <circle class="nd" cx="435" cy="75" r="14"/><line class="th" x1="427" y1="83" x2="443" y2="67"/><line class="th" x1="423" y1="75" x2="435" y2="63"/><line class="th" x1="435" y1="87" x2="447" y2="75"/>
+  <text class="tr" x="292" y="124" text-anchor="middle">D<tspan dy="4" class="ts">1</tspan></text>
+  <text class="tr" x="375" y="212" text-anchor="middle">D<tspan dy="4" class="ts">2</tspan></text>
+  <text class="tr" x="510" y="212" text-anchor="middle">D<tspan dy="4" class="ts">3</tspan></text>
+  <text class="tr" x="435" y="52" text-anchor="middle">D<tspan dy="4" class="ts">4</tspan></text>
+</svg>

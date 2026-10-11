@@ -1,0 +1,68 @@
+<svg viewBox="0 0 600 510" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 수신기 · 감시실 -->
+  <text class="tx" x="170" y="20" text-anchor="middle">수신기</text>
+  <rect class="nd" x="150" y="26" width="40" height="44"/><line class="th" x1="158" y1="40" x2="182" y2="40"/><line class="th" x1="158" y1="50" x2="182" y2="50"/>
+  <rect class="nd" x="226" y="26" width="110" height="60"/>
+  <text class="tx" x="281" y="46" text-anchor="middle">감시실</text>
+  <rect class="th" x="244" y="62" width="40" height="10"/>
+  <line class="dsh" x1="190" y1="48" x2="226" y2="48"/>
+  <!-- 수신기에서 조작함으로 신호선 -->
+  <path class="dsh" d="M170,70 V104 H202 V204"/>
+  <!-- 방호구역 1 -->
+  <rect class="m" x="150" y="120" width="400" height="170"/>
+  <text class="tb" x="440" y="270" text-anchor="middle">방호구역 1</text>
+  <!-- 분사헤드 (천장 배관) -->
+  <path class="ln" d="M170,290 V160 H430"/>
+  <line class="ln" x1="250" y1="160" x2="250" y2="170"/><line class="ln" x1="340" y1="160" x2="340" y2="170"/><line class="ln" x1="430" y1="160" x2="430" y2="170"/>
+  <circle class="rb" cx="250" cy="174" r="5"/><circle class="rb" cx="340" cy="174" r="5"/><circle class="rb" cx="430" cy="174" r="5"/>
+  <text class="tx" x="350" y="60">분사헤드</text>
+  <line class="th" x1="380" y1="66" x2="344" y2="166" marker-end="url(#ai)"/>
+  <!-- 음향경보장치 -->
+  <rect class="nd" x="506" y="134" width="22" height="14"/>
+  <text class="tx" x="440" y="104">음향경보장치</text>
+  <line class="th" x1="520" y1="110" x2="518" y2="132" marker-end="url(#ai)"/>
+  <!-- 할론조작함 · 댐퍼 -->
+  <rect class="nd" x="190" y="204" width="24" height="36"/><line class="th" x1="196" y1="214" x2="208" y2="214"/><line class="th" x1="196" y1="222" x2="208" y2="222"/>
+  <rect class="nd" x="232" y="206" width="22" height="32"/><rect x="232" y="206" width="22" height="32" fill="url(#hat)"/>
+  <text class="tx" x="16" y="216">할론조작함</text>
+  <line class="th" x1="92" y1="212" x2="188" y2="216" marker-end="url(#ai)"/>
+  <text class="tx" x="16" y="262">댐 퍼</text>
+  <line class="th" x1="62" y1="258" x2="230" y2="240" marker-end="url(#ai)"/>
+  <!-- 선택밸브 · 배관 -->
+  <path class="m" d="M170,352 V290"/>
+  <path class="m" d="M304,352 H100 V300"/>
+  <line class="ld" x1="100" y1="300" x2="30" y2="300" marker-end="url(#ar)"/>
+  <text class="tx" x="16" y="288">구역 2</text>
+  <polygon class="nd" points="162,320 178,332 162,332 178,320"/>
+  <polygon class="nd" points="92,324 108,336 92,336 108,324"/>
+  <rect class="nd" x="180" y="308" width="12" height="10"/>
+  <rect class="nd" x="110" y="324" width="12" height="10"/>
+  <!-- 기동용기 (작은 용기 2병) -->
+  <path class="sup" d="M110,480 V436 Q110,426 120,426 Q130,426 130,436 V480 Z"/>
+  <path class="sup" d="M180,480 V436 Q180,426 190,426 Q200,426 200,436 V480 Z"/>
+  <path class="dsh" d="M120,426 V334 M190,426 V318"/>
+  <!-- 저장용기 (큰 용기 3병) -->
+  <path class="sup" d="M227,480 V398 Q227,380 240,380 Q253,380 253,398 V480 Z"/>
+  <path class="sup" d="M259,480 V398 Q259,380 272,380 Q285,380 285,398 V480 Z"/>
+  <path class="sup" d="M291,480 V398 Q291,380 304,380 Q317,380 317,398 V480 Z"/>
+  <line class="ln" x1="240" y1="380" x2="240" y2="352"/><line class="ln" x1="272" y1="380" x2="272" y2="352"/><line class="ln" x1="304" y1="380" x2="304" y2="352"/>
+  <line class="th" x1="60" y1="480" x2="360" y2="480"/>
+</svg>

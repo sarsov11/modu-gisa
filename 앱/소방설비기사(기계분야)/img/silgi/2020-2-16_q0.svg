@@ -1,0 +1,39 @@
+<svg viewBox="0 0 520 290" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 수조 -->
+  <path class="ln" d="M220,30 H30 V218 H220 V200"/>
+  <path class="ln" d="M220,30 V165"/>
+  <text class="tx" x="125" y="128" text-anchor="middle">수조</text>
+  <!-- 배관 -->
+  <line class="ln" x1="220" y1="165" x2="405" y2="165"/>
+  <line class="ln" x1="220" y1="200" x2="405" y2="200"/>
+  <text class="tx" x="312" y="188" text-anchor="middle">배관</text>
+  <!-- 노즐 -->
+  <path class="nd" d="M405,165 L440,178 H452 V188 H440 L405,200 Z"/>
+  <text class="tx" x="446" y="154" text-anchor="middle">노즐</text>
+  <!-- 압력계 -->
+  <line class="ln" x1="246" y1="151" x2="246" y2="165"/>
+  <circle class="nd" cx="246" cy="140" r="11"/><line class="th" x1="238" y1="148" x2="254" y2="132"/>
+  <text class="tx" x="230" y="116">4.9 bar</text>
+  <!-- 배관 길이 -->
+  <line class="th" x1="220" y1="206" x2="220" y2="248"/><line class="th" x1="405" y1="206" x2="405" y2="248"/>
+  <line class="dm" x1="220" y1="238" x2="405" y2="238" marker-start="url(#dmk)" marker-end="url(#dmk)"/>
+  <text class="tx" x="312" y="264" text-anchor="middle">100 m</text>
+</svg>

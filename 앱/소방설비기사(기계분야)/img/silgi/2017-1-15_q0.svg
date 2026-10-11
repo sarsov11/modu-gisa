@@ -1,0 +1,57 @@
+<svg viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 집합관 -->
+  <polyline class="m" points="40,62 420,62 420,340"/>
+  <!-- 용기 5개 + 해정장치 -->
+  <line class="ln" x1="70" y1="62" x2="70" y2="88"/><line class="ln" x1="145" y1="62" x2="145" y2="88"/><line class="ln" x1="220" y1="62" x2="220" y2="88"/><line class="ln" x1="295" y1="62" x2="295" y2="88"/><line class="ln" x1="370" y1="62" x2="370" y2="88"/>
+  <circle class="nd" cx="70" cy="108" r="20"/><circle class="nd" cx="70" cy="108" r="10"/>
+  <circle class="nd" cx="145" cy="108" r="20"/><circle class="nd" cx="145" cy="108" r="10"/>
+  <circle class="nd" cx="220" cy="108" r="20"/><circle class="nd" cx="220" cy="108" r="10"/>
+  <circle class="nd" cx="295" cy="108" r="20"/><circle class="nd" cx="295" cy="108" r="10"/>
+  <circle class="nd" cx="370" cy="108" r="20"/><circle class="nd" cx="370" cy="108" r="10"/>
+  <line class="ln" x1="90" y1="108" x2="98" y2="108"/><rect class="sup" x="98" y="102" width="12" height="12"/>
+  <line class="ln" x1="165" y1="108" x2="173" y2="108"/><rect class="sup" x="173" y="102" width="12" height="12"/>
+  <line class="ln" x1="240" y1="108" x2="248" y2="108"/><rect class="sup" x="248" y="102" width="12" height="12"/>
+  <line class="ln" x1="315" y1="108" x2="323" y2="108"/><rect class="sup" x="323" y="102" width="12" height="12"/>
+  <line class="ln" x1="390" y1="108" x2="398" y2="108"/><rect class="sup" x="398" y="102" width="12" height="12"/>
+  <!-- 용기별 연결 방호구역 -->
+  <text class="ts" x="70" y="46" text-anchor="middle">A·B·C</text><text class="ts" x="145" y="46" text-anchor="middle">A·B·C</text><text class="ts" x="220" y="46" text-anchor="middle">A·B</text><text class="ts" x="295" y="46" text-anchor="middle">A</text><text class="ts" x="370" y="46" text-anchor="middle">A</text>
+  <!-- 기동관(점선) : 용기 사이 호, 선택밸브 연결 -->
+  <path class="dsh" d="M70,128 Q107,172 145,128"/><path class="dsh" d="M145,128 Q182,172 220,128"/><path class="dsh" d="M220,128 Q257,172 295,128"/><path class="dsh" d="M295,128 Q332,172 370,128"/>
+  <path class="dsh" d="M370,128 Q375,172 453,160"/>
+  <path class="dsh" d="M220,128 Q230,255 453,255"/>
+  <path class="dsh" d="M145,128 Q155,330 453,330"/>
+  <!-- 선택밸브 + 전자밸브 : A B C -->
+  <line class="m" x1="420" y1="150" x2="452" y2="150"/><circle class="nd" cx="467" cy="150" r="15"/><rect class="sup" x="459" y="165" width="16" height="26"/><line class="ln" x1="482" y1="150" x2="495" y2="150"/><circle class="nd" cx="505" cy="150" r="10"/>
+  <path class="ld" d="M474,137 Q500,122 520,92" marker-end="url(#ar)"/>
+  <line class="m" x1="420" y1="245" x2="452" y2="245"/><circle class="nd" cx="467" cy="245" r="15"/><rect class="sup" x="459" y="260" width="16" height="26"/><line class="ln" x1="482" y1="245" x2="495" y2="245"/><circle class="nd" cx="505" cy="245" r="10"/>
+  <path class="ld" d="M474,232 Q500,217 520,187" marker-end="url(#ar)"/>
+  <line class="m" x1="420" y1="320" x2="452" y2="320"/><circle class="nd" cx="467" cy="320" r="15"/><rect class="sup" x="459" y="335" width="16" height="26"/><line class="ln" x1="482" y1="320" x2="495" y2="320"/><circle class="nd" cx="505" cy="320" r="10"/>
+  <path class="ld" d="M474,307 Q500,292 520,262" marker-end="url(#ar)"/>
+  <text class="tx" x="548" y="156">A방호구역(5개)</text><text class="tx" x="548" y="251">B방호구역(3개)</text><text class="tx" x="548" y="326">C방호구역(2개)</text>
+  <!-- 범례 -->
+  <text class="tb" x="40" y="392">조건</text>
+  <circle class="nd" cx="60" cy="416" r="12"/><circle class="nd" cx="60" cy="416" r="6"/><text class="tx" x="80" y="421">할론저장용기</text>
+  <rect class="sup" x="206" y="410" width="12" height="12"/><text class="tx" x="226" y="421">해정장치</text>
+  <circle class="nd" cx="330" cy="414" r="9"/><rect class="sup" x="325" y="423" width="10" height="14"/><text class="tx" x="346" y="421">선택밸브</text>
+  <circle class="nd" cx="456" cy="416" r="9"/><text class="tx" x="472" y="421">전자밸브</text>
+  <polygon class="sup" points="54,452 66,452 60,442"/><line class="ln" x1="53" y1="442" x2="67" y2="442"/><text class="tx" x="80" y="454">체크밸브 기호 1 (집합관 쪽 용기 출구)</text>
+  <circle class="nd" cx="400" cy="450" r="8"/><line class="ln" x1="406" y1="450" x2="394" y2="450" marker-end="url(#ai)"/><text class="tx" x="418" y="454">체크밸브 기호 2 (점선 배관)</text>
+</svg>

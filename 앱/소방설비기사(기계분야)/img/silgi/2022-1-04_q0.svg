@@ -1,0 +1,54 @@
+<svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 표 : 번호 / 도시기호 -->
+  <rect class="th" x="16" y="16" width="686" height="114"/>
+  <path class="th" d="M16,46 H702 M96,16 V130 M197,16 V130 M298,16 V130 M399,16 V130 M500,16 V130 M601,16 V130"/>
+  <g text-anchor="middle">
+    <text class="tb" x="56" y="37">번호</text>
+    <text class="tb" x="56" y="93">도시기호</text>
+    <text class="tx" x="146" y="37">①</text>
+    <text class="tx" x="247" y="37">②</text>
+    <text class="tx" x="348" y="37">③</text>
+    <text class="tx" x="449" y="37">④</text>
+    <text class="tx" x="550" y="37">⑤</text>
+    <text class="tx" x="651" y="37">⑥</text>
+  </g>
+  <!-- ① 선 사이에 WS -->
+  <path class="ln" d="M104,88 H132 M160,88 H190"/>
+  <text class="tx" x="146" y="93" text-anchor="middle">WS</text>
+  <!-- ② 한쪽 끝이 뾰족한 화살표와 끝의 세로 선 -->
+  <path class="ln" d="M205,88 H290 M240,79 L226,88 L240,97 M278,79 V97"/>
+  <!-- ③ 위에서 내려오는 선 끝의 컵 모양 -->
+  <path class="ln" d="M348,58 V74"/>
+  <path class="rb" d="M333,74 H363 A15,15 0 0 1 333,74 Z"/>
+  <!-- ④ 화살표가 붙은 체크밸브 모양 -->
+  <path class="ln" d="M406,88 H440 M456,79 L440,88 L456,97 M471,88 H494"/>
+  <circle class="nd" cx="463" cy="88" r="9"/>
+  <line class="th" x1="436" y1="68" x2="468" y2="68" marker-end="url(#ai)"/>
+  <!-- ⑤ 원 안의 검은 삼각형 -->
+  <path class="ln" d="M506,88 H534 M566,88 H594"/>
+  <circle class="nd" cx="550" cy="88" r="16"/>
+  <polygon class="rb" points="550,77 541,95 559,95"/>
+  <!-- ⑥ 지붕 모양 안에 H -->
+  <path class="ln" d="M619,80 H637 M665,80 H683"/>
+  <path class="ln" d="M637,108 V84 A14,14 0 0 1 665,84 V108"/>
+  <path class="ln" d="M637,108 Q651,98 665,108"/>
+  <text class="tx" x="651" y="97" text-anchor="middle">H</text>
+</svg>

@@ -1,0 +1,90 @@
+<svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 감시실 + 수신기 -->
+  <rect class="dsh" x="40" y="30" width="300" height="90" rx="6"/>
+  <rect class="sup" x="60" y="46" width="44" height="58"/>
+  <line class="th" x1="68" y1="60" x2="96" y2="60"/><line class="th" x1="68" y1="70" x2="96" y2="70"/>
+  <text class="tx" x="112" y="80">수신기</text>
+  <rect class="sup" x="220" y="76" width="80" height="14"/><circle class="nd" cx="260" cy="104" r="8"/>
+  <text class="tx" x="226" y="62">감시실</text>
+
+  <!-- 방호구역 -->
+  <rect class="m" x="200" y="170" width="520" height="170"/>
+  <text class="tb" x="214" y="328">방호구역</text>
+  <!-- 신호선 -->
+  <polyline class="dsh" points="82,104 82,150 660,150"/>
+  <polyline class="dsh" points="205,150 205,244 212,244"/>
+  <line class="dsh" x1="460" y1="150" x2="460" y2="178"/>
+  <line class="dsh" x1="660" y1="150" x2="660" y2="184"/>
+  <!-- 방호구역 안: 왼쪽 기기 -->
+  <rect class="sup" x="214" y="196" width="22" height="22"/><text class="tx" x="244" y="212">피스톤 릴리져</text>
+  <rect class="sup" x="214" y="228" width="22" height="32"/><text class="tx" x="244" y="248">할론조작함</text>
+  <rect class="sup" x="214" y="272" width="22" height="22"/><line class="th" x1="214" y1="272" x2="236" y2="294"/><line class="th" x1="236" y1="272" x2="214" y2="294"/><text class="tx" x="244" y="288">댐퍼</text>
+  <!-- 천장 배관·분사헤드 -->
+  <polyline class="m" points="380,420 380,200 600,200"/>
+  <g>
+    <line class="ln" x1="420" y1="200" x2="420" y2="212"/><circle class="rb" cx="420" cy="217" r="5"/>
+    <line class="ln" x1="500" y1="200" x2="500" y2="212"/><circle class="rb" cx="500" cy="217" r="5"/>
+    <line class="ln" x1="580" y1="200" x2="580" y2="212"/><circle class="rb" cx="580" cy="217" r="5"/>
+  </g>
+  <line class="th" x1="500" y1="224" x2="500" y2="238"/>
+  <text class="tx" x="470" y="254">분사헤드</text>
+  <!-- 감지기, 사이렌, 출입문 -->
+  <circle class="nd" cx="460" cy="184" r="6"/><text class="tx" x="472" y="188">감지기</text>
+  <rect class="sup" x="654" y="184" width="12" height="12"/>
+  <text class="tx" x="620" y="226">음향경보장치</text><text class="tx" x="640" y="244">(사이렌)</text>
+  <rect class="ln" x="650" y="278" width="50" height="62"/><rect class="th" x="656" y="284" width="38" height="50" fill="none"/><circle class="nd" cx="690" cy="310" r="3"/>
+  <text class="tx" x="650" y="270">출입문</text>
+
+  <!-- 압력스위치 + 방호구역으로 가는 배관 -->
+  <polyline class="m" points="260,404 260,370 380,370"/>
+  <line class="ln" x1="320" y1="370" x2="320" y2="386"/><rect class="sup" x="311" y="386" width="18" height="14"/>
+  <text class="tx" x="338" y="399">압력스위치</text>
+  <!-- 선택밸브 1 -> 소화구역 2 -->
+  <polyline class="m" points="160,396 160,360 60,360"/>
+  <line class="ln" x1="64" y1="360" x2="52" y2="360"/>
+  <polygon class="rb" points="52,355 40,360 52,365"/>
+  <text class="tx" x="24" y="348">소화구역 2</text>
+  <!-- 선택밸브 -->
+  <path class="ln" d="M152,396 L168,412 L168,396 L152,412 Z"/>
+  <path class="ln" d="M252,396 L268,412 L268,396 L252,412 Z"/>
+  <line class="ln" x1="260" y1="396" x2="260" y2="404"/>
+  <text class="tx" x="92" y="436">선택밸브</text>
+  <!-- 집합관 -->
+  <line class="m" x1="160" y1="412" x2="160" y2="450"/><line class="m" x1="260" y1="412" x2="260" y2="450"/>
+  <line class="m" x1="160" y1="450" x2="430" y2="450"/>
+  <!-- 할론용기 3병 + 용기밸브 -->
+  <g>
+    <line class="ln" x1="330" y1="450" x2="330" y2="468"/><rect class="sup" x="322" y="466" width="16" height="12"/><rect class="fl" x="312" y="480" width="36" height="104" rx="14"/><rect class="ln" x="312" y="480" width="36" height="104" rx="14"/>
+    <line class="ln" x1="380" y1="450" x2="380" y2="468"/><rect class="sup" x="372" y="466" width="16" height="12"/><rect class="fl" x="362" y="480" width="36" height="104" rx="14"/><rect class="ln" x="362" y="480" width="36" height="104" rx="14"/>
+    <line class="ln" x1="430" y1="450" x2="430" y2="468"/><rect class="sup" x="422" y="466" width="16" height="12"/><rect class="fl" x="412" y="480" width="36" height="104" rx="14"/><rect class="ln" x="412" y="480" width="36" height="104" rx="14"/>
+  </g>
+  <text class="tx" x="470" y="474">용기밸브</text><line class="th" x1="466" y1="470" x2="442" y2="472"/>
+  <text class="tx" x="470" y="540">할론용기</text><line class="th" x1="466" y1="536" x2="450" y2="536"/>
+  <!-- 기동용기 2개 + 솔레노이드밸브 -->
+  <rect class="sup" x="164" y="486" width="14" height="12"/><rect class="fl" x="160" y="500" width="22" height="76" rx="10"/><rect class="ln" x="160" y="500" width="22" height="76" rx="10"/>
+  <rect class="sup" x="233" y="486" width="14" height="12"/><rect class="fl" x="229" y="500" width="22" height="76" rx="10"/><rect class="ln" x="229" y="500" width="22" height="76" rx="10"/>
+  <polyline class="dsh" points="171,486 171,430 188,430 188,404 172,404"/>
+  <polyline class="dsh" points="240,486 240,430 244,430 244,404 252,404"/>
+  <polyline class="dsh" points="247,492 280,492 280,472 330,472"/>
+  <line class="dsh" x1="330" y1="472" x2="430" y2="472"/>
+  <text class="tx" x="20" y="478">솔레노이드밸브</text><line class="th" x1="120" y1="474" x2="162" y2="492"/>
+  <text class="tx" x="110" y="604">기동용기</text><line class="th" x1="160" y1="596" x2="176" y2="580"/>
+</svg>

@@ -1,0 +1,87 @@
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg"><style>
+svg{background:#FFFFFF}
+.m{stroke:#1F2533;stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ln{stroke:#1F2533;stroke-width:1.8;fill:none;stroke-linejoin:round}
+.th{stroke:#5B6475;stroke-width:1.1;fill:none}
+.dsh{stroke:#5B6475;stroke-width:1.1;fill:none;stroke-dasharray:5 4}
+.ld{stroke:#E0313A;stroke-width:1.8;fill:none}
+.dm{stroke:#8C95A8;stroke-width:1.1;fill:none}
+.crit{stroke:#E0313A;stroke-width:3.4;fill:none;stroke-linecap:round}
+.nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
+.rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
+.tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
+.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+</style><defs>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
+<marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
+<marker id="dmk" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2,8 L8,2" stroke="#8C95A8" stroke-width="1.4"/></marker>
+<pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
+</defs>
+  <!-- 방출 구역 표시 -->
+  <g text-anchor="middle">
+    <text class="ts" x="510" y="22">8병 (C실)</text>
+    <text class="ts" x="566" y="22">6병 (A실)</text>
+    <text class="ts" x="622" y="22">5병 (B실)</text>
+  </g>
+  <line class="ld" x1="510" y1="62" x2="510" y2="32" marker-end="url(#ar)"/>
+  <line class="ld" x1="566" y1="62" x2="566" y2="32" marker-end="url(#ar)"/>
+  <line class="ld" x1="622" y1="62" x2="622" y2="32" marker-end="url(#ar)"/>
+  <!-- 선택밸브 3개 -->
+  <g class="nd">
+    <rect x="496" y="64" width="28" height="26"/>
+    <rect x="552" y="64" width="28" height="26"/>
+    <rect x="608" y="64" width="28" height="26"/>
+  </g>
+  <path class="th" d="M496,64 L524,90 M524,64 L496,90 M552,64 L580,90 M580,64 L552,90 M608,64 L636,90 M636,64 L608,90"/>
+  <rect class="sup" x="524" y="64" width="5" height="26"/>
+  <rect class="sup" x="580" y="64" width="5" height="26"/>
+  <rect class="sup" x="636" y="64" width="5" height="26"/>
+  <!-- 집합관 -->
+  <path class="ln" d="M22,128 H702 M22,118 V138"/>
+  <text class="tx" x="458" y="120">집합관</text>
+  <path class="ln" d="M510,90 V128 M566,90 V128 M622,90 V128"/>
+  <!-- 안전밸브 -->
+  <path class="nd" d="M662,123 L674,133 V123 L662,133 Z"/>
+  <text class="tx" x="640" y="160">안전밸브</text>
+  <!-- 기동용기 3개 : 작은 원 위 네모 -->
+  <g class="nd">
+    <circle cx="510" cy="148" r="9"/><rect x="498" y="160" width="24" height="26"/>
+    <circle cx="566" cy="148" r="9"/><rect x="554" y="160" width="24" height="26"/>
+    <circle cx="622" cy="148" r="9"/><rect x="610" y="160" width="24" height="26"/>
+  </g>
+  <path class="dsh" d="M527,90 V148 H519 M583,90 V148 H575 M639,90 V148 H631"/>
+  <!-- 저장용기 8병 (이중 원) -->
+  <g class="nd">
+    <circle cx="70" cy="205" r="18"/><circle cx="122" cy="205" r="18"/><circle cx="174" cy="205" r="18"/><circle cx="226" cy="205" r="18"/>
+    <circle cx="278" cy="205" r="18"/><circle cx="330" cy="205" r="18"/><circle cx="382" cy="205" r="18"/><circle cx="434" cy="205" r="18"/>
+    <circle cx="70" cy="205" r="11"/><circle cx="122" cy="205" r="11"/><circle cx="174" cy="205" r="11"/><circle cx="226" cy="205" r="11"/>
+    <circle cx="278" cy="205" r="11"/><circle cx="330" cy="205" r="11"/><circle cx="382" cy="205" r="11"/><circle cx="434" cy="205" r="11"/>
+  </g>
+  <!-- 용기마다 가스체크밸브를 거쳐 집합관에 연결 -->
+  <path class="ln" d="M70,187 V128 M122,187 V128 M174,187 V128 M226,187 V128 M278,187 V128 M330,187 V128 M382,187 V128 M434,187 V128"/>
+  <g class="nd">
+    <circle cx="70" cy="158" r="5"/><circle cx="122" cy="158" r="5"/><circle cx="174" cy="158" r="5"/><circle cx="226" cy="158" r="5"/>
+    <circle cx="278" cy="158" r="5"/><circle cx="330" cy="158" r="5"/><circle cx="382" cy="158" r="5"/><circle cx="434" cy="158" r="5"/>
+  </g>
+  <g class="th">
+    <line x1="79" y1="164" x2="79" y2="152" marker-end="url(#ai)"/><line x1="131" y1="164" x2="131" y2="152" marker-end="url(#ai)"/>
+    <line x1="183" y1="164" x2="183" y2="152" marker-end="url(#ai)"/><line x1="235" y1="164" x2="235" y2="152" marker-end="url(#ai)"/>
+    <line x1="287" y1="164" x2="287" y2="152" marker-end="url(#ai)"/><line x1="339" y1="164" x2="339" y2="152" marker-end="url(#ai)"/>
+    <line x1="391" y1="164" x2="391" y2="152" marker-end="url(#ai)"/><line x1="443" y1="164" x2="443" y2="152" marker-end="url(#ai)"/>
+  </g>
+  <!-- 용기밸브 연결 동관 -->
+  <path class="ln" d="M22,250 H44 L70,205 L89,250 H103 L122,205 L141,250 H155 L174,205 L193,250 H207 L226,205 L245,250 H259 L278,205 L297,250 H311 L330,205 L349,250 H363 L382,205 L401,250 H415 L434,205"/>
+  <path class="ln" d="M22,240 V260"/>
+  <!-- 기동용기에서 해당 구역 병 수만큼 이어지는 동관과 가스체크밸브 -->
+  <path class="dsh" d="M304,250 V300 H622 V186"/>
+  <path class="dsh" d="M356,250 V278 H566 V186"/>
+  <path class="dsh" d="M408,250 V256 H510 V186"/>
+  <g class="nd">
+    <circle cx="480" cy="256" r="5"/><circle cx="480" cy="278" r="5"/><circle cx="480" cy="300" r="5"/>
+  </g>
+  <g class="th">
+    <line x1="470" y1="248" x2="490" y2="248" marker-end="url(#ai)"/>
+    <line x1="470" y1="270" x2="490" y2="270" marker-end="url(#ai)"/>
+    <line x1="470" y1="292" x2="490" y2="292" marker-end="url(#ai)"/>
+  </g>
+</svg>
