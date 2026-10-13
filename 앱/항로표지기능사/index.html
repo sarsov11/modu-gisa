@@ -33,7 +33,7 @@
   .sr .t b{font-size:16px;font-variant-numeric:tabular-nums}
   .sr .bar{margin-top:7px}
 </style>
-</head><body>
+</head><body><noscript><p style="padding:24px;font-size:15px">이 앱은 JavaScript를 켜야 열린다.</p></noscript>
 <div class="page">
   <div class="when">
     <small id="date"></small>
@@ -81,7 +81,7 @@
     var 이름=it.종류==="review"?"복습":(it.종류==="card"?"개념":(it.종류==="quiz"?"문제풀이":"O·X"));
     return '<li class="'+(끝?"dn":(지금?"now":""))+'">'+(끝?"✓ ":"")+이름+'<small>'+it.분+'분</small></li>';
   }).join("");
-  /* 막대 = 오늘 세트 진행, 글 = 실제 사용 시간(화면을 쓴 시간)과 세트 예상 분량을 따로(2026-10-11 외부 검수 E) */
+  /* 막대 = 오늘 세트 진행, 글 = 실제 사용 시간(세트·시험 화면을 쓴 시간)과 세트 예상 분량을 따로(2026-10-11 외부 검수 E) */
   var 비율=R.items.length?Math.min(100,Math.round(R.done.length*100/R.items.length)):0;
   document.getElementById("flow").innerHTML=
     '<div class="flowbar"><i style="width:'+비율+'%"></i></div>'+
@@ -135,4 +135,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-</body></html>
+<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:15px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script></body></html>

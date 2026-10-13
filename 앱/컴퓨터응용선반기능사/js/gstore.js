@@ -223,6 +223,8 @@
     }
     var items = [], sum = 0;
     for (var i = 0; i < 후.length; i++) {
+      /* 다음 세트를 더하면 목표에서 더 멀어지면 거기서 멈춘다 — 15분 목표에 18분짜리 루틴이 나오던 것을 막음(2026-10-13 외부 검수 E) */
+      if (items.length && Math.abs(sum + 후[i].분 - 목표) >= Math.abs(sum - 목표)) break;
       items.push(후[i]); sum += 후[i].분;
       if (sum >= 목표) break;
     }
@@ -240,20 +242,22 @@
     var F = 플로(), 다음 = null, d = S.날[오늘()] || {};
     for (var i = 0; i < F.items.length; i++) if (F.done.indexOf(F.items[i].id) < 0) { 다음 = F.items[i]; break; }
     /* ★ 예상 분량과 실제 사용 시간을 나눈다(2026-10-11 외부 검수 E). 예상 = 끝낸 세트의 표준 분(d.fm),
-       실제 = 화면이 보이고 90초 안에 손을 댄 시간(d.am, 15초 단위). 통계에는 실제만 쓴다 */
+       실제 = 세트·시험 화면이 보이고 2분 안에 손을 댄 시간(d.am, 15초 단위). 통계에는 실제만 쓴다 */
     var 예상 = 0; F.items.forEach(function (x) { 예상 += x.분; });
     var 실제분 = Math.round((d.am || 0) / 60), 목표 = S.목표분 || 15;
     return { k: F.k, t: F.k ? 테마맵[F.k] : null, items: F.items, done: F.done, 다음: 다음, 완료: !다음,
              처음: F.done.length === 0, 오늘분: 실제분, 실제분: 실제분, 예상분: 예상, 완료세트: F.done.length,
              목표분: 목표, 남은: Math.max(0, 목표 - 실제분) };
   }
-  /* 실제 사용 시간 — 탭이 뒤에 있거나 90초 넘게 손을 안 대면 쌓지 않는다 */
+  /* 실제 사용 시간 — 세트·시험 화면에서, 탭이 보이고, 마지막 조작 뒤 2분 안일 때만 15초씩 쌓는다.
+     홈·설정에 머문 시간과 탭을 숨긴 시간, 2분 넘게 손을 안 댄 시간은 빠진다(2026-10-13 외부 검수 E) */
+  var 학습화면 = /\/(ox|card|quiz|exam|silgi)\.html/.test(location.pathname);
   var 손 = Date.now();
   ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function (ev) {
     try { window.addEventListener(ev, function () { 손 = Date.now(); }, { passive: true, capture: true }); } catch (e) {}
   });
   setInterval(function () {
-    if (document.hidden || Date.now() - 손 > 90000) return;
+    if (!학습화면 || document.hidden || Date.now() - 손 > 120000) return;
     var 날 = 오늘(), d = S.날[날] = S.날[날] || { n: 0, ok: 0, ms: 0 };
     d.am = (d.am || 0) + 15; 쓰기();
   }, 15000);
