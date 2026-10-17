@@ -158,6 +158,12 @@
   if(!모의세트 && (섞 || 오답 || 파트 || kw || 묶)){
     문제=문제.slice().sort(function(){return Math.random()-.5;});
     문제.sort(function(a,b){var ra=기록(a.id), rb=기록(b.id); return (ra?ra.v+1:0)-(rb?rb.v+1:0);});
+    /* 1017 기출 원문 우선 — 변형(of)은 10문항 중 3개까지, 원문이 모자랄 때만 더 채운다(다시 볼 문항은 제한 없음) */
+    if(!오답){
+      var 원=문제.filter(function(x){return !x.of;}), 변=문제.filter(function(x){return x.of;});
+      var 뽑=원.slice(0,10-Math.min(3,변.length)); 뽑=뽑.concat(변.slice(0,10-뽑.length));
+      문제=뽑.sort(function(){return Math.random()-.5;});
+    }
     문제=문제.slice(0,10);
   } else if(!모의세트) 문제.sort(function(a,b){return a.n-b.n;});
   var 묶이름=묶&&묶음표?((묶음표.filter(function(z){return z.z===묶;})[0]||{}).이름||묶):묶;
@@ -175,7 +181,7 @@
     if(i>=문제.length) return 끝();
     var x=문제[i];
     var 위='<div class="qwrap"><div class="qtag"><b>'+e(x.p||"")+(x.kw?' · '+e(x.kw):'')+'</b><span>'+(i+1)+' / '+문제.length+'</span>'+
-        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+(x.y?'<span class="src">'+e(회차명(x))+' '+x.n+'번</span>':(x.of?'<span class="src">'+e(x.of.replace(/^(\d+)-(\d+)-0?(\d+)$/,"$1년 $2회 $3번"))+' 변형</span>':''))+'</div>'+
+        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+(x.y?'<span class="src">'+e(회차명(x))+' '+x.n+'번'+(x.변형?' 변형':'')+'</span>':(x.of?'<span class="src">'+e(x.of.replace(/^(\d+)-(\d+)-0?(\d+)$/,"$1년 $2회 $3번"))+' 변형</span>':''))+'</div>'+
         '<p class="qstem">'+(SGX.본문HTML?SGX.본문HTML(x.q):e(x.q))+'</p>'+
         ((x.t==="code"||x.t==="codeblank")&&x.code?'<div id="cb">'+SGX.코드HTML(x)+'</div>':'')+
         (x.t==="sqlout"&&(x.sql||x.code)?'<div id="cb">'+SGX.코드HTML({code:x.sql||x.code,lang:"sql"})+'</div>':'')+

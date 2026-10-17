@@ -175,7 +175,7 @@
     if(i>=문제.length) return 끝();
     var x=문제[i];
     var 위='<div class="qwrap"><div class="qtag"><b>'+e(x.p||"")+(x.kw?' · '+e(x.kw):'')+'</b><span>'+(i+1)+' / '+문제.length+'</span>'+
-        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+(x.y?'<span class="src">'+e(회차명(x))+' '+x.n+'번</span>':(x.of?'<span class="src">'+e(x.of.replace(/^(\d+)-(\d+)-0?(\d+)$/,"$1년 $2회 $3번"))+' 변형</span>':''))+'</div>'+
+        (x.pt?'<span class="pl">'+x.pt+'점</span>':'')+(x.y?'<span class="src">'+e(회차명(x))+' '+x.n+'번'+(x.변형?' 변형':'')+'</span>':(x.of?'<span class="src">'+e(x.of.replace(/^(\d+)-(\d+)-0?(\d+)$/,"$1년 $2회 $3번"))+' 변형</span>':''))+'</div>'+
         '<p class="qstem">'+(SGX.본문HTML?SGX.본문HTML(x.q):e(x.q))+'</p>'+
         ((x.t==="code"||x.t==="codeblank")&&x.code?'<div id="cb">'+SGX.코드HTML(x)+'</div>':'')+
         (x.t==="sqlout"&&(x.sql||x.code)?'<div id="cb">'+SGX.코드HTML({code:x.sql||x.code,lang:"sql"})+'</div>':'')+

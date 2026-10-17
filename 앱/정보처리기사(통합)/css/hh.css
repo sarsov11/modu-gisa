@@ -81,7 +81,7 @@
   font-size: 11.6px; font-weight: 800; color: #fff; background: var(--c); flex: none;}
 .sg-hh .st-b{margin: .8mm 0 0 24px;}
 .sg-hh .c4{margin: 1mm 0 0 24px; border-radius: 6px; overflow: hidden;}
-.sg-hh .c4-r{display: grid; grid-template-columns: 54px 1fr; align-items: center;}
+.sg-hh .c4-r{display: grid; grid-template-columns: 54px minmax(0, 1fr); align-items: center;}
 .sg-hh .c4-k{font-weight: 800; font-size: 12.2px; padding: 1.6mm 2mm; align-self: stretch; display: flex; align-items: center;}
 .sg-hh .c4-v{padding: 1.2mm 3mm;}
 .sg-hh .c4-ans .c4-v{font-weight: 800; font-size: 15.9px;}
@@ -195,6 +195,8 @@
 .sg-hh .side.ans-long .ans-sub .ans-s{font-size: 15.2px;}
 .sg-hh .side.ans-long .ans-k{writing-mode: horizontal-tb !important; letter-spacing: .1em;}
 .sg-hh .side.ans-long .past{margin-top: 2mm;}
+@media screen{.sg-hh .c4-v,.sg-hh .fm-main,.sg-hh .calc-f,.sg-hh .rx-f{min-width: 0; overflow-x: auto;}
+.sg-hh math[display="block"]{max-width: 100%; overflow-x: auto;}}
 .sg-hh .an-A .q,.sg-hh .an-A .qa{--tint: color-mix(in srgb, var(--c) 9%, white); --tint2: color-mix(in srgb, var(--c) 18%, white);}
 .sg-hh .an-A .hcover{border-top: 6px solid #1e3a8a;}
 .sg-hh .an-A .hc-title b{color: #1e3a8a;}

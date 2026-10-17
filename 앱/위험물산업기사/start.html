@@ -77,12 +77,13 @@
     el("prog").innerHTML="<i class='on'></i><i></i><i></i>";
     var 후=[];
     if(기능){ [30,60,90].forEach(function(n){ 후.push([n+"일",날(n)]); }); }
-    else if(D.시험일){ 후.push([표시(D.시험일),D.시험일]); }
+    else if(D.시험일){ 후.push([표시(D.시험일)+" 예상",D.시험일]); }
     후.push([기능?"없음":"미정",""]);
     el("stage").innerHTML=
       '<div class="tl" id="q">'+후.map(function(c){
         return '<button data-v="'+c[1]+'" aria-pressed="'+(일===c[1])+'">'+c[0]+'</button>';}).join("")+'</div>'+
       '<div class="dr"><input type="date" id="dt" value="'+e(일)+'"></div>'+
+      (기능?'':'<p id="dnote" style="margin:12px 2px 0;font-size:14px;line-height:1.55;color:var(--ink-3)">'+e(!일?"":(일===D.시험일?"2027년 일정은 공고 전이라 예상 날짜입니다"+(D.시험일근거?" (직전 시험: "+D.시험일근거+")":"")+". 공고가 나오면 직접 바꾸세요.":"직접 고른 날짜"))+'</p>')+
       '<div class="gap"></div><button class="b main" id="go">다음</button>';
     document.querySelectorAll("#q button").forEach(function(b){
       b.onclick=function(){ 일=b.dataset.v; 일화면(); };
@@ -171,5 +172,5 @@
   if(재진단) 진단시작(); else 일화면();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>
