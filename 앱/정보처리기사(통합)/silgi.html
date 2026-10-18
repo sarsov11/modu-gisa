@@ -323,7 +323,7 @@
       /* 자가채점 범위를 밝힌다 — 자동 채점·합격 예측이 아니다(2026-10-11 외부 검수 F) */
       '<p style="margin:6px 0 12px;font-size:13.5px;color:var(--ink-3)">'+채점안내()+'</p>'+
       '<div class="act">'+(틀.length?'<a class="b main" href="silgi.html?wrong=1">다시 볼 문항</a>':'')+
-      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div>'+(루틴?'<a class="b main" style="margin-top:8px" href="index.html">오늘 루틴으로</a>':'')+'</div>'+목록+'</div>';
+      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div>'+(루틴?'<a class="b main" style="margin-top:8px" href="index.html">오늘 할 일로 돌아가기</a>':'')+'</div>'+목록+'</div>';
   }
   function 모의끝(){
     /* 1) 자동 채점 문항은 기계로 2) 스스로 채점 문항은 하나씩 내 답·정답을 보여 주고 고르게 3) 배점(pt, 없으면 5) 합산 — 맞힘 전부·헷갈림 절반 */

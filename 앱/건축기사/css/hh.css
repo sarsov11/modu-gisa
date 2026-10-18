@@ -244,3 +244,17 @@
 .sg-hh .an-A pre.code{background: #f8fafc; border: 1px solid #e2e8f0;}
 .sg-hh .tree,.sg-hh .cbox-b,.sg-hh .c4-v,.sg-hh .calc,.sg-hh .mat{overflow-x:auto;max-width:100%}
 .sg-hh svg{max-width:100%;height:auto}
+/* 1018 폰 폭(600px 이하): 계산 4단 칸을 위아래로 쌓아 식 칸을 넓히고 긴 식은 조금 줄인다 */
+@media (max-width:600px){
+.sg-hh .c4,.sg-hh .deduct,.sg-hh .model,.sg-hh .model-ref,.sg-hh .ref-mini,.sg-hh .st-b,.sg-hh .step.notitle .st-b{margin-left:0}
+.sg-hh .c4-r{grid-template-columns:minmax(0,1fr)}
+.sg-hh .c4-k{padding:5px 10px 0;align-self:start}
+.sg-hh .c4-v{padding:2px 10px 7px}
+.sg-hh .c4-v math[display="block"],.sg-hh .fm-main math,.sg-hh .calc-f math{font-size:.9em}
+.sg-hh .calc-row{grid-template-columns:minmax(0,1fr) auto}
+.sg-hh .calc-d{grid-column:1/-1}
+}
+/* 1018 긴 식(등호마다 조각): 좁으면 등호 앞에서 줄바꿈 */
+.sg-hh .eqw{display:flex;flex-wrap:wrap;align-items:center;justify-content:inherit;column-gap:.35em;row-gap:.2em}
+.sg-hh .eqw math[display="block"]{display:inline-block;margin:0;overflow:visible}
+.sg-hh .formula .eqw{justify-content:center}

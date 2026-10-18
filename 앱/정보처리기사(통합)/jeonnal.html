@@ -2,13 +2,13 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>시험 전날 체크 — 모두의 정보처리기사</title>
+<title>시험 전날 볼 것 — 모두의 정보처리기사</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/g.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
-/* 1018 시험 전날 체크 — 출력 함정·SQL 문법 한 장. 코드 예시는 전부 실제로 돌린 출력(Java 21 · gcc · Python 3.12 · SQLite) */
+/* 1018 시험 전날 볼 것 — 출력 함정·SQL 문법 한 장. 코드 예시는 전부 실제로 돌린 출력(Java 21 · gcc · Python 3.12 · SQLite) */
 body{background:var(--bg)}
 .page{padding-bottom:60px}
 .top{display:flex;align-items:center;gap:10px;padding:18px 2px 0}
@@ -33,53 +33,53 @@ table.sq code{font:12.5px/1.5 ui-monospace,Consolas,monospace;word-break:keep-al
 </head><body>
 <div class="page">
   <div class="top"><a href="index.html">← 홈</a></div>
-  <h1>시험 전날 체크</h1>
-  <p class="lead">코드 출력 문제에서 답이 갈리는 곳과 SQL 문법만 모았습니다. 회색 상자의 출력은 실제로 실행한 값입니다. 확인한 줄은 체크해 두면 이 기기에 남습니다.</p>
+  <h1>시험 전날 볼 것</h1>
+  <p class="lead">코드 문제에서 자주 틀리는 실행 결과와 SQL 문법을 모았습니다. 까만 상자 안 결과는 직접 실행해서 얻은 값입니다.</p>
 
-  <h2 style="--c:#E5484D"><i>Java</i>출력 함정</h2>
-  <div class="tp"><b>부모 타입 변수로 자식 객체를 가리키면, 메서드는 자식 것 · 필드와 static 메서드는 변수 타입(부모) 것</b>
+  <h2 style="--c:#E5484D"><i>Java</i>자주 틀리는 실행 결과</h2>
+  <div class="tp"><b>부모 타입 변수에 자식 객체: 메서드는 자식 것, 필드·static 메서드는 부모 것</b>
     <pre>A o = new B();      // B extends A, 둘 다 x·f()·static s() 가 있음
 o.f()  o.x  o.s()   → <em>Bf 1 As</em></pre></div>
-  <div class="tp"><b>자식 객체를 만들면 부모 생성자가 먼저 돈다</b>
+  <div class="tp"><b>자식 객체를 만들면 부모 생성자부터 실행</b>
     <pre>new B();   // A() 가 "A", B() 가 "B" 를 찍음 → <em>AB</em></pre></div>
-  <div class="tp"><b>static 변수는 객체 전부가 하나를 같이 쓴다</b>
+  <div class="tp"><b>static 변수는 모든 객체가 같이 씀</b>
     <pre>static int cnt; 생성자에서 cnt++ → 객체 3개 만든 뒤 cnt → <em>3</em></pre></div>
-  <div class="tp"><b>정수끼리 나누면 몫만 남는다, 문자 + 정수는 정수</b>
+  <div class="tp"><b>정수 ÷ 정수는 몫만, 문자 + 정수는 정수</b>
     <pre>7 / 2 → <em>3</em>     7 / 2.0 → <em>3.5</em>     'A' + 1 → <em>66</em></pre></div>
-  <div class="tp"><b>문자열 + 는 왼쪽부터: 앞에 문자열이 있으면 이어 붙이고, 숫자끼리 먼저 만나면 더한다</b>
+  <div class="tp"><b>+ 는 왼쪽부터 계산: 문자열을 먼저 만나면 이어 붙이고, 숫자끼리면 더함</b>
     <pre>"" + 1 + 2 → <em>12</em>      1 + 2 + "" → <em>3</em></pre></div>
-  <div class="tp"><b>== 는 같은 객체인지, equals 는 내용이 같은지</b>
+  <div class="tp"><b>== 는 주소 비교, equals 는 내용 비교</b>
     <pre>String p = "A", q = new String("A");
 p == q → <em>false</em>     p.equals(q) → <em>true</em></pre></div>
 
-  <h2 style="--c:#3B82F6"><i>C</i>출력 함정</h2>
-  <div class="tp"><b>*(p+1) 은 다음 칸 값, *p+1 은 첫 칸 값에 1을 더한 것</b>
+  <h2 style="--c:#3B82F6"><i>C</i>자주 틀리는 실행 결과</h2>
+  <div class="tp"><b>*(p+1) 은 다음 칸 값, *p+1 은 첫 칸 값 + 1</b>
     <pre>int a[] = {10, 20, 30}; int *p = a;
 *(p+1)  *p+1  p[2] → <em>20 11 30</em></pre></div>
-  <div class="tp"><b>구조체 포인터는 p-&gt;x 와 (*p).x 가 같다</b>
+  <div class="tp"><b>p-&gt;x 와 (*p).x 는 같은 값</b>
     <pre>struct P s = {3, 4}; struct P *sp = &amp;s;
 sp-&gt;x  (*sp).y → <em>3 4</em></pre></div>
-  <div class="tp"><b>switch 에 break 가 없으면 아래 case 로 계속 내려간다</b>
+  <div class="tp"><b>switch 에 break 가 없으면 아래 case 까지 실행</b>
     <pre>k = 2: case 1 "1" / case 2 "2" / case 3 "3"; break → <em>23</em></pre></div>
-  <div class="tp"><b>i++ 는 지금 값을 쓰고 나서 1을 더한다</b>
+  <div class="tp"><b>i++ 는 값을 쓴 뒤에 1 증가</b>
     <pre>int i = 5; printf("%d ", i++); printf("%d", i); → <em>5 6</em></pre></div>
-  <div class="tp"><b>strlen 은 '\0' 앞까지 글자 수, sizeof 는 배열 크기</b>
+  <div class="tp"><b>strlen 은 글자 수('\0' 빼고), sizeof 는 배열 크기</b>
     <pre>char str[10] = "abc"; strlen(str) sizeof(str) → <em>3 10</em></pre></div>
-  <div class="tp"><b>비트 연산은 2진수로 바꿔서</b>
+  <div class="tp"><b>비트 연산은 2진수로 바꿔서 계산</b>
     <pre>5 &gt;&gt; 1 → <em>2</em>  (101 → 10)     5 &amp; 3 → <em>1</em>  (101 &amp; 011)</pre></div>
 
-  <h2 style="--c:#16B364"><i>Python</i>출력 함정</h2>
-  <div class="tp"><b>슬라이싱 [a:b] 는 b 앞에서 끝난다, 음수는 뒤에서부터</b>
+  <h2 style="--c:#16B364"><i>Python</i>자주 틀리는 실행 결과</h2>
+  <div class="tp"><b>[a:b] 는 b 바로 앞까지, 음수 번호는 뒤에서부터</b>
     <pre>s = "PYTHON"
 s[1:4]  s[-2:]  s[::-1] → <em>YTH ON NOHTYP</em></pre></div>
-  <div class="tp"><b>// 는 몫(음수면 더 작은 쪽으로), ** 는 오른쪽부터 계산</b>
+  <div class="tp"><b>// 는 몫(음수면 작은 쪽), ** 는 오른쪽부터</b>
     <pre>7 // 2   7 / 2   2 ** 3 ** 2   -7 // 2 → <em>3 3.5 512 -4</em></pre></div>
-  <div class="tp"><b>print 는 sep 기본 공백, end 기본 줄바꿈</b>
+  <div class="tp"><b>print 기본값: sep 는 공백, end 는 줄바꿈</b>
     <pre>print("a", "b", sep="-", end="!\n") → <em>a-b!</em></pre></div>
-  <div class="tp"><b>b = a 는 복사가 아니라 같은 리스트를 가리킨다</b>
+  <div class="tp"><b>b = a 는 복사가 아니라 같은 리스트</b>
     <pre>a = [1, 2]; b = a; b.append(3); print(a) → <em>[1, 2, 3]</em></pre></div>
 
-  <h2 style="--c:#0EA5E9"><i>SQL</i>문법 한 장</h2>
+  <h2 style="--c:#0EA5E9"><i>SQL</i>문법 정리</h2>
   <table class="sq">
     <tr><th>실행 순서</th><td>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY</td></tr>
     <tr><th>WHERE / HAVING</th><td>행을 거르면 WHERE, 묶은 뒤 집계로 거르면 HAVING<br><code>GROUP BY 학과 HAVING AVG(점수) &gt;= 80</code></td></tr>
@@ -96,10 +96,10 @@ s[1:4]  s[-2:]  s[::-1] → <em>YTH ON NOHTYP</em></pre></div>
     <tr><th>DISTINCT</th><td><code>SELECT DISTINCT 학과 FROM 학생</code> · <code>COUNT(DISTINCT 열)</code></td></tr>
   </table>
 
-  <a class="go" href="silgi.html?wrong=1">틀린 문항 마지막으로 보기 →</a>
+  <a class="go" href="silgi.html?wrong=1">틀린 문제 다시 풀기 →</a>
 </div>
 <script>
-/* 확인한 줄 체크 — 이 기기에만 남는다 */
+/* 확인 표시 — 이 기기에만 남는다 */
 (function(){
   var K="jeonnal.정보처리기사(통합)", 본={};
   try{ 본=JSON.parse(localStorage.getItem(K)||"{}"); }catch(e){}
@@ -107,7 +107,7 @@ s[1:4]  s[-2:]  s[::-1] → <em>YTH ON NOHTYP</em></pre></div>
     var l=document.createElement("label"), c=document.createElement("input");
     c.type="checkbox"; c.checked=!!본[i]; c.onchange=function(){ 본[i]=c.checked?1:0; try{localStorage.setItem(K,JSON.stringify(본));}catch(e){} d.style.opacity=c.checked?.6:1; };
     d.style.opacity=c.checked?.6:1;
-    l.appendChild(c); l.appendChild(document.createTextNode("확인함")); d.appendChild(l);
+    l.appendChild(c); l.appendChild(document.createTextNode("확인")); d.appendChild(l);
   });
 })();
 </script>

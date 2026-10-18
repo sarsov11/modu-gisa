@@ -254,3 +254,7 @@
 .sg-hh .calc-row{grid-template-columns:minmax(0,1fr) auto}
 .sg-hh .calc-d{grid-column:1/-1}
 }
+/* 1018 긴 식(등호마다 조각): 좁으면 등호 앞에서 줄바꿈 */
+.sg-hh .eqw{display:flex;flex-wrap:wrap;align-items:center;justify-content:inherit;column-gap:.35em;row-gap:.2em}
+.sg-hh .eqw math[display="block"]{display:inline-block;margin:0;overflow:visible}
+.sg-hh .formula .eqw{justify-content:center}

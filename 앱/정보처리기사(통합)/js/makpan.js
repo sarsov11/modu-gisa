@@ -28,7 +28,7 @@
 
   var 기 = GS.S.실기 || {};
   var COL = { code: "#E5484D", sql: "#0EA5E9", def: "#8B5CF6", wrong: "#F59E0B" };
-  var ICON = { code: "{ }", sql: "DB", def: "방", wrong: "↺" };
+  var ICON = { code: "{ }", sql: "DB", def: "이론", wrong: "↺" };
   var 오답남음 = Object.keys(기).filter(function (id) { return 기[id] && 기[id].v < 2; }).length;
 
   var 항목 = (MK.항목 || []).map(function (it) {
@@ -37,12 +37,12 @@
       Object.keys(기).forEach(function (id) { var r = 기[id]; if (r && r.t === 오늘 && r.n >= 2) 한++; });
       목표 = Math.min(목표, 한 + 오답남음);
       href = "silgi.html?wrong=1&rt=1";
-      부제 = 목표 === 0 ? "앞의 세 가지에서 틀린 문항이 여기로 옵니다" : "다시 볼 문항 " + 오답남음 + "개";
+      부제 = 목표 === 0 ? "아직 틀린 문제 없음" : "틀린 문제 " + 오답남음 + "개 남음";
     } else {
       (it.ids || []).forEach(function (id) { var r = 기[id]; if (r && r.t === 오늘) 한++; });
-      href = "silgi.html?z=" + encodeURIComponent((it.z || []).join("|")) + "&n=" + 목표 + "&rt=1&tt=" + encodeURIComponent(it.제목 + " " + 목표);
+      href = "silgi.html?z=" + encodeURIComponent((it.z || []).join("|")) + "&n=" + 목표 + "&rt=1&tt=" + encodeURIComponent(it.제목);
     }
-    return { k: it.k, 제목: it.제목 + (it.k === "wrong" ? "" : " " + (it.목표 || 10)), 부제: 부제, 한: Math.min(한, 목표), 목표: 목표, 끝: 한 >= 목표, href: href };
+    return { k: it.k, 제목: it.제목, 부제: 부제, 한: Math.min(한, 목표), 목표: 목표, 끝: 한 >= 목표, href: href };
   });
   /* 다시 볼 문항이 하나도 없으면 앞의 항목을 다 끝냈을 때 함께 끝난 것으로 친다(첫날부터 공짜 한 칸이 되지 않게) */
   항목.forEach(function (it) { if (it.k === "wrong" && it.목표 === 0) it.끝 = 항목.every(function (o) { return o === it || o.끝; }); });
@@ -90,16 +90,16 @@
 
   function 그리기() {
     var 막대 = '<div class="mk-seg4">' + 항목.map(function (it) { return '<i class="' + (it.끝 ? "mk-done" : (it === 지금할 ? "mk-now" : "")) + '"></i>'; }).join("") + '</div>';
-    var 머리 = '<div class="mk-hd2"><div><span class="mk-k">' + (다 ? "오늘 막판 루틴 끝" : '막판 루틴 · <em>' + (남은 === 0 ? "시험 당일" : "D-" + 남은) + '</em>') + '</span>' +
+    var 머리 = '<div class="mk-hd2"><div><span class="mk-k">' + (다 ? "오늘 할 일 끝" : '실기 시험 <em>' + (남은 === 0 ? "오늘" : "D-" + 남은) + '</em> · 오늘 할 일') + '</span>' +
       '<div class="mk-big">' + nd + '<small> / ' + n + '</small></div></div>' +
-      '<div class="mk-hr"><span class="mk-chip">' + (시험.getMonth() + 1) + "/" + 시험.getDate() + " " + esc(MK.시험이름 || "시험") + '</span></div></div>';
+      '<div class="mk-hr"><span class="mk-chip">' + (시험.getMonth() + 1) + "월 " + 시험.getDate() + "일 시험" + '</span></div></div>';
     var 전날 = 전날창 ? '<a class="mk-eve" href="' + esc(MK.전날.href) + '"><small>' + (남은 === 1 ? "내일 시험" : "오늘 시험") + '</small><b>' + esc(MK.전날.제목) + ' →</b><span>' + esc(MK.전날.부제) + '</span></a>' : "";
     var 길 = '<ol class="mk-tl">' + 항목.map(function (it, i) {
       var s = it.끝 ? "done" : (it === 지금할 ? "now" : "up"), col = COL[it.k] || "#6B7280";
       var 칸 = '<span class="mk-nd">' + (it.끝 ? "✓" : esc(ICON[it.k] || (i + 1))) + '</span>' +
-        '<span class="mk-tx">' + (s === "now" ? '<span class="mk-k2">' + (i + 1) + '번째, 지금</span>' : '') + '<b>' + esc(it.제목) + '</b><span>' + esc(it.부제) + '</span></span>' +
+        '<span class="mk-tx">' + (s === "now" ? '<span class="mk-k2">' + '지금 할 것</span>' : '') + '<b>' + esc(it.제목) + '</b><span>' + esc(it.부제) + '</span></span>' +
         '<span class="mk-mn">' + (it.끝 ? "완료" : it.한 + "/" + it.목표) + '</span>';
-      return '<li class="mk-' + s + '" style="--c:' + col + '">' + (s === "now" ? 칸 + '<a class="mk-go" href="' + it.href + '">' + (it.한 ? "이어서 하기" : "시작하기") + ' →</a>' : '<a class="mk-row" href="' + it.href + '">' + 칸 + '</a>') + '</li>';
+      return '<li class="mk-' + s + '" style="--c:' + col + '">' + (s === "now" ? 칸 + '<a class="mk-go" href="' + it.href + '">' + (it.한 ? "이어서 풀기" : "풀기 시작") + ' →</a>' : '<a class="mk-row" href="' + it.href + '">' + 칸 + '</a>') + '</li>';
     }).join("") + '</ol>';
     /* 시험 전 7일 칸 — 그날 네 가지를 다 끝낸 날은 채운다 */
     var 칸들 = "";
@@ -108,7 +108,7 @@
       var dk = 키(d), full = ls("makpan." + MK.시험일 + "." + dk) === "1";
       칸들 += '<div class="' + (full ? "mk-full " : "") + (dk === 오늘 ? "mk-tdy" : "") + '">D-' + k + '<i>' + (full ? "✓" : d.getDate()) + '</i></div>';
     }
-    var 꼬리 = (!전날창 && MK.전날 && 남은 <= 2) ? '<p class="mk-ft"><a href="' + esc(MK.전날.href) + '">' + esc(MK.전날.제목) + ' 미리 보기</a></p>' : "";
+    var 꼬리 = (!전날창 && MK.전날 && 남은 <= 2) ? '<p class="mk-ft"><a href="' + esc(MK.전날.href) + '">' + esc(MK.전날.제목) + ' 먼저 보기</a></p>' : "";
     return '<div class="mkc' + (다 ? " alldone" : "") + '" id="mkc">' + 머리 + 막대 + 전날 + 길 + '<div class="mk-wk">' + 칸들 + '</div>' + 꼬리 + '</div>';
   }
 
