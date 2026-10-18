@@ -57,7 +57,7 @@
 (function(){ var 기=(GS.S.기출||{}); if(Object.keys(기).length && !window.GQ){ document.write('<script src="js/gquiz.js"><\/script>'); } })();</script>
 <script>
 (function(){
-  if(!GS.S.시작){ location.replace("start.html"); return; }
+  if(!GS.S.시작){ location.replace("start.html"+location.search+location.hash); return; }
   GS.내비("index.html");
   var D=GS.D, e=GS.esc;
   var 오늘=new Date();
