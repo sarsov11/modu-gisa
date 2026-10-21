@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -37,12 +37,12 @@ svg{background:#FFFFFF}
   <!-- 스트레이너(⑦) -->
   <polygon points="152,370 196,370 186,424 174,412 162,424" fill="url(#hat)"/><polygon class="ln" points="152,370 196,370 186,424 174,412 162,424"/>
   <!-- 번호 -->
-  <text class="tx" x="206" y="34">⑥</text><line class="th" x1="204" y1="40" x2="190" y2="54"/>
-  <text class="tx" x="40" y="150">③</text>
-  <text class="tx" x="226" y="70">④</text><line class="th" x1="224" y1="66" x2="210" y2="74"/>
-  <text class="tx" x="216" y="104">①</text><line class="th" x1="214" y1="100" x2="202" y2="96"/>
-  <text class="tx" x="244" y="146">⑧</text><line class="th" x1="242" y1="140" x2="230" y2="128"/>
-  <text class="tx" x="30" y="316">⑤</text><line class="th" x1="46" y1="318" x2="94" y2="324"/>
-  <text class="tx" x="212" y="296">②</text><line class="th" x1="210" y1="292" x2="198" y2="278"/>
-  <text class="tx" x="212" y="414">⑦</text><line class="th" x1="210" y1="410" x2="190" y2="404"/>
+  <text class="tx" x="206" y="34"><tspan class="cn">⑥</tspan></text><line class="th" x1="204" y1="40" x2="190" y2="54"/>
+  <text class="tx" x="40" y="150"><tspan class="cn">③</tspan></text>
+  <text class="tx" x="226" y="70"><tspan class="cn">④</tspan></text><line class="th" x1="224" y1="66" x2="210" y2="74"/>
+  <text class="tx" x="216" y="104"><tspan class="cn">①</tspan></text><line class="th" x1="214" y1="100" x2="202" y2="96"/>
+  <text class="tx" x="244" y="146"><tspan class="cn">⑧</tspan></text><line class="th" x1="242" y1="140" x2="230" y2="128"/>
+  <text class="tx" x="30" y="316"><tspan class="cn">⑤</tspan></text><line class="th" x1="46" y1="318" x2="94" y2="324"/>
+  <text class="tx" x="212" y="296"><tspan class="cn">②</tspan></text><line class="th" x1="210" y1="292" x2="198" y2="278"/>
+  <text class="tx" x="212" y="414"><tspan class="cn">⑦</tspan></text><line class="th" x1="210" y1="410" x2="190" y2="404"/>
 </svg>

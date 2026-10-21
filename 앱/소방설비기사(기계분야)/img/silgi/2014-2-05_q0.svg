@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -42,7 +42,7 @@ svg{background:#FFFFFF}
   <text class="tx" x="140" y="450">15 m</text><text class="tx" x="456" y="450">30 m</text>
   <!-- 실 이름 -->
   <text class="tb" x="98" y="82">A</text><text class="tb" x="238" y="82">B</text><text class="tb" x="430" y="82">C</text>
-  <text class="tb" x="98" y="190">D</text><text class="tb" x="140" y="330">E</text><text class="tb" x="484" y="330">F</text>
+  <text class="tb" x="100" y="178">D</text><text class="tb" x="140" y="330">E</text><text class="tb" x="484" y="330">F</text>
   <text class="tb" x="336" y="176">복 도</text>
   <text class="ts" x="320" y="350">배출구</text>
   <line class="th" x1="346" y1="338" x2="356" y2="312" marker-end="url(#ai)"/>
@@ -50,21 +50,22 @@ svg{background:#FFFFFF}
   <rect class="rb" x="78" y="81" width="14" height="14"/>
   <rect class="rb" x="183" y="81" width="14" height="14"/>
   <rect class="rb" x="351" y="81" width="14" height="14"/><rect class="rb" x="505" y="81" width="14" height="14"/>
-  <rect class="rb" x="78" y="176" width="14" height="14"/>
+  <rect class="rb" x="78" y="166" width="14" height="14"/>
   <rect class="rb" x="78" y="291" width="14" height="14"/><rect class="rb" x="218" y="291" width="14" height="14"/>
   <rect class="rb" x="351" y="291" width="14" height="14"/><rect class="rb" x="421" y="291" width="14" height="14"/><rect class="rb" x="505" y="291" width="14" height="14"/><rect class="rb" x="603" y="291" width="14" height="14"/>
   <!-- 풍도 -->
-  <polyline class="ln" fill="none" points="85,95 85,116 134,116 134,158"/>
-  <line class="ln" x1="190" y1="95" x2="190" y2="158"/>
-  <polyline class="ln" fill="none" points="358,95 358,116 512,116 512,95"/>
-  <line class="ln" x1="435" y1="116" x2="435" y2="158"/>
-  <line class="ln" x1="85" y1="176" x2="85" y2="158"/>
-  <polyline class="ln" fill="none" points="85,158 625,158 625,104 640,104"/>
+  <line class="ln" x1="85" y1="95" x2="85" y2="134"/>
+  <line class="ln" x1="190" y1="95" x2="190" y2="134"/>
+  <line class="ln" x1="358" y1="95" x2="358" y2="134"/>
+  <line class="ln" x1="512" y1="95" x2="512" y2="134"/>
+  <polyline class="ln" fill="none" points="85,134 625,134 625,104 640,104"/>
+  <line class="ln" x1="85" y1="180" x2="85" y2="190"/>
+  <polyline class="ln" fill="none" points="85,190 625,190 625,134"/>
   <polyline class="ln" fill="none" points="85,298 225,298"/>
-  <line class="ln" x1="155" y1="298" x2="155" y2="158"/>
+  <line class="ln" x1="155" y1="298" x2="155" y2="190"/>
   <polyline class="ln" fill="none" points="358,298 358,270 610,270 610,298"/>
   <line class="ln" x1="428" y1="270" x2="428" y2="291"/><line class="ln" x1="512" y1="270" x2="512" y2="291"/>
-  <line class="ln" x1="484" y1="270" x2="484" y2="158"/>
+  <line class="ln" x1="484" y1="270" x2="484" y2="190"/>
   <!-- 배출 FAN -->
   <circle class="rb" cx="650" cy="104" r="10"/>
   <line class="ln" x1="660" y1="104" x2="702" y2="88" marker-end="url(#ai)"/>

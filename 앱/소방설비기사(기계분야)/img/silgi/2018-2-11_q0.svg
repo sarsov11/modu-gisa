@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -73,16 +73,16 @@ svg{background:#FFFFFF}
   <!-- 저수조 -->
   <rect x="140" y="642" width="10" height="80" fill="url(#hat)"/><rect x="450" y="642" width="10" height="80" fill="url(#hat)"/><rect x="140" y="712" width="320" height="10" fill="url(#hat)"/>
   <polyline class="ln" points="150,642 150,712 450,712 450,642"/>
-  <line class="th" x1="156" y1="672" x2="444" y2="672"/>
+  <line class="th" x1="156" y1="652" x2="444" y2="652"/>
   <line class="th" x1="310" y1="686" x2="400" y2="686"/><line class="th" x1="330" y1="698" x2="380" y2="698"/><line class="th" x1="344" y1="708" x2="366" y2="708"/>
-  <polygon class="nd" points="396,658 410,658 403,670"/>
+  <polygon class="nd" points="396,639 410,639 403,650"/>
   <line class="th" x1="480" y1="694" x2="456" y2="680"/><text class="tx" x="484" y="698">저수조</text>
   <!-- 흡입관·후드밸브 -->
   <polyline class="m" points="201,624 190,624 190,689"/>
   <rect class="rb" x="184" y="689" width="12" height="18"/>
-  <polyline class="m" points="279,627 258,627 258,676"/>
-  <rect class="rb" x="252" y="676" width="12" height="16"/>
+  <polyline class="m" points="279,627 258,627 258,664"/>
+  <rect class="rb" x="252" y="664" width="12" height="16"/>
   <line class="ld" x1="214" y1="738" x2="198" y2="710" marker-end="url(#ar)"/>
-  <line class="ld" x1="262" y1="738" x2="262" y2="696" marker-end="url(#ar)"/>
+  <line class="ld" x1="262" y1="738" x2="262" y2="684" marker-end="url(#ar)"/>
   <text class="tx" x="214" y="758">후드밸브</text>
 </svg>

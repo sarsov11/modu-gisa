@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -41,14 +41,14 @@ svg{background:#FFFFFF}
 <rect class="ln" x="549" y="282" width="28" height="26"/><line class="th" x1="549" y1="308" x2="577" y2="290"/><circle class="th" cx="556" cy="288" r="3"/><circle class="th" cx="563" cy="288" r="3"/><circle class="th" cx="570" cy="288" r="3"/>
 <polyline class="ln" points="625,128 625,198 629,198"/><rect class="ln" x="629" y="182" width="28" height="26"/><line class="th" x1="629" y1="208" x2="657" y2="190"/><circle class="th" cx="636" cy="188" r="3"/><circle class="th" cx="643" cy="188" r="3"/><circle class="th" cx="650" cy="188" r="3"/>
 <polyline class="ln" points="625,235 625,298 629,298"/><rect class="ln" x="629" y="282" width="28" height="26"/><line class="th" x1="629" y1="308" x2="657" y2="290"/><circle class="th" cx="636" cy="288" r="3"/><circle class="th" cx="643" cy="288" r="3"/><circle class="th" cx="650" cy="288" r="3"/>
-<text class="tx" x="288" y="218">Ⓔ</text>
+<text class="tx" x="288" y="218"><tspan class="cn">Ⓔ</tspan></text>
 <rect class="fl" x="261" y="62" width="14" height="22" rx="6"/><rect class="ln" x="261" y="62" width="14" height="22" rx="6"/>
-<text class="tx" x="244" y="76">Ⓒ</text>
+<text class="tx" x="244" y="76"><tspan class="cn">Ⓒ</tspan></text>
 <line class="ln" x1="262" y1="285" x2="274" y2="285"/><line class="ln" x1="262" y1="291" x2="274" y2="291"/>
 <rect class="fl" x="450" y="30" width="92" height="80"/><rect class="ln" x="450" y="30" width="92" height="80"/>
 <line class="th" x1="470" y1="38" x2="470" y2="90"/><line class="th" x1="490" y1="38" x2="490" y2="90"/><line class="th" x1="510" y1="38" x2="510" y2="90"/>
 <line class="m" x1="440" y1="112" x2="560" y2="112"/>
-<text class="tx" x="428" y="46">Ⓓ</text>
+<text class="tx" x="428" y="46"><tspan class="cn">Ⓓ</tspan></text>
 <circle class="nd" cx="496" cy="102" r="3"/>
 <polyline class="ln" points="326,108 326,96 338,108 338,96"/><path class="ln" d="M364,96 L380,108 L380,96 L364,108 Z"/>
 <line class="ld" x1="338" y1="84" x2="312" y2="84" marker-end="url(#ar)"/>
@@ -79,12 +79,12 @@ svg{background:#FFFFFF}
 <rect class="fl" x="60" y="395" width="100" height="95"/><rect class="ln" x="60" y="395" width="100" height="95"/>
 <line class="th" x1="78" y1="408" x2="142" y2="408"/><line class="th" x1="86" y1="414" x2="134" y2="414"/><line class="th" x1="96" y1="420" x2="124" y2="420"/>
 <rect class="sup" x="126" y="466" width="16" height="10"/><line class="ln" x1="142" y1="472" x2="130" y2="472"/>
-<text class="tx" x="36" y="416">Ⓐ</text>
+<text class="tx" x="36" y="416"><tspan class="cn">Ⓐ</tspan></text>
 <line class="ln" x1="420" y1="400" x2="436" y2="400"/><path class="ln" d="M414,404 L426,420 L414,420 L426,404 Z"/>
 <rect class="fl" x="428" y="398" width="24" height="52" rx="8"/><rect class="ln" x="428" y="398" width="24" height="52" rx="8"/>
 <line class="ln" x1="440" y1="372" x2="440" y2="398"/><path class="ln" d="M434,372 L446,388 L434,388 L446,372 Z"/>
 <line class="ln" x1="440" y1="450" x2="440" y2="486"/><path class="ln" d="M434,460 L446,476 L434,476 L446,460 Z"/>
 <polyline class="ln" points="432,450 432,484"/><polyline class="ln" points="448,450 448,484"/>
-<text class="tx" x="478" y="440">Ⓑ</text>
+<text class="tx" x="478" y="440"><tspan class="cn">Ⓑ</tspan></text>
 <line class="m" x1="20" y1="490" x2="660" y2="490"/><rect x="20" y="490" width="640" height="10" fill="url(#hat)"/>
 </svg>

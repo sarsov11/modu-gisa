@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -32,5 +32,5 @@ svg{background:#FFFFFF}
     <line class="ln" x1="410" y1="76" x2="410" y2="104"/><polygon class="sup" points="398,104 422,104 410,132"/>
     <line class="ln" x1="530" y1="76" x2="530" y2="104"/><polygon class="sup" points="518,104 542,104 530,132"/>
   </g>
-  <text class="tx" x="42" y="158">①</text><text class="tx" x="162" y="158">②</text><text class="tx" x="282" y="158">③</text><text class="tx" x="402" y="158">④</text><text class="tx" x="522" y="158">⑤</text>
+  <text class="tx" x="42" y="158"><tspan class="cn">①</tspan></text><text class="tx" x="162" y="158"><tspan class="cn">②</tspan></text><text class="tx" x="282" y="158"><tspan class="cn">③</tspan></text><text class="tx" x="402" y="158"><tspan class="cn">④</tspan></text><text class="tx" x="522" y="158"><tspan class="cn">⑤</tspan></text>
 </svg>

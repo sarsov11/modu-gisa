@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -20,7 +20,7 @@ svg{background:#FFFFFF}
   <!-- 연결송수구 ㉮ -->
   <path class="sup" d="M56,44 A18,16 0 0,0 56,76 Z"/>
   <circle class="nd" cx="44" cy="96" r="10"/>
-  <text class="tb" x="38" y="101">㉮</text>
+  <text class="tb" x="38" y="101"><tspan class="cn">㉮</tspan></text>
   <!-- 가로 40A 4 m -->
   <line class="m" x1="56" y1="60" x2="200" y2="60"/>
   <text class="tx" x="104" y="82">40A</text>
@@ -37,7 +37,7 @@ svg{background:#FFFFFF}
   <!-- 분기점 ㉯ -->
   <circle class="rb" cx="200" cy="200" r="4"/>
   <circle class="nd" cx="226" cy="216" r="10"/>
-  <text class="tb" x="220" y="221">㉯</text>
+  <text class="tb" x="220" y="221"><tspan class="cn">㉯</tspan></text>
   <!-- 오른쪽 위 가지: 32A 경사 + 가로, 개방형 헤드 3개 -->
   <polyline class="m" fill="none" points="200,200 330,140 570,140"/>
   <text class="tx" x="262" y="190">32A</text>

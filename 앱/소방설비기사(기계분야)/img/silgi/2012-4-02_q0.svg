@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -29,7 +29,7 @@ svg{background:#FFFFFF}
   </g>
   <text class="tx" x="168" y="380">약제저장용기</text>
   <!-- 집합관 (끝에 안전밸브 ③) -->
-  <rect class="sup" x="79" y="194" width="8" height="20"/><text class="tx" x="76" y="188">③</text>
+  <rect class="sup" x="79" y="194" width="8" height="20"/><text class="tx" x="76" y="188"><tspan class="cn">③</tspan></text>
   <path class="ln" d="M87,204 H465 V76"/>
   <path class="ln" d="M110,235 L131,204 M162,235 L183,204 M214,235 L235,204 M266,235 L287,204 M318,235 L339,204"/>
   <circle class="nd" cx="117" cy="226" r="6"/><circle class="nd" cx="169" cy="226" r="6"/><circle class="nd" cx="221" cy="226" r="6"/><circle class="nd" cx="273" cy="226" r="6"/><circle class="nd" cx="325" cy="226" r="6"/>
@@ -42,16 +42,16 @@ svg{background:#FFFFFF}
   <!-- 기동용 가스용기 ④ -->
   <rect class="fl" x="398" y="304" width="18" height="52" rx="8"/><rect class="ln" x="398" y="304" width="18" height="52" rx="8"/><rect class="ln" x="403" y="294" width="8" height="12"/>
   <rect class="fl" x="431" y="304" width="18" height="52" rx="8"/><rect class="ln" x="431" y="304" width="18" height="52" rx="8"/><rect class="ln" x="436" y="294" width="8" height="12"/>
-  <text class="tx" x="400" y="378">④</text><text class="tx" x="433" y="378">④</text>
+  <text class="tx" x="400" y="378"><tspan class="cn">④</tspan></text><text class="tx" x="433" y="378"><tspan class="cn">④</tspan></text>
   <!-- 선택밸브 ② -->
   <rect class="sup" x="384" y="50" width="13" height="26"/><polygon class="ln" points="386,54 395,54 386,72 395,72"/>
   <rect class="sup" x="465" y="50" width="12" height="26"/><polygon class="ln" points="467,54 475,54 467,72 475,72"/>
-  <text class="tx" x="362" y="68">②</text><text class="tx" x="446" y="68">②</text>
+  <text class="tx" x="362" y="68"><tspan class="cn">②</tspan></text><text class="tx" x="446" y="68"><tspan class="cn">②</tspan></text>
   <path class="ln" d="M391,50 V24"/><path class="ln" d="M471,50 V24"/>
   <text class="tx" x="344" y="20">B구역</text><text class="tx" x="476" y="20">A구역</text>
   <!-- 압력스위치 ① -->
-  <line class="ln" x1="391" y1="38" x2="400" y2="38"/><rect class="nd" x="400" y="32" width="11" height="12"/><text class="tx" x="416" y="44">①</text>
-  <line class="ln" x1="471" y1="38" x2="480" y2="38"/><rect class="nd" x="480" y="32" width="11" height="12"/><text class="tx" x="496" y="44">①</text>
+  <line class="ln" x1="391" y1="38" x2="400" y2="38"/><rect class="nd" x="400" y="32" width="11" height="12"/><text class="tx" x="416" y="44"><tspan class="cn">①</tspan></text>
+  <line class="ln" x1="471" y1="38" x2="480" y2="38"/><rect class="nd" x="480" y="32" width="11" height="12"/><text class="tx" x="496" y="44"><tspan class="cn">①</tspan></text>
   <!-- 제어반 -->
   <rect class="nd" x="510" y="279" width="44" height="31"/><path class="th" d="M510,279 L554,310 M554,279 L510,310"/>
   <text class="tx" x="512" y="332">제어반</text>

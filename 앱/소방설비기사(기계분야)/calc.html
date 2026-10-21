@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/g.css">
 <link rel="stylesheet" href="css/q.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}
-try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem("gisa.calc.ui")||"A";document.documentElement.dataset.ui=_u;}catch(e){document.documentElement.dataset.ui="A";}</script>
+</script>
 <style>
 /* 소방 실기 계산기 — 유형별 단계 풀이 + 공학용 계산기. 색은 base.css 변수만 쓴다 */
 .page{padding-bottom:120px}
@@ -96,48 +96,44 @@ try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem(
 .ct-cv .out{font-family:var(--mono);font-size:22px;font-weight:900;text-align:right;padding:6px 2px}
 .ct-cv .qk{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .ct-cv .qk button{appearance:none;font:inherit;font-size:13px;font-weight:700;padding:6px 10px;border-radius:99px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink-2);cursor:pointer}
-.ct-ui{display:flex;gap:6px;justify-content:flex-end;margin:6px 0 0;font-size:12.5px;color:var(--ink-3)}
-.ct-ui a{color:var(--ink-3);padding:2px 8px;border:1px solid var(--line-2);border-radius:99px;text-decoration:none}
-.ct-ui a.on{color:var(--ink);border-color:var(--ink)}
-
-/* ── 안 B: 계산기 테이프 — 단계가 영수증처럼 한 줄씩 찍힌다 ── */
-:root[data-ui="B"] .ct-steps{gap:0;border-radius:var(--r2);overflow:hidden;background:var(--ink);color:var(--bg);padding:6px 0}
-:root[data-ui="B"] .ct-s{background:transparent;border:0;border-bottom:1px dashed color-mix(in srgb,var(--bg) 30%,transparent);border-radius:0;color:var(--bg);padding:12px 16px}
-:root[data-ui="B"] .ct-s:last-child{border-bottom:0}
-:root[data-ui="B"] .ct-s h4{color:var(--bg)}
-:root[data-ui="B"] .ct-s h4 em{background:var(--bg);color:var(--ink)}
-:root[data-ui="B"] .ct-s .fx{text-align:right}
-:root[data-ui="B"] .ct-s .fx div{padding-left:0;text-indent:0}
-:root[data-ui="B"] .ct-s .fx .r{font-size:21px}
-:root[data-ui="B"] .ct-s .fx .r span,:root[data-ui="B"] .ct-s .mm{color:color-mix(in srgb,var(--bg) 65%,transparent)}
-:root[data-ui="B"] .ct-s .try input,:root[data-ui="B"] .ct-s .try select{background:color-mix(in srgb,var(--bg) 12%,var(--ink));color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
-:root[data-ui="B"] .ct-s .try button{background:var(--bg);color:var(--ink);border-color:var(--bg)}
-:root[data-ui="B"] .ct-s .try button.q{background:transparent;color:var(--bg)}
-:root[data-ui="B"] .ct-s .ct-vd.정답{color:var(--bg)}
-:root[data-ui="B"] .ct-s .ct-vd.오답,:root[data-ui="B"] .ct-s .ct-vd.단위,:root[data-ui="B"] .ct-s .ct-vd.근접{color:var(--accent)}
-:root[data-ui="B"] .ct-s .tf button{background:transparent;color:var(--bg);border-color:var(--bg)}
-:root[data-ui="B"] .ct-s h4 .ans{color:var(--bg);border-color:var(--bg)}
-:root[data-ui="B"] .ct-in{border-style:dashed}
-
-/* ── 안 C: 넓은 화면 2단(왼쪽 문제·값, 오른쪽 풀이), 휴대폰에서는 값 칸을 접는다 ── */
-@media (min-width:900px){
-  :root[data-ui="C"] .page{max-width:1080px}
-  :root[data-ui="C"] #solve{display:grid;grid-template-columns:400px 1fr;gap:20px;align-items:start}
-  :root[data-ui="C"] #solve .ct-steps{margin-top:0}
-}
-@media (max-width:899px){
-  :root[data-ui="C"] .ct-in.fold2 .ct-f{display:none}
-  :root[data-ui="C"] .ct-in.fold2 .sumline{display:block}
-}
-.ct-in .sumline{display:none;font-family:var(--mono);font-size:14px;line-height:1.7;padding:6px 0;color:var(--ink-2);cursor:pointer}
-.ct-in .sumline u{text-decoration:none;color:var(--ink);font-weight:800;margin-left:6px}
+/* 1018 풀이 화면: 빈칸에 직접 넣기 → 결과는 맨 위 표 */
+.ct-ask{border-left:3px solid var(--ink);padding:2px 0 2px 12px;margin:0 0 12px;font-size:15.5px;font-weight:700;line-height:1.6;word-break:keep-all}
+details.ct-in{margin-top:14px} details.ct-in summary{cursor:pointer;font-weight:800;font-size:14.5px;color:var(--ink-2);padding:10px 0;list-style:none}
+details.ct-in .b.main{margin-top:10px}
+.ct-s .eq{margin:10px 0 0;font-size:17.5px;font-weight:600;line-height:2.2;word-break:keep-all}
+.ct-s .eq .v{font-family:var(--mono);font-weight:700}
+.ct-s .eq .u{font-size:15px;color:var(--ink-2);font-weight:700;margin-left:3px}
+.ct-s .eq sup{font-size:.7em}
+.ct-s input.bx{font:inherit;font-family:var(--mono);font-weight:800;font-size:17px;width:4.6em;min-width:0;text-align:center;padding:4px 4px;margin:0 2px;border:2px solid var(--ink);border-radius:9px;background:var(--surface);color:var(--ink);vertical-align:middle;box-sizing:border-box}
+.ct-s input.bx.ok{border-color:#0F7B4F;color:#0F7B4F;background:#ECF7F1}
+.ct-s input.bx.ng{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.ct-s input.bx.shown{border-style:dashed;color:var(--ink-2)}
+.ct-s .ct-btn{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.ct-s .ct-btn button{appearance:none;font:inherit;font-weight:800;font-size:15px;border-radius:10px;padding:11px 0;cursor:pointer;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink)}
+.ct-s .ct-btn button.c{background:var(--ink);color:var(--bg)}
+.ct-s .fb{margin-top:8px;font-size:14.5px;line-height:1.6}
+.ct-s .fb b.ok{color:#0F7B4F} .ct-s .fb b.ng{color:var(--accent)}
+.ct-s.ct-tf .fb{margin-top:10px}
+.ct-lawd{margin-top:8px} .ct-lawd summary{cursor:pointer;font-size:13.5px;font-weight:800;color:var(--ink-2)}
+.ct-law{margin:8px 0 0;padding:0;list-style:none;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.ct-law li{padding:6px 10px;border-left:3px solid var(--line-2);margin-top:4px;background:var(--surface-2);border-radius:0 8px 8px 0}
+.ct-law b{display:block;font-size:13.5px;color:var(--ink)}
+.ct-seeall{appearance:none;font:inherit;font-size:14px;font-weight:800;color:var(--ink-2);background:none;border:1px solid var(--line-2);border-radius:99px;padding:6px 14px;margin:0 0 10px;cursor:pointer}
+.ct-res{border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--surface);padding:12px 14px;margin:0 0 14px}
+.ct-res h3{margin:4px 0 6px;font-size:14px;color:var(--ink-2)}
+.ct-res table{width:100%;border-collapse:collapse;font-size:15px}
+.ct-res th{text-align:left;font-weight:600;padding:7px 8px 7px 0;border-bottom:1px dashed var(--line-2);word-break:keep-all;line-height:1.45}
+.ct-res td{text-align:right;font-weight:800;padding:7px 0;border-bottom:1px dashed var(--line-2);font-family:var(--mono);white-space:nowrap}
+.ct-res td small{font-family:inherit;font-size:13px;color:var(--ink-2);margin-left:3px;font-weight:700}
+.ct-res tr.an td{font-size:20px;font-weight:900}
+.ct-res tr:last-child th,.ct-res tr:last-child td{border-bottom:0}
+.ct-score{margin-top:10px;font-weight:800;text-align:right;font-size:14.5px}
 </style>
 </head><body>
 <div class="page">
   <div class="hd"><h1 id="ttl">계산기</h1></div>
   <div class="ct-seg" id="seg"><a href="calc.html" data-tab="type">유형별 풀이</a><a href="calc.html?tab=kp" data-tab="kp">공학용 계산기</a></div>
   <div id="stage"></div>
-  <div class="ct-ui" id="uisel"></div>
 </div>
 <script src="js/gdata.js"></script>
 <script src="js/gsilgi.js"></script>
@@ -153,12 +149,6 @@ try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem(
   var 계들=CF.계산기, 표={}; 계들.forEach(function(c){표[c.id]=c;});
   var 탭=P.get("tab")==="kp"?"kp":"type";
   document.querySelectorAll("#seg a").forEach(function(a){ if(a.dataset.tab===탭) a.classList.add("on"); });
-  /* 안 고르기(대표님 시안 비교용) — ?ui=A|B|C, 고른 안은 이 기기에 남는다 */
-  var ui=document.documentElement.dataset.ui;
-  el("uisel").innerHTML='화면 안 '+["A","B","C"].map(function(u){
-    var q=new URLSearchParams(location.search); q.set("ui",u);
-    return '<a href="?'+q.toString()+'" data-u="'+u+'" class="'+(u===ui?"on":"")+'">'+u+'</a>';}).join("");
-  el("uisel").addEventListener("click",function(ev){var a=ev.target.closest("a[data-u]"); if(a){try{localStorage.setItem("gisa.calc.ui",a.dataset.u);}catch(_){}}});
 
   if(탭==="kp") return 공학용();
 
@@ -211,88 +201,204 @@ try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem(
       }).join("")+'</div>';
   }
 
-  /* ── 풀이 화면 ── */
+  /* ── 풀이 화면 (1018 대표님: 풀 때는 빈칸에 직접 넣기, 결과는 맨 위에 「이 문제에서 정해지는 값」 표) ──
+     화면 글은 문제 원문·정답지 표기·NFTC 원문만 쓴다. 계산기 식(min·pick…)과 입력 기호는 화면에 내지 않는다. */
   function 풀이(계){
     el("ttl").textContent=계.이름;
-    var 모드=P.get("m")==="see"?"see":"try";
     var 같은=계들.filter(function(c){return c.t===계.t;});
+    var 단계표={}; 계.단계.forEach(function(d){단계표[d.k]=d;});
+    var 입력표={}; 계.입력.forEach(function(i){입력표[i.k]=i;});
     var h='';
     if(문항){
-      h+='<details class="ct-q" open><summary>문제 · '+e(문항.y+"년 "+문항.r+"회 "+문항.n+"번")+(연결&&연결.no?' · '+e(연결.no)+' 풀이':'')+'</summary><p>'+e(문항.q)+'</p>'+
+      h+='<details class="ct-q" open><summary>문제 · '+e(문항.y+"년 "+문항.r+"회 "+문항.n+"번")+'</summary><p>'+e(문항.q)+'</p>'+
         (문항.img||[]).map(function(f){return '<img loading="lazy" alt="" src="img/silgi/'+e(f)+'">';}).join("")+'</details>';
+      var 줄=소문제줄(문항.q, 연결&&연결.no);
+      if(줄.length) h+='<div class="ct-ask">'+줄.map(function(s){return '<div>'+e(s)+'</div>';}).join("")+'</div>';
     }
     if(같은.length>1) h+='<div class="ct-other">'+같은.map(function(c){
       var q=new URLSearchParams(location.search); q.set("c",c.id); q.delete("t");
       return '<a class="'+(c.id===계.id?"on":"")+'" href="?'+q.toString()+'">'+e(c.이름)+'</a>';}).join("")+'</div>';
-    h+='<div id="solve"><div class="colL"><div class="ct-in" id="ins"><h3>주어진 값</h3><div class="sumline" id="sumline"></div>'+계.입력.map(function(i){return 입력칸(i,계);}).join("")+'</div>'+
-      '<div class="ct-mode" id="mode"><button data-m="try" aria-pressed="'+(모드==="try")+'">단계마다 내가 풀기</button><button data-m="see" aria-pressed="'+(모드==="see")+'">풀이 바로 보기</button></div>'+
-      '<button class="b main" id="go">풀기</button><div class="ct-left" id="left"></div></div>'+
-      '<div class="colR"><div class="ct-steps" id="steps"></div><div id="sum"></div></div></div>'+
-      '<p class="ct-src">근거: '+e(계.출처||"")+' · 정답 판정은 상대오차 0.5% 또는 마지막 자리 ±1 까지 맞힘으로 봅니다.</p>'+
+    h+='<div id="top"></div><div class="ct-steps" id="steps"></div><div id="sum"></div>'+
+      '<details class="ct-in" id="ins"'+(문항?'':' open')+'><summary>'+(문항?'값 바꿔 다시 풀기':'주어진 값')+'</summary>'+계.입력.map(function(i){return 입력칸(i,계);}).join("")+
+      '<button class="b main" id="go">'+(문항?'이 값으로 다시 풀기':'풀기')+'</button><div class="ct-left" id="left"></div></details>'+
+      '<p class="ct-src">정답 판정: 상대오차 0.5% 안 또는 마지막 자리 ±1 은 맞음, 2% 안은 거의 맞음.</p>'+
       (문항?'<div class="b2"><a class="b" href="silgi.html">실기 목록</a><a class="b" href="calc.html">계산기 목록</a></div>':'<div class="b2"><a class="b" href="calc.html">계산기 목록</a><a class="b" href="calc.html?tab=kp">공학용 계산기</a></div>');
     el("stage").innerHTML=h;
     if(연결&&연결.c===계.id) 채우기(계, 연결.입력);
     else if(문항&&문항.v) 채우기(계, 문항.v);
     else if(P.get("v")){ try{ 채우기(계, JSON.parse(P.get("v"))); }catch(_){} }
     if(문항&&문항.y&&문항.y<=2021) 계.입력.forEach(function(i){ if(i.옛기본!=null){ var s=el("in_"+i.k); if(s&&!s.dataset.set) s.value=String(i.옛기본); }});
-    document.querySelectorAll("#mode button").forEach(function(b){ b.onclick=function(){
-      모드=b.dataset.m; document.querySelectorAll("#mode button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});
-      if(el("steps").innerHTML) 실행(); }; });
-    el("go").onclick=실행;
+    el("go").onclick=function(){ 실행(true); };
     el("ins").addEventListener("change",function(ev){ var s=ev.target;
       if(s.tagName==="SELECT"&&s.classList.contains("g")){ var x=el("inx_"+s.id.slice(3)); if(x){ x.hidden=s.value!=="직접"; if(!x.hidden) x.focus(); } } });
-    el("sumline").onclick=function(){ el("ins").classList.remove("fold2"); };
-    function 실행(){
+    if(문항) 실행(false);
+
+    function 실행(눌림){
       var 넣=읽기(계), 빠=C.빠진입력(계, 넣);
       document.querySelectorAll(".ct-f").forEach(function(f){f.classList.remove("miss");});
+      el("top").innerHTML=""; el("sum").innerHTML="";
       if(빠.length){ 빠.forEach(function(i){ el("f_"+i.k).classList.add("miss"); });
-        el("left").textContent="빈칸: "+빠.map(function(i){return i.이름;}).join(", "); el("steps").innerHTML=""; el("sum").innerHTML=""; return; }
+        el("ins").open=true; el("left").textContent="빈칸: "+빠.map(function(i){return i.이름;}).join(", "); el("steps").innerHTML=""; return; }
       var r;
-      try{ r=C.풀기(계, 넣); }catch(err){ el("left").textContent="계산할 수 없는 값: "+err.message; return; }
+      try{ r=C.풀기(계, 넣); }catch(err){ el("ins").open=true; el("left").textContent="계산할 수 없는 값: "+err.message; return; }
       el("left").textContent="";
-      var 쓸=계.단계.filter(function(d){return r[d.k]!=null;});
-      var 빠진=계.단계.filter(function(d){return r[d.k]==null;});
-      for(var j=0;j<쓸.length;j++){ var v=r[쓸[j].k]; if(typeof v==="number"&&!isFinite(v)){ el("left").textContent=쓸[j].이름+" 값을 구할 수 없습니다. 주어진 값을 확인하세요."; el("steps").innerHTML=""; return; } }
-      /* 휴대폰 안 C: 값 칸을 한 줄로 접는다 */
-      el("sumline").innerHTML=계.입력.filter(function(i){return 넣[i.k]!=null||i.기본!=null;}).map(function(i){var v=넣[i.k]!=null?넣[i.k]:i.기본; return e(i.k)+'='+C.수(v,6);}).join(" · ")+'<u>고치기</u>';
-      el("ins").classList.add("fold2");
-      var 결과=[];
-      el("sum").innerHTML="";
-      el("steps").innerHTML=쓸.map(function(d,j){ return 단계칸(d,j,r,모드); }).join("")+
-        (빠진.length?'<div class="ct-skip">값이 없어 건너뛴 단계: '+빠진.map(function(d){return e(d.이름)+"("+(d.필요||[]).map(function(k){var i=계.입력.filter(function(x){return x.k===k;})[0];return e(i?i.이름:k);}).join(", ")+" 필요)";}).join(" · ")+'</div>':'');
-      if(모드==="see") return;
-      var 차례=0;
-      function 다음(){
-        document.querySelectorAll("#steps .ct-s").forEach(function(s,j){ s.style.display=j<=차례?"":"none"; });
-        if(차례>=쓸.length){
-          var 맞=결과.filter(function(x){return x==="정답";}).length;
-          el("sum").innerHTML='<div class="ct-sum"><span>단계 '+쓸.length+'개 중 맞힘</span><b>'+맞+' / '+쓸.length+'</b></div>';
-          if(window.ZZ&&쓸.length){ var p=맞/쓸.length; ZZ.stars(p>=1?3:p>=.7?2:p>=.4?1:0); }
-        } else { var s=document.querySelectorAll("#steps .ct-s")[차례]; var f=s.querySelector("input"); if(f&&window.innerWidth>700) f.focus({preventScroll:true}); s.scrollIntoView({behavior:"smooth",block:"nearest"}); }
-      }
-      document.querySelectorAll("#steps .ct-s").forEach(function(s,j){
-        var d=쓸[j];
-        function 펼침(판,설명){
-          결과[j]=판; s.querySelector(".fx").style.display=""; s.querySelector(".mm")&&(s.querySelector(".mm").style.display="");
-          var t=s.querySelector(".try,.tf"); if(t) t.remove();
-          var vd=document.createElement("div"); vd.className="ct-vd "+판; vd.textContent=(판==="정답"?"맞음":판==="근접"?"거의 맞음":판==="단위"?"단위 확인":판==="모름"?"풀이 확인":"틀림")+(설명?" — "+설명:""); s.appendChild(vd);
-          if(판!=="모름") s.classList.add(판==="정답"?"ok":"no");
-          if(window.ZZ){ if(판==="정답") ZZ.ok(vd); else if(판!=="모름") ZZ.no(vd); }
-          차례=j+1; 다음();
+      var 값={}; Object.keys(넣).forEach(function(k){값[k]=넣[k];}); 계.입력.forEach(function(i){ if(값[i.k]==null&&i.기본!=null) 값[i.k]=Number(i.기본); });
+      계.단계.forEach(function(d){ if(r[d.k]!=null) 값[d.k]=Number(r[d.k]); });
+      /* 보여 줄 단계: 연결이 대조하는 단계(없으면 답 단계)와 그 단계가 쓰는 앞 단계 */
+      var 목표=(연결&&연결.c===계.id&&연결.대조)?[].concat(연결.대조).filter(function(k){return 단계표[k];}):계.단계.filter(function(d){return d.답;}).map(function(d){return d.k;});
+      목표=목표.filter(function(k){return r[k]!=null;});
+      var 씀={}; function 담(k){ if(씀[k]||!단계표[k]) return; 씀[k]=1; 변수(단계표[k]).forEach(담); } 목표.forEach(담);
+      var 차례=계.단계.filter(function(d){return 씀[d.k]&&r[d.k]!=null&&!d.판정;});
+      var 판정단=계.단계.filter(function(d){return 씀[d.k]&&r[d.k]!=null&&d.판정;});
+      /* 고르는 단계(기준개수·방수시간 등)는 쓰는 식 안의 빈칸이 된다. 어디에도 안 쓰이는 목표만 따로 칸 */
+      var 쓰임={}; 차례.forEach(function(d){ 변수(d).forEach(function(k){쓰임[k]=1;}); });
+      var 카드=차례.filter(function(d){ if(고름(d) && 쓰임[d.k]) return false; if(목표.indexOf(d.k)<0){ var t=다듬(C.해석(d.식)); if(t[0]==="var"||t[0]==="num") return false; } return true; });
+      var 끝={};   /* 학생이 풀었거나 답을 본 단계 */
+      function 다듬(n){
+        var t=n[0];
+        if(t==="num"||t==="var") return n;
+        if(t==="neg") return ["neg",다듬(n[1])];
+        if(t==="cmp") return n;
+        if(t==="call"){
+          if(n[1]==="pick") return 다듬(n[2][Math.round(C.계산(n[2][0],값))]);
+          if(n[1]==="if") return 다듬(C.계산(n[2][0],값)?n[2][1]:n[2][2]);
+          if((n[1]==="min"||n[1]==="max")){ var v=C.계산(n,값), 이긴=n[2].filter(function(a){ return Math.abs(C.계산(a,값)-v)<1e-12; })[0];
+            if(이긴 && 이긴[0]!=="num" && 이긴[0]!=="var") return 다듬(이긴); return n; }
+          return ["call",n[1],n[2].map(다듬)];
         }
-        var ok=s.querySelector("button.c"), q=s.querySelector("button.q");
-        if(ok) ok.onclick=function(){
-          var x=parseFloat(String(s.querySelector("input").value).replace(/,/g,""));
-          if(isNaN(x)){ s.querySelector("input").focus(); return; }
-          var u=s.querySelector("select")?s.querySelector("select").value:"";
-          var 판=C.채점(x,u,r[d.k],d); 펼침(판[0],판[1]);
+        var a=다듬(n[1]), b=다듬(n[2]);
+        function 값이(x,v){ return (x[0]==="num"||x[0]==="var") && Math.abs(C.계산(x,값)-v)<1e-12; }
+        if(t==="*"){ if(값이(a,1)) return b; if(값이(b,1)) return a; }
+        if(t==="/"&&값이(b,1)) return a;
+        if(t==="+"){ if(Math.abs(C.계산(a,값))<1e-12) return b; if(Math.abs(C.계산(b,값))<1e-12) return a; }
+        if(t==="-"&&Math.abs(C.계산(b,값))<1e-12) return a;
+        if(t==="^"&&값이(b,1)) return a;
+        return [t,a,b];
+      }
+      el("steps").innerHTML=카드.map(function(d,j){ return '<div class="ct-s" data-k="'+e(d.k)+'"'+(j?' hidden':'')+'></div>'; }).join("")+
+        판정단.map(function(d){ return '<div class="ct-s ct-tf" data-k="'+e(d.k)+'" hidden><h4>'+e(d.이름)+'</h4><div class="tf"><button data-v="0">'+e(d.판정[0])+'</button><button data-v="1">'+e(d.판정[1])+'</button></div></div>'; }).join("");
+      var 칸들=[].slice.call(document.querySelectorAll("#steps .ct-s"));
+      var 맞은=0, 푼=0;
+      카드.forEach(function(d,j){ 그리기(칸들[j], d); });
+      function 그리기(s, d){
+        var 빈칸=[];
+        function 빈(k,정,자리,단위){ 빈칸.push({k:k,정:정,자리:자리,단위:단위}); return '<input class="bx" data-i="'+(빈칸.length-1)+'" inputmode="decimal" autocomplete="off" aria-label="'+e(k)+'">'; }
+        function 자(k){ var x=단계표[k]; return x&&x.자리!=null?x.자리:2; }
+        function 변(k){
+          if(입력표[k]) return '<span class="v">'+e(C.수(값[k],4))+'</span>';
+          var x=단계표[k];
+          if(x&&고름(x)&&!끝[k]) return 빈(x.이름,값[k],자(k),x.단위);
+          return '<span class="v">'+e(C.수(값[k],자(k)))+'</span>';
+        }
+        var 뿌=다듬(C.해석(d.식)), 올=null, 안=뿌;
+        if(뿌[0]==="call"&&["ceil","floor","nominal"].indexOf(뿌[1])>=0){ 올=뿌[1]; 안=뿌[2][0]; }
+        var 몸;
+        if(고름(d)) 몸='';
+        else if(d.보기&&!/\{(\w+)\}/.test(String(d.보기).replace(/\{(\w+)\}/g,function(m,k){ return 값[k]===0?m:""; }))) 몸=e(d.보기).replace(/\{(\w+)\}/g,function(_,k){ return 값[k]!=null?변(k):"{"+e(k)+"}"; }).replace(/\^2/g,"²").replace(/\^3/g,"³").replace(/\*/g,"×");
+        else 몸=식그림(안);
+        var 끝줄=올?' = <span class="v">'+e(C.수(C.계산(안,값),2))+'</span> = '+빈(d.이름,값[d.k],자(d.k),d.단위)+'<span class="u">'+e(C.단위글(d.단위))+(d.올림말?'('+e(d.올림말)+')':'')+'</span>'
+                  :' = '+빈(d.이름,값[d.k],자(d.k),d.단위)+'<span class="u">'+e(C.단위글(d.단위))+'</span>';
+        if(!몸) 끝줄=끝줄.replace(/^ = /,"");
+        s.innerHTML=(d.이름||목표.indexOf(d.k)>=0?'<h4>'+e(d.이름||"")+(목표.indexOf(d.k)>=0?'<span class="ans">답</span>':'')+'</h4>':'')+'<div class="eq">'+몸+끝줄+'</div>'+
+          '<div class="ct-btn"><button class="q">답 보기</button><button class="c">확인</button></div><div class="fb"></div>';
+        function 식그림(n){
+          function 우(x){ var t=x[0]; return t==="+"||t==="-"?1:t==="*"||t==="/"?2:t==="neg"?3:t==="^"?4:5; }
+          function 괄(x,최){ var g=씀(x); return 우(x)<최?"("+g+")":g; }
+          function 씀(x){
+            var t=x[0];
+            if(t==="num") return e(C.수(x[1],6));
+            if(t==="var") return x[1]==="pi"?"π":변(x[1]);
+            if(t==="neg") return "−"+괄(x[1],4);
+            if(t==="call"){ var f=x[1], a=x[2];
+              if(f==="pick") return 씀(a[Math.round(C.계산(a[0],값))]);
+              if(f==="if") return 씀(C.계산(a[0],값)?a[1]:a[2]);
+              if(f==="sqrt") return "√("+씀(a[0])+")";
+              if(f==="abs") return "|"+씀(a[0])+"|";
+              if(f==="log"||f==="ln"||f==="exp") return f+"("+씀(a[0])+")";
+              return 빈("",C.계산(x,값),2,"");   /* min·max·nominal 등 고르는 값은 빈칸 */
+            }
+            if(t==="cmp") return 씀(x[2])+" "+x[1]+" "+씀(x[3]);
+            if(t==="^"){ var p=x[2]; if(p[0]==="num"&&(p[1]===2||p[1]===3)) return 괄(x[1],5)+(p[1]===2?"²":"³"); return 괄(x[1],5)+"<sup>"+씀(p)+"</sup>"; }
+            var 차=우(x), op=t==="*"?" × ":t==="/"?" / ":t==="-"?" − ":" + ";
+            return 괄(x[1],차)+op+괄(x[2],t==="-"||t==="/"?차+1:차);
+          }
+          return 씀(n);
+        }
+        var 시도=0;
+        s.querySelector("button.c").onclick=function(){
+          var 다=true, 빈것=false;
+          [].forEach.call(s.querySelectorAll("input.bx"),function(b){
+            var x=parseFloat(String(b.value).replace(/,/g,"")), o=빈칸[Number(b.dataset.i)];
+            if(isNaN(x)){ 빈것=true; b.classList.remove("ok","ng"); return; }
+            var 판=C.값판정(x,o.정,o.자리);
+            b.classList.toggle("ok",판!=="오답"); b.classList.toggle("ng",판==="오답"); if(판==="오답") 다=false;
+          });
+          if(빈것){ s.querySelector(".fb").textContent="빈칸을 채우세요"; return; }
+          시도++;
+          if(다){ 마침(s,d,true); return; }
+          s.querySelector(".fb").innerHTML='<b class="ng">틀림</b>'+근거글(d);
+          if(window.ZZ) ZZ.no(s.querySelector(".fb"));
         };
-        if(q) q.onclick=function(){ 펼침("모름",""); };
-        var inp=s.querySelector(".try input"); if(inp) inp.addEventListener("keydown",function(ev){ if(ev.key==="Enter") ok.click(); });
-        s.querySelectorAll(".tf button").forEach(function(b){ b.onclick=function(){ var 참=b.dataset.v==="1"; 펼침(참===r[d.k]?"정답":"오답",""); }; });
-      });
-      다음();
+        s.querySelector("button.q").onclick=function(){ 답채움(); 마침(s,d,false); };
+        [].forEach.call(s.querySelectorAll("input.bx"),function(b){ b.addEventListener("keydown",function(ev){ if(ev.key==="Enter") s.querySelector("button.c").click(); }); });
+        function 답채움(){ [].forEach.call(s.querySelectorAll("input.bx"),function(b){ var o=빈칸[Number(b.dataset.i)]; if(!b.classList.contains("ok")){ b.value=C.수(o.정,o.자리); b.classList.add("shown"); } }); }
+        s._답채움=답채움;
+      }
+      function 마침(s,d,맞){
+        if(s.dataset.done) return; s.dataset.done="1"; 푼++; if(맞) 맞은++;
+        변수(d).forEach(function(k){ 끝[k]=1; }); 끝[d.k]=1;
+        [].forEach.call(s.querySelectorAll("input.bx"),function(b){ b.readOnly=true; });
+        s.querySelector(".ct-btn").remove();
+        s.classList.add(맞?"ok":"no");
+        s.querySelector(".fb").innerHTML=맞?'<b class="ok">맞음</b>':'<b class="ng">답 확인</b>'+근거글(d);
+        if(window.ZZ&&맞) ZZ.ok(s.querySelector(".fb"));
+        var 다음=칸들[칸들.indexOf(s)+1];
+        if(다음){ 다음.hidden=false; if(!다음.classList.contains("ct-tf")) { var 새=카드[칸들.indexOf(다음)]; if(새) 그리기(다음,새); } 다음.scrollIntoView({behavior:"smooth",block:"nearest"}); }
+        else 결과표();
+      }
+      칸들.forEach(function(s){ if(!s.classList.contains("ct-tf")) return; var d=단계표[s.dataset.k];
+        s.querySelectorAll(".tf button").forEach(function(b){ b.onclick=function(){ var 참=b.dataset.v==="1"; s.querySelector(".tf").remove();
+          s.insertAdjacentHTML("beforeend",'<div class="fb">'+(참===r[d.k]?'<b class="ok">맞음</b>':'<b class="ng">틀림</b>')+' '+e(r[d.k]?d.판정[1]:d.판정[0])+'</div>');
+          s.dataset.done="1"; 푼++; if(참===r[d.k]) 맞은++; var 다음=칸들[칸들.indexOf(s)+1]; if(다음) 다음.hidden=false; else 결과표(); }; }); });
+      el("top").innerHTML='<button class="ct-seeall" id="seeall">결과 바로 보기</button>';
+      el("seeall").onclick=function(){ 칸들.forEach(function(s,j){ s.hidden=false; if(!s.dataset.done&&!s.classList.contains("ct-tf")){ if(!s.innerHTML) 그리기(s,카드[j]); s._답채움&&s._답채움(); 마침(s,카드[j],false); } }); 결과표(); };
+      if(!카드.length&&!판정단.length){ el("steps").innerHTML='<div class="ct-left">이 값으로는 구할 단계가 없습니다.</div>'; el("top").innerHTML=""; }
+      if(눌림) el("steps").scrollIntoView({behavior:"smooth",block:"start"});
+
+      /* 결과: 맨 위에 「이 문제에서 정해지는 값」 표 + 답 */
+      function 결과표(){
+        var 쓴입력=[]; 차례.forEach(function(d){ 변수(d).forEach(function(k){ if(입력표[k]&&쓴입력.indexOf(k)<0) 쓴입력.push(k); }); });
+        if(연결&&연결.c===계.id&&연결.입력) 쓴입력=쓴입력.filter(function(k){ return k in 연결.입력; });
+        var 고른=차례.filter(고름);
+        var 줄=쓴입력.map(function(k){ var i=입력표[k]; return i.이름?'<tr><th>'+e(i.이름)+'</th><td>'+e(고르기말(i,값[k]))+'</td></tr>':''; }).join("")+
+          고른.filter(function(d){return d.이름;}).map(function(d){ return '<tr class="pk"><th>'+e(d.이름)+'</th><td>'+e(C.수(값[d.k],d.자리==null?2:d.자리))+'<small>'+e(C.단위글(d.단위))+'</small></td></tr>'; }).join("");
+        var 답줄=목표.map(function(k){ var d=단계표[k]; return '<tr class="an"><th>'+e(d.이름||"")+'</th><td>'+(d.판정?e(r[k]?d.판정[1]:d.판정[0]):e(C.수(값[k],d.자리==null?2:d.자리))+'<small>'+e(C.단위글(d.단위))+'</small>')+'</td></tr>'; }).join("");
+        var 근=(계.근거문||[]).map(function(g){ return '<li><b>'+e(g[0].replace(/^NFTC/,"NFTC ")+" "+g[1])+'</b> '+e(g[2])+'</li>'; }).join("");
+        el("top").innerHTML='<div class="ct-res"><h3>이 문제에서 정해지는 값</h3><table>'+줄+'</table>'+
+          (답줄?'<h3>답</h3><table>'+답줄+'</table>':'')+(근?'<details class="ct-lawd"><summary>근거 원문 '+(계.근거문||[]).length+'</summary><ul class="ct-law">'+근+'</ul></details>':'')+
+          (푼?'<div class="ct-score">'+맞은+' / '+(카드.length+판정단.length)+' 맞힘</div>':'')+'</div>';
+        el("top").scrollIntoView({behavior:"smooth",block:"start"});
+        if(window.ZZ&&카드.length){ var p=맞은/(카드.length+판정단.length); ZZ.stars(p>=1?3:p>=.7?2:p>=.4?1:0); }
+      }
     }
+    function 근거글(d){
+      var 고른것=변수(d).map(function(k){return 단계표[k];}).filter(function(x){return x&&고름(x);}).concat(고름(d)?[d]:[]);
+      var gs=(계.근거문||[]); if(!고른것.length||!gs.length) return "";
+      return '<details class="ct-lawd"><summary>근거 원문 '+gs.length+'</summary><ul class="ct-law">'+gs.map(function(g){ return '<li><b>'+e(g[0].replace(/^NFTC/,"NFTC ")+" "+g[1])+'</b> '+e(g[2])+'</li>'; }).join("")+'</ul></details>';
+    }
+    function 고르기말(i,v){ if(i.고르기){ var g=i.고르기.filter(function(o){return Number(o[0])===Number(v);})[0]; if(g) return g[1]; } return C.수(v,4)+(i.단위?" "+C.단위글(i.단위):""); }
+  }
+  function 고름(d){ if(d.고름!=null) return !!d.고름; var n=C.해석(d.식); return n[0]==="call"&&["min","max","pick","if"].indexOf(n[1])>=0; }
+  function 변수(d){ var o=[]; (function 훑(n){ if(!n) return; if(n[0]==="var"){ if(n[1]!=="pi"&&o.indexOf(n[1])<0) o.push(n[1]); return; }
+    if(n[0]==="call"){ n[2].forEach(훑); return; } if(n[0]==="neg"){ 훑(n[1]); return; } if(n[0]==="cmp"){ 훑(n[2]); 훑(n[3]); return; } if(n[0]!=="num"){ 훑(n[1]); 훑(n[2]); } })(C.해석(d.식));
+    if(d.보기) String(d.보기).replace(/\{(\w+)\}/g,function(_,k){ if(o.indexOf(k)<0) o.push(k); });
+    return o; }
+  /* 문제 글에서 연결된 소문제 줄((1)·(2)…)만 뽑는다 — 문제 원문 그대로 */
+  function 소문제줄(q, no){
+    if(!q||!no) return [];
+    var 번=(String(no).match(/\(\d+\)/g)||[]);
+    var 줄=String(q).split("\n");
+    return 번.map(function(b){ return 줄.filter(function(l){ return l.trim().indexOf(b)===0; })[0]; }).filter(Boolean);
   }
   function 입력칸(i,계){
     var id="in_"+i.k, 칸;
@@ -303,11 +409,11 @@ try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem(
         (번호?'':'<input class="x" id="inx_'+i.k+'" inputmode="decimal" autocomplete="off" placeholder="'+e(C.단위글(i.단위)||"값")+'" hidden>');
     } else {
       var 단=C.같은차원(i.단위);
-      칸='<input id="'+id+'" inputmode="decimal" autocomplete="off" placeholder="'+(i.기본!=null?C.수(i.기본,6):i.선택?"있으면":"")+'">'+
+      칸='<input id="'+id+'" inputmode="decimal" autocomplete="off" placeholder="'+(i.기본!=null&&i.기본!==0?C.수(i.기본,6):i.선택?"있으면":"")+'">'+
         (단.length>1?'<select class="u" id="u_'+i.k+'">'+단.map(function(u){return '<option value="'+e(u)+'"'+(u===i.단위?' selected':'')+'>'+e(C.단위글(u))+'</option>';}).join("")+'</select>':
           '<span class="ut">'+e(C.단위글(i.단위))+'</span>');
     }
-    return '<div class="ct-f" id="f_'+i.k+'"><label for="'+id+'"><b>'+e(i.k)+'</b>'+e(i.이름)+(i.선택?' <i>(있으면)</i>':'')+'</label><div class="w">'+칸+'</div></div>';
+    return '<div class="ct-f" id="f_'+i.k+'"><label for="'+id+'">'+e(i.이름||i.k)+(i.선택?' <i>(있으면)</i>':'')+'</label><div class="w">'+칸+'</div></div>';
   }
   function 읽기(계){
     var o={};
@@ -339,25 +445,6 @@ try{var _u=new URLSearchParams(location.search).get("ui")||localStorage.getItem(
     if(남.length) el("ins").insertAdjacentHTML("beforeend",'<div class="ct-left">문제의 다른 값: '+남.map(function(o){return e((o.이름||o.k)+" "+o.값+(o.단위?" "+o.단위:""));}).join(" · ")+'</div>');
   }
   function 단위정리(u){ return String(u).replace(/㎥|m³/g,"m3").replace(/㎡|m²/g,"m2").replace(/㎫/g,"MPa").replace(/㎪/g,"kPa").replace(/ℓ/g,"L").replace(/㎜/g,"mm").replace(/\s/g,"").replace(/^l\//,"L/").replace(/^°C$/,"℃"); }
-  function 단계칸(d,j,r,모드){
-    var 값=r[d.k], 식=r["@"+d.k]||{}, 자리=d.자리==null?2:d.자리, 숨=모드==="try";
-    var 결=d.판정? '<div class="r">→ '+e(값?d.판정[1]:d.판정[0])+'</div>' :
-      '<div class="r">= '+e(C.수(값,자리))+'<span>'+e(C.단위글(d.단위))+'</span></div>';
-    var fx='<div class="fx"'+(숨?' style="display:none"':'')+'><div>'+e(d.k)+' = '+e(식.기호||"")+'</div>'+
-      (d.판정?'<div>'+e(식.대입||"")+'</div>':'<div>= '+e(식.대입||"")+'</div>')+결+'</div>'+
-      (d.메모?'<div class="mm"'+(숨?' style="display:none"':'')+'>'+e(d.메모)+'</div>':'');
-    var 풀칸="";
-    if(숨){
-      if(d.판정) 풀칸='<div class="tf"><button data-v="0">'+e(d.판정[0])+'</button><button data-v="1">'+e(d.판정[1])+'</button></div>';
-      else { var 단=C.같은차원(d.단위);
-        풀칸='<div class="try"><input inputmode="decimal" autocomplete="off" placeholder="'+e(d.k)+' 값">'+
-          (d.단위&&단.length>1?'<select><option value="">단위</option>'+단.map(function(u){return '<option value="'+e(u)+'">'+e(C.단위글(u))+'</option>';}).join("")+'</select>':
-           d.단위?'<select><option value="">단위</option><option value="'+e(d.단위)+'">'+e(C.단위글(d.단위))+'</option></select>':'')+
-          '<button class="c">확인</button><button class="q">모르겠음</button></div>'; }
-    }
-    return '<div class="ct-s"><h4><em>'+(j+1)+'</em>'+e(d.이름)+(d.답?'<span class="ans">답</span>':'')+'</h4>'+풀칸+fx+'</div>';
-  }
-
   /* ── 공학용 계산기 ── */
   function 공학용(){
     el("ttl").textContent="공학용 계산기";

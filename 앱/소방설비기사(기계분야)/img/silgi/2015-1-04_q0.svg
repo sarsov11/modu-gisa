@@ -10,7 +10,7 @@ svg{background:#FFFFFF}
 .nd{stroke:#1F2533;stroke-width:1.8;fill:#FFFFFF}
 .rb{fill:#1F2533;stroke:none} .fl{fill:#EEF1F6;stroke:none} .hl{fill:#FDE7E8;stroke:none} .sup{fill:#EEF1F6;stroke:#1F2533;stroke-width:1.8}
 .tx,.tb,.ts,.tr,.tm{font-family:Pretendard, 'Noto Sans KR', sans-serif;fill:#1F2533;font-size:15px}
-.tb{font-weight:800} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
+.tb{font-weight:800} .cn{font-size:1.4em;font-family:'Noto Sans KR','Malgun Gothic',sans-serif} .ts{font-size:12.5px;fill:#5B6475} .tr{fill:#E0313A;font-weight:800} .tm{font-style:italic;font-family:'Times New Roman',serif;font-size:16px}
 </style><defs>
 <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E0313A"/></marker>
 <marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F2533"/></marker>
@@ -18,10 +18,10 @@ svg{background:#FFFFFF}
 <pattern id="hat" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3B5" stroke-width="1.2"/></pattern>
 </defs>
   <!-- 번호 -->
-  <text class="tb" x="20" y="48">(1)</text>
-  <text class="tb" x="380" y="48">(2)</text>
-  <text class="tb" x="20" y="258">(3)</text>
-  <text class="tb" x="380" y="258">(4)</text>
+  <text class="tb" x="20" y="48"><tspan class="cn">①</tspan></text>
+  <text class="tb" x="380" y="48"><tspan class="cn">②</tspan></text>
+  <text class="tb" x="20" y="258"><tspan class="cn">③</tspan></text>
+  <text class="tb" x="380" y="258"><tspan class="cn">④</tspan></text>
 
   <!-- ① 펌프(검은 삼각형) / 개폐밸브 / 체크밸브 / 송수구 -->
   <polyline class="ln" fill="none" points="90,66 203,66"/>
