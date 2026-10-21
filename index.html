@@ -12,7 +12,8 @@ body{margin:0;background:var(--bg);color:var(--ink);
   font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 .top{height:52px;border-bottom:1px solid var(--line);display:flex;align-items:center}
 .top div{max-width:560px;width:100%;margin:0 auto;padding:0 20px;font-weight:900;font-size:16px;letter-spacing:-.03em}
-.top div:before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--red);margin-right:8px;vertical-align:1px}
+.top div{display:flex;align-items:center;gap:10px}.top b{font-weight:900}.top .th-home{flex:none}
+.top b:before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--red);margin-right:8px;vertical-align:1px}
 .wrap{max-width:560px;margin:0 auto;padding:30px 20px 60px}
 h1{font-size:28px;font-weight:900;margin:0 0 6px;letter-spacing:-.05em}
 p.l{margin:0 0 20px;color:var(--ink-3);font-size:14.5px}
@@ -48,7 +49,7 @@ p.sv{margin:0 0 4px;font-size:16px;font-weight:800;color:var(--ink-2);letter-spa
 .hide{display:none!important}
 #none{color:var(--ink-3);font-size:14.5px;margin-top:20px}
 </style></head><body>
-<div class="top"><div>모두의 기사</div></div>
+<div class="top"><div><span id="th-slot"></span><b>모두의 기사</b></div></div>
 <div class="wrap">
 <h1>종목 고르기</h1>
 <p class="sv">필기 · 기출 O·X · 개념 · 문제풀이 · 모의고사</p><p class="l">기사 68 · 산업기사 61 · 기능사 124</p><input id="q" type="search" placeholder="종목 이름으로 찾기 (예: 전기, 조경, 지게차)" autocomplete="off"><div class="gs"><button class="on" data-g="">전체</button><button data-g="기사">기사</button><button data-g="산업기사">산업기사</button><button data-g="기능사">기능사</button></div><nav class="dl"><a href="#d0">건설</a><a href="#d1">기계</a><a href="#d2">재료</a><a href="#d3">전기·전자</a><a href="#d4">정보통신</a><a href="#d5">안전관리</a><a href="#d6">화학</a><a href="#d7">환경·에너지</a><a href="#d8">농림어업</a><a href="#d9">식품·조리</a><a href="#d10">섬유·의복</a><a href="#d11">디자인·인쇄·공예</a><a href="#d12">미용·서비스</a><a href="#d13">경영·운송</a></nav>
@@ -93,4 +94,5 @@ p.sv{margin:0 0 4px;font-size:16px;font-weight:800;color:var(--ink-2);letter-spa
   var g0=new URLSearchParams(location.search).get("g"); if(g0) bs.forEach(function(b){ if(b.dataset.g===g0) b.click(); });
 })();
 </script>
+<script src="js/terrahome.js?v=1021" data-slot="#th-slot" defer></script>
 </div></body></html>

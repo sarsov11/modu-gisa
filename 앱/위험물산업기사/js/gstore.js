@@ -425,11 +425,13 @@
     if (있다("quiz.html")) 탭.push(["quiz.html", "문제풀이"]);
     if (있다("silgi.html")) 탭.push(["silgi.html", "실기"]);       // 1007 실기 필답형 기출이 있는 종목만
     탭.push(["tree.html", "개념트리"], ["card.html", "개념"], ["settings.html", "설정"]);
-    var 위 = '<header class="gbar"><a href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></header>';
+    var 위 = '<header class="gbar"><div class="gin"><span id="th-slot"></span><a class="gb" href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></div></header>';
     var 아래 = 옵션.탭 === false ? "" : '<nav class="gtabs" style="grid-template-columns:repeat(' + 탭.length + ',1fr)">' + 탭.map(function (t) {
       return '<a href="' + t[0] + '"' + (t[0] === 지금 ? ' class="on"' : '') + '>' + t[1] + '</a>';
     }).join("") + '</nav>';
     document.body.insertAdjacentHTML("afterbegin", 위);
+    // 1021 테라러닝 홈 단추(허브 공용 terrahome.js) — 위 줄 맨 앞 #th-slot 에 들어간다
+    if (!document.querySelector('script[src*="terrahome.js"]')) { var th = document.createElement("script"); th.src = "js/terrahome.js?v=1021"; th.setAttribute("data-slot", "#th-slot"); document.head.appendChild(th); }
     if (아래) document.body.insertAdjacentHTML("beforeend", 아래);
   }
   function esc(s) {

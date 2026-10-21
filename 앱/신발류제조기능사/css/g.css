@@ -78,3 +78,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
 .fl li small{font-weight:600;margin-left:3px}
 .fl li.dn{color:var(--ink-3);background:var(--surface-2);text-decoration:line-through;text-decoration-color:var(--ink-4)}
 .fl li.now{border-color:var(--accent);color:var(--accent)}
+
+/* 1021 테라러닝 홈 단추 — 위 줄 맨 앞(엔진\홈단추_붙이기.py) */
+.gbar .gin{display:flex;align-items:center;max-width:720px;margin:0 auto;padding-left:12px}
+.gbar .gin a.gb{flex:1;min-width:0;max-width:none;margin:0;padding-left:10px}
+.gbar a.th-home{display:inline-flex;flex:none;max-width:none;margin:0;height:30px;padding:0 10px 0 7px;font-size:12.5px;
+  font-weight:800;gap:5px;background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
