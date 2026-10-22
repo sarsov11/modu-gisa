@@ -72,7 +72,7 @@
   function 용어정리(s){
     /* 1023 위산기 화학식: 아래·위 첨자 숫자는 보통 숫자로, 화살표(→ -> ⟶ ⇒ =)는 하나로. 화살표를 먼저 바꿔야 「->」의 「-」가 안 지워진다 */
     return String(s||"").replace(/[₀-₉]/g,function(c){return String(c.charCodeAt(0)-0x2080);}).replace(/[⁰¹²³⁴-⁹]/g,function(c){return String("⁰¹²³⁴⁵⁶⁷⁸⁹".indexOf(c));})
-      .replace(/\s*(?:->|⟶|⇒|=|→)\s*/g,"→").toLowerCase().replace(/[\s 　·•\-_.,'"`]/g,"");
+      .replace(/\s*(?:->|⟶|⇒|=|→)\s*/g,"→").replace(/[↑↓]/g,"").toLowerCase().replace(/[\s 　·•\-_.,'"`]/g,"");
   }
   function 조각(s){   /* 「테스트 드라이버(Test Driver)」 → 전체·괄호 밖·괄호 안 */
     var r=[s], m=String(s).match(/^(.*?)[\(（](.*?)[\)）]\s*$/);
@@ -110,11 +110,22 @@
   }
   /* 1023 서술 칸: k = [[같은 뜻 낱말들], …] — 묶음마다 하나 이상이 답 안에 들어 있어야 맞음 */
   SGX.핵심어채점 = function(학생, k){
-    var 내=용어정리(학생);
+    /* 쉼표·줄바꿈 등 나열 경계는 「|」로 남긴다 — 다 지우면 「나무, 고무」가 「나무고무」가 되어 「고무」 앞 「무」를 부정어로 읽는다 */
+    var 내=String(학생||"").split(/[,，;\n]+/).map(용어정리).filter(Boolean).join("|");
     if (!내) return false;
+    /* 끝 글자에 받침이 없으면 받침 붙은 꼴도 받는다 — 「낮추」가 「낮춘다·낮출」에, 「줄이」가 「줄인다」에 걸리게 */
+    function 꼴(t){
+      var 앞=t.slice(0,-1).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"), 끝=t.slice(-1), c=끝.charCodeAt(0);
+      if (c>=0xAC00 && c<=0xD7A3 && (c-0xAC00)%28===0) return new RegExp(앞+"["+끝+"-"+String.fromCharCode(c+27)+"]","g");
+      return new RegExp(앞+끝.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"g");
+    }
     /* 바로 앞 글자가 부정 접두(불·비·무·미)면 그 자리는 안 친다 — 「합격」이 「불합격」에, 「선형」이 「비선형」에 걸리지 않게 */
     function 있음(t){
-      for (var p=내.indexOf(t); p>=0; p=내.indexOf(t,p+1)) if (p===0 || "불비무미".indexOf(내.charAt(p-1))<0) return true;
+      var re=꼴(t), m;
+      while ((m=re.exec(내))){
+        var 앞=내.charAt(m.index-1), 앞앞=내.charAt(m.index-2);
+        if (m.index===0 || "불비무미".indexOf(앞)<0 || (앞==="무" && "너아".indexOf(앞앞)>=0)) return true;   /* 「너무 클」「아무」의 무는 부정어가 아니다 */
+      }
       return false;
     }
     return k.every(function(묶음){ return 묶음.some(function(w){ var t=용어정리(w); return t && 있음(t); }); });

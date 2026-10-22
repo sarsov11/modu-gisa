@@ -62,11 +62,11 @@
   <div id="stage"></div>
 </div>
 <script src="js/gdata.js"></script>
-<script src="js/gsilgi.js"></script>
+<script src="js/gsilgi.js?v=1023"></script>
 <script src="js/gcalc.js"></script>
 <script src="js/judge.js"></script>
 <script src="js/gstore.js"></script>
-<script src="js/sgx.js?v=1011"></script>
+<script src="js/sgx.js?v=1023"></script>
 <script src="js/hwa.js?v=1011"></script>
 <script>
 (function 시작(){
@@ -178,6 +178,8 @@
   }
   function 자동(x){ return x.t && x.t!=="free" && !(x.t==="sql" && !x.schema); }
   function 칸들(x){ return x.칸&&x.칸.length?x.칸:null; }
+  /* 1023 입력 칸 수 — 「n가지 쓰시오」는 인정 답(칸) 묶음이 n 보다 많다 */
+  function 칸수(x){ var n=x.nc||x.칸.length, r=[]; for(var k=0;k<n;k++) r.push(k); return r; }
   function 그리기(){
     진행();
     if(i>=문제.length) return 끝();
@@ -197,7 +199,11 @@
       if(x.t==="sql") 입력='<label for="in0">SQL</label><textarea class="x-in sql" id="in0" spellcheck="false" autocapitalize="off" placeholder="SELECT …"></textarea>'+
         '<div class="x-sqlrun"><button id="run">실행해 보기</button></div><div id="mine"></div>'+
         '<p class="x-rule">쓴 SQL 을 이 화면 안의 데이터베이스(SQLite)에서 실제로 돌려, 결과표가 정답 SQL 의 결과표와 같으면 정답입니다. 열 이름·별칭은 보지 않습니다. 정답에 ORDER BY 가 있으면 내 SQL 에도 있어야 하고 행 순서까지 같아야 합니다.</p>';
-      else if(칸) 입력='<label>답 '+(x.순서무관?'<span style="font-weight:500">· 순서 상관없음</span>':'')+'</label><div class="x-kan">'+칸.map(function(_,k){return '<div><b>'+(k<20?"①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"[k]:k+1)+'</b><input class="x-in" id="in'+k+'" autocomplete="off" autocapitalize="off" spellcheck="false"></div>';}).join("")+'</div>';
+      else if(칸) 입력='<label>답 '+(x.순서무관?'<span style="font-weight:500">· 순서 상관없음</span>':'')+'</label><div class="x-kan">'+칸수(x).map(function(k){
+          var 서술=x.nc?x.칸.some(function(c){return c.k;}):(칸[k]&&칸[k].k);   /* 1023 서술 칸은 여러 줄, 칸 이름(l)이 있으면 번호 대신 */
+          return '<div><b>'+e((!x.nc&&칸[k]&&칸[k].l)||(k<20?"①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"[k]:k+1))+'</b>'+
+            (서술?'<textarea class="x-in" id="in'+k+'" rows="2" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>':'<input class="x-in" id="in'+k+'" autocomplete="off" autocapitalize="off" spellcheck="false">')+'</div>';
+        }).join("")+'</div>'+(x.t==="kan"?'<p class="x-rule">'+(x.nc?'인정되는 답 가운데 '+x.nc+'개를 쓰면 됩니다. ':'')+'서술은 핵심 낱말이 들어 있으면 맞힌 걸로 봅니다. 띄어쓰기·대소문자는 보지 않습니다.</p>':'');
       else if(x.t==="code") 입력='<label for="in0">출력 결과</label><textarea class="x-in" id="in0" rows="2" spellcheck="false" autocapitalize="off" placeholder="화면에 찍히는 그대로"></textarea><p class="x-rule">'+e(x.순서무관?"출력 순서는 보지 않고 찍힌 값들이 같은지 봅니다.":SGX.출력규칙)+'</p>';
       else 입력='<label for="in0">답</label><input class="x-in" id="in0" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+(x.t==="calc"?"수":"답")+'"><p class="x-rule">'+(x.t==="calc"?"단위는 붙여도 되고 빼도 됩니다.":"한글·영문 둘 다 받습니다. 띄어쓰기·대소문자는 보지 않습니다.")+'</p>';
       아래='<div class="x-ansbox">'+입력+'</div><div id="res"></div><button class="b main" id="go">'+(모의세트?"다음":"채점")+'</button>';
@@ -218,7 +224,7 @@
   }
   function 입력값(x){
     var 칸=칸들(x);
-    if(칸&&x.t!=="sql") return 칸.map(function(_,k){return el("in"+k).value;});
+    if(칸&&x.t!=="sql") return 칸수(x).map(function(k){return el("in"+k).value;});
     return [el("in0").value];
   }
   /* 채점 — 결과는 Promise(v, 상세HTML) */
@@ -228,9 +234,16 @@
       return {v:r.ok?2:0, 상세:(r.오류?'<div class="x-err">'+e(r.오류)+'</div>':SGX.표HTML(r.표학생,"내 결과"))+SGX.표HTML(r.표정답,"정답 결과")+'<div class="x-h"><b>정답 SQL</b><pre class="x-out" style="white-space:pre-wrap;margin:6px 0 0">'+e(x.sql||x.a)+'</pre></div>'};
     });
     if(칸){
-      var r=SGX.칸들채점(답, 칸, x.순서무관), ok=r.every(Boolean);
-      return Promise.resolve({v:ok?2:0, 칸결과:r, 상세:'<table class="x-cmp"><thead><tr><th>칸</th><th>내 답</th><th>정답</th></tr></thead><tbody>'+
-        칸.map(function(k,j){return '<tr class="'+(r[j]?"":"bad")+'"><td>'+(j+1)+'</td><td>'+e(답[j]||"(없음)")+'</td><td>'+e(k.a)+'</td></tr>';}).join("")+'</tbody></table>'});
+      var r=SGX.칸들채점(답, 칸, x.순서무관), ok=r.every(Boolean), 맞수=r.filter(Boolean).length;
+      /* 1023 부분점수: 다 맞으면 맞힘(2), 일부만 맞으면 헷갈림(1) */
+      var v=ok?2:(x.t==="kan"&&맞수>0?1:0);
+      var 표=x.nc
+        ? '<table class="x-cmp"><thead><tr><th>칸</th><th>내 답</th><th></th></tr></thead><tbody>'+
+          답.map(function(d,j){return '<tr class="'+(r[j]?"":"bad")+'"><td>'+(j+1)+'</td><td>'+e(d||"(없음)")+'</td><td>'+(r[j]?"○":"✕")+'</td></tr>';}).join("")+'</tbody></table>'+
+          '<p class="x-rule">인정되는 답: '+e(칸.map(function(k){return k.a;}).join(", "))+'</p>'
+        : '<table class="x-cmp"><thead><tr><th>칸</th><th>내 답</th><th>정답</th></tr></thead><tbody>'+
+          칸.map(function(k,j){return '<tr class="'+(r[j]?"":"bad")+'"><td>'+e(k.l||(j+1))+'</td><td>'+e(답[j]||"(없음)")+'</td><td>'+e(k.a)+'</td></tr>';}).join("")+'</tbody></table>';
+      return Promise.resolve({v:v, 칸결과:r, 상세:표+(x.t==="kan"?'<div class="x-h"><b>모범답안</b><div style="white-space:pre-wrap;margin-top:4px">'+e(x.a)+'</div></div>':'')});
     }
     if(x.t==="code"){
       var ok=x.순서무관?SGX.낱말같음(답[0],x.a):SGX.출력채점(답[0],x.a);
@@ -238,7 +251,7 @@
       return Promise.resolve({v:ok?2:0, 상세:'<table class="x-cmp"><thead><tr><th>줄</th><th>내 답</th><th>정답</th></tr></thead><tbody>'+
         비.map(function(z,j){return '<tr class="'+(z.같||ok?"":"bad")+'"><td>'+(j+1)+'</td><td>'+e(z.내||"(없음)")+'</td><td>'+e(z.답)+'</td></tr>';}).join("")+'</tbody></table>'});
     }
-    var ok1=SGX.칸채점(답[0], {a:x.a, syn:x.syn||[]});
+    var ok1=SGX.칸채점(답[0], {a:x.ka||x.a, syn:x.syn||[], e:x.e});   /* 1023 ka: 채점용 짧은 정답(모범답안 a 는 보여 주기용) */
     return Promise.resolve({v:ok1?2:0, 상세:'<div style="font-weight:800;font-size:16px;white-space:pre-wrap">'+e(x.a)+'</div>'+((x.syn||[]).length?'<p class="x-rule">같이 받는 답: '+e(x.syn.join(", "))+'</p>':'')});
   }
   function 기록하기(x, v){
@@ -250,7 +263,7 @@
     판정(x, 답).then(function(r){
       if(r.칸결과) r.칸결과.forEach(function(ok,k){ var n=el("in"+k); if(n) n.classList.add(ok?"ok":"no"); });
       if(window.ZZ){ if(r.v===2) ZZ.ok(el("go")); else ZZ.no(el("go")); }
-      el("res").innerHTML='<div class="x-res '+(r.v===2?"ok":"no")+'"><h3>'+(r.v===2?"정답":"오답")+'</h3>'+r.상세+(x.hh?'<div class="x-h sg-hh">'+x.hh+'</div>':x.h?'<div class="x-h">'+e(x.h)+'</div>':'')+
+      el("res").innerHTML='<div class="x-res '+(r.v===2?"ok":"no")+'"><h3>'+(r.v===2?"정답":r.v===1?"일부 정답":"오답")+'</h3>'+r.상세+(x.hh?'<div class="x-h sg-hh">'+x.hh+'</div>':x.h?'<div class="x-h">'+e(x.h)+'</div>':'')+
         (r.v<2?'<button class="x-fix" id="fix">채점이 틀렸다면 맞힌 걸로 치기</button>':'')+'</div>'+
         ((x.trace&&x.trace.length)||x.tr?'<button class="b" id="tr" style="margin-bottom:10px">한 줄씩 따라가기</button>':'')+
         '<button class="b main" id="nx">다음 문항</button>';

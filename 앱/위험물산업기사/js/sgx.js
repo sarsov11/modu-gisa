@@ -70,7 +70,9 @@
 
   /* ── 단답 용어 채점 ── */
   function 용어정리(s){
-    return String(s||"").toLowerCase().replace(/[\s 　·•\-_.,'"`]/g,"");
+    /* 1023 위산기 화학식: 아래·위 첨자 숫자는 보통 숫자로, 화살표(→ -> ⟶ ⇒ =)는 하나로. 화살표를 먼저 바꿔야 「->」의 「-」가 안 지워진다 */
+    return String(s||"").replace(/[₀-₉]/g,function(c){return String(c.charCodeAt(0)-0x2080);}).replace(/[⁰¹²³⁴-⁹]/g,function(c){return String("⁰¹²³⁴⁵⁶⁷⁸⁹".indexOf(c));})
+      .replace(/\s*(?:->|⟶|⇒|=|→)\s*/g,"→").replace(/[↑↓]/g,"").toLowerCase().replace(/[\s 　·•\-_.,'"`]/g,"");
   }
   function 조각(s){   /* 「테스트 드라이버(Test Driver)」 → 전체·괄호 밖·괄호 안 */
     var r=[s], m=String(s).match(/^(.*?)[\(（](.*?)[\)）]\s*$/);
@@ -97,12 +99,43 @@
     return 쪼개(학생) === 쪼개(정답);
   };
   /* 한 칸 채점: 용어(동의어) + 수(단위·쉼표 무시) */
-  function 수(s){ var m=String(s||"").replace(/,/g,"").match(/^\s*([-+]?\d+(?:\.\d+)?)\s*[^\d\s]*\s*$/); return m?parseFloat(m[1]):null; }
-  SGX.칸채점 = function(학생, 칸){   /* 칸 = {a, syn} */
+  /* 1023: 단위에 숫자가 섞여도(m3·cm2·kg/m3) 앞의 수만 읽는다. 단위는 수 바로 뒤 글자로 시작해야 한다 */
+  function 수(s){ var m=String(s||"").replace(/,/g,"").match(/^\s*(?:약|답|=)?\s*([-+]?\d+(?:\.\d+)?)(?:\s*[^\d\s.].*)?\s*$/); return m?parseFloat(m[1]):null; }
+  /* 1023 계산 답 허용오차: 칸.e 가 있으면 그 값, 없으면 정답의 마지막 자리 한 칸(12.35 → 0.01)과 0.5% 중 큰 것(반올림 자리 차이).
+     정수 정답은 0.5% 만 — 3 과 4 를 같게 보면 안 된다 */
+  function 오차(b, 칸){
+    if (칸.e != null) return 칸.e;
+    var 자리=(String(칸.a).replace(/,/g,"").split(".")[1]||"").replace(/\D.*$/,"").length;
+    return Math.max(자리?Math.pow(10,-자리):0, Math.abs(b)*0.005)+1e-9;
+  }
+  /* 1023 서술 칸: k = [[같은 뜻 낱말들], …] — 묶음마다 하나 이상이 답 안에 들어 있어야 맞음 */
+  SGX.핵심어채점 = function(학생, k){
+    /* 쉼표·줄바꿈 등 나열 경계는 「|」로 남긴다 — 다 지우면 「나무, 고무」가 「나무고무」가 되어 「고무」 앞 「무」를 부정어로 읽는다 */
+    var 내=String(학생||"").split(/[,，;\n]+/).map(용어정리).filter(Boolean).join("|");
+    if (!내) return false;
+    /* 끝 글자에 받침이 없으면 받침 붙은 꼴도 받는다 — 「낮추」가 「낮춘다·낮출」에, 「줄이」가 「줄인다」에 걸리게 */
+    function 꼴(t){
+      var 앞=t.slice(0,-1).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"), 끝=t.slice(-1), c=끝.charCodeAt(0);
+      if (c>=0xAC00 && c<=0xD7A3 && (c-0xAC00)%28===0) return new RegExp(앞+"["+끝+"-"+String.fromCharCode(c+27)+"]","g");
+      return new RegExp(앞+끝.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"g");
+    }
+    /* 바로 앞 글자가 부정 접두(불·비·무·미)면 그 자리는 안 친다 — 「합격」이 「불합격」에, 「선형」이 「비선형」에 걸리지 않게 */
+    function 있음(t){
+      var re=꼴(t), m;
+      while ((m=re.exec(내))){
+        var 앞=내.charAt(m.index-1), 앞앞=내.charAt(m.index-2);
+        if (m.index===0 || "불비무미".indexOf(앞)<0 || (앞==="무" && "너아".indexOf(앞앞)>=0)) return true;   /* 「너무 클」「아무」의 무는 부정어가 아니다 */
+      }
+      return false;
+    }
+    return k.every(function(묶음){ return 묶음.some(function(w){ var t=용어정리(w); return t && 있음(t); }); });
+  };
+  SGX.칸채점 = function(학생, 칸){   /* 칸 = {a, syn, k?, e?} */
+    if (칸.k && 칸.k.length) return SGX.핵심어채점(학생, 칸.k) || SGX.용어채점(학생, {a:칸.a, syn:칸.syn||[]});
     if (SGX.용어채점(학생, {a:칸.a, syn:칸.syn||[]})) return true;
     var a=수(학생), b=수(칸.a);
-    if (a!=null && b!=null && Math.abs(a-b)<1e-9) return true;
-    return (칸.syn||[]).some(function(s){ var c=수(s); return a!=null && c!=null && Math.abs(a-c)<1e-9; });
+    if (a!=null && b!=null && Math.abs(a-b)<=오차(b,칸)) return true;
+    return (칸.syn||[]).some(function(s){ var c=수(s); return a!=null && c!=null && Math.abs(a-c)<=오차(c,{a:s,e:칸.e}); });
   };
   /* 여러 칸: 학생 답 배열 → 칸마다 true/false (순서무관이면 짝 맞추기) */
   SGX.칸들채점 = function(답들, 칸들, 순서무관){
