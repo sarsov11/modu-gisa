@@ -95,7 +95,7 @@
   if(GS.개념있음(GS.최근테마())) 소.push('<a class="b sm" href="card.html?k='+encodeURIComponent(GS.최근테마())+'">개념</a>');
   소.push('<a class="b sm" href="tree.html">다른 테마</a>');
   if(GS.있다("quiz.html")) 소.push('<a class="b sm" href="quiz.html">문제풀이</a>');
-  if(GS.있다("silgi.html")) 소.push('<a class="b sm" href="silgi.html">실기</a>');
+  if(GS.있다("silgi.html")&&GS.샀다("실기")) 소.push('<a class="b sm" href="silgi.html">실기</a>');
   if(GS.있다("exam.html")) 소.push('<a class="b sm" href="exam.html">모의고사'+(GS.모의필요()?' <i class="wn" style="margin-left:6px">주 1회</i>':'')+'</a>');
   document.getElementById("small").innerHTML=소.join("");
   var more=document.getElementById("more");
@@ -136,4 +136,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:15px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script><!-- zzstrat --><script src="js/zzstrat.js?v=1021" defer></script><script src="js/strat.js?v=1021" defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(window.ZZSTRAT&&window.GSTRAT_ID)ZZSTRAT.auto(GSTRAT_ID);});</script><!-- /zzstrat --></body></html>
+<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:15px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script></body></html>

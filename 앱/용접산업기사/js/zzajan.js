@@ -89,6 +89,7 @@
     " box-shadow:0 0 0 2px #fff,0 4px 10px rgba(0,0,0,.25);white-space:nowrap;will-change:transform}",
     "#zz-hud{position:absolute;right:14px;top:12px;display:flex;align-items:center;gap:8px;padding:7px 12px 7px 8px;border-radius:999px;background:#fff;",
     " box-shadow:0 6px 18px rgba(0,0,0,.16),0 0 0 1px rgba(0,0,0,.06);font:800 13px/1 " + FONT + ";color:#111;transform:translateY(-70px);transition:transform .35s cubic-bezier(.2,1.4,.4,1)}",
+    "@media (min-width:700px){#zz-hud{top:64px}}",
     "#zz-hud.on{transform:none}#zz-hud .lv{background:#111;color:#FFD54A;border-radius:999px;padding:5px 8px;font-weight:900}",
     "#zz-hud .bar{width:96px;height:9px;border-radius:9px;background:#EEF0F3;overflow:hidden}#zz-hud .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#FFCB3D,#F59E0B);transition:width .45s cubic-bezier(.2,1,.3,1)}",
     "#zz-hud.hit{animation:zzHit .35s cubic-bezier(.2,1.8,.4,1)}@keyframes zzHit{40%{transform:scale(1.14)}}",
@@ -186,9 +187,14 @@
   }
   function paintHud() { if (!HUD) return; HUD.querySelector(".lv").textContent = "LV " + (Math.floor(XP / PER) + 1);
     HUD.querySelector("i").style.width = (XP % PER) + "%"; HUD.querySelector(".pt").textContent = (XP % PER) + "/" + PER; }
-  function showHud() { var h = hud(); void h.offsetWidth; h.classList.add("on"); clearTimeout(hudT); hudT = setTimeout(function () { h.classList.remove("on"); }, 2600); return h; }
+  /* 맨 위에 붙은 머리줄(fixed·sticky, 높이 140px 이하)이 있으면 그 아래로 내린다 — 폰에서 XP 표시줄이 머리줄 제목·단추를 1~2초 가렸다(2026-10-13) */
+  function placeHud(h) { var top = 12; try { [.25, .5, .75].map(function (r) { return W.innerWidth * r; }).concat([W.innerWidth - 20]).forEach(function (x) {
+    var e = D.elementFromPoint(x, 2); while (e && e !== D.body && e !== D.documentElement) { var p = getComputedStyle(e).position;
+      if (p === "fixed" || p === "sticky") { var r = e.getBoundingClientRect(); if (r.height <= 140 && r.bottom > 0) top = Math.max(top, Math.round(r.bottom + 6)); break; }
+      e = e.parentElement; } }); } catch (e) { } h.style.top = top + "px"; }
+  function showHud() { var h = hud(); placeHud(h); void h.offsetWidth; h.classList.add("on"); clearTimeout(hudT); hudT = setTimeout(function () { h.classList.remove("on"); }, 2600); return h; }
   function flyXp(from, amount, done) {
-    var h = showHud(), to = h.getBoundingClientRect(), tx = to.left + 30, ty = 12 + to.height / 2;
+    var h = showHud(), to = h.getBoundingClientRect(), tx = to.left + 30, ty = (parseFloat(h.style.top) || 12) + to.height / 2;
     var x0 = from.left + from.width / 2, y0 = from.top + from.height * .3;
     var chip = add("zz-xp", "", "+" + amount + " XP", 1200);
     var cx1 = x0 + (tx - x0) * .2, cy1 = Math.min(y0, ty) - 140;

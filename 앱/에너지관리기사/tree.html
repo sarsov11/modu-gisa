@@ -59,7 +59,7 @@
   .big>.mid{margin-left:14px}
   .big>.ss,.big>.lv{margin-left:28px}
   .ss{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 4px}
-  .ss i{font-style:normal;font-size:11.5px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+  .ss i{font-style:normal;font-size:12px;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
   .br .rl,.big .rl{margin-left:7px;vertical-align:2px}
   #plan{display:grid;gap:8px;margin:14px 0 4px}
   .pl{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:11px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface)}
@@ -112,7 +112,7 @@
   function 숙(ts){ var a=0,n=0; ts.forEach(function(t){var m=GS.숙련(t.k); if(m!=null){a+=m;n++;}}); return n?a/n:null; }
   function 문항(ts){ return ts.reduce(function(a,t){return a+(t.c||0);},0); }
   var 전체=[].concat.apply([],차례.map(function(s){return 과목[s];}));
-  document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준"):"과목 "+차례.length+" · 테마 "+전체.length);
+  document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준").replace(/\((\d{4}\.\d+\.\d+~\d{4}\.\d+\.\d+)\)/," · 적용 기간 $1"):"과목 "+차례.length+" · 테마 "+전체.length);
 
   /* ── 전략과목·방어과목(1002) — 기출 정답률 근거 ── */
   function 배지(o){ return o&&o.역할 ? '<i class="rl '+(o.역할==="전략"?"st":"df")+'">'+o.역할+'</i>' : ''; }
@@ -218,9 +218,9 @@
     return '<div class="lf'+(m!=null&&m>=0.8?' done':'')+'">'+
       '<span class="chip '+t.g+'">'+t.g+'</span>'+
       '<span class="nm"><b>'+e(t.n)+'</b><small>기출 '+(t.c||0)+'</small></span>'+
-      '<span class="go"><span><a href="card.html?k='+encodeURIComponent(t.k)+'">개념</a>'+
+      '<span class="go"><span>'+(GS.개념있음(t.k)?'<a href="card.html?k='+encodeURIComponent(t.k)+'">개념</a>':'')+
         (GS.옥수(t.k)>0 ? '<a class="ox" href="ox.html?k='+encodeURIComponent(t.k)+'">O·X</a>'
-          : (문풀[t.k] ? '<a class="ox" href="quiz.html?k='+encodeURIComponent(t.k)+'">문제풀이</a>' : ''))+'</span>'+
+          : (문풀[t.k] ? '<a class="ox" href="quiz.html?k='+encodeURIComponent(t.k)+'">문제풀이</a>' : (GS.개념있음(t.k)?'':'<small style="color:var(--ink-4);font-size:12.5px">수록 문항 없음</small>')))+'</span>'+
         '<div class="bar"><i style="width:'+(m==null?0:Math.round(m*100))+'%"></i></div></span></div>';
   }
   function 정렬(ts){ return ts.slice().sort(function(a,b){return (GS.순[a.g]-GS.순[b.g])||(b.c-a.c);}); }
@@ -271,7 +271,7 @@
   document.getElementById("list").innerHTML=h||'';
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 <script src="js/zzcoach.js?v=1009a" defer></script>
 <script>window.addEventListener("load",function(){ if(window.ZZCOACH) ZZCOACH.run("gisa.tree",[
   {el:"#plan .pl",text:"기출 정답률로 가른 전략 과목과 방어 과목"},

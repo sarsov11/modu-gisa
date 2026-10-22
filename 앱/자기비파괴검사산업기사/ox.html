@@ -188,7 +188,7 @@
     var 작=[];
     if(R.완료) 작.push('<button class="b sm" id="more">한 세트 더</button>');
     if(k) 작.push('<a class="b sm" href="ox.html?k='+encodeURIComponent(k)+'">다시</a>');
-    if(k&&!(다음&&다음.종류==="card")) 작.push('<a class="b sm" href="card.html?k='+encodeURIComponent(k)+'">개념</a>');
+    if(k&&GS.개념있음(k)&&!(다음&&다음.종류==="card")) 작.push('<a class="b sm" href="card.html?k='+encodeURIComponent(k)+'">개념</a>');
     if(R.완료&&GS.있다("exam.html")) 작.push('<a class="b sm" href="exam.html">모의고사</a>');
     작.push('<a class="b sm" href="index.html">홈</a>');
     el("stage").innerHTML=
@@ -206,5 +206,5 @@
   그리기();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

@@ -18,6 +18,11 @@
   var 이름 = D.종목 || "";
   var 갈래 = (/기능사/.test(이름) || /^(미용사|이용사)/.test(이름)) ? "기능사" : (/산업기사/.test(이름) ? "산업기사" : "기사");
   var 과락있음 = 갈래 !== "기능사";
+  /* 1021 하루 목표 — 기사 시험은 하루 몇 시간 단위로 공부한다(수험가 영상 실측: 전기기사·정보처리기사 평일 1.5~4시간,
+     전기기사 합격수기 300건 필기 준비 50~70일). 예전 5·10·15·20·30분 선택은 쓰지 않는다. */
+  var 분선택 = 갈래 === "기능사" ? [30, 60, 90, 120] : [60, 90, 120, 180, 240];
+  var 기본분 = 갈래 === "기능사" ? 60 : (갈래 === "산업기사" ? 90 : 120);
+  function 분글(m) { return m < 60 ? m + "분" : (m % 60 ? Math.floor(m / 60) + "시간 " + (m % 60) + "분" : (m / 60) + "시간"); }
   var 화면 = D.화면 || [];                    // 앱생성이 앱공용에 있는 quiz.html·exam.html 을 적어 준다
   var 표본 = 8;                               // 과목 정답률을 믿기 시작하는 푼 문장 수
 
@@ -34,7 +39,11 @@
     try { s = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { s = {}; }
     s.ox = s.ox || {}; s.테마 = s.테마 || {}; s.날 = s.날 || {}; s.카드 = s.카드 || {};
     if (s.시험일 === undefined) s.시험일 = D.시험일 || "";
-    s.목표분 = s.목표분 || 15;
+    // 1013: 예전에 기본값으로 들어간 2027-03-07 은 근거 없는 날짜였다 → 새 예상일로 바꾼다
+    if (s.시험일 === "2027-03-07" && D.시험일 && D.시험일 !== "2027-03-07") s.시험일 = D.시험일;
+    // 1021: 5~30분 시절에 고른 값은 한 번만 시험별 기본값으로 올린다
+    if (!s.목표판 || s.목표판 < 1021) { if (!s.목표분 || s.목표분 < 30) s.목표분 = 기본분; s.목표판 = 1021; }
+    s.목표분 = s.목표분 || 기본분;
     if (!s.시작 && Object.keys(s.ox).length) s.시작 = "기존";     // 이미 쓰던 사람은 첫 설정을 다시 안 거친다
     return s;
   }
@@ -72,6 +81,8 @@
     });
   }
   function 옥수(k) { return (테마별[k] || []).length; }
+  /* 1013: 개념 화면은 손 카드나 O·X 문장이 있어야 열린다. 문제풀이만 있는 테마에 개념 링크를 걸면 빈 화면이 나왔다 */
+  function 개념있음(k) { return ((D.cards || {})[k] || []).length > 0 || 옥수(k) > 0; }
   function 모의필요() {                                          // 모의고사 화면이 있고 최근 7일 응시 기록이 없으면 칩을 띄운다
     if (!있다("exam.html")) return false;
     var 모 = S.모의 || [], 끝 = 모.length ? 모[모.length - 1].ts : 0;
@@ -208,7 +219,7 @@
   function 만들기(쓴) {
     쓴 = 쓴 || [];
     var 복 = 다시볼것(), 할 = 테마고르기(쓴) || 테마고르기([]);
-    var 후 = [], 목표 = S.목표분 || 15, q = 있다("quiz.html");
+    var 후 = [], 목표 = S.목표분 || 기본분, q = 있다("quiz.html");
     if (복.length >= 8) 후.push(항목("review", "review"));
     if (할) {
       후.push(항목("ox", "ox", 할.k, 할.이름), 항목("card", "card", 할.k, 할.이름));
@@ -221,6 +232,17 @@
       if (q) 후.push(항목("quiz2", "quiz", 할.k, 할.이름));
       후.push(항목("ox3", "ox", (셋 || 둘 || 할).k, (셋 || 둘 || 할).이름));
     }
+    // 1021: 하루 목표가 1~4시간이라 테마 세 개로는 모자란다 — 목표만큼 다음 테마(O·X → 개념 → 문제풀이)를 이어 붙인다(최대 20테마)
+    if (할) {
+      var 합 = 후.reduce(function (a, x) { return a + x.분; }, 0), 쓴테마 = 쓴.concat([할.k]).concat(둘 ? [둘.k] : []).concat(셋 ? [셋.k] : []), 더 = 0;
+      while (합 < 목표 && 더 < 20) {
+        var 다음 = 테마고르기(쓴테마); if (!다음) break;
+        쓴테마.push(다음.k); 더++;
+        [["ox", "ox"], ["card", "card"]].concat(q ? [["quiz", "quiz"]] : []).forEach(function (z) {
+          var it = 항목(z[0] + "_" + 더, z[1], 다음.k, 다음.이름); 후.push(it); 합 += it.분;
+        });
+      }
+    }
     var items = [], sum = 0;
     for (var i = 0; i < 후.length; i++) {
       /* 다음 세트를 더하면 목표에서 더 멀어지면 거기서 멈춘다 — 15분 목표에 18분짜리 루틴이 나오던 것을 막음(2026-10-13 외부 검수 E) */
@@ -232,7 +254,7 @@
   }
   function 플로() {
     var F = S.플로;
-    if (!F || F.날 !== 오늘() || !F.items || (F.done.length === 0 && (F.목표 !== (S.목표분 || 15) || F.화면 !== 화면.join(",")))) {
+    if (!F || F.날 !== 오늘() || !F.items || (F.done.length === 0 && (F.목표 !== (S.목표분 || 기본분) || F.화면 !== 화면.join(",")))) {
       S.플로 = F = 만들기(F && F.날 === 오늘() ? F.쓴 : []);
       쓰기();
     }
@@ -244,7 +266,7 @@
     /* ★ 예상 분량과 실제 사용 시간을 나눈다(2026-10-11 외부 검수 E). 예상 = 끝낸 세트의 표준 분(d.fm),
        실제 = 세트·시험 화면이 보이고 2분 안에 손을 댄 시간(d.am, 15초 단위). 통계에는 실제만 쓴다 */
     var 예상 = 0; F.items.forEach(function (x) { 예상 += x.분; });
-    var 실제분 = Math.round((d.am || 0) / 60), 목표 = S.목표분 || 15;
+    var 실제분 = Math.round((d.am || 0) / 60), 목표 = S.목표분 || 기본분;
     return { k: F.k, t: F.k ? 테마맵[F.k] : null, items: F.items, done: F.done, 다음: 다음, 완료: !다음,
              처음: F.done.length === 0, 오늘분: 실제분, 실제분: 실제분, 예상분: 예상, 완료세트: F.done.length,
              목표분: 목표, 남은: Math.max(0, 목표 - 실제분) };
@@ -393,6 +415,14 @@
     if (!S.시험일) return null;
     return Math.round((new Date(S.시험일 + "T00:00:00") - new Date(오늘() + "T00:00:00")) / 864e5);
   }
+  /* 2027년 일정은 공고 전 — 기본 날짜는 「예상」, 사용자가 다른 날짜를 고르면 「직접」 */
+  function 시험일예상() { return !!(D.시험일 && S.시험일 === D.시험일); }
+  function 시험일안내() {
+    if (!S.시험일) return "";
+    return 시험일예상()
+      ? "2027년 일정은 공고 전이라 예상 날짜입니다" + (D.시험일근거 ? " (직전 시험: " + D.시험일근거 + ")" : "") + ". 공고가 나오면 직접 바꾸세요."
+      : "직접 고른 날짜";
+  }
   function 과목성적() {
     var 합 = {}, 통 = 통계();
     Object.keys(통).forEach(function (s) { 합[s] = { 푼: 통[s].푼, 맞: 통[s].맞 }; });
@@ -410,17 +440,44 @@
   function 내비(지금, 옵션) {
     옵션 = 옵션 || {};
     var 탭 = [["index.html", "홈"]];
+    // 1023 대표님: 실기는 아래 탭에서 빼고 문제풀이 화면 위 필기·실기 단추로 옮긴다
+    if (지금 === "silgi.html" && !샀다("실기")) { location.replace("quiz.html#buy"); return; }
     if (있다("quiz.html")) 탭.push(["quiz.html", "문제풀이"]);
-    if (있다("silgi.html")) 탭.push(["silgi.html", "실기"]);       // 1007 실기 필답형 기출이 있는 종목만
     탭.push(["tree.html", "개념트리"], ["card.html", "개념"], ["settings.html", "설정"]);
     var 위 = '<header class="gbar"><div class="gin"><span id="th-slot"></span><a class="gb" href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></div></header>';
     var 아래 = 옵션.탭 === false ? "" : '<nav class="gtabs" style="grid-template-columns:repeat(' + 탭.length + ',1fr)">' + 탭.map(function (t) {
-      return '<a href="' + t[0] + '"' + (t[0] === 지금 ? ' class="on"' : '') + '>' + t[1] + '</a>';
+      var 켜짐 = t[0] === 지금 || (t[0] === "quiz.html" && 지금 === "silgi.html");
+      return '<a href="' + t[0] + '"' + (켜짐 ? ' class="on"' : '') + '>' + t[1] + '</a>';
     }).join("") + '</nav>';
     document.body.insertAdjacentHTML("afterbegin", 위);
+    if (있다("silgi.html") && (지금 === "quiz.html" || 지금 === "silgi.html")) 필실단추(지금);
     // 1021 테라러닝 홈 단추(허브 공용 terrahome.js) — 위 줄 맨 앞 #th-slot 에 들어간다
     if (!document.querySelector('script[src*="terrahome.js"]')) { var th = document.createElement("script"); th.src = "js/terrahome.js?v=1021"; th.setAttribute("data-slot", "#th-slot"); document.head.appendChild(th); }
     if (아래) document.body.insertAdjacentHTML("beforeend", 아래);
+  }
+  /* ── 이용권(1023) — 필기는 기본. 실기는 이용권이 있어야 열린다.
+   *   modugisa2.buy = { "<종목>": { 실기: 1 } } — 결제가 붙으면 결제 완료 화면이 이 값을 쓴다 */
+  var 산키 = "modugisa2.buy", 구매주소 = "buy.html";
+  function 샀다(갈래) {
+    if (갈래 === "필기") return true;
+    try { var o = JSON.parse(localStorage.getItem(산키) || "{}"); return !!(o[D.종목] && o[D.종목][갈래]); } catch (e) { return false; }
+  }
+  function 필실단추(지금) {
+    var 쪽 = document.querySelector(".page"); if (!쪽) return;
+    var 자물쇠 = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+    var 실 = 샀다("실기")
+      ? '<a href="silgi.html"' + (지금 === "silgi.html" ? ' class="on"' : '') + '>실기</a>'
+      : '<button type="button" class="lock" id="mode-lock" aria-disabled="true" aria-expanded="false">' + 자물쇠 + '실기</button>';
+    쪽.insertAdjacentHTML("afterbegin",
+      '<nav class="mode" aria-label="필기·실기"><a href="quiz.html"' + (지금 === "quiz.html" ? ' class="on"' : '') + '>필기</a>' + 실 + '</nav>' +
+      (샀다("실기") ? "" : '<div class="buy" id="mode-buy" hidden><p>실기는 실기 이용권을 결제하면 쓸 수 있습니다.</p>' +
+        '<small>필답형 기출과 모범답안이 들어 있습니다.</small>' +
+        '<a class="b main" href="' + 구매주소 + '?p=실기">실기 구매하기</a></div>'));
+    var 단 = document.getElementById("mode-lock"), 판 = document.getElementById("mode-buy");
+    if (!단) return;
+    function 열기(v) { 판.hidden = !v; 단.setAttribute("aria-expanded", v ? "true" : "false"); }
+    단.onclick = function () { 열기(판.hidden); };
+    if (location.hash === "#buy") 열기(true);
   }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
@@ -430,12 +487,12 @@
 
   window.GS = {
     D: D, S: S, 오늘: 오늘, 테마맵: 테마맵, 테마별: 테마별, oxMap: oxMap, 순: 순,
-    갈래: 갈래, 과락있음: 과락있음, 있다: 있다, 깨끗: 깨끗,
+    갈래: 갈래, 과락있음: 과락있음, 분선택: 분선택, 기본분: 기본분, 분글: 분글, 있다: 있다, 깨끗: 깨끗,
     숙련: 숙련, 연속오답: 연속오답, 다시볼것: 다시볼것, 오늘할것: 오늘할것, 세션: 세션,
-    모의필요: 모의필요, 옥수: 옥수, 시험성적: 시험성적, 루틴: 루틴, 루틴완료: 루틴완료, 더하기: 더하기, 라벨: 라벨, 큰단추: 큰단추, 최근테마: 최근테마,
+    모의필요: 모의필요, 옥수: 옥수, 개념있음: 개념있음, 시험성적: 시험성적, 루틴: 루틴, 루틴완료: 루틴완료, 더하기: 더하기, 라벨: 라벨, 큰단추: 큰단추, 최근테마: 최근테마,
     과목표: 과목표, 가늠: 가늠, 역할: 역할, 진단뽑기: 진단뽑기, 진단결과: 진단결과,
-    기록: 기록, 카드봄: 카드봄, 디데이: 디데이, 과목성적: 과목성적, 이번주: 이번주,
-    내비: 내비, esc: esc,
+    기록: 기록, 카드봄: 카드봄, 디데이: 디데이, 시험일예상: 시험일예상, 시험일안내: 시험일안내, 과목성적: 과목성적, 이번주: 이번주,
+    내비: 내비, esc: esc, 샀다: 샀다,
     고유기출: 고유기출,
     /* 기록 옮기기 — 이 종목 기록 전부를 앱·종목·판 표시와 함께 내보낸다. 가져올 때 종목이 다르면 거절(다른 종목 기록을 덮지 않게) */
     내보내기: function () { return JSON.stringify({ 앱: "modu-gisa", 종목: D.종목, 판: 2, 날: 오늘(), 기록: S }); },

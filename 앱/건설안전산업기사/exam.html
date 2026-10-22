@@ -157,7 +157,7 @@
           }).join("")+'</div>'+
           '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="pl">정답 '+QL.번호[맞칸]+'</span>'+(x.r!=null?'<span class="pl">정답률 '+x.r+'%</span>':'')+
           (x.y?'<span class="pl">'+e(x.y)+'</span>':'')+'</div>'+
-          (x.k&&t?'<div class="vd" style="margin:12px 0 0;background:none;border:0;padding:0"><div class="lk"><a href="ox.html?k='+encodeURIComponent(x.k)+'">O·X</a><a href="card.html?k='+encodeURIComponent(x.k)+'">개념</a></div></div>':'')+
+          (x.k&&t?'<div class="vd" style="margin:12px 0 0;background:none;border:0;padding:0"><div class="lk">'+(GS.옥수(x.k)>0?'<a href="ox.html?k='+encodeURIComponent(x.k)+'">O·X</a>':'')+(GS.개념있음(x.k)?'<a href="card.html?k='+encodeURIComponent(x.k)+'">개념</a>':'')+'</div></div>':'')+
         (window.TerraBeta&&TerraBeta.report?'<button type="button" class="b sm rp" data-i="'+j+'" style="margin-top:10px">이 문항 신고</button>':'')+
         '</div></details>';
       }).join("");
@@ -176,5 +176,5 @@
   시작화면();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>

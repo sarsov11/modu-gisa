@@ -23,7 +23,7 @@
 </head><body>
 <div class="page">
   <div class="hd"><h1>설정</h1></div>
-  <!-- zzstrat --><div id="zs-slot" style="margin:0 0 14px"></div><script src="js/zzstrat.js?v=1021" defer></script><script src="js/strat.js?v=1021" defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(window.ZZSTRAT&&window.GSTRAT_ID)ZZSTRAT.button(GSTRAT_ID,"#zs-slot");});</script><!-- /zzstrat --><details class="fold" open><summary>하루 목표</summary><div class="in">
+  <details class="fold" open><summary>하루 목표</summary><div class="in">
     <div class="tl" id="goal"></div>
   </div></details>
   <details class="fold" open><summary id="exlab">시험일</summary><div class="in">
@@ -58,10 +58,10 @@
   function 표(n){ return n==null?"":(n>0?"D-"+n:(n===0?"D-DAY":"시험 끝")); }
 
   /* 하루 목표 분 — 바꾸면 오늘 루틴도 새로 짠다(아직 안 한 항목이 없을 때) */
-  var 분=[5,10,15,20,30];
+  var 분=GS.분선택;   // 1021 시험별 하루 목표(기사 1~4시간)
   function 목표그리기(){
     document.getElementById("goal").innerHTML=분.map(function(m){
-      return '<button data-m="'+m+'" aria-pressed="'+(S.목표분===m)+'">'+m+'분</button>';
+      return '<button data-m="'+m+'" aria-pressed="'+(S.목표분===m)+'">'+GS.분글(m)+'</button>';
     }).join("");
     document.querySelectorAll("#goal button").forEach(function(b){
       b.onclick=function(){ S.목표분=Number(b.dataset.m); S.플로=(S.플로&&S.플로.done&&S.플로.done.length)?S.플로:null; GS.저장(); 목표그리기(); };

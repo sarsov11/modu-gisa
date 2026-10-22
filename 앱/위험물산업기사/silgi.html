@@ -97,6 +97,8 @@
     return 계산가능(x)?'<a class="b" style="margin:0 0 14px" href="calc.html?q='+encodeURIComponent(x.id)+'">이 문제 계산기로 풀기</a>':'';
   }
   var 파트=P.get("p"), 회=P.get("h"), 오답=P.get("wrong")==="1", 섞=P.get("mix")==="1", kw=P.get("kw"), 묶=P.get("z"), 모의=P.get("m");
+  /* 1018 막판 루틴(js/makpan.js): z 에 영역 여럿(a|b), n = 뽑을 수, tt = 제목, rt = 끝나면 홈 루틴으로 */
+  var 뽑수=Math.max(1,Math.min(40,parseInt(P.get("n"),10)||10)), 루틴=P.get("rt")==="1";
   var 묶음표=SG.묶음||null;                  /* [{z, 회당, 역할:"전략"|"방어"|"버림", 이름}] — 있으면 영역별 고르기 */
 
   /* ── 고르기 ── */
@@ -150,7 +152,7 @@
   var 문제=모의세트?모의세트.문항.slice():SG.문항.filter(function(x){
     if(파트) return x.p===파트;
     if(kw) return (x.p+" · "+x.kw)===kw;
-    if(묶) return x.z===묶;
+    if(묶) return 묶.split("|").indexOf(x.z)>=0;
     if(회) return (x.y+"-"+x.r)===회;
     if(오답){ var r=기록(x.id); return r&&r.v<2; }
     return true;
@@ -158,9 +160,15 @@
   if(!모의세트 && (섞 || 오답 || 파트 || kw || 묶)){
     문제=문제.slice().sort(function(){return Math.random()-.5;});
     문제.sort(function(a,b){var ra=기록(a.id), rb=기록(b.id); return (ra?ra.v+1:0)-(rb?rb.v+1:0);});
-    문제=문제.slice(0,10);
+    /* 1017 기출 원문 우선 — 변형(of)은 10문항 중 3개까지, 원문이 모자랄 때만 더 채운다(다시 볼 문항은 제한 없음) */
+    if(!오답){
+      var 원=문제.filter(function(x){return !x.of;}), 변=문제.filter(function(x){return x.of;});
+      var 뽑=원.slice(0,뽑수-Math.min(Math.round(뽑수*.3),변.length)); 뽑=뽑.concat(변.slice(0,뽑수-뽑.length));
+      문제=뽑.sort(function(){return Math.random()-.5;});
+    }
+    문제=문제.slice(0,뽑수);
   } else if(!모의세트) 문제.sort(function(a,b){return a.n-b.n;});
-  var 묶이름=묶&&묶음표?((묶음표.filter(function(z){return z.z===묶;})[0]||{}).이름||묶):묶;
+  var 묶이름=P.get("tt")?P.get("tt"):묶&&묶음표?((묶음표.filter(function(z){return z.z===묶;})[0]||{}).이름||묶):묶;
   el("ttl").textContent=모의세트?(모의세트.제목||"실전 모의 "+모의세트.세트):회?회차명(문제[0]||{y:"",r:""})+" 실기":(파트||kw||묶이름||(오답?"다시 볼 문항":"무작위 10문항"));
   if(!문제.length){ el("stage").innerHTML='<div class="none"><a href="silgi.html">목록</a></div>'; return; }
 
@@ -315,7 +323,7 @@
       /* 자가채점 범위를 밝힌다 — 자동 채점·합격 예측이 아니다(2026-10-11 외부 검수 F) */
       '<p style="margin:6px 0 12px;font-size:13.5px;color:var(--ink-3)">'+채점안내()+'</p>'+
       '<div class="act">'+(틀.length?'<a class="b main" href="silgi.html?wrong=1">다시 볼 문항</a>':'')+
-      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div></div>'+목록+'</div>';
+      '<div class="b2"><a class="b" href="'+e(location.pathname.split("/").pop()+location.search)+'">한 번 더</a><a class="b" href="silgi.html">목록</a></div>'+(루틴?'<a class="b main" style="margin-top:8px" href="index.html">오늘 할 일로 돌아가기</a>':'')+'</div>'+목록+'</div>';
   }
   function 모의끝(){
     /* 1) 자동 채점 문항은 기계로 2) 스스로 채점 문항은 하나씩 내 답·정답을 보여 주고 고르게 3) 배점(pt, 없으면 5) 합산 — 맞힘 전부·헷갈림 절반 */

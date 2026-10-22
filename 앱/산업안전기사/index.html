@@ -13,6 +13,7 @@
   .when small{display:block;font-size:14.5px;color:var(--ink-3);font-weight:700}
   .when h1{font-size:27px;letter-spacing:-.04em;margin:8px 0 0;font-weight:900}
   .when h1 em{font-style:normal;color:var(--accent)}
+  .when h1 .exg{font-size:14px;font-weight:700;color:var(--ink-3);letter-spacing:0;vertical-align:middle}
   .when hr{border:0;border-top:1px solid var(--line);margin:18px 0 0}
   /* 오늘 테마 — 이름표 한 장 */
   .coach{border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);
@@ -63,7 +64,7 @@
   document.getElementById("date").textContent=(오늘.getMonth()+1)+"월 "+오늘.getDate()+"일";
   var dd=GS.디데이();
   document.getElementById("dd").innerHTML = e(D.종목)+" "+
-    (dd==null?"":"<em>"+(dd>0?"D-"+dd:(dd===0?"D-DAY":"시험 끝"))+"</em>");
+    (dd==null?"":"<em>"+(dd>0?"D-"+dd:(dd===0?"D-DAY":"시험 끝"))+"</em>"+(GS.시험일예상()?' <small class="exg">예상</small>':""));
 
   /* ── 오늘 루틴 — 큰 단추 하나가 다음 항목으로 바로 이어진다 ── */
   var R=GS.루틴(), 다음=R.다음, t=R.t;
@@ -91,7 +92,7 @@
   /* ── 작은 단추 — 개념은 직전·오늘 테마로 ── */
   var 소=[];
   if(R.완료) 소.push('<button class="b sm" id="more">한 세트 더</button>');
-  소.push('<a class="b sm" href="card.html?k='+encodeURIComponent(GS.최근테마())+'">개념</a>');
+  if(GS.개념있음(GS.최근테마())) 소.push('<a class="b sm" href="card.html?k='+encodeURIComponent(GS.최근테마())+'">개념</a>');
   소.push('<a class="b sm" href="tree.html">다른 테마</a>');
   if(GS.있다("quiz.html")) 소.push('<a class="b sm" href="quiz.html">문제풀이</a>');
   if(GS.있다("silgi.html")) 소.push('<a class="b sm" href="silgi.html">실기</a>');
@@ -134,5 +135,5 @@
   }else document.getElementById("wk").remove();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:15px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script><!-- zzstrat --><script src="js/zzstrat.js?v=1021" defer></script><script src="js/strat.js?v=1021" defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(window.ZZSTRAT&&window.GSTRAT_ID)ZZSTRAT.auto(GSTRAT_ID);});</script><!-- /zzstrat --></body></html>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:15px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script></body></html>

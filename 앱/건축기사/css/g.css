@@ -41,10 +41,25 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
 .fold{border:1px solid var(--line-2);border-radius:var(--r3);background:var(--surface);
   margin-bottom:10px}
 .fold summary{list-style:none;cursor:pointer;padding:17px 18px;font-weight:700;font-size:16px;
-  display:flex;justify-content:space-between;align-items:center}
+  display:flex;align-items:center;gap:10px}
+/* 1023: 양끝 정렬이면 개수 칩이 이름 길이 따라 가운데 아무 데나 떠 있었다 — 칩은 오른쪽 화살표 옆에 붙인다 */
+.fold summary .chip{margin-left:auto;min-width:34px;text-align:center;font-variant-numeric:tabular-nums}
 .fold summary::-webkit-details-marker{display:none}
-.fold summary::after{content:"⌄";color:var(--ink-4);font-size:18px}
-.fold[open] summary::after{content:"⌃"}
+/* 화살표는 글자(⌄) 대신 테두리로 — 글자는 글꼴 기준선 탓에 칩보다 아래로 처졌다 */
+.fold summary::after{content:"";flex:none;width:8px;height:8px;margin:0 3px 4px;border:solid var(--ink-4);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.fold[open] summary::after{margin:4px 3px 0;transform:rotate(-135deg)}
+.fold summary:not(:has(.chip))::after{margin-left:auto}
+/* 1023 필기·실기 전환 — 문제풀이·실기 화면 맨 위. 실기 이용권이 없으면 실기 칸은 회색, 누르면 결제 안내 */
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin:18px 0 0;border-radius:99px;background:var(--surface-3)}
+.mode a,.mode button{appearance:none;border:0;background:none;font:inherit;font-size:15.5px;font-weight:800;color:var(--ink-3);
+  padding:11px 6px;border-radius:99px;text-align:center;text-decoration:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.mode .on{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.mode .lock{color:var(--ink-4);opacity:.7}
+.mode .lock svg{width:14px;height:14px}
+.buy{margin:10px 0 0;padding:16px 18px;border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface)}
+.buy p{margin:0 0 4px;font-size:15.5px;font-weight:800;line-height:1.5}
+.buy small{display:block;color:var(--ink-3);font-size:13.5px;line-height:1.6;margin-bottom:12px}
+.buy .b{width:100%}
 .fold .in{padding:0 18px 16px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:12px;
   padding:10px 0;border-top:1px solid var(--line);font-size:15px}

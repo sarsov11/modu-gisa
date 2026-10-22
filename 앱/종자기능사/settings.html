@@ -29,6 +29,7 @@
   <details class="fold" open><summary id="exlab">시험일</summary><div class="in">
     <div class="tl" id="exq"></div>
     <div class="dr"><input type="date" id="exam"><span class="rl" id="exdd"></span></div>
+    <p id="exnote" style="margin:10px 2px 0;font-size:14px;line-height:1.55;color:var(--ink-3)"></p>
   </div></details>
   <details class="fold" open><summary>진단</summary><div class="in">
     <a class="b" href="start.html?diag=1">진단 다시 하기</a>
@@ -57,10 +58,10 @@
   function 표(n){ return n==null?"":(n>0?"D-"+n:(n===0?"D-DAY":"시험 끝")); }
 
   /* 하루 목표 분 — 바꾸면 오늘 루틴도 새로 짠다(아직 안 한 항목이 없을 때) */
-  var 분=[5,10,15,20,30];
+  var 분=GS.분선택;   // 1021 시험별 하루 목표(기사 1~4시간)
   function 목표그리기(){
     document.getElementById("goal").innerHTML=분.map(function(m){
-      return '<button data-m="'+m+'" aria-pressed="'+(S.목표분===m)+'">'+m+'분</button>';
+      return '<button data-m="'+m+'" aria-pressed="'+(S.목표분===m)+'">'+GS.분글(m)+'</button>';
     }).join("");
     document.querySelectorAll("#goal button").forEach(function(b){
       b.onclick=function(){ S.목표분=Number(b.dataset.m); S.플로=(S.플로&&S.플로.done&&S.플로.done.length)?S.플로:null; GS.저장(); 목표그리기(); };
@@ -72,12 +73,13 @@
   var 기능=(GS.갈래==="기능사"), x=document.getElementById("exam");
   document.getElementById("exlab").textContent=기능?"목표일":"시험일";
   x.value=S.시험일||"";
-  function 날표시(){ var d=GS.디데이(); var s=document.getElementById("exdd"); s.textContent=d==null?"":표(d); s.style.display=d==null?"none":""; }
+  function 날표시(){ var d=GS.디데이(); var s=document.getElementById("exdd"); s.textContent=d==null?"":표(d)+(GS.시험일예상()?" 예상":""); s.style.display=d==null?"none":""; }
   function 칸그리기(){
     var 후=[];
     if(기능){ [30,60,90].forEach(function(n){ var d=new Date(); d.setDate(d.getDate()+n); var v=new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); 후.push([n+"일",v]); }); }
-    else if(D.시험일){ 후.push([D.시험일.replace(/-/g,"."),D.시험일]); }
+    else if(D.시험일){ 후.push([D.시험일.replace(/-/g,".")+" 예상",D.시험일]); }
     후.push(["미정",""]);
+    var nt=document.getElementById("exnote"); if(nt) nt.textContent=기능?"":GS.시험일안내();
     document.getElementById("exq").innerHTML=후.map(function(c,j){
       return '<button data-v="'+c[1]+'" aria-pressed="'+((S.시험일||"")===c[1])+'">'+c[0]+'</button>';
     }).join("");
@@ -142,5 +144,5 @@
   };
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>
