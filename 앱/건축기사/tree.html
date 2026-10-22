@@ -312,13 +312,9 @@
     큰.push(칭("과목:"+sj.n,{id:"과목:"+sj.n,이름:sj.n,색:색들[si%색들.length],단계:g.단,진척:g.진,자식:중,진척글:"칭호 받은 대단원 "+g.s2+" / "+g.N,
       조건:"이 과목 대단원의 절반("+Math.ceil(g.N/2)+"개)이 칭호를 받으면 열림 (지금 "+g.s2+"개)"}));
   });
-  /* 티어 — 합격 가늠(GS.가늠: 모의 최근 3회 또는 과목별 기출 8문 이상)을 합격선 60·과락 40 에 댄다. 과락 과목이 있으면 실버까지 */
-  var gm=GS.가늠(), 티어;
-  if(!gm){ var 푼=Object.keys(GS.S.기출||{}).length; 티어={배치:true,표본:Math.min(푼,40),최소:40,안내:"과목마다 기출 8문항씩 풀거나 모의고사 1회를 보면 티어가 정해짐"}; }
-  else { 티어=TTIER.합격제({점:gm.점,선:60,표본:1,최소:1}); if(gm.과락&&gm.과락.length&&티어.순>1){ 티어=TTIER.합격제({점:59,선:60,표본:1,최소:1}); 티어.설명="과락 과목 "+gm.과락.join("·"); }
-    else 티어.설명="예상 평균 "+gm.점+"점"+(gm.일부?" (일부 과목만 잼)":""); }
+  /* 1023 대표님: 기사는 티어제 안 함 — 칭호·앰블럼만 */
   var 안=(function(){try{return localStorage.getItem("thx.안")||"A";}catch(e){return "A";}})();
-  var 데이터={앱키:"gisa."+D.종목,제목:"테크트리",티어:티어,큰:큰};
+  var 데이터={앱키:"gisa."+D.종목,제목:"테크트리",티어:null,큰:큰};
   function 그리기(){
     THEX.render(document.getElementById("hex"),데이터,{안:안});
     document.getElementById("hexpick").innerHTML=["A","B","C"].map(function(x){return '<button data-a="'+x+'" aria-pressed="'+(x===안)+'">'+({A:"벌집 줄기",B:"성장 나무",C:"밤 보드"}[x])+'</button>';}).join("");
@@ -337,7 +333,7 @@
 <script src="js/zzcoach.js?v=1009a" defer></script>
 <script>window.addEventListener("load",function(){ if(window.ZZCOACH) ZZCOACH.run("gisa.tree",[
   {el:"#plan .pl",text:"기출 정답률로 가른 전략 과목과 방어 과목"},
-  (window.TTITLE?{el:"#hex .thx-sum",text:"내 티어와 모은 칭호 수. 육각 칸을 누르면 그 테마의 칭호 조건이 나옴"}:{el:"#map",text:"과목 지도. 원을 누르면 아래에서 그 과목의 대단원과 테마가 열림"}),
+  (window.TTITLE?{el:"#hex .thx-sum",text:"모은 칭호 수. 육각 칸을 누르면 그 테마의 칭호 조건이 나옴"}:{el:"#map",text:"과목 지도. 원을 누르면 아래에서 그 과목의 대단원과 테마가 열림"}),
   (window.TTITLE?{el:"#hexpick",text:"테크트리 모양 세 가지 중 고르기"}:{el:".legend",text:"원이 진할수록 내 정답률이 높고, 클수록 기출 문항이 많음"})
 ],{delay:900}); });</script>
 </body></html>
