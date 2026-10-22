@@ -6,7 +6,8 @@
    큰 줄기(과목·갈래 → 대단원) 선은 금색, 작은 줄기(테마·스킬로 가는 선)는 그 갈래 색.
    안 A 벌집 줄기(줄마다 큰 칸 + 벌집 띠) · B 성장 나무(아래 뿌리에서 위로) · C 밤 보드(송이 카드) */
 (function () {
-  var SQ3 = Math.sqrt(3), uid = 0;
+  var SQ3 = Math.sqrt(3), uid = 0, 로드시각 = Date.now();
+  window.addEventListener("load", function () { 로드시각 = Date.now(); });
   var 금선 = "#d9a21b";
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function hp(cx, cy, r) { return TEMB.hexPts(cx, cy, r); }
@@ -269,7 +270,8 @@
   function 축하(data, list, 기다림) {
     if (!list.length) return;
     /* 첫 진입 안내(zzcoach #zzc)나 다른 큰 장면이 떠 있으면 끝날 때까지 기다린다 */
-    if (기다림 !== 0 || document.getElementById("zzc") || document.querySelector(".thx-cel")) { setTimeout(function () { 축하(data, list, 0); }, 기다림 === undefined ? 1300 : 600); return; }
+    /* 첫 진입 안내는 load 뒤 0.9초에 뜨므로, load 뒤 2초가 지나고 안내가 닫힐 때까지 기다린다 */
+    if (기다림 !== 0 || document.readyState !== "complete" || Date.now() - 로드시각 < 2000 || document.getElementById("zzc") || document.querySelector(".thx-cel")) { setTimeout(function () { 축하(data, list, 0); }, 500); return; }
     var n = list[0], 색 = n.색 || 색찾기(data, n.id) || "#3b6fd8", d = document.createElement("div");
     d.className = "thx-cel";
     d.innerHTML = '<div class="em">' + TEMB.svg({ 상징: n.상징, 표: n.표, 색: 색, 단계: n.단계, 크기: 190, 큰: !!(n.자식 && n.자식.length) }) + '</div>' +

@@ -130,8 +130,9 @@
     }
     return k.every(function(묶음){ return 묶음.some(function(w){ var t=용어정리(w); return t && 있음(t); }); });
   };
-  SGX.칸채점 = function(학생, 칸){   /* 칸 = {a, syn, k?, e?} */
-    if (칸.k && 칸.k.length) return SGX.핵심어채점(학생, 칸.k) || SGX.용어채점(학생, {a:칸.a, syn:칸.syn||[]});
+  SGX.칸채점 = function(학생, 칸){   /* 칸 = {a, syn, k?, no?, e?} */
+    /* 1023 no: 「모두 쓰시오」 목록에서 정답보다 많이 쓴 답을 떨어뜨린다 — no 낱말이 하나라도 있으면 핵심어로는 안 친다(모범답안·syn 그대로 쓴 답은 받는다) */
+    if (칸.k && 칸.k.length) return (SGX.핵심어채점(학생, 칸.k) && !(칸.no && 칸.no.length && SGX.핵심어채점(학생, [칸.no]))) || SGX.용어채점(학생, {a:칸.a, syn:칸.syn||[]});
     if (SGX.용어채점(학생, {a:칸.a, syn:칸.syn||[]})) return true;
     var a=수(학생), b=수(칸.a);
     if (a!=null && b!=null && Math.abs(a-b)<=오차(b,칸)) return true;
