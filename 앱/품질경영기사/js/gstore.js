@@ -440,17 +440,44 @@
   function 내비(지금, 옵션) {
     옵션 = 옵션 || {};
     var 탭 = [["index.html", "홈"]];
+    // 1023 대표님: 실기는 아래 탭에서 빼고 문제풀이 화면 위 필기·실기 단추로 옮긴다
+    if (지금 === "silgi.html" && !샀다("실기")) { location.replace("quiz.html#buy"); return; }
     if (있다("quiz.html")) 탭.push(["quiz.html", "문제풀이"]);
-    if (있다("silgi.html")) 탭.push(["silgi.html", "실기"]);       // 1007 실기 필답형 기출이 있는 종목만
     탭.push(["tree.html", "개념트리"], ["card.html", "개념"], ["settings.html", "설정"]);
     var 위 = '<header class="gbar"><div class="gin"><span id="th-slot"></span><a class="gb" href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></div></header>';
     var 아래 = 옵션.탭 === false ? "" : '<nav class="gtabs" style="grid-template-columns:repeat(' + 탭.length + ',1fr)">' + 탭.map(function (t) {
-      return '<a href="' + t[0] + '"' + (t[0] === 지금 ? ' class="on"' : '') + '>' + t[1] + '</a>';
+      var 켜짐 = t[0] === 지금 || (t[0] === "quiz.html" && 지금 === "silgi.html");
+      return '<a href="' + t[0] + '"' + (켜짐 ? ' class="on"' : '') + '>' + t[1] + '</a>';
     }).join("") + '</nav>';
     document.body.insertAdjacentHTML("afterbegin", 위);
+    if (있다("silgi.html") && (지금 === "quiz.html" || 지금 === "silgi.html")) 필실단추(지금);
     // 1021 테라러닝 홈 단추(허브 공용 terrahome.js) — 위 줄 맨 앞 #th-slot 에 들어간다
     if (!document.querySelector('script[src*="terrahome.js"]')) { var th = document.createElement("script"); th.src = "js/terrahome.js?v=1021"; th.setAttribute("data-slot", "#th-slot"); document.head.appendChild(th); }
     if (아래) document.body.insertAdjacentHTML("beforeend", 아래);
+  }
+  /* ── 이용권(1023) — 필기는 기본. 실기는 이용권이 있어야 열린다.
+   *   modugisa2.buy = { "<종목>": { 실기: 1 } } — 결제가 붙으면 결제 완료 화면이 이 값을 쓴다 */
+  var 산키 = "modugisa2.buy", 구매주소 = "buy.html";
+  function 샀다(갈래) {
+    if (갈래 === "필기") return true;
+    try { var o = JSON.parse(localStorage.getItem(산키) || "{}"); return !!(o[D.종목] && o[D.종목][갈래]); } catch (e) { return false; }
+  }
+  function 필실단추(지금) {
+    var 쪽 = document.querySelector(".page"); if (!쪽) return;
+    var 자물쇠 = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+    var 실 = 샀다("실기")
+      ? '<a href="silgi.html"' + (지금 === "silgi.html" ? ' class="on"' : '') + '>실기</a>'
+      : '<button type="button" class="lock" id="mode-lock" aria-disabled="true" aria-expanded="false">' + 자물쇠 + '실기</button>';
+    쪽.insertAdjacentHTML("afterbegin",
+      '<nav class="mode" aria-label="필기·실기"><a href="quiz.html"' + (지금 === "quiz.html" ? ' class="on"' : '') + '>필기</a>' + 실 + '</nav>' +
+      (샀다("실기") ? "" : '<div class="buy" id="mode-buy" hidden><p>실기는 실기 이용권을 결제하면 쓸 수 있습니다.</p>' +
+        '<small>필답형 기출과 모범답안이 들어 있습니다.</small>' +
+        '<a class="b main" href="' + 구매주소 + '?p=실기">실기 구매하기</a></div>'));
+    var 단 = document.getElementById("mode-lock"), 판 = document.getElementById("mode-buy");
+    if (!단) return;
+    function 열기(v) { 판.hidden = !v; 단.setAttribute("aria-expanded", v ? "true" : "false"); }
+    단.onclick = function () { 열기(판.hidden); };
+    if (location.hash === "#buy") 열기(true);
   }
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
@@ -465,7 +492,7 @@
     모의필요: 모의필요, 옥수: 옥수, 개념있음: 개념있음, 시험성적: 시험성적, 루틴: 루틴, 루틴완료: 루틴완료, 더하기: 더하기, 라벨: 라벨, 큰단추: 큰단추, 최근테마: 최근테마,
     과목표: 과목표, 가늠: 가늠, 역할: 역할, 진단뽑기: 진단뽑기, 진단결과: 진단결과,
     기록: 기록, 카드봄: 카드봄, 디데이: 디데이, 시험일예상: 시험일예상, 시험일안내: 시험일안내, 과목성적: 과목성적, 이번주: 이번주,
-    내비: 내비, esc: esc,
+    내비: 내비, esc: esc, 샀다: 샀다,
     고유기출: 고유기출,
     /* 기록 옮기기 — 이 종목 기록 전부를 앱·종목·판 표시와 함께 내보낸다. 가져올 때 종목이 다르면 거절(다른 종목 기록을 덮지 않게) */
     내보내기: function () { return JSON.stringify({ 앱: "modu-gisa", 종목: D.종목, 판: 2, 날: 오늘(), 기록: S }); },

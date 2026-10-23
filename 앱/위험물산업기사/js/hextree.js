@@ -275,8 +275,8 @@
     var n = list[0], 색 = n.색 || 색찾기(data, n.id) || "#3b6fd8", d = document.createElement("div");
     d.className = "thx-cel";
     d.innerHTML = '<div class="em">' + TEMB.svg({ 상징: n.상징, 표: n.표, 색: 색, 단계: n.단계, 크기: 190, 큰: !!(n.자식 && n.자식.length) }) + '</div>' +
-      '<div class="k">' + (n.단계 === 3 ? "전설 승급" : "칭호 획득") + '</div><h3>' + esc(n.칭호) + '</h3><p>' + esc(n.한줄 || "") + '</p>' +
-      (list.length > 1 ? '<div class="more">이번에 칭호 ' + list.length + '개를 한꺼번에 얻음</div>' : '') + '<button type="button">받기</button>';
+      '<div class="k">' + (n.라벨 || (n.단계 === 3 ? "전설 승급" : "칭호 획득")) + '</div><h3>' + esc(n.칭호) + '</h3><p>' + esc(n.한줄 || "") + '</p>' +
+      (list.length > 1 ? '<div class="more">이번에 ' + list.length + '개를 한꺼번에 얻음</div>' : '') + '<button type="button">받기</button>';
     d.querySelector("button").onclick = function () { d.remove(); };
     document.body.appendChild(d);
   }
@@ -295,5 +295,5 @@
     if (안 === "B") { var sc = el.querySelector(".scroll"); if (sc) sc.scrollTop = sc.scrollHeight; }
     if (!opt.조용히) 축하(data, 결.새);
   }
-  window.THEX = { render: render, 시트: 시트 };
+  window.THEX = { render: render, 시트: 시트, 축하: function (list) { css(); 축하({ 큰: [] }, list); } };
 })();

@@ -84,9 +84,15 @@
   GS.내비("");
   var D=GS.D, e=GS.esc, 깨=GS.깨끗, P=new URLSearchParams(location.search);
   var k=P.get("k"), 복습=P.get("review")==="1";
-  var 문장들 = 복습 ? GS.다시볼것().slice(0,12) : GS.세션(k,12);
+  /* 1023 앰블럼 도전: ks=테마1,테마2… 여러 테마를 고르게 섞어 20문장, t=앰블럼 이름 */
+  var 묶음=(P.get("ks")||"").split(",").filter(function(x){return GS.테마맵[x];}), 묶음이름=P.get("t")||"";
+  var 문장들 = 복습 ? GS.다시볼것().slice(0,12) : 묶음.length ? (function(){
+      var 몫=Math.ceil(20/묶음.length), a=[]; 묶음.forEach(function(x){ a=a.concat(GS.세션(x,몫)); });
+      for(var j=a.length-1;j>0;j--){ var r=Math.floor(Math.random()*(j+1)), t=a[j]; a[j]=a[r]; a[r]=t; }
+      return a.slice(0,20); })() : GS.세션(k,12);
   var 테마 = k ? GS.테마맵[k] : null;
-  if(테마) document.getElementById("ttl").textContent = 테마.n;
+  if(묶음.length) document.getElementById("ttl").textContent = "앰블럼 도전 · "+묶음이름;
+  else if(테마) document.getElementById("ttl").textContent = 테마.n;
   else if(복습) document.getElementById("ttl").textContent = "복습";
 
   var i=0, 결과=[], 확신=null, 시작=0;
@@ -191,8 +197,11 @@
     if(k&&GS.개념있음(k)&&!(다음&&다음.종류==="card")) 작.push('<a class="b sm" href="card.html?k='+encodeURIComponent(k)+'">개념</a>');
     if(R.완료&&GS.있다("exam.html")) 작.push('<a class="b sm" href="exam.html">모의고사</a>');
     작.push('<a class="b sm" href="index.html">홈</a>');
+    if(묶음.length){ var 률=맞/Math.max(1,결과.length);
+      큰='<a class="b main" href="tree.html#emb">'+(률>=0.8?"앰블럼 받으러 가기":"앰블럼판으로")+'</a>';
+      작=['<a class="b sm" href="'+e(location.pathname.split("/").pop()+location.search)+'">다시 도전</a>','<a class="b sm" href="index.html">홈</a>']; }
     el("stage").innerHTML=
-      '<div class="done"><h2>'+(k&&테마?e(테마.n):"복습")+' — 끝</h2>'+
+      '<div class="done"><h2>'+(묶음.length?e(묶음이름):(k&&테마?e(테마.n):"복습"))+' — 끝</h2>'+
         '<div class="tally"><div><b>'+맞+'/'+결과.length+'</b><span>맞힘</span></div>'+
           '<div><b>'+오개념+'</b><span>오개념</span></div>'+
           '<div><b>'+(m==null?"—":Math.round(m*100)+"%")+'</b><span>이 테마</span></div></div>'+

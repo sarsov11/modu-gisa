@@ -67,7 +67,7 @@
     (dd==null?"":"<em>"+(dd>0?"D-"+dd:(dd===0?"D-DAY":"시험 끝"))+"</em>"+(GS.시험일예상()?' <small class="exg">예상</small>':""));
 
   /* ── 오늘 루틴 — 큰 단추 하나가 다음 항목으로 바로 이어진다 ── */
-  var R=GS.루틴(), 다음=R.다음, t=R.t;
+  var R=GS.루틴(), 다음=R.다음, t=(다음&&다음.k&&GS.테마맵[다음.k])||R.t;   /* 1023 카드도 지금 할 테마를 따라간다(큰 단추와 맞춤) */
   var 코치=document.getElementById("coach");
   if(t){
     코치.innerHTML="<em>"+e(t.n)+"</em><small>"+e(t.s)+" · "+t.g+"급</small>";
@@ -77,17 +77,38 @@
   if(다음){ go.href=다음.주소; }
   else { go.removeAttribute("href"); go.className="b fin"; }
 
-  var 칩=R.items.map(function(it){
-    var 끝=R.done.indexOf(it.id)>=0, 지금=(다음&&다음.id===it.id);
-    var 이름=it.종류==="review"?"복습":(it.종류==="card"?"개념":(it.종류==="quiz"?"문제풀이":"O·X"));
-    return '<li class="'+(끝?"dn":(지금?"now":""))+'">'+(끝?"✓ ":"")+이름+'<small>'+it.분+'분</small></li>';
-  }).join("");
+  /* 1023 대표님 「문제풀이 ox 개념 존나 여러세트 있음. 뭐임?」 — 하루 목표(1~4시간)만큼 테마를 이어 붙이면(1021) 이름 없는 단추가 27개 늘어섰다.
+     테마별 한 줄(테마 이름 + O·X·개념·문제풀이 진행)로 묶고, 지금 테마와 다음 두 테마만 보인다. 나머지는 접는다 */
+  var 줄=[], 줄맵={};
+  R.items.forEach(function(it){
+    var 키=it.종류==="review"?"review":it.k;
+    if(!줄맵[키]){ 줄맵[키]={k:it.k, 이름:it.종류==="review"?"틀린 문장 복습":((GS.테마맵[it.k]||{}).n||it.이름||""), its:[]}; 줄.push(줄맵[키]); }
+    줄맵[키].its.push(it);
+  });
+  function 끝남(it){ return R.done.indexOf(it.id)>=0; }
+  var 지금줄=-1; 줄.forEach(function(z,i){ if(지금줄<0 && 다음 && z.its.indexOf(다음)>=0) 지금줄=i; });
+  var 끝줄수=줄.filter(function(z){return z.its.every(끝남);}).length;
+  function 줄HTML(z){
+    var 다=z.its.every(끝남), 지=다음&&z.its.indexOf(다음)>=0;
+    var 본=[];
+    var 단계=z.its.map(function(it){
+      var 이=it.종류==="review"?"복습":(it.종류==="card"?"개념":(it.종류==="quiz"?"문제풀이":"O·X"));
+      if(본.indexOf(이)>=0) 이+=" 한 번 더"; else 본.push(이);
+      return '<span class="'+(끝남(it)?"dn":(다음&&다음.id===it.id?"now":""))+'">'+(끝남(it)?"✓ ":"")+이+'</span>';
+    }).join("");
+    var 분=z.its.reduce(function(a,it){return a+it.분;},0);
+    return '<li class="'+(다?"dn":(지?"now":""))+'"><b>'+e(z.이름)+'</b><small>'+분+'분</small><div class="st">'+단계+'</div></li>';
+  }
+  var 보일=줄.filter(function(z,i){ return 지금줄<0 ? i<3 : (i>=지금줄 && i<지금줄+3); });
+  var 접힘=줄.filter(function(z,i){ return 보일.indexOf(z)<0 && !z.its.every(끝남); });
+  var 접힌분=접힘.reduce(function(a,z){return a+z.its.reduce(function(b,it){return b+it.분;},0);},0);
   /* 막대 = 오늘 세트 진행, 글 = 실제 사용 시간(세트·시험 화면을 쓴 시간)과 세트 예상 분량을 따로(2026-10-11 외부 검수 E) */
   var 비율=R.items.length?Math.min(100,Math.round(R.done.length*100/R.items.length)):0;
   document.getElementById("flow").innerHTML=
     '<div class="flowbar"><i style="width:'+비율+'%"></i></div>'+
-    '<div class="flowmeta"><b>오늘 공부 '+R.실제분+'분</b><span>세트 '+R.done.length+'/'+R.items.length+(R.완료?' 끝':'')+', 예상 '+R.예상분+'분 분량</span></div>'+
-    '<ul class="fl">'+칩+'</ul>';
+    '<div class="flowmeta"><b>오늘 공부 '+R.실제분+'분</b><span>테마 '+끝줄수+'/'+줄.length+(R.완료?' 끝':'')+' · 목표 '+R.예상분+'분</span></div>'+
+    '<ul class="fl">'+보일.map(줄HTML).join("")+'</ul>'+
+    (접힘.length?'<details class="flmore"><summary>그다음 테마 '+접힘.length+'개 · '+접힌분+'분</summary><ul class="fl">'+접힘.map(줄HTML).join("")+'</ul></details>':'');
 
   /* ── 작은 단추 — 개념은 직전·오늘 테마로 ── */
   var 소=[];
