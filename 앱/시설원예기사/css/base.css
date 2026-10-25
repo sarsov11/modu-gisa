@@ -11,22 +11,23 @@
 .gc{display:inline-block;font-style:normal;font-size:.72em;font-size:max(13.5px,.72em);font-weight:700;line-height:1;padding:.32em .6em;margin-left:.35em;border-radius:99px;vertical-align:.12em;color:#fff;background:var(--red);letter-spacing:.02em}
 :root{
   /* 바탕 */
-  --bg:#08090B;
-  --bg-2:#0C0E11;
-  --surface:#121418;
-  --surface-2:#171A1F;
-  --surface-3:#1E222833;
+  /* 2026-10-24 대표님: 검은 바탕은 검정+하늘색(흰 바탕은 흰색+빨강). 바탕을 남색 쪽 검정으로 */
+  --bg:#070B14;
+  --bg-2:#0A1020;
+  --surface:#0F1626;
+  --surface-2:#131C2F;
+  --surface-3:#1A243833;
 
   /* 선 */
-  --line:#22262D;
-  --line-2:#2E343C;
-  --line-3:#3D444E;
+  --line:#1F2B42;
+  --line-2:#2B3D5C;
+  --line-3:#3A4E70;
 
   /* 글자 */
-  --ink:#F3F5F8;
-  --ink-2:#AFB7C2;
-  --ink-3:#8F969F;
-  --ink-4:#7E8792;
+  --ink:#EEF3FB;
+  --ink-2:#B3C1D8;
+  --ink-3:#93A2BC;
+  --ink-4:#8392AD;
 
   /* 강조 — 빨강은 지금·중요·오답에만 */
   --red:#E5484D;
@@ -53,16 +54,17 @@
   /* ── 화면이 쓰는데 없던 색 (2026-09-02 채움) ──
      정의가 없으면 값이 빈 문자열이 되어 그 자리가 투명해진다.
      학부모 리포트 달력이 색칠되지 않던 것이 그 탓이었다. */
-  --card:#141721;          /* 카드 바탕 — surface 보다 살짝 푸르게 */
-  --card-2:#191D28;
+  --card:#0F1626;          /* 카드 바탕 — surface 보다 살짝 푸르게 */
+  --card-2:#141D31;
   --ink-1:#F2F5FA;         /* ink 보다 한 단계 밝게 */
   --mint-soft:rgba(47,224,206,.13);
   --mint-2:#6FF0E2;
   --amber:#E8A33D;
-  --accent:#FF6369;
+  --accent:#8FDCF5;
   --bg-1:#0A0D13;
   /* 주 단추·지금 여기 표시 — 기본 스킨은 빨강. 종이 스킨은 파랑(오답 빨강과 갈라 둔다) */
-  --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line);
+  /* 밤은 하늘색 단추에 검은 글씨(2026-10-24). 흰 스킨이 빨강으로 되돌린다. 빨강(--red)은 오답·임박에 그대로 */
+  --cta:#4FC3E8; --cta-2:#8FDCF5; --cta-3:#2A9CC4; --cta-soft:rgba(79,195,232,.13); --cta-line:rgba(79,195,232,.40); --cta-ink:#04121A;
   /* 기후 판정 그래프(drill.html) 축·도시 점 — 스킨마다 drill.html 이 덮어쓴다 */
   --citydim:#20313C; --axis:#333C47; --axis-ink:#545B64;
   --sans:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
@@ -79,7 +81,7 @@
   --neb-2:rgba(150,80,200,.14);
   --core-glow:#4E7BD6;      /* 무대 한가운데 빛. 빨강은 강조색이라 여기 쓰지 않는다 */
   --crop:#EDE9E3;          /* 기출 크롭(흰 종이)이 화면에서 튀지 않게 깔아 주는 바탕 */
-  --nav-bg:rgba(8,9,11,.86);
+  --nav-bg:rgba(7,11,20,.86);
 
   --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px;
 
@@ -101,6 +103,7 @@
 
 /* ── 모눈 노트 — 크림 종이에 잉크 한 색 ── */
 :root[data-skin="note"]{
+  --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line); --cta-ink:#fff;   /* 밤만 하늘색(2026-10-24) */
   --card:#FFFDF7; --card-2:#FBF6EA; --ink-1:#1A1712;
   --mint-soft:rgba(46,125,107,.12); --mint-2:#1F5A4C; --amber:#B5791C;
   --accent:#B0353A; --bg-1:#FFFDF7;
@@ -140,6 +143,7 @@
 
 /* ── 젤리 파스텔 — 연하되 흐리지 않게 ── */
 :root[data-skin="jelly"]{
+  --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line); --cta-ink:#fff;   /* 밤만 하늘색(2026-10-24) */
   --card:#FFF6FA; --card-2:#FFEDF4; --ink-1:#1E1620;
   --mint-soft:rgba(25,183,155,.14); --mint-2:#0E8E77; --amber:#E09A2B;
   --accent:#FF6369; --bg-1:#FFF6FA;
@@ -176,6 +180,7 @@
 
 /* ── 화이트 미니멀 — 백지에 얇은 선, 강조는 빨강 하나 ── */
 :root[data-skin="white"]{
+  --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line); --cta-ink:#fff;   /* 밤만 하늘색(2026-10-24) */
   --card:#FFFFFF; --card-2:#F6F7F9; --ink-1:#0B0C0E;
   --mint-soft:rgba(229,32,46,.10); --mint-2:#B0353A; --amber:#B5791C;
   --accent:#E5202E; --bg-1:#FFFFFF;
@@ -213,6 +218,7 @@
 
 /* ── 종이 — 모두의 수학 「모눈 노트」 그대로 (2026-09-16). 크림 종이·흰 카드·파란 단추·Pretendard ── */
 :root[data-skin="paper"]{
+  --cta-ink:#fff;
   --card:#FFFFFF; --card-2:#F3F0E8; --ink-1:#161A24;
   --mint-soft:rgba(31,122,82,.12); --mint-2:#1F7A52; --amber:#B7791F;
   --accent:#2F5BEA; --bg-1:#FFFFFF;
@@ -295,7 +301,7 @@ img{max-width:100%}
 .navlinks a:hover{color:var(--ink)}
 .navlinks a.on{color:var(--ink)}
 .navlinks a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
-  background:var(--red);border-radius:1px}
+  background:var(--cta);border-radius:1px}
 .navact{display:flex;align-items:center;gap:10px;flex:0 0 auto;margin-left:var(--s3)}
 /* 폰 — 네비를 두 줄로 접는다. 한 줄에 다 넣으면 링크가 화면 밖으로 나가
    '킬러 / 준킬러'를 아예 누를 수 없다(2026-08-30 실측: 가로 376px 넘침). */
@@ -327,7 +333,7 @@ img{max-width:100%}
 /* ═══ 버튼 ═══ */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
   font-size:16px;font-weight:700;letter-spacing:-.02em;padding:12px 22px;
-  border-radius:var(--r1);border:1px solid var(--cta);background:var(--cta);color:#fff;
+  border-radius:var(--r1);border:1px solid var(--cta);background:var(--cta);color:var(--cta-ink,#fff);
   cursor:pointer;transition:transform .14s,filter .14s;white-space:nowrap}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
 .btn:focus-visible{outline:2px solid var(--cta-2);outline-offset:3px}
@@ -409,7 +415,7 @@ html,body{overflow-x:hidden}/* 지면 가로 넘침 막기 */
   border-radius:10px;border:1px solid var(--line);background:var(--surface);
   color:var(--ink-3);cursor:pointer;transition:.15s}
 .segs button:hover{color:var(--ink);border-color:var(--line-3)}
-.segs button[aria-selected="true"]{background:var(--cta);border-color:var(--cta);color:#fff}
+.segs button[aria-selected="true"]{background:var(--cta);border-color:var(--cta);color:var(--cta-ink,#fff)}
 
 /* 세트 진행 — 칸·점수·남은 시간 */
 .setbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 20px;

@@ -232,7 +232,108 @@
         줄.slice(1).map(function(r){return "<tr>"+r.map(function(c){return "<td>"+굵게(c)+"</td>";}).join("")+"</tr>";}).join("")+'</tbody></table></div>');
       표 = [];
     }
-    L.forEach(function(l){ if (/^\s*\|.*\|\s*$/.test(l)) 표.push(l); else { 닫기(); out.push(굵게(l)); } });
+    /* 1025 보기검수 — 글로 풀린 보기·표를 화면에서 다시 나눈다(문항별 땜질 말고 공통 규칙)
+       보기 줄: 「[보기] ㄱ. A ㄴ. B ㄷ. C」처럼 차례 표지 셋 이상이 한 줄에 몰리면 항목마다 따로 세운다.
+       표 줄: 발문이 표를 가리키고 「항목: 값」 줄이 셋 이상 이어지면 두 칸 표로,
+              「기간: 1, 3, 6 …」「ξ: 0.5, 1.0 …」처럼 값 개수가 같은 줄이 둘 이상이면 가로 표로 그린다. */
+    var 표말 = /(다음|아래|위)\s*(의\s*)?표|표(의|에서|를|에)\s/.test(String(q||""));
+    var 차례 = [["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"],
+      ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮"],
+      ["(가)","(나)","(다)","(라)","(마)","(바)","(사)","(아)","(자)","(차)"]];
+    function 보기나눔(l){
+      var m = l.match(/^\s*([<〈\[［]\s*보\s*기\s*[>〉\]］]|보기\s*[:：])\s*/), 머리 = m ? "보기" : "", 몸 = m ? l.slice(m[0].length) : l;
+      for (var s = 0; s < 차례.length; s++){
+        var 표지 = 차례[s], 자리 = [], 끝 = 0;
+        for (var j = 0; j < 표지.length; j++){
+          var re = new RegExp("(^|\\s)" + 표지[j].replace(/[()]/g,"\\$&") + (s === 0 ? "\\s*[.．)]" : "") + "\\s*(?=[가-힣A-Za-z0-9(])", "g");
+          re.lastIndex = 끝; var r = re.exec(몸);
+          if (!r) break;
+          자리.push([r.index + r[1].length, r.index + r[0].length]); 끝 = r.index + r[0].length;
+        }
+        if (자리.length < 3 || 자리[0][0] > 0 && !/[:：]\s*$/.test(몸.slice(0, 자리[0][0]))) continue;
+        if (s === 1 && /→/.test(몸)) continue;                     // 「① → ② → …」 흐름 빈칸은 보기가 아니다
+        var 앞 = 몸.slice(0, 자리[0][0]).trim(), 항 = [];
+        for (var k = 0; k < 자리.length; k++){
+          var 글 = 몸.slice(자리[k][0], k + 1 < 자리.length ? 자리[k + 1][0] : 몸.length).trim().replace(/[,，]\s*$/, "");
+          항.push(글);
+        }
+        return (앞 ? 굵게(앞) + "\n" : "") + '<span class="x-bogi">' + (머리 ? '<b>' + 머리 + '</b>' : '') +
+          항.map(function(t){ return "<span>" + 굵게(t) + "</span>"; }).join("") + "</span>";
+      }
+      if (머리 && 몸.split(/\s*,\s*/).length >= 3)                 // 「[보기] 질산, 황린, 칼륨」 → 낱말 칸
+        return '<span class="x-bogi x-chip"><b>보기</b>' + 몸.split(/\s*,\s*/).filter(Boolean).map(function(t){ return "<span>" + 굵게(t) + "</span>"; }).join("") + "</span>";
+      return null;
+    }
+    /* 「A | B | C」·「A / B / C」 머리줄 + 같은 칸 수 줄들 → 표. 줄 끝 칸이 빈칸 표지뿐이면 띄어쓰기로도 나눈다(「칼륨 ① ②」) */
+    function 칸나눔(l, 가름){
+      if (가름 === "|") return /\s\|\s/.test(l) ? l.trim().replace(/^\||\|$/g, "").split(/\s*\|\s*/) : null;
+      return /\s\/\s/.test(l) ? l.trim().split(/\s+\/\s+/) : null;
+    }
+    var 쌍 = /^\s*([^:：|]{1,40}?)\s*[:：]\s*(\S.*)$/;
+    function 칸표(줄들, 머리){
+      return '<div class="x-tbl x-kv"><table>' + (머리 ? '<thead><tr>' + 머리.map(function(c){return "<th>" + 굵게(c) + "</th>";}).join("") + '</tr></thead>' : '') + '<tbody>' +
+        줄들.map(function(r){ return "<tr>" + r.map(function(c, i){ return (i ? "<td>" : "<th>") + 굵게(c) + (i ? "</td>" : "</th>"); }).join("") + "</tr>"; }).join("") + '</tbody></table></div>';
+    }
+    if (표말 && !L.some(function(l){ return /^\s*\|.*\|\s*$/.test(l); })){
+      var 새 = [];
+      for (var a = 0; a < L.length; a++){
+        var 가름 = /\s\|\s/.test(L[a]) ? "|" : /\s\/\s/.test(L[a]) ? "/" : "", 머칸 = 가름 && 칸나눔(L[a].replace(/^\s*\(|\)\s*$/g, ""), 가름);
+        if (머칸 && 머칸.length >= 2 && 머칸.length <= 6){
+          var 행 = [], c2 = a + 1;
+          for (; c2 < L.length; c2++){
+            var r2 = 칸나눔(L[c2], 가름);
+            if (!r2){ var 띄 = L[c2].trim().split(/\s+/); r2 = 띄.length === 머칸.length && 띄.slice(1).every(function(t){ return /^[①-⑳]$|^\(\s*\)$/.test(t); }) ? 띄 : null; }
+            if (!r2 || r2.length !== 머칸.length) break;
+            행.push(r2.map(function(t){ return t.replace(/^•\s*/, ""); }));
+          }
+          if (행.length >= 1){
+            새.push("\u0000" + '<div class="x-tbl x-kv"><table><thead><tr>' + 머칸.map(function(c){return "<th>" + 굵게(c) + "</th>";}).join("") + '</tr></thead><tbody>' +
+              행.map(function(r){ return "<tr>" + r.map(function(c){ return "<td>" + 굵게(c) + "</td>"; }).join("") + "</tr>"; }).join("") + '</tbody></table></div>');
+            a = c2 - 1; continue;
+          }
+        }
+        // 한 줄에 「머리: 칸 / 칸 / 칸 / …」 넷 이상 → 줄마다 한 칸
+        var 첫 = L[a].search(/\s\/\s/), 쌍점 = 첫 > 0 ? Math.max(L[a].lastIndexOf(":", 첫), L[a].lastIndexOf("：", 첫)) : -1;
+        var 머글 = 쌍점 > 0 ? L[a].slice(0, 쌍점 + 1).trim() : "", 조각 = 첫 > 0 ? L[a].slice(쌍점 + 1).trim().split(/\s+\/\s+/) : null;
+        if (조각 && 조각.length >= 4){
+          if (머글) 새.push(머글);
+          새.push("\u0000" + '<div class="x-tbl x-kv"><table><tbody>' + 조각.map(function(t){ return "<tr><td>" + 굵게(t) + "</td></tr>"; }).join("") + '</tbody></table></div>');
+          continue;
+        }
+        var b = a; while (b < L.length && 쌍.test(L[b]) && !/^\s*[①-⑳(]/.test(L[b])) b++;
+        if (b - a >= 2){
+          var 줄들 = L.slice(a, b).map(function(l){ var m = l.match(쌍); return [m[1], m[2]]; });
+          var 개수 = 줄들.map(function(r){ return r[1].split(/\s*,\s*/).length; });
+          if (개수.every(function(n){ return n === 개수[0] && n >= 3; })){            // 「기간: 1, 3, 6」「ξ: 0.5, 1.0, 1.2」 → 폰 폭에 맞게 세로로 돌린 표
+            var 열 = 줄들.map(function(r){ return r[1].split(/\s*,\s*/); });
+            새.push("\u0000" + '<div class="x-tbl x-kv"><table><thead><tr>' + 줄들.map(function(r){ return "<th>" + 굵게(r[0]) + "</th>"; }).join("") + '</tr></thead><tbody>' +
+              열[0].map(function(_, i){ return "<tr>" + 열.map(function(c){ return "<td>" + 굵게(c[i]) + "</td>"; }).join("") + "</tr>"; }).join("") + '</tbody></table></div>');
+            a = b - 1; continue;
+          }
+          if (b - a >= 3){                                                              // 두 칸 표
+            var 머리 = null, 윗 = 새.length ? 새[새.length - 1] : "";
+            if (/\s\|\s/.test(윗) && 윗.indexOf("\u0000") < 0 && 윗.split("|").length === 2) { 머리 = 윗.split("|").map(function(c){return c.trim();}); 새.pop(); }
+            새.push("\u0000" + 칸표(줄들, 머리)); a = b - 1; continue;
+          }
+        }
+        새.push(L[a]);
+      }
+      L = 새;
+    }
+    // 「[보기]」 이름표만 있는 줄 + 그 아래 표지로 시작하는 줄들 → 한 줄로 이어 붙여 보기 상자 하나로
+    for (var g = 0; g < L.length; g++){
+      if (!/^\s*[<〈\[［]\s*보\s*기\s*[>〉\]］]\s*$/.test(L[g])) continue;
+      var h2 = g + 1; while (h2 < L.length && !L[h2].trim()) h2++;
+      var 모음 = [], 무리 = null;
+      [/^\s*[ㄱ-ㅎ]\s*[.．)]/, /^\s*[①-⑳]/, /^\s*\([가-하]\)/].forEach(function(r){ if (!무리 && h2 < L.length && r.test(L[h2])) 무리 = r; });
+      // 같은 표지 무리만 모은다 — 보기(ㄱ.~ㅅ.) 아래 답 칸(① ② ③)이 이어 붙지 않게
+      while (무리 && h2 < L.length && 무리.test(L[h2])) { 모음.push(L[h2].trim()); h2++; }
+      if (모음.length) L.splice(g, h2 - g, "[보기] " + 모음.join("   "));
+    }
+    L.forEach(function(l){
+      if (l.charAt(0) === "\u0000") { 닫기(); out.push(l.slice(1)); return; }
+      if (/^\s*\|.*\|\s*$/.test(l)) 표.push(l); else { 닫기(); out.push(보기나눔(l) || 굵게(l)); }
+    });
     닫기();
     return out.join("\n").replace(/\n*(<div class="x-tbl">)/g,"$1").replace(/(<\/table><\/div>)\n*/g,"$1");
   };

@@ -57,7 +57,12 @@
   var 순 = { S: 0, A: 1, B: 2, C: 3 };
 
   function 깨끗(s) {                           // 문장 앞 원 선지 번호(①③…) 떼기
-    return String(s == null ? "" : s).replace(/^\s*[①-⑳❶-❿⓫-⓴]\s*/, "");
+    s = String(s == null ? "" : s);
+    /* 1025 보기검수 — 「① 중심선, ② 숨은선, ③ 외형선」처럼 선지 안 차례 표지의 첫 번째면 떼지 않는다
+       (뗐더니 「중심선, ② 숨은선 …」으로 ①만 사라져 보였다. 기계설계·전산응용기계제도 등 15문항) */
+    var m = s.match(/^\s*([①-⑲])/);
+    if (m && s.indexOf(String.fromCharCode(m[1].charCodeAt(0) + 1)) > 0) return s;
+    return s.replace(/^\s*[①-⑳❶-❿⓫-⓴]\s*/, "");
   }
   function 있다(f) { return 화면.indexOf(f) >= 0; }
 
