@@ -30,6 +30,23 @@
   .nav2{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-top:16px}
   .end{margin-top:16px}
   .end .b2{margin-top:10px}
+  /* 1025 개념 그림 — 첫 장은 그림 위 이름표로 전체(A), 그다음 장부터 한 부분씩 주황 고리(C) */
+  .kc svg.fg{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid var(--line)}
+  .kc svg.fg .nb{cursor:pointer}
+  .kc .fh{font-size:13px;font-weight:800;color:var(--accent);margin:0 0 8px}
+  .fst{display:flex;align-items:center;gap:4px;margin-bottom:10px}
+  .fst span{font-size:13px;font-weight:800;color:var(--ink-3);margin-right:6px}
+  .fst i{flex:1;height:4px;border-radius:99px;background:var(--surface-3)}
+  .fst i.on{background:#E8410B}
+  .fcap b{display:block;font-size:19px;font-weight:900;color:#E8410B;letter-spacing:-.02em}
+  .fcap p{margin:6px 0 0;font-size:16px;line-height:1.7;color:var(--ink)}
+  .fpl{margin-top:12px;border:1px solid var(--line-2);border-radius:var(--r3);background:#fff;overflow:hidden;display:block;width:100%;padding:0;text-align:left;cursor:zoom-in}
+  .fpl .h{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #e5e7eb;color:#15181e}
+  .fpl .h b{font-size:14.5px} .fpl .h span{font-size:12.5px;color:#6b7280;font-weight:700}
+  .fpl img{display:block;width:100%;height:auto}
+  .fz{position:fixed;inset:0;z-index:9999;background:#fff;overflow:auto;-webkit-overflow-scrolling:touch}
+  .fz img{display:block;width:1200px;max-width:none;height:auto}
+  .fz button{position:fixed;top:12px;right:12px;z-index:1;border:0;border-radius:99px;background:#15181e;color:#fff;font-weight:800;font-size:15px;padding:10px 16px}
 </style>
 </head><body>
 <div class="page">
@@ -38,6 +55,7 @@
   <div id="stage"></div>
 </div>
 <script src="js/gdata.js"></script>
+<script src="js/gfig.js"></script>
 <script src="js/gstore.js"></script>
 <script>
 (function(){
@@ -69,10 +87,55 @@
   function 장(k){ var c=(D.cards||{})[k]||[]; return c.length ? (c[0].a ? c.concat(노트(k)) : c) : 노트(k); }
   /* k 없이 열면 직전에 공부한 테마(없으면 오늘 루틴의 테마) */
   if(!k || !GS.테마맵[k]) k = GS.최근테마();
+  /* 1025 개념 그림(js/gfig.js — 엔진\개념이름표.py 와 같은 셈). 그림 파일엔 글자가 없고 이름표는 여기서 SVG 로 얹는다. */
+  var F=(window.GFIG||{})[k];
+  function 그림(F, 켠){
+    var b=켠?F.vc:F.vb, x0=b[0], y0=b[1], w=b[2], h=b[3], s=356/w, fs=13.5/s, P=F.pt, o=[];
+    o.push('<svg class="fg" viewBox="'+[x0,y0,w,h].join(" ")+'"><image href="'+e(F.i)+'" x="0" y="0" width="'+F.iw+'" height="'+F.ih+'"/>');
+    var 글="font-family=\"Pretendard Variable,Pretendard,sans-serif\" font-weight=\"800\" text-anchor=\"middle\"";
+    P.forEach(function(p,j){
+      if(켠) return;
+      var cw=(p[0].length*0.98+1.3)*fs, ch=1.95*fs, cx=Math.min(Math.max(p[4],x0+cw/2+4),x0+w-cw/2-4), cy=p[5];
+      o.push('<line x1="'+p[2]+'" y1="'+p[3]+'" x2="'+cx+'" y2="'+cy+'" stroke="#1d2129" stroke-width="'+(1.6/s)+'"/>');
+      p._c=[cx,cy,cw,ch];
+    });
+    P.forEach(function(p,j){
+      if(!켠){
+        var c=p._c;
+        o.push('<circle cx="'+p[2]+'" cy="'+p[3]+'" r="'+(0.42*fs)+'" fill="#1d2129" stroke="#fff" stroke-width="'+(1.6/s)+'"/>'+
+          '<g class="nb" data-j="'+j+'"><rect x="'+(c[0]-c[2]/2)+'" y="'+(c[1]-c[3]/2)+'" width="'+c[2]+'" height="'+c[3]+'" rx="'+(c[3]/2)+'" fill="#fff" stroke="#1d2129" stroke-width="'+(1.4/s)+'"/>'+
+          '<text x="'+c[0]+'" y="'+(c[1]+0.36*fs)+'" font-size="'+fs+'" fill="#111" '+글+'>'+e(p[0])+'</text></g>');
+      } else if(j+1===켠){
+        var bx=p[2]+3.4*fs, by=p[3]-3.4*fs;
+        if(bx>x0+w-1.2*fs) bx=p[2]-3.4*fs;
+        if(by<y0+1.2*fs) by=p[3]+3.4*fs;
+        o.push('<circle cx="'+p[2]+'" cy="'+p[3]+'" r="'+(2.3*fs)+'" fill="none" stroke="#E8410B" stroke-width="'+(3/s)+'"/>'+
+          '<line x1="'+(p[2]+(bx>p[2]?1:-1)*1.63*fs)+'" y1="'+(p[3]+(by>p[3]?1:-1)*1.63*fs)+'" x2="'+bx+'" y2="'+by+'" stroke="#E8410B" stroke-width="'+(2.4/s)+'"/>'+
+          '<circle cx="'+bx+'" cy="'+by+'" r="'+(0.95*fs)+'" fill="#E8410B" stroke="#fff" stroke-width="'+(2/s)+'"/>'+
+          '<text x="'+bx+'" y="'+(by+0.36*fs)+'" font-size="'+fs+'" fill="#fff" '+글+'>'+(j+1)+'</text>');
+      } else {
+        o.push('<g class="nb" data-j="'+j+'"><circle cx="'+p[2]+'" cy="'+p[3]+'" r="'+(0.75*fs)+'" fill="#9aa3b2" stroke="#fff" stroke-width="'+(2/s)+'"/>'+
+          '<text x="'+p[2]+'" y="'+(p[3]+0.29*fs)+'" font-size="'+(fs*0.8)+'" fill="#fff" '+글+'>'+(j+1)+'</text></g>');
+      }
+    });
+    return o.join("")+'</svg>';
+  }
+  function 그림장(c){
+    var n=F.pt.length;
+    if(c.fig==="A") return '<div class="kc">'+그림(F,0)+'<div class="in"><div class="fh">그림으로 먼저 보기</div><ul>'+
+        F.v.map(function(x){return '<li>'+e(x)+'</li>';}).join("")+'</ul></div></div>'+
+      (F.p?'<button class="fpl" id="fpl"><div class="h"><b>도식으로 정리</b><span>눌러서 크게</span></div><img src="'+e(F.p)+'" alt=""></button>':'');
+    var p=F.pt[c.j];
+    return '<div class="kc">'+그림(F,c.j+1)+'<div class="in"><div class="fst"><span>'+(c.j+1)+' / '+n+'</span>'+
+      F.pt.map(function(_,j){return '<i class="'+(j<=c.j?"on":"")+'"></i>';}).join("")+'</div>'+
+      '<div class="fcap"><b>'+e(p[0])+'</b><p>'+e(p[1])+'</p></div></div></div>';
+  }
   var 장들=장(k), t=GS.테마맵[k]||{};
+  var 노트장=장들.length&&장들[0].노트;
+  if(F&&F.pt&&F.pt.length) 장들=[{fig:"A"}].concat(F.pt.map(function(_,j){return {fig:"C",j:j};}), 장들);
   function el(x){return document.getElementById(x);}
   if(!장들.length){ el("stage").innerHTML='<p style="color:var(--ink-3)">문장 없음 · <a href="tree.html">개념트리</a></p>'; return; }
-  el("eb").textContent=(t.s||"")+" · "+(t.g||"")+"급"+(장들[0].노트?" · 기출 확인 문장":"");
+  el("eb").textContent=(t.s||"")+" · "+(t.g||"")+"급"+(노트장?" · 기출 확인 문장":"");
   el("ttl").textContent=t.n||"";
   var i=0;
   function 그리기(){
@@ -91,7 +154,8 @@
         (R.완료&&GS.있다("exam.html")?'<a class="b sm" href="exam.html">모의고사</a>':'')+
         '<a class="b sm" href="index.html">홈</a></div>';
     }
-    el("stage").innerHTML=
+    var 다음말=c.fig==="A"?"하나씩 보기":(c.fig==="C"&&c.j+1<F.pt.length?"다음 부분":"다음");
+    el("stage").innerHTML=(c.fig?그림장(c):
       '<div class="kc">'+(c.f?'<img src="img/'+e(c.f)+'" alt="">':'')+
         '<div class="in">'+
           '<h2>'+e(깨(c.t))+'</h2>'+(c.노트?'<div style="font-size:13px;font-weight:800;color:var(--accent);margin:-4px 0 10px">기출에서 맞는 설명</div>':'')+'<ul>'+
@@ -100,11 +164,19 @@
             c.m.map(function(x){return '<span>'+e(x)+'</span>';}).join("")+'</div>':'')+
           ((c.x||[]).length?'<div class="memo trap"><b>함정 — 기출이 틀렸다고 한 설명</b>'+
             c.x.map(function(x){return '<span>✕ '+e(깨(x))+'</span>';}).join("")+'</div>':'')+
-        '</div></div>'+
+        '</div></div>')+
       (마지막
         ? '<div class="end">'+(i>0?'<button class="b sm" id="pv" style="margin-bottom:10px">앞</button>':'')+끝+'</div>'
         : '<div class="nav2">'+(i>0?'<button class="b" id="pv">앞</button>':'<span></span>')+
-          '<button class="b main" id="nx">다음</button></div>');
+          '<button class="b main" id="nx">'+다음말+'</button></div>');
+    // 그림의 이름표·번호를 누르면 그 부분 장으로, 도식은 눌러서 크게
+    [].forEach.call(el("stage").querySelectorAll(".nb"),function(g){ g.onclick=function(){ i=1+(+g.getAttribute("data-j")); 그리기(); }; });
+    if(el("fpl")) el("fpl").onclick=function(){
+      var z=document.createElement("div"); z.className="fz";
+      z.innerHTML='<button>닫기</button><img src="'+e(F.p)+'" alt="">';
+      z.querySelector("button").onclick=function(){ z.remove(); };
+      document.body.appendChild(z);
+    };
     if(el("pv")) el("pv").onclick=function(){i--;그리기();};
     if(el("nx")) el("nx").onclick=function(){i++;그리기();};
     if(el("more")) el("more").onclick=function(){ GS.더하기(); location.href=GS.루틴().다음.주소; };
