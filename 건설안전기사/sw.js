@@ -1,7 +1,7 @@
 /* 모두의 건설안전 — 오프라인 캐시.
    틀(HTML·CSS)은 새것을 먼저 보고, 자료(js)는 캐시를 먼저 준 뒤 뒤에서 갱신한다.
    문항 그림은 미리 받지 않고 본 것만 남긴다(1,600장을 통째로 받으면 안 된다). */
-var VER = "terra-v3";   // 루틴·알림이 들어가 캐시를 새로 판다
+var VER = "terra-v3-1025";   // 루틴·알림이 들어가 캐시를 새로 판다
 var SHELL = [
   "./", "./index.html", "./skilltree.html", "./study.html",
   "./settings.html", "./css/base.css",
