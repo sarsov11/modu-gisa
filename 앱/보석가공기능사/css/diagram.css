@@ -2,7 +2,9 @@
 .dg{--dg-ink:var(--ink,#16181d);--dg-ink3:var(--ink-3,#6b7280);--dg-line:var(--line-2,#d9dce3);
   --dg-bg:var(--surface-2,#f5f6f8);--dg-key:var(--cta,#e5484d);--dg-key-soft:var(--cta-soft,rgba(229,72,77,.09));
   --dg-a:var(--fam-geo,#2f7de0);--dg-b:var(--fam-soc,#e5484d);
-  margin:14px 0 4px;font-size:15px;line-height:1.55;color:var(--dg-ink)}
+  margin:14px 0 4px;font-size:15px;line-height:1.55;color:var(--dg-ink);min-width:0;max-width:100%}
+.dg-kid,.dg-col,.dg-box,.dg-node,.dg-flow li,.dg-root{min-width:0;overflow-wrap:anywhere}
+.dg .katex-display,.dg .katex{max-width:100%;overflow-x:auto;overflow-y:hidden}
 .dg b{font-weight:900}
 .dg-t{font-size:14.5px;font-weight:800;color:var(--dg-ink3);margin:0 0 9px}
 .dg ul{list-style:none;margin:0;padding:0}
@@ -27,7 +29,7 @@
 
 /* cause — 원인 → 핵심 → 결과 */
 .dg-cause .dg-lab{font-size:13px;font-weight:800;color:var(--dg-ink3);margin:2px 0 5px}
-.dg-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px}
+.dg-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(130px,100%),1fr));gap:7px}
 .dg-box{border:1px solid var(--dg-line);border-radius:10px;background:var(--dg-bg);padding:9px 11px;font-size:14.5px}
 .dg-box.dg-eff{border-color:var(--dg-key);background:var(--dg-key-soft)}
 .dg-cause .dg-arr{text-align:center;color:var(--dg-key);font-weight:900;margin:3px 0}
@@ -35,7 +37,7 @@
 
 /* tree — 갈래 */
 .dg-root{display:block;width:fit-content;max-width:100%;margin:0 auto;padding:9px 16px;border:2px solid var(--dg-key);border-radius:11px;background:var(--dg-key-soft);font-weight:800;text-align:center;position:relative}
-.dg-kids{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);gap:8px;margin-top:22px}
+.dg-kids{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:8px;margin-top:22px}
 .dg-kids::before{content:"";position:absolute;left:50%;top:-22px;height:11px;border-left:2px solid var(--dg-line)}
 .dg-kids::after{content:"";position:absolute;left:calc(100%/var(--n)/2);right:calc(100%/var(--n)/2);top:-11px;border-top:2px solid var(--dg-line)}
 .dg-kid{position:relative;border:1px solid var(--dg-line);border-radius:10px;background:var(--dg-bg);padding:9px 10px;font-size:14px;line-height:1.5}
@@ -44,8 +46,8 @@
 .dg-kid span{color:var(--dg-ink)}
 
 /* vs — 견주기 */
-.dg-cols{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:stretch}
-.dg-cols[style*="--n:3"]{grid-template-columns:1fr auto 1fr auto 1fr}
+.dg-cols{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px;align-items:stretch}
+.dg-cols[style*="--n:3"]{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr)}
 .dg-vsb{align-self:center;font-weight:900;font-size:12px;color:var(--dg-ink3);font-family:var(--mono,monospace)}
 .dg-col{border:1px solid var(--dg-line);border-radius:11px;overflow:hidden;background:var(--surface,#fff)}
 .dg-col .dg-ch{padding:8px 11px;font-weight:900;font-size:15px;border-bottom:1px solid var(--dg-line)}
@@ -60,7 +62,7 @@
 .dg-vsvg circle{fill-opacity:.16;stroke-width:1.5}
 .dg-vsvg circle:first-child{fill:var(--dg-a);stroke:var(--dg-a)}
 .dg-vsvg circle:last-child{fill:var(--dg-ink);stroke:var(--dg-ink)}
-.dg-vcols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.dg-vcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .dg-both .dg-ch{background:var(--dg-bg);border-top:3px solid var(--dg-ink)}
 
 /* cycle — 고리 */
@@ -92,12 +94,12 @@
 .dg-table tbody th{background:var(--dg-bg);font-weight:800;white-space:nowrap}
 
 @media(max-width:520px){
-  .dg-kids{grid-template-columns:1fr 1fr}
+  .dg-kids{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dg-kids::after{left:25%;right:25%}
-  .dg-kids[style*="--n:1"]{grid-template-columns:1fr}
-  .dg-cols,.dg-cols[style*="--n:3"]{grid-template-columns:1fr}
+  .dg-kids[style*="--n:1"]{grid-template-columns:minmax(0,1fr)}
+  .dg-cols,.dg-cols[style*="--n:3"]{grid-template-columns:minmax(0,1fr)}
   .dg-vsb{text-align:center}
-  .dg-vcols{grid-template-columns:1fr}
+  .dg-vcols{grid-template-columns:minmax(0,1fr)}
   .dg-node{font-size:12.5px;width:36%}
   .dg-table table{table-layout:fixed;font-size:13.5px}
   .dg-table th,.dg-table td{padding:7px 6px;overflow-wrap:anywhere;word-break:keep-all}
