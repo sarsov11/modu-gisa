@@ -140,7 +140,7 @@
   /* ── 과목별 정답률 — 전략·방어 알약, 과락 위험 마크 ── */
   var 줄=GS.과목표().map(function(r){
     return '<div class="sr"><div class="t"><span class="sn">'+e(r.s)+'</span>'+
-      (r.역할==="전략"?'<i class="rl st">전략</i>':(r.역할==="방어"?'<i class="rl df">방어</i>':''))+
+      (r.역할==="전략"?'<i class="rl st">전략</i>':(r.역할==="방어"?'<i class="rl df">면과락</i>':''))+
       (r.과락위험?'<i class="wn">⚠ 과락</i>':'')+
       '<b>'+(r.p==null?"—":r.p+"%")+'</b></div>'+
       '<div class="bar"><i style="width:'+(r.p==null?0:r.p)+'%"></i></div></div>';

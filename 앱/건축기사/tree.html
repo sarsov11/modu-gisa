@@ -117,14 +117,14 @@
   document.getElementById("sub").textContent=(기준?"과목 › 대단원 › 중단원 › 테마 — "+(D.기준출처||"출제기준").replace(/\((\d{4}\.\d+\.\d+~\d{4}\.\d+\.\d+)\)/," · 적용 기간 $1"):"과목 "+차례.length+" · 테마 "+전체.length);
 
   /* ── 전략과목·방어과목(1002) — 기출 정답률 근거 ── */
-  function 배지(o){ return o&&o.역할 ? '<i class="rl '+(o.역할==="전략"?"st":"df")+'">'+o.역할+'</i>' : ''; }
+  function 배지(o){ return o&&o.역할 ? '<i class="rl '+(o.역할==="전략"?"st":"df")+'">'+(o.역할==="방어"?"면과락":o.역할)+'</i>' : ''; }
   var 표=GS.과목표(), 역맵=GS.역할();
   function 위험(이름){                                       // 내 풀이로 과락 위험인 과목이면 마크
     var 과=null; Object.keys(역맵).forEach(function(s){ if(역맵[s].이름===이름) 과=s; });
     var r=표.filter(function(x){return x.s===과;})[0];
     return '';
   }
-  function 행(r){ return '<div class="pl"><i class="rl '+(r[0]==="전략"?"st":"df")+'">'+r[0]+'</i><em>'+e(r[1])+'</em><b>'+r[2]+'%</b>'+위험(r[1])+'</div>'; }
+  function 행(r){ return '<div class="pl"><i class="rl '+(r[0]==="전략"?"st":"df")+'">'+(r[0]==="방어"?"면과락":r[0])+'</i><em>'+e(r[1])+'</em><b>'+r[2]+'%</b>'+위험(r[1])+'</div>'; }
   if(기준){
     var 역=[]; 기준.forEach(function(sj){ if(sj.역할) 역.push([sj.역할,sj.n,sj.률]); sj.m.forEach(function(m){ if(m.역할) 역.push([m.역할,m.n,m.률]); }); });
     var st=역.filter(function(r){return r[0]==="전략";})[0], df=역.filter(function(r){return r[0]==="방어";})[0];
@@ -332,7 +332,7 @@
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 <script src="js/zzcoach.js?v=1009a" defer></script>
 <script>window.addEventListener("load",function(){ if(window.ZZCOACH) ZZCOACH.run("gisa.tree",[
-  {el:"#plan .pl",text:"기출 정답률로 가른 전략 과목과 방어 과목"},
+  {el:"#plan .pl",text:"기출로 가른 전략 과목과 면과락 과목"},
   (window.TTITLE?{el:"#emb .emb-top",text:"모은 앰블럼 수와 합격선. 과목마다 6개씩 30개면 합격권"}:{el:"#map",text:"과목 지도. 원을 누르면 아래에서 그 과목의 대단원과 테마가 열림"}),
   (window.TTITLE?{el:"#emb .emb-today",text:"오늘의 앰블럼. 상위 10% 안에 들면 은색, 4%면 금색"}:{el:".legend",text:"원이 진할수록 내 정답률이 높고, 클수록 기출 문항이 많음"})
 ],{delay:900}); });</script>
