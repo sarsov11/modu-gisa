@@ -406,6 +406,8 @@
     S.ox[id] = x;
     var t = S.테마[o.k] || { r: [] };
     t.r.push(맞 ? 1 : 0); if (t.r.length > 30) t.r = t.r.slice(-30);
+    /* 앰블럼 은·금(1101): 테마별 최근 30번 걸린 시간(초, 0.1초 단위). r 과 같은 차례 */
+    t.m = t.m || []; t.m.push(ms ? Math.round(Math.min(ms, 120000) / 100) / 10 : 0); if (t.m.length > 30) t.m = t.m.slice(-30);
     S.테마[o.k] = t;
     var d = S.날[오늘()] || { n: 0, ok: 0, ms: 0 };
     d.n++; if (맞) d.ok++; d.ms += Math.min(ms || 0, 120000);
