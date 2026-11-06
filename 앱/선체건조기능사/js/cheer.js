@@ -200,7 +200,7 @@
     ss("terra.cheer.combo", String(combo));
     var prevXp = num("terra.cheer.xp"), xp = prevXp + XP_PER; ss("terra.cheer.xp", String(xp));
     if (RM) {            /* 움직임 줄이기 — 체크 하나와 아주 짧은 소리만 */
-      check(el); if (k === "b") floatXp(el); beep(combo); return;
+      check(el); beep(combo); return;
     }
     buzz(combo >= 5 ? [16, 40, 16] : 18);
     beep(combo);
@@ -209,9 +209,7 @@
     } else if (k === "c") {
       stamp(); cls(el, "bounce"); check(el);
     } else {
-      cls(el, "bounceS"); check(el); floatXp(el); xpBar(prevXp, xp);
-      if (combo >= 2) comboBadge(combo);
-      if (combo >= 5) { cls(el, "fire"); flames(el, combo >= 10 ? 16 : 9); }
+      cls(el, "bounceS"); check(el);   /* LV 막대·XP·연속 표시는 뺐다(2026-11-06 대표님) */
       if (combo === 3 || combo === 5 || combo % 10 === 0) burst(el, 14, .8);
     }
   }
