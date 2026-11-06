@@ -227,7 +227,7 @@
     var 후 = [], 목표 = S.목표분 || 기본분, q = 있다("quiz.html");
     if (복.length >= 8) 후.push(항목("review", "review"));
     if (할) {
-      후.push(항목("ox", "ox", 할.k, 할.이름), 항목("card", "card", 할.k, 할.이름));
+      후.push(항목("card", "card", 할.k, 할.이름), 항목("ox", "ox", 할.k, 할.이름));   // 11-06 대표님: 개념 없이 O·X 부터 금지
       if (q) 후.push(항목("quiz", "quiz", 할.k, 할.이름));
     }
     if (복.length && 복.length < 8) 후.push(항목("review", "review"));
@@ -243,7 +243,7 @@
       while (합 < 목표 && 더 < 20) {
         var 다음 = 테마고르기(쓴테마); if (!다음) break;
         쓴테마.push(다음.k); 더++;
-        [["ox", "ox"], ["card", "card"]].concat(q ? [["quiz", "quiz"]] : []).forEach(function (z) {
+        [["card", "card"], ["ox", "ox"]].concat(q ? [["quiz", "quiz"]] : []).forEach(function (z) {
           var it = 항목(z[0] + "_" + 더, z[1], 다음.k, 다음.이름); 후.push(it); 합 += it.분;
         });
       }

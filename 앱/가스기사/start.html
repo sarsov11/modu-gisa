@@ -52,7 +52,6 @@
 </div>
 <script src="js/gdata.js"></script>
 <script src="js/gstore.js"></script>
-<script src="js/cheer.js"></script>
 <script>
 (function(){
   GS.내비("", {탭:false});
@@ -98,8 +97,8 @@
     el("stage").innerHTML=
       '<div class="tl" id="q">'+GS.분선택.map(function(m){
         return '<button data-m="'+m+'" aria-pressed="'+(분===m)+'">'+GS.분글(m)+'</button>';}).join("")+'</div>'+
-      '<div class="gap"></div><button class="b main" id="go">진단 10문항</button>'+
-      '<button class="lnk" id="skip">건너뛰기</button>';
+      '<div class="gap"></div><button class="b main" id="skip">개념부터 보기</button>'+
+      '<button class="lnk" id="go">진단 10문항 먼저 풀기</button>';
     document.querySelectorAll("#q button").forEach(function(b){
       b.onclick=function(){ 분=Number(b.dataset.m); 목표화면(); };
     });
@@ -172,5 +171,5 @@
   if(재진단) 진단시작(); else 일화면();
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 </body></html>
