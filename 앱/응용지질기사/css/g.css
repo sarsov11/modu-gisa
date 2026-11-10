@@ -72,7 +72,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
   padding:2px 9px;letter-spacing:0;white-space:nowrap;line-height:1.4}
 .rl.st{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
 .rl.df{border:1.5px solid var(--ink-2);color:var(--ink-2)}
-.rl.wk{border:1.5px solid var(--accent);color:var(--accent)}
+.rl.wk{border:1.5px solid var(--no);color:var(--no)}
 .wn{font-style:normal;display:inline-block;font-size:12.5px;font-weight:900;color:var(--accent);
   border:1.5px solid var(--accent);border-radius:6px;padding:0 6px;line-height:1.5;white-space:nowrap}
 .tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:9px;margin:0}
@@ -110,3 +110,146 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
 .gbar .gin a.gb{flex:1;min-width:0;max-width:none;margin:0;padding-left:10px}
 .gbar a.th-home{display:inline-flex;flex:none;max-width:none;margin:0;height:30px;padding:0 10px 0 7px;font-size:12.5px;
   font-weight:800;gap:5px;background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+
+/* ── 2026-11-10 브랜드 포인트 색 통일(허브 창 지시) ──────────────────────────────
+   판·글씨·모서리는 전 브랜드 같고 다른 것은 포인트 색 하나. 모두의 기술 = 주황.
+   --accent(주 단추·선택·진행·머리띠 점·강조)는 포인트 색, --no 는 오답·경고 빨강으로 갈랐다.
+   base.css 는 통사 정본이라 건드리지 않고 여기서 화이트 스킨만 덮는다(다른 스킨은 그대로). */
+:root{--no:var(--accent);--pt:var(--accent);--pt-2:var(--accent);--pt-soft:color-mix(in srgb,var(--accent) 10%,var(--surface));--pt-line:color-mix(in srgb,var(--accent) 45%,var(--surface));--pt-ink:var(--accent)}
+:root[data-skin="white"]{
+  --pt:#E8590C; --pt-2:#C2410C; --pt-3:#9A3412; --pt-soft:rgba(232,89,12,.10); --pt-line:rgba(232,89,12,.40);
+  --accent:var(--pt); --bg-1:#FFFFFF;
+  --cta:var(--pt); --cta-2:var(--pt-2); --cta-3:var(--pt-3); --cta-soft:var(--pt-soft); --cta-line:var(--pt-line); --cta-ink:#fff;
+  --mint:var(--pt); --mint-2:var(--pt-2); --mint-soft:var(--pt-soft);
+  --no:#E5322D; --ok:#16B364;
+  --pt-ink:color-mix(in srgb,var(--pt) 78%,#111419);
+  --sans:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --r1:10px; --r2:14px; --r3:18px;   /* 판 18 · 작은 판·입력 14 (화면표준 0절) */
+}
+/* 오늘의 앰블럼 판(embboard.js 가 어두운 남색으로 넓게 칠함) → 흰 판 */
+:root[data-skin="white"] .emb-today{background:var(--surface,#fff);color:var(--ink,#111419);border:1px solid var(--line,#E6E8EC)}
+:root[data-skin="white"] .emb-today b{color:var(--ink,#111419)}
+:root[data-skin="white"] .emb-today small{color:var(--pt-2)}
+:root[data-skin="white"] .emb-today span{color:var(--ink-3,#5A5F67)}
+:root[data-skin="white"] .emb-today .b{background:var(--pt);color:#fff}
+:root[data-skin="white"] .emb-today.done{background:var(--surface,#fff)}
+:root[data-skin="white"] .emb-sheet .go .p,:root[data-skin="white"] .thx-sh .go a.p{background:var(--pt);border-color:var(--pt);color:#fff}
+/* 첫 사용 안내(zzcoach.js)의 「다음」 단추·점은 #E3242B 가 박혀 있다 → 포인트 색(엔진 파일은 그대로 두고 여기서 덮는다) */
+:root[data-skin="white"] #zzc .bub .go{background:var(--pt)}
+:root[data-skin="white"] #zzc .bub .dots i.on{background:var(--pt)}
+
+/* ═══ 2026-11-10 화면표준 — 머리띠 56 · 아래 탭 62 · 판 18 · 주 단추 54 (밤·종이 스킨도 크기·모양은 같다) ═══ */
+html,body{overflow-x:clip}   /* hidden 이면 body 가 스크롤 상자가 되어 sticky 머리띠가 안 붙는다 */
+.page{max-width:720px;padding:0 20px 120px}
+.pan{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+.lab{font-size:16px;font-weight:800;color:var(--ink);margin:24px 2px 10px;letter-spacing:-.02em}
+
+/* 머리띠 */
+.gbar{height:56px;background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid var(--line)}
+.gbar .gin{display:block;max-width:720px;height:100%;margin:0 auto;padding:0 20px}
+.gbar .g-out,.gbar .g-in{height:100%;display:flex;align-items:center;gap:10px}
+.gbar .g-in{display:none}
+body.inner .gbar .g-out{display:none} body.inner .gbar .g-in{display:flex}
+.gbar .gin a{max-width:none;margin:0;padding:0;font-size:inherit;font-weight:inherit;gap:0}
+.gbar .gin a.gb{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.gbar .mk{flex:none;width:28px;height:28px;border-radius:8px;background:var(--pt);color:#fff;display:grid;place-items:center;font:900 14px/1 var(--sans)}
+.gbar .nm{font-weight:800;font-size:17px;letter-spacing:-.03em;white-space:nowrap;color:var(--ink)}
+.gbar .nm em{font-style:normal;color:var(--pt-ink)}
+.gbar .sb{font-weight:600;font-size:13px;color:var(--ink-4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.gbar .fam,.gbar .bk,.gbar .xx{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--ink-2)}
+.gbar .fam,.gbar .bk{border:1px solid var(--line-2);background:var(--surface)}
+.gbar .fam svg{width:16px;height:16px} .gbar .bk svg,.gbar .xx svg{width:18px;height:18px}
+.gbar .gt{flex:1;min-width:0;font-weight:800;font-size:16px;letter-spacing:-.02em;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gbar .gpr{font-weight:700;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.gbar .gnav{display:none}
+
+/* 아래 탭 */
+.gtabs{height:calc(62px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:color-mix(in srgb,var(--bg) 92%,transparent);
+  -webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);border-top:1px solid var(--line)}
+.gtabs a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;font:700 11.5px/1 var(--sans);color:var(--ink-4)}
+.gtabs a svg{width:23px;height:23px}
+.gtabs a.on{color:var(--pt-ink)}
+.gtabs a.on::after{display:none}
+body.notab .gtabs{display:none}
+.zs-fab{height:38px}
+html body .zs-fab{right:16px;bottom:calc(62px + 12px + env(safe-area-inset-bottom));height:38px;background:var(--surface);border:1.5px solid var(--pt);color:var(--pt-ink);box-shadow:none}
+html body.notab .zs-fab{bottom:calc(14px + env(safe-area-inset-bottom))}
+@media(min-width:960px){
+  .gtabs{display:none}
+  .gbar .gnav{display:flex;margin-left:auto;gap:2px}
+  .gbar .gnav a{padding:8px 12px;border-radius:10px;font:700 14.5px/1 var(--sans);color:var(--ink-3)}
+  .gbar .gnav a.on{color:var(--pt-ink)}
+  html body .zs-fab{bottom:20px}
+}
+
+/* 단추 — 주 단추 54px·모서리 16·포인트 단색·그림자 하나 */
+.b{border:1.5px solid var(--line-2);border-radius:16px;min-height:48px;padding:0 18px;font-size:16px;font-weight:800}
+.b.main{min-height:54px;height:54px;font-size:16.5px;background:var(--pt);border-color:var(--pt);color:#fff;box-shadow:0 14px 30px -14px color-mix(in srgb,var(--pt) 60%,transparent)}
+.b.main:active{background:var(--pt-2);border-color:var(--pt-2)}
+.b.sm{min-height:44px;height:44px;border-radius:12px;font-size:14.5px}
+.b.fin{height:54px;min-height:54px;background:var(--surface-3);border-color:var(--surface-3);color:var(--ink-3);box-shadow:none}
+.b2 .b{border-radius:12px;min-height:44px;height:44px;padding:0 10px}
+
+/* 판 */
+.fold,.buy{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+.fold summary{font-weight:800;font-size:16px;letter-spacing:-.02em}
+
+/* 고르는 단추 — 44px·모서리 12·선택은 포인트 옅은 바탕+테두리+진한 글씨 */
+.tl button,.sk button{height:44px;min-height:44px;padding:0 6px;border:1.5px solid var(--line-2);border-radius:12px;background:var(--surface);color:var(--ink);font-size:15px;font-weight:700}
+.tl button[aria-pressed="true"],.sk button[aria-pressed="true"]{border-color:var(--pt);background:var(--pt-soft);color:var(--pt-ink)}
+input[type=date]{height:44px;border-radius:12px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);padding:0 12px;font:inherit;font-size:16px}
+.rl.st{background:var(--pt-soft);color:var(--pt-ink);border:0}
+.chip.S{border-color:var(--pt);color:var(--pt-ink)}
+.bar,.flowbar{height:4px;background:var(--surface-3)}
+.bar i,.flowbar i{background:var(--pt)}
+.mode .on{color:var(--pt-ink)}
+/* 개념트리·개념 카드·이용권: 쪽 제목 26px · 진행 막대 한 줄 */
+html body .hd h1,html body main h1,html body .page>h1{font-size:26px;font-weight:900;letter-spacing:-.03em}
+html body .prog{gap:0;height:4px;border-radius:4px;background:var(--surface-3);overflow:hidden}
+html body .prog i{height:4px;border-radius:0;background:transparent}
+html body .prog i.on,html body .prog i.ok,html body .prog i.no{background:var(--pt)}
+body.inner .mode{display:none}
+
+/* 개념트리: 칩 34px 알약·판 18·도전하기 54px */
+html body .map{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+html body .br>summary{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+html body .br[open]>summary{box-shadow:0 0 0 1.5px var(--pt)}
+html body .big>summary{border:0;border-radius:14px;box-shadow:0 0 0 1px var(--line)}
+html body .lf .go a{display:inline-flex;align-items:center;height:34px;padding:0 12px;border-radius:99px;font-size:13px;font-weight:700;color:#4B5563;background:var(--surface);border:1px solid var(--line-2)}
+html body .lf .go a.ox{background:var(--pt-soft);border-color:transparent;color:var(--pt-ink)}
+html body .emb-today .b{display:flex;align-items:center;justify-content:center;width:100%;height:54px;border-radius:16px;font-size:16px;font-weight:800;padding:0}
+
+/* 풀이 창(화면표준 8절): 문제 판 바로 아래 왼쪽 단추 · 열리면 아래 고정 단추를 풀이 창 위로 올리고 본문 아래 여백을 준다 */
+.padslot{display:flex;margin:-4px 0 12px}
+.padslot:empty{display:none}
+html.padon body{padding-bottom:calc(var(--padh,0px) + 96px)}
+html.padon #go,html.padon #nx,html.padon .exbar,html.padon .next{bottom:calc(var(--padh,0px) + 12px)}
+.tpad-btn{display:inline-flex;align-items:center;gap:7px;height:44px;padding:0 14px;border-radius:12px;border:1.5px solid #D3D7DD;background:#fff;color:#111419;font:700 14.5px/1 "Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;cursor:pointer}
+.tpad-btn svg{width:18px;height:18px;color:var(--pt,var(--accent))}
+
+/* 추천 표시(화면표준 10절): 22px 알약·포인트 단색·흰 글자 800 11.5px — 한 화면에 한 곳 */
+.rec22{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--pt);color:#fff;font:800 11.5px/1 var(--sans);margin-left:6px;font-style:normal}
+
+/* 문제 화면 공용 부품(tera-q.css) 얹기 — 아래 줄·헷갈림 선택·발문 */
+body.has-tqbar .prog{display:none}
+body.has-tqbar .page{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
+.tq-bar{padding-left:max(16px,calc((100vw - 720px)/2));padding-right:max(16px,calc((100vw - 720px)/2))}
+.tq-prog{margin:4px 0 20px}
+.tq-meta{margin-top:6px}
+.tq-box{margin:0 0 20px}
+.qf-conf{position:fixed;left:max(16px,calc((100vw - 720px)/2));bottom:calc(84px + env(safe-area-inset-bottom));z-index:60;display:flex;gap:6px;padding:6px;border-radius:14px;background:#fff;box-shadow:0 10px 26px -10px rgba(15,23,42,.35),0 0 0 1px var(--line)}
+.qf-conf button{height:36px;padding:0 14px;border-radius:10px;border:1.5px solid var(--line-2);background:#fff;font:700 14px/1 var(--sans);color:var(--ink-2);cursor:pointer}
+.qf-conf button.on{border-color:var(--pt);background:var(--pt-soft);color:var(--pt-ink)}
+.tq-exp{margin-top:20px}
+.tq-exp .tq-tabs{margin-bottom:10px}
+.verdict .tq-ans{display:block;margin-top:12px;padding-top:10px;border-top:1px solid color-mix(in srgb,var(--ink) 10%,transparent);text-align:right;font-weight:700}
+.page:has(.tq-wrap){padding-left:0;padding-right:0}
+.tq-wrap{padding-bottom:120px}
+@media(min-width:960px){body:has(.tq-wrap.has-omr) .page{max-width:1060px} body:has(.tq-wrap.has-omr) .tq-bar{padding-left:max(16px,calc((100vw - 1020px)/2));padding-right:max(16px,calc((100vw - 1020px)/2))}}
+.tq-omr-row{margin-top:6px}
+.tq-omr{max-height:calc(100vh - 150px);overflow:auto}
+/* 실기 풀이 등 옛 문제 판: 발문은 판 없이 20px/30px */
+.qwrap{box-shadow:none;background:none;padding:0;border-radius:0}
+.qwrap .qstem{font-size:20px;line-height:30px;font-weight:600;letter-spacing:-.5px}
+.tq-tabs a{display:flex;align-items:center;height:50px;padding:0 18px;font:500 14px/1 var(--sans);color:#64748B;text-decoration:none}

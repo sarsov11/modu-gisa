@@ -381,7 +381,7 @@ img{max-width:100%}
   align-items:center;justify-content:center;font-size:15px;font-weight:800;
   background:var(--surface-3);color:var(--ink-2)}
 .notice b{color:var(--ink)}
-.notice.hot{border-color:var(--red-line);background:linear-gradient(180deg,var(--red-soft),transparent)}
+.notice.hot{border-color:var(--red-line);background:var(--surface)}
 .notice.hot .ic{background:var(--red);color:#fff}
 
 .srcflag{font-family:var(--kr);font-weight:700;font-size:14.5px;letter-spacing:-.01em;color:var(--ink-4);
@@ -604,3 +604,124 @@ body .ox button[data-s="ok"]{ color:#1F9D5B; } body .ox button[data-s="no"]{ col
 
 /* ═══ 2026-09-24 대표님 판정소: 제목 굵기 900(700 대 900 → 900) — 화면마다 따로 준 600~800 을 덮는다(지적검수 T13) ═══ */
 h1,h2,h3,h4{font-weight:900!important}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2026-11-10 화면 표준 덮어쓰기 (허브 창 지시 · 테라러닝_허브\공용\디자인\화면표준_1110.md)
+   ★ 이 아래는 표준 값이다. 위 본문은 그대로 두고 여기서만 덮는다(기사·통과가 이 파일을 복사해 쓴다 — 거기선 g.css 가 다시 덮는다).
+   포인트 색은 흰 스킨에서만 정한다(--pt). 머리띠 56 · 아래 탭 62 · 판 18 · 주 단추 54 · O·X 64 는 모든 스킨 공통.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{--pt:var(--cta);--pt-2:var(--cta-2);--pt-soft:var(--cta-soft);--pt-line:var(--cta-line);--pt-ink:var(--cta)}
+:root[data-skin="white"]{
+  --pt:#E5202E; --pt-2:#C8101D; --pt-soft:rgba(229,32,46,.10); --pt-line:rgba(229,32,46,.40);
+  --pt-ink:color-mix(in srgb,#E5202E 78%,#111419);
+  --no:#E5322D; --ok:#16B364;
+  --sans:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --kr:var(--sans); --title:var(--sans);
+  --r1:10px; --r2:14px; --r3:18px;
+}
+html,body{overflow-x:clip}
+body{font-family:var(--sans,var(--kr))}
+.pan{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+
+/* 머리띠 — 56px · 표식 28 · 오른쪽 격자 36 */
+.nav{height:56px;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid var(--line)}
+.nav .wrap{display:block;height:100%;padding:0 20px}
+.nav .g-out,.nav .g-in{height:100%;display:flex;align-items:center;gap:10px}
+.nav .g-in{display:none}
+body.inner .nav .g-out{display:none} body.inner .nav .g-in{display:flex}
+.nav .logo{flex:1;min-width:0;gap:10px;font-size:17px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.nav .mk{flex:none;width:28px;height:28px;border-radius:8px;background:var(--pt);color:#fff;display:grid;place-items:center;font:900 14px/1 var(--sans)}
+.nav .nm{white-space:nowrap}
+.nav .nm em{font-style:normal;color:var(--pt-ink)}
+.nav .logo small.sb{display:block;margin:0;font-weight:600;font-size:13px;color:var(--ink-4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;letter-spacing:0}
+.nav .fam,.nav .bk,.nav .xx{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--ink-2);padding:0}
+.nav .fam,.nav .bk{border:1px solid var(--line-2);background:var(--surface)}
+.nav .fam svg{width:16px;height:16px} .nav .bk svg,.nav .xx svg{width:18px;height:18px}
+.nav .gt{flex:1;min-width:0;font-weight:800;font-size:16px;letter-spacing:-.02em;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav .gpr{font-weight:700;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.nav .th-home{display:none!important}   /* 「‹ 테라러닝」 알약은 격자 단추가 대신한다 */
+
+/* 아래 탭 — 62px · 아이콘 23 · 글자 11.5 · 선택은 포인트 진한 색만 */
+.nav .navlinks a svg{display:none}
+@media(max-width:880px){
+  .nav .navlinks{position:fixed;left:0;right:0;bottom:0;z-index:70;margin:0;gap:0;display:flex;justify-content:stretch;
+    height:calc(62px + env(safe-area-inset-bottom,0px));padding:0 0 env(safe-area-inset-bottom,0px);
+    background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);
+    border-top:1px solid var(--line)}
+  .nav .navlinks a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;border-radius:0;
+    font:700 11.5px/1 var(--sans);color:var(--ink-4);background:none}
+  .nav .navlinks a svg{display:block;width:23px;height:23px}
+  .nav .navlinks a.on{color:var(--pt-ink);background:none}
+  .nav .navlinks a.on::after{display:none}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px) + 8px)}
+}
+@media(max-width:520px){ .nav .navlinks{gap:0} .nav .navlinks a{font-size:11.5px} }
+/* 넓은 화면은 아래 탭 대신 머리띠 오른쪽 글자 메뉴(원래 그대로) */
+@media(min-width:881px){
+  .nav .logo{flex:0 0 auto} .nav .g-out .navlinks{margin-left:auto;margin-right:6px}
+  .nav .navlinks a.on{color:var(--pt-ink)} .nav .navlinks a.on::after{background:var(--pt)}
+}
+
+/* 합격전략 알약 — 탭 위 12px · 오른쪽 16px · 38px · 테두리 1.5px 포인트 */
+html body .zs-fab,html body .nav .zs-fab{position:fixed!important;left:auto!important;top:auto!important;right:16px!important;
+  bottom:calc(62px + 12px + env(safe-area-inset-bottom,0px))!important;margin:0!important;height:38px!important;padding:0 14px!important;
+  display:inline-flex!important;align-items:center;gap:6px;border-radius:99px!important;background:var(--surface)!important;
+  border:1.5px solid var(--pt)!important;color:var(--pt-ink)!important;box-shadow:none!important;font:700 13.5px/1 var(--sans)!important;z-index:65}
+html body.inner .zs-fab{display:none!important}
+@media(min-width:881px){ html body .zs-fab,html body .nav .zs-fab{bottom:20px!important} }
+
+/* 오늘 루틴 진행 띠(문제 화면 위) — 가는 막대 */
+.flowstrip{background:var(--surface)}
+.flowstrip .seg{height:4px}
+.flowstrip .seg.done,.flowstrip .seg.next{background:var(--pt)}
+body.inner .flowstrip{display:none}
+
+/* 단추 */
+.btn{border-radius:16px}
+.btn.sm{min-height:44px;border-radius:12px}
+:root[data-skin="white"] .btn:not(.ghost):not(.quiet){background:var(--pt);border-color:var(--pt);color:#fff;box-shadow:none}
+:root[data-skin="white"] .btn:not(.ghost):not(.quiet):active{background:var(--pt-2);border-color:var(--pt-2)}
+/* O·X 단추 — 높이 64 · 모서리 16 · 글자 26 (카드 화면 · 개념 체크 공통) */
+html body .ox{gap:10px}
+html body .ox button{height:64px!important;min-height:0!important;padding:0!important;border-radius:16px!important;font-size:26px!important;font-weight:900!important;line-height:1!important}
+/* 정답 #16B364 · 오답 #E5322D — 테두리 1.5px + 옅은 바탕 (포인트 빨강과 섞지 않는다) */
+html body .ox button[data-s="ok"],html body .picks .pick[data-s="ok"]{border:1.5px solid #16B364;box-shadow:none;animation:none;color:#16B364;background:color-mix(in srgb,#16B364 10%,var(--surface))}
+html body .ox button[data-s="no"],html body .picks .pick[data-s="no"]{border:1.5px solid #E5322D;box-shadow:none;color:#E5322D;background:color-mix(in srgb,#E5322D 8%,var(--surface))}
+html body .picks .pick[data-s="ans"]{border:1.5px solid #16B364;color:var(--ink);background:color-mix(in srgb,#16B364 10%,var(--surface))}
+html body .picks .pick[data-s="ok"] .n,html body .picks .pick[data-s="ans"] .n{color:#16B364}
+html body .picks .pick[data-s="no"] .n{color:#E5322D}
+html body .picks .pick{min-height:52px;border:1.5px solid var(--line-2);border-radius:14px;background:var(--surface);color:var(--ink)}
+html body .picks .pick[aria-pressed="true"]{border-color:var(--pt);background:var(--pt-soft)}
+html body .opt[data-s="ok"]{border:1.5px solid #16B364;box-shadow:none;background:color-mix(in srgb,#16B364 10%,var(--surface))}
+html body .opt[data-s="no"]{border:1.5px solid #E5322D;box-shadow:none;background:color-mix(in srgb,#E5322D 8%,var(--surface))}
+html body .verdict{border:0;border-radius:14px}
+html body .verdict.good{background:color-mix(in srgb,#16B364 8%,var(--surface))}
+html body .verdict.bad{background:color-mix(in srgb,#E5322D 6%,var(--surface))}
+
+/* ═══ 11-10 2차 — 훈련·모의고사·내신·카드도 안쪽 머리띠 · 루틴 막대 4px · 아래 탭·코치 띠 숨김 ═══ */
+.rbar{height:4px;background:var(--surface-3)}
+.rbar i{display:block;height:100%;background:var(--pt);transition:width .4s}
+body.inner .nextbar{display:none!important}
+/* 안쪽 화면 공통 — 선지 52px·14px · 주 단추 54px 아래 고정 · 판 18px */
+body.inner{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+html body.inner .opt{min-height:52px;border-radius:14px}
+html body.inner .gorow.stickgo{position:fixed;left:50%;transform:translateX(-50%);width:100%;max-width:720px;box-sizing:border-box;margin:0;padding:0 20px;
+  bottom:calc(12px + env(safe-area-inset-bottom,0px));background:none;z-index:60;flex-wrap:nowrap;gap:12px}
+html body.inner .stickgo .btn{flex:1;height:54px;min-height:54px;border-radius:16px;font-size:16.5px;font-weight:800;padding:0 18px;justify-content:center}
+html body.inner .stickgo .hint,html body.inner .stickgo .gohint{flex:none;font-size:13px;font-weight:700;color:var(--ink-3)}
+html body.inner .qcard,html body.inner .side .card{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+@media(max-width:959px){
+  html body.inner .cols{grid-template-columns:1fr}
+  html body.inner .side{display:grid;grid-template-columns:1fr;gap:12px;margin-top:4px}
+}
+body.inner .nav{background:var(--bg)}
+body.inner .rbar{position:sticky;top:56px;z-index:59}
+html body.inner .exbar{top:60px}
+
+/* 11-10 용어·지도 — 옛 「‹ 테라러닝」 알약은 어느 화면에서도 쓰지 않는다 */
+.th-home{display:none!important}
+
+/* 10절 — 「추천」 표시: 22px 알약 · 포인트 단색 · 흰 글자 800 11.5px. 한 화면에 하나만 */
+.recbadge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--pt,var(--cta));color:#fff;font:800 11.5px/1 var(--sans);letter-spacing:0;margin-left:8px;vertical-align:middle;white-space:nowrap;font-style:normal}
+html body.inner .stickgo.pre .btn{opacity:.4;cursor:default}

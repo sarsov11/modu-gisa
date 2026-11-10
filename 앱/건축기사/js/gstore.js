@@ -20,7 +20,7 @@
   var 과락있음 = 갈래 !== "기능사";
   /* 1021 하루 목표 — 기사 시험은 하루 몇 시간 단위로 공부한다(수험가 영상 실측: 전기기사·정보처리기사 평일 1.5~4시간,
      전기기사 합격수기 300건 필기 준비 50~70일). 예전 5·10·15·20·30분 선택은 쓰지 않는다. */
-  var 분선택 = 갈래 === "기능사" ? [30, 60, 90, 120] : [60, 90, 120, 180, 240];
+  var 분선택 = [30, 60, 90, 120, 180, 240];   // 화면표준 7절: 30분~4시간(4시간 넘는 값은 없다)
   var 기본분 = 갈래 === "기능사" ? 60 : (갈래 === "산업기사" ? 90 : 120);
   function 분글(m) { return m < 60 ? m + "분" : (m % 60 ? Math.floor(m / 60) + "시간 " + (m % 60) + "분" : (m / 60) + "시간"); }
   var 화면 = D.화면 || [];                    // 앱생성이 앱공용에 있는 quiz.html·exam.html 을 적어 준다
@@ -43,7 +43,7 @@
     if (s.시험일 === "2027-03-07" && D.시험일 && D.시험일 !== "2027-03-07") s.시험일 = D.시험일;
     // 1021: 5~30분 시절에 고른 값은 한 번만 시험별 기본값으로 올린다
     if (!s.목표판 || s.목표판 < 1021) { if (!s.목표분 || s.목표분 < 30) s.목표분 = 기본분; s.목표판 = 1021; }
-    s.목표분 = s.목표분 || 기본분;
+    s.목표분 = Math.min(240, s.목표분 || 기본분);   // 저장된 값이 한도(4시간)를 넘으면 한도 값으로 읽는다
     if (!s.시작 && Object.keys(s.ox).length) s.시작 = "기존";     // 이미 쓰던 사람은 첫 설정을 다시 안 거친다
     return s;
   }
@@ -311,7 +311,7 @@
     var 이 = it.이름 || "";
     if (it.종류 === "review") return "복습 " + 다시볼것().length;
     if (it.종류 === "card") return "개념 · " + 이;
-    if (it.종류 === "quiz") return "문제풀이 · " + 이 + (/2$/.test(it.id) ? " 한 번 더" : "");
+    if (it.종류 === "quiz") return "기출 · " + 이 + (/2$/.test(it.id) ? " 한 번 더" : "");
     return 이 + " O·X" + ((it.id !== "ox" && it.k === (S.플로 || {}).k) ? " 한 번 더" : "");
   }
   function 큰단추(R) {                                           // 「시작: …」「다음: …」 한 줄 이름표
@@ -443,25 +443,70 @@
     return { n: n, ok: ok };
   }
 
-  /* ── 내비 — 위 브랜드 줄 + 아래 탭(문제풀이 화면이 있으면 탭에 들어간다) ── */
+  /* ── 풀이 창(tera-pad.js, 화면표준 8절) — 계산 과목이거나 TERA_PAD.isCalc 가 참인 문항에만 단추를 단다 ── */
+  var 계산과목 = /(구조역학|응용역학|재료역학|수리|수문|회로|열역학|유체|토질|측량|전기이론|전력|제어|수학|통계)/;
+  function 풀이창(슬롯, 글, 과목, 키, 제목, 강제) {
+    if (!슬롯 || !window.TERA_PAD) return;
+    if (!강제 && !(계산과목.test(과목 || "") || TERA_PAD.isCalc(글))) return;
+    TERA_PAD.button(슬롯, { key: String(키 || ""), title: 제목 || 과목 || "풀이" });
+    if (window.__tpadObs) return; window.__tpadObs = 1;
+    function 맞춤() {
+      var p = document.getElementById("tpad"), 켬 = !!(p && p.classList.contains("on")), r = document.documentElement;
+      r.classList.toggle("padon", 켬); r.style.setProperty("--padh", (켬 ? p.offsetHeight : 0) + "px");
+      if (켬) { var q = document.querySelector(".qwrap"); if (q) window.scrollTo({ top: Math.max(0, q.getBoundingClientRect().top + window.scrollY - 70), behavior: "smooth" }); }
+    }
+    new MutationObserver(function () {
+      var p = document.getElementById("tpad");
+      if (p && !p.__o) { p.__o = 1; new MutationObserver(맞춤).observe(p, { attributes: true, attributeFilter: ["class"] }); 맞춤(); }
+    }).observe(document.body, { childList: true });
+  }
+  /* ── 내비 — 위 머리띠 + 아래 탭 (2026-11-10 화면표준: 머리띠 56px · 표식 28px · 격자 단추 / 탭 62px · 아이콘 23px) ── */
+  var 그림 = {
+    "index.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.2 12 4l8 7.2V19a1.5 1.5 0 0 1-1.5 1.5H15v-6H9v6H5.5A1.5 1.5 0 0 1 4 19z"/></svg>',
+    "quiz.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 3 5.5 13.4h5.6L10.2 21l8.3-10.6h-5.7z"/></svg>',
+    "tree.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="5.5" r="2.4"/><circle cx="6.5" cy="18.5" r="2.4"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M6.5 7.9v8.2M17.5 11.9c0 3.4-3.6 3.2-8.6 5.2"/></svg>',
+    "card.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.2 5 7.6 4.5 4.5 4.8v13c3.1-.3 5.7.2 7.5 1.7 1.8-1.5 4.4-2 7.5-1.7v-13c-3.1-.3-5.7.2-7.5 1.7zM12 6.5v13"/></svg>',
+    "settings.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.2v2.4M12 18.4v2.4M3.2 12h2.4M18.4 12h2.4M5.8 5.8l1.7 1.7M16.5 16.5l1.7 1.7M18.2 5.8l-1.7 1.7M7.5 16.5l-1.7 1.7"/></svg>',
+    "exam.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 19.500V12M12 19.500V5M19 19.500V9"/></svg>',
+    "buy.html": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.2 5 7.6 4.5 4.5 4.8v13c3.1-.3 5.7.2 7.5 1.7 1.8-1.5 4.4-2 7.5-1.7v-13c-3.1-.3-5.7.2-7.5 1.7zM12 6.5v13"/></svg>',
+    grid: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7.5" height="7.5" rx="2.2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2.2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2.2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2.2"/></svg>', back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></svg>', close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+  };
   function 내비(지금, 옵션) {
     옵션 = 옵션 || {};
-    var 탭 = [["index.html", "홈"]];
+    var 탭 = [["index.html", "오늘"]];
     // 1023 대표님: 실기는 아래 탭에서 빼고 문제풀이 화면 위 필기·실기 단추로 옮긴다
     if (지금 === "silgi.html" && !샀다("실기")) { location.replace("quiz.html#buy"); return; }
-    if (있다("quiz.html")) 탭.push(["quiz.html", "문제풀이"]);
-    탭.push(["tree.html", "개념트리"], ["card.html", "개념"], ["settings.html", "설정"]);
-    var 위 = '<header class="gbar"><div class="gin"><span id="th-slot"></span><a class="gb" href="index.html"><i></i>모두의 ' + (D.별칭 || "") + '</a></div></header>';
+    탭.push(["tree.html", "합격 지도"], ["card.html", "개념"]);
+    if (있다("quiz.html")) 탭.push(["quiz.html", "기출"]);
+    탭.push(["settings.html", "설정"]);
+    var 위 = '<header class="gbar"><div class="gin">' +
+      '<div class="g-out"><a class="gb" href="index.html"><span class="mk">기</span><span class="nm">모두의 <em>기술</em></span><small class="sb">' + esc(D.별칭 || "") + '</small></a>' +
+      '<nav class="gnav">' + 탭.map(function (t) { return '<a href="' + t[0] + '"' + (t[0] === 지금 ? ' class="on"' : '') + '>' + t[1] + '</a>'; }).join("") + '</nav>' +
+      '<a class="fam" href="https://teralearning.kr/" aria-label="테라러닝 전체 서비스">' + 그림.grid + '</a></div>' +
+      '<div class="g-in"><a class="bk" href="' + (옵션.뒤 || "index.html") + '" aria-label="뒤로">' + 그림.back + '</a><b class="gt" id="gtitle">' + esc(옵션.안 || "") + '</b><span class="gpr" id="gpr"></span><a class="xx" href="index.html" aria-label="닫기">' + 그림.close + '</a></div>' +
+      '</div></header>';
     var 아래 = 옵션.탭 === false ? "" : '<nav class="gtabs" style="grid-template-columns:repeat(' + 탭.length + ',1fr)">' + 탭.map(function (t) {
       var 켜짐 = t[0] === 지금 || (t[0] === "quiz.html" && 지금 === "silgi.html");
-      return '<a href="' + t[0] + '"' + (켜짐 ? ' class="on"' : '') + '>' + t[1] + '</a>';
+      return '<a href="' + t[0] + '"' + (켜짐 ? ' class="on" aria-current="page"' : '') + '>' + (그림[t[0]] || "") + '<span>' + t[1] + '</span></a>';
     }).join("") + '</nav>';
     document.body.insertAdjacentHTML("afterbegin", 위);
+    if (옵션.안 !== undefined) document.body.classList.add("inner");
+    if (옵션.탭 === false || 옵션.안 !== undefined) document.body.classList.add("notab");
     if (있다("silgi.html") && (지금 === "quiz.html" || 지금 === "silgi.html")) 필실단추(지금);
-    // 1021 테라러닝 홈 단추(허브 공용 terrahome.js) — 위 줄 맨 앞 #th-slot 에 들어간다
-    if (!document.querySelector('script[src*="terrahome.js"]')) { var th = document.createElement("script"); th.src = "js/terrahome.js?v=1021"; th.setAttribute("data-slot", "#th-slot"); document.head.appendChild(th); }
     if (아래) document.body.insertAdjacentHTML("beforeend", 아래);
   }
+  /* 화면표준 9절: 공용 합격전략 창(zzstrat.js)의 단추 글자 「합격전략」을 「합격 전략」으로 — 공용 파일은 그대로 두고 앱에서 글자만 바꾼다 */
+  (function(){
+    function 말(){ document.querySelectorAll(".zs-fab,.zs-btn").forEach(function(el){
+      var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false), n; while((n=w.nextNode())){ if(n.nodeValue.indexOf("합격전략")>=0) n.nodeValue=n.nodeValue.replace(/합격전략/g,"합격 전략"); } }); }
+    new MutationObserver(말).observe(document.documentElement,{childList:true,subtree:true}); 말();
+  })();
+  /* 안쪽 화면(문제 풀이 등) 머리띠 켜고 끄기 — quiz.html·exam.html 이 풀이를 시작할 때 부른다 */
+  function 안쪽(제목, 켬) {
+    document.body.classList.toggle("inner", !!켬); document.body.classList.toggle("notab", !!켬);
+    var g = document.getElementById("gtitle"); if (g && 제목) g.textContent = 제목;
+  }
+  function 진행표시(글) { var g = document.getElementById("gpr"); if (g) g.textContent = 글 || ""; }
   /* ── 이용권(1023) — 필기는 기본. 실기는 이용권이 있어야 열린다.
    *   modugisa2.buy = { "<종목>": { 실기: 1 } } — 결제가 붙으면 결제 완료 화면이 이 값을 쓴다 */
   var 산키 = "modugisa2.buy", 구매주소 = "buy.html";
@@ -499,13 +544,13 @@
     모의필요: 모의필요, 옥수: 옥수, 개념있음: 개념있음, 시험성적: 시험성적, 루틴: 루틴, 루틴완료: 루틴완료, 더하기: 더하기, 라벨: 라벨, 큰단추: 큰단추, 최근테마: 최근테마,
     과목표: 과목표, 가늠: 가늠, 역할: 역할, 진단뽑기: 진단뽑기, 진단결과: 진단결과,
     기록: 기록, 카드봄: 카드봄, 디데이: 디데이, 시험일예상: 시험일예상, 시험일안내: 시험일안내, 과목성적: 과목성적, 이번주: 이번주,
-    내비: 내비, esc: esc, 샀다: 샀다,
+    내비: 내비, 풀이창: 풀이창, 안쪽: 안쪽, 진행표시: 진행표시, esc: esc, 샀다: 샀다,
     고유기출: 고유기출,
     /* 기록 옮기기 — 이 종목 기록 전부를 앱·종목·판 표시와 함께 내보낸다. 가져올 때 종목이 다르면 거절(다른 종목 기록을 덮지 않게) */
     내보내기: function () { return JSON.stringify({ 앱: "modu-gisa", 종목: D.종목, 판: 2, 날: 오늘(), 기록: S }); },
     가져오기: function (글) {
       var o; try { o = JSON.parse(글); } catch (e) { return "파일을 읽지 못함"; }
-      if (!o || o.앱 !== "modu-gisa" || !o.기록) return "모두의 기사 기록 파일이 아님";
+      if (!o || o.앱 !== "modu-gisa" || !o.기록) return "모두의 기술 기록 파일이 아님";
       if (o.종목 !== D.종목) return "다른 종목(" + o.종목 + ") 기록이라 넣지 않음";
       try { localStorage.setItem(KEY, JSON.stringify(o.기록)); } catch (e) { return "저장 실패"; }
       return "";

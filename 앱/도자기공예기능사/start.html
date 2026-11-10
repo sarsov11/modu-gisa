@@ -13,27 +13,26 @@
   .hd{padding:24px 2px 0}
   .hd small{display:block;font-size:14.5px;color:var(--ink-3);font-weight:700}
   .hd h1{font-size:27px;letter-spacing:-.04em;margin:6px 0 0;font-weight:900}
-  .prog{display:flex;gap:4px;margin:20px 0 18px}
-  .prog i{flex:1;height:4px;border-radius:99px;background:var(--surface-3)}
-  .prog i.on{background:var(--ink-3)} .prog i.ok{background:var(--ink-3)} .prog i.no{background:var(--accent)} .prog i.now{background:var(--ink-4)}
+  .prog{display:flex;gap:0;margin:20px 0 18px;height:4px;border-radius:4px;background:var(--surface-3);overflow:hidden}
+  .prog i{flex:1;height:4px;background:transparent}
+  .prog i.on,.prog i.ok,.prog i.no{background:var(--pt)}
   .dr{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0 0}
-  input[type=date]{font:inherit;font-size:16px;padding:11px 12px;border:1.5px solid var(--line-2);
-    border-radius:var(--r2);background:var(--surface);color:var(--ink)}
   .gap{height:18px}
-  .qwrap{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--bg-2);padding:22px 20px;margin-bottom:18px}
+  .qwrap{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line);padding:18px;margin-bottom:16px}
   .qtag{display:flex;gap:8px;align-items:center;font-size:14.5px;color:var(--ink-3);margin-bottom:14px}
   .qtag b{color:var(--accent);font-weight:800}
-  .qstem{font-size:16.5px;line-height:1.62;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
-  .qpick{border:1px solid var(--accent);border-radius:var(--r3);padding:14px 16px;font-size:17px;line-height:1.62;font-weight:700;
-    background:color-mix(in srgb,var(--accent) 7%,transparent)}
+  .qstem{font-size:17px;line-height:1.6;font-weight:600;margin:0 0 14px;letter-spacing:-.01em}
+  .qpick{border:1px solid var(--pt-line);border-radius:14px;padding:14px 16px;font-size:17px;line-height:1.6;font-weight:600;
+    background:var(--pt-soft)}
   .ox{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .ox button{appearance:none;border:2px solid var(--line-2);background:var(--surface-2);color:var(--ink);
-    border-radius:var(--r2);padding:20px;font:inherit;font-size:30px;font-weight:800;cursor:pointer;line-height:1}
-  .ox button:disabled{opacity:.4;cursor:default}
-  .ox button[data-s="ok"]{border-color:var(--cheer-ok);opacity:1}
-  .ox button[data-s="no"]{border-color:var(--accent);opacity:1}
+  .ox{gap:10px}
+  .ox button{appearance:none;height:64px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);
+    border-radius:16px;padding:0;font:inherit;font-size:26px;font-weight:900;cursor:pointer;line-height:1}
+  .ox button:disabled{opacity:1;cursor:default;color:var(--ink-4)}
+  .ox button[data-s="ok"]{border-color:#16B364;color:#16B364;background:color-mix(in srgb,#16B364 10%,#fff)}
+  .ox button[data-s="no"]{border-color:#E5322D;color:#E5322D;background:color-mix(in srgb,#E5322D 8%,#fff)}
   .vd{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900}
-  .vd.no{color:var(--accent)}
+  .vd.no{color:var(--no)}
   .vd small{font-size:14px;color:var(--ink-3);font-weight:700}
   .nx{margin-top:12px}
   .res .sr{padding:12px 0;border-top:1px solid var(--line)}
@@ -42,7 +41,7 @@
   .res .sn{font-size:16px;font-weight:800;letter-spacing:-.02em;margin-right:auto}
   .res b{font-size:16px;font-variant-numeric:tabular-nums}
   .res .bar{margin-top:7px}
-  .rbox{border:1px solid var(--line-2);border-radius:var(--r3);background:var(--surface);padding:6px 18px 8px;margin-bottom:18px}
+  .rbox{border:0;box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line);border-radius:18px;background:var(--surface);padding:6px 18px 8px;margin-bottom:18px}
 </style>
 </head><body>
 <div class="page">
@@ -164,14 +163,12 @@
       (줄?'<div class="rbox res">'+줄+'</div>':'')+
       /* 진단은 과목 단위다 — 개념 하나하나를 짚은 것이 아니다(2026-10-11 외부 검수 C). 무엇이 바뀌는지 그대로 적는다 */
       '<p style="margin:10px 2px 0;font-size:14px;color:var(--ink-3)">과목별 O·X 10문항으로 본 과목 단위 결과. 가장 약한 과목의 테마부터 오늘 할 일에 올림. 개념별 약점은 풀어 갈수록 테마 정답률로 잡힘</p>'+
-      (R.다음?'<a class="b main" id="go" href="'+e(R.다음.주소)+'">'+e(GS.큰단추(R))+'</a>':'<a class="b main" id="go" href="index.html">홈</a>')+
-      '<div class="b2" style="margin-top:10px"><a class="b sm" href="index.html">홈</a><a class="b sm" href="tree.html">개념트리</a></div>';
+      (R.다음?'<a class="b main" id="go" href="'+e(R.다음.주소)+'">'+e(GS.큰단추(R))+'</a>':'<a class="b main" id="go" href="index.html">오늘</a>')+
+      '<div class="b2" style="margin-top:10px"><a class="b sm" href="index.html">오늘</a><a class="b sm" href="tree.html">합격 지도</a></div>';
   }
 
   if(재진단) 진단시작(); else 일화면();
 })();
 </script>
 <script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script src="js/supa.config.js"></script>
-<script src="js/research.js" data-service="gisa"></script>
 </body></html>

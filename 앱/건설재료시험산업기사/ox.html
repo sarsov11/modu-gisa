@@ -2,76 +2,80 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>기출로 확인 — 모두의 건설재료시험산업기사</title>
+<title>기출 — 모두의 건설재료시험산업기사</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/tera-q.css">
 <link rel="stylesheet" href="css/cheer.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
-  /* 통사 ox.html 「기출로 확인」 판 (2026-09-12·21 규격) */
-  .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 0;font-weight:900}
-  .prog{display:flex;gap:5px;margin:22px 0 16px}
-  .prog i{flex:1;height:4px;border-radius:99px;background:var(--surface-3)}
-  .prog i.ok{background:var(--ink-3)} .prog i.no{background:var(--accent)} .prog i.now{background:var(--ink-4)}
+  /* 2026-11-10 화면표준 4절 — 문제 판 18px·확신도 44px·O·X 64px·진행 막대 4px */
+  .hd{display:none}
+  .prog{display:flex;gap:0;margin:0 -20px 16px;height:4px;background:var(--surface-3);overflow:hidden}
+  .prog i{flex:1;height:4px;background:transparent}
+  .prog i.ok,.prog i.no{background:var(--pt,var(--accent))}
 
-  .qwrap{border:1px solid var(--line-2);border-radius:var(--r2);background:var(--bg-2);
-    padding:22px 20px;margin-bottom:18px}
-  .qtag{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14.5px;
-    color:var(--ink-3);margin-bottom:16px}
-  .qtag b{color:var(--accent);font-weight:800}
-  .qtag .src{margin-left:auto;font-variant-numeric:tabular-nums}
-  .qstem{font-size:16.5px;line-height:1.62;font-weight:700;margin:0 0 14px;letter-spacing:-.01em}
-  .qpick{border:1px solid var(--accent);border-radius:var(--r3);padding:14px 16px;
-    background:color-mix(in srgb,var(--accent) 7%,transparent)}
-  .qpick .tx{font-size:17px;line-height:1.62;font-weight:700;letter-spacing:-.01em}
+  .qwrap{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line);
+    padding:18px;margin-bottom:16px}
+  .qtag{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;font-weight:700;
+    color:var(--ink-3);margin-bottom:14px}
+  .qtag b{color:var(--pt-ink,var(--accent));font-weight:800}
+  .qtag>span:not(.src){font-variant-numeric:tabular-nums}
+  .qtag .src{margin-left:auto;height:26px;padding:0 10px;border-radius:99px;background:var(--surface-2);
+    display:inline-flex;align-items:center;font-size:12.5px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .qstem{font-size:17px;line-height:1.6;font-weight:600;margin:0 0 14px;letter-spacing:-.02em}
+  .qpick{border:1px solid var(--pt-line,var(--accent));border-radius:14px;padding:14px 16px;
+    background:var(--pt-soft,color-mix(in srgb,var(--accent) 8%,transparent))}
+  .qpick .tx{font-size:17px;line-height:1.6;font-weight:600;letter-spacing:-.02em}
 
   /* 확신 — 고르지 않아도 O·X 가 바로 눌린다(안 고르면 확실 아님으로 기록) */
-  .conf{display:flex;gap:8px;align-items:center;margin:0 0 12px}
-  .conf span{font-size:13.5px;color:var(--ink-3);font-weight:700;margin-right:2px}
-  .conf button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);
-    color:var(--ink-2);border-radius:99px;padding:7px 13px;font:inherit;font-size:14.5px;
+  .conf{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 12px}
+  .conf span{grid-column:1/-1;font-size:13px;color:var(--ink-3);font-weight:700}
+  .conf button{appearance:none;height:44px;border:1.5px solid var(--line-2);background:var(--surface);
+    color:var(--ink-2);border-radius:12px;padding:0 6px;font:inherit;font-size:14.5px;
     font-weight:700;cursor:pointer}
-  .conf button[aria-pressed="true"]{border-color:var(--ink);background:var(--surface);color:var(--ink)}
-  .ox{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .ox button{appearance:none;border:2px solid var(--line-2);background:var(--surface-2);color:var(--ink);
-    border-radius:var(--r2);padding:20px;font:inherit;font-size:30px;font-weight:800;cursor:pointer;line-height:1}
-  .ox button:disabled{opacity:.35;cursor:default}
-  .ox button.pick{border-color:var(--ink);background:var(--surface);opacity:1}
-  .ox button[data-s="ok"]{border-color:var(--cheer-ok);opacity:1}
-  .ox button[data-s="no"]{border-color:var(--accent);opacity:1}
+  .conf button[aria-pressed="true"]{border-color:var(--pt,var(--accent));background:var(--pt-soft,var(--surface-2));color:var(--pt-ink,var(--ink))}
+  .ox{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ox button{appearance:none;height:64px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);
+    border-radius:16px;padding:0;font:inherit;font-size:26px;font-weight:900;cursor:pointer;line-height:1}
+  .ox button:disabled{opacity:1;cursor:default;color:var(--ink-4)}
+  .ox button.pick{border-color:var(--ink);background:var(--surface);color:var(--ink)}
+  .ox button[data-s="ok"]{border-color:#16B364;color:#16B364;background:color-mix(in srgb,#16B364 10%,#fff);opacity:1}
+  .ox button[data-s="no"]{border-color:#E5322D;color:#E5322D;background:color-mix(in srgb,#E5322D 8%,#fff);opacity:1}
 
-  .verdict{border-radius:var(--r2);padding:18px;margin-top:18px;border:1.5px solid var(--line-2);background:var(--surface-2)}
-  .verdict.good{border-color:var(--ink-3);background:var(--surface)}
-  .verdict.bad{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,transparent)}
-  .verdict.warn{border-color:var(--amber);background:color-mix(in srgb,var(--amber) 10%,transparent)}
-  .verdict .top{display:flex;align-items:center;gap:9px;margin-bottom:9px}
-  .verdict .mark{font-size:21px;font-weight:900;line-height:1}
-  .verdict.bad .mark{color:var(--accent)} .verdict.warn .mark{color:var(--amber)}
-  .verdict .kind{font-size:13.5px;color:var(--ink-3);border:1px solid var(--line-2);border-radius:99px;
-    padding:2px 9px;font-weight:800}
+  .verdict{border-radius:14px;padding:16px 18px;margin-top:16px;border:0;background:var(--surface-2)}
+  .verdict.good{background:color-mix(in srgb,#16B364 8%,#fff)}
+  .verdict.bad{background:color-mix(in srgb,#E5322D 6%,#fff)}
+  .verdict.warn{background:color-mix(in srgb,var(--amber) 10%,#fff)}
+  .verdict .top{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+  .verdict .mark{font-size:15px;font-weight:800;line-height:1.3}
+  .verdict.good .mark{color:#0F7B4F} .verdict.bad .mark{color:#E5322D} .verdict.warn .mark{color:var(--amber)}
+  .verdict .kind{font-size:12.5px;color:var(--ink-3);border:1px solid var(--line-2);border-radius:99px;
+    padding:2px 9px;font-weight:800;background:#fff}
   /* 원래 기출 — 정답이 어느 것이었는지 같이 보여 준다(해설이 없는 자리를 기출이 채운다) */
   .orig{margin-top:4px;padding-top:10px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7}
   .orig p{margin:10px 0 6px;font-weight:600}
   .orig ol{margin:0;padding-left:22px}
   .orig li.ans{font-weight:800}
-  .orig li.ans::after{content:"  ← 기출 정답";color:var(--accent);font-weight:800;font-size:13.5px}
+  .orig li.ans::after{content:"  ← 기출 정답";color:var(--pt-ink,var(--accent));font-weight:800;font-size:13.5px}
   .orig li.mine{text-decoration:underline;text-decoration-color:var(--line-3)}
-  .next{margin-top:14px;position:sticky;bottom:calc(10px + env(safe-area-inset-bottom));z-index:5}
+  .next{position:fixed;left:50%;transform:translateX(-50%);width:100%;max-width:720px;padding:0 20px;margin:0;
+    bottom:calc(12px + env(safe-area-inset-bottom));z-index:30}
+  .page{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 
   .done{text-align:center;padding:30px 4px}
   .done h2{font-size:24px;margin:0 0 18px;letter-spacing:-.03em}
   .tally{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px}
-  .tally div{border:1px solid var(--line-2);border-radius:var(--r1);background:var(--surface);padding:13px 6px}
-  .tally b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
-  .tally span{font-size:14px;color:var(--ink-3)}
+  .tally div{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line);padding:14px 6px}
+  .tally b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+  .tally span{font-size:12.5px;font-weight:600;color:var(--ink-3)}
   .done .b2{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
-  @media(max-width:520px){ .qpick .tx{font-size:16px} .ox button{font-size:26px;padding:16px} }
 </style>
 </head><body>
 <div class="page">
-  <div class="hd"><h1 id="ttl">기출로 확인</h1></div>
+  <div class="hd"><h1 id="ttl">기출</h1></div>
   <div class="prog" id="prog"></div>
   <div id="stage"></div>
 </div>
@@ -79,9 +83,12 @@
 <script src="js/judge.js"></script>
 <script src="js/gstore.js"></script>
 <script src="js/cheer.js"></script>
+<script src="js/tera-q.js"></script>
+<script src="js/tera-pad.js"></script>
+<script src="js/qframe.js"></script>
 <script>
 (function(){
-  GS.내비("");
+  GS.내비("",{안:"기출"});
   var D=GS.D, e=GS.esc, 깨=GS.깨끗, P=new URLSearchParams(location.search);
   var k=P.get("k"), 복습=P.get("review")==="1";
   /* 1023 앰블럼 도전: ks=테마1,테마2… 여러 테마를 고르게 섞어 20문장, t=앰블럼 이름 */
@@ -103,13 +110,14 @@
     if(복습) GS.루틴완료("review");
     var 비 =GS.루틴(), 큰=비.다음
       ? '<a class="b main" href="'+e(비.다음.주소)+'">'+e(GS.큰단추(비))+'</a>'
-      : '<a class="b main" href="index.html">홈</a>';
+      : '<a class="b main" href="index.html">오늘</a>';
     el("stage").innerHTML='<div class="done"><h2>'+(복습?"복습 0":"문장 없음")+'</h2>'+큰+
       '<div class="b2"><a class="b sm" href="tree.html">다른 테마</a></div></div>';
     return;
   }
 
   function 진행(){
+    
     el("prog").innerHTML=문장들.map(function(_,j){
       var r=결과[j]; return '<i class="'+(r?(r.ok?"ok":"no"):(j===i?"now":""))+'"></i>';
     }).join("");
@@ -119,36 +127,46 @@
     진행();
     if(i>=문장들.length) return 끝();
     var o=문장들[i], q=D.qs[o.q]||{}, t=GS.테마맵[o.k]||{};
-    확신=null; 시작=Date.now();
-    el("stage").innerHTML=
-      '<div class="qwrap">'+
-        '<div class="qtag"><b>'+e(t.n||"")+'</b><span>'+(i+1)+' / '+문장들.length+'</span>'+
-          '<span class="src">'+e(q.y||"")+(q.no?" "+q.no+"번":"")+'</span></div>'+
-        '<p class="qstem">'+e(깨(o.s))+'</p>'+
-        '<div class="qpick"><span class="tx">'+e(깨(o.c))+'</span></div>'+
-      '</div>'+
-      '<div class="conf"><span>확신</span><button data-c="sure">● 확실</button><button data-c="half">◐ 헷갈림</button>'+
-        '<button data-c="guess">찍음</button></div>'+
-      '<div class="ox"><button class="o" data-v="1">O</button><button class="x" data-v="0">X</button></div>'+
+    확신="sure"; 시작=Date.now(); QF.펜숨김();
+    GS.안쪽(t.s||"기출",true);
+    el("stage").innerHTML=QF.진행(결과.length,문장들.length)+QF.번호줄(i+1)+
+      '<p class="tq-stem">'+e(깨(o.s))+'</p>'+
+      '<div class="tq-box">'+e(깨(o.c))+'</div>'+
+      '<div class="padslot"></div>'+
+      '<div class="tq-ox"><button class="o" data-v="1">O</button><button class="x" data-v="0">X</button></div>'+
       '<div id="vd"></div>';
-    document.querySelectorAll(".conf button").forEach(function(b){
-      b.onclick=function(){
-        var 켜짐=b.getAttribute("aria-pressed")==="true";
-        확신=켜짐?null:b.dataset.c;
-        document.querySelectorAll(".conf button").forEach(function(x){x.setAttribute("aria-pressed",(!켜짐&&x===b)?"true":"false");});
-      };
-    });
-    document.querySelectorAll(".ox button").forEach(function(b){
+    QF.번호줄채우기(t.g); QF.밑줄(document.querySelectorAll(".tq-stem,.tq-box"));
+    GS.풀이창(document.querySelector(".padslot"), (o.s||"")+" "+(o.c||""), t.s||"", o.i, t.n||t.s||"");
+    document.querySelectorAll(".tq-ox button").forEach(function(b){
       b.onclick=function(){ 답하기(Number(b.dataset.v),b); };
     });
+    바그리기(false);
     window.scrollTo({top:0,behavior:"smooth"});
+  }
+  /* 아래 줄: 도구(헷갈림·해설·펜) + ‹ 번호 ›. 헷갈림을 누르면 「헷갈림 · 찍음」 두 개가 작은 선택으로 뜬다(안 누르면 확실로 저장) */
+  function 바그리기(답함){
+    var 켜짐=(확신==="half"||확신==="guess");
+    QF.바({도구:[
+      {id:"conf",icon:"help",글:"헷갈림",켜짐:켜짐,끔:답함,fn:function(){ 확신선택(); }},
+      {id:"exp",icon:"book",글:"해설",끔:!답함,fn:function(){ var v=el("vd"); if(v) v.scrollIntoView({behavior:"smooth",block:"start"}); }},
+      {id:"pen",icon:"pen",글:"펜",fn:function(){ QF.펜(문장들[i]&&문장들[i].i); }}],
+      위치:String(Math.min(i+1,문장들.length)),총:String(문장들.length),이전:null,
+      다음끔:!답함,다음글:(i+1>=문장들.length?"결과":"다음"),다음:function(){ i++; 그리기(); }});
+  }
+  function 확신선택(){
+    var 옛=el("qf-conf"); if(옛){ 옛.remove(); return; }
+    var p=document.createElement("div"); p.id="qf-conf"; p.className="qf-conf";
+    p.innerHTML='<button type="button" data-c="half"'+(확신==="half"?' class="on"':'')+'>헷갈림</button><button type="button" data-c="guess"'+(확신==="guess"?' class="on"':'')+'>찍음</button>';
+    p.onclick=function(ev){ var b=ev.target.closest("button"); if(!b) return; 확신=(확신===b.dataset.c)?"sure":b.dataset.c; p.remove(); 바그리기(false); };
+    document.body.appendChild(p);
   }
 
   function 답하기(v,btn){
     var o=문장들[i], q=D.qs[o.q]||{}, t=GS.테마맵[o.k]||{};
     var ok=(v===o.a), ms=Date.now()-시작;
-    document.querySelectorAll(".ox button,.conf button").forEach(function(x){x.disabled=true;});
-    btn.classList.add("pick");
+    var 선=el("qf-conf"); if(선) 선.remove();
+    document.querySelectorAll(".tq-ox button").forEach(function(x){x.disabled=true; if(x!==btn) x.classList.add("is-rest");});
+    btn.classList.add("pick",ok?"is-ok":"is-no");
     btn.setAttribute("data-s",ok?"ok":"no");
     if(window.CHEER){ if(ok) CHEER.ok(btn); else CHEER.miss(btn); }
     var 전=GS.S.ox[o.i];
@@ -161,22 +179,18 @@
       var cls=(j+1===q.a?"ans":"")+(j+1===o.n?" mine":"");
       return '<li class="'+cls+'">'+e(깨(c))+'</li>';
     }).join("");
-    var 다음=(i+1>=문장들.length)?"결과":"다음";
     el("vd").innerHTML=
-      '<div class="verdict '+판.tone+'">'+
+      '<div class="tq-exp"><div class="tq-tabs"><button class="is-on" type="button">해설</button>'+(GS.개념있음(o.k)?'<a href="card.html?k='+encodeURIComponent(o.k)+'">개념</a>':'')+'</div></div>'+
+      '<div class="verdict '+(ok?"good":"bad")+'">'+
         '<div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
           '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
-        '<div class="ansline" style="font-size:13px;color:var(--ink-3);margin:2px 0 6px">정답 '+(o.a?"O":"X")+(o.d?' · 기출 '+o.d+'회':'')+'</div>'+
-        /* 1005 근거: 같은 테마에서 O 로 판정된 비슷한 문장(지어낸 글 없음, 짝 없으면 생략) */
         (o.e&&GS.oxMap[o.e]?'<div class="why" style="font-size:14.5px;line-height:1.55;margin:0 0 8px;font-weight:700"><span style="color:var(--accent);font-weight:900">O ▸</span> '+e(깨(GS.oxMap[o.e].c))+'</div>':'')+
-        /* 0925: 판정 아래엔 설명문 없이 기출 원문과 정답만 둔다 */
-        /* 해설이 따로 없다는 것을 숨기지 않는다 — 원문과 정답 표시뿐(2026-10-11 외부 검수 D) */
         '<div class="orig"><p style="font-size:12.5px;color:var(--ink-3);margin:0 0 4px">원래 기출과 정답(해설 없음)</p><p>'+e(깨(q.q))+'</p><ol>'+선지+'</ol></div>'+
-        /* 오류 신고 — 문항 ID·과목·테마가 자동으로 붙는다. 공통 베타 모듈이 없으면 단추를 안 그린다 */
+        '<span class="tq-ans">정답 : '+(o.a?"O":"X")+(o.d?' · 기출 '+o.d+'회':'')+'</span>'+
         (window.TerraBeta&&TerraBeta.report?'<button type="button" class="b sm" id="rp" style="margin-top:8px">이 문항 신고</button>':'')+
-      '</div>'+
-      '<div class="next"><button class="b main" id="nx">'+다음+'</button></div>';
-    el("nx").onclick=function(){ i++; 그리기(); };
+      '</div>';
+    QF.밑줄(document.querySelectorAll(".verdict .orig"));
+    바그리기(true);
     var rp=el("rp"); if(rp) rp.onclick=function(){ TerraBeta.report({app:"modu-gisa", 종목:GS.D.종목, id:o.i, 원문항:o.q, 과목:t.s||"", 테마:o.k||"", 유형:"O·X", 화면:"ox"}); };
     el("vd").scrollIntoView({behavior:"smooth",block:"start"});
   }
@@ -187,7 +201,7 @@
     var m=k?GS.숙련(k):null;
     GS.루틴완료(복습?"review":"ox",k);
     var R=GS.루틴(), 다음=R.다음;
-    el("prog").innerHTML="";
+    el("prog").innerHTML=""; var 줄=el("qf-bar"); if(줄) 줄.remove(); document.body.classList.remove("has-tqbar"); GS.안쪽("",false); GS.진행표시("");
     var 큰 = 다음
       ? '<a class="b main" href="'+e(다음.주소)+'">'+e(GS.큰단추(R))+'</a>'
       : '<a class="b main" href="index.html">오늘 목표 완료</a>';
@@ -196,10 +210,10 @@
     if(k) 작.push('<a class="b sm" href="ox.html?k='+encodeURIComponent(k)+'">다시</a>');
     if(k&&GS.개념있음(k)&&!(다음&&다음.종류==="card")) 작.push('<a class="b sm" href="card.html?k='+encodeURIComponent(k)+'">개념</a>');
     if(R.완료&&GS.있다("exam.html")) 작.push('<a class="b sm" href="exam.html">모의고사</a>');
-    작.push('<a class="b sm" href="index.html">홈</a>');
+    작.push('<a class="b sm" href="index.html">오늘</a>');
     if(묶음.length){ var 률=맞/Math.max(1,결과.length);
       큰='<a class="b main" href="tree.html#emb">'+(률>=0.8?"앰블럼 받으러 가기":"앰블럼판으로")+'</a>';
-      작=['<a class="b sm" href="'+e(location.pathname.split("/").pop()+location.search)+'">다시 도전</a>','<a class="b sm" href="index.html">홈</a>']; }
+      작=['<a class="b sm" href="'+e(location.pathname.split("/").pop()+location.search)+'">다시 도전</a>','<a class="b sm" href="index.html">오늘</a>']; }
     el("stage").innerHTML=
       '<div class="done"><h2>'+(묶음.length?e(묶음이름):(k&&테마?e(테마.n):"복습"))+' — 끝</h2>'+
         '<div class="tally"><div><b>'+맞+'/'+결과.length+'</b><span>맞힘</span></div>'+
@@ -216,6 +230,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script src="js/supa.config.js"></script>
-<script src="js/research.js" data-service="gisa"></script>
 </body></html>

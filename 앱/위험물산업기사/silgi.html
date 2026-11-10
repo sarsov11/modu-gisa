@@ -23,7 +23,7 @@
 .sg-self{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
 .sg-self button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);padding:13px 6px;font:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
 .sg-self button[data-v="2"]{border-color:var(--ink)}
-.sg-self button[data-v="0"]{border-color:var(--accent);color:var(--accent)}
+.sg-self button[data-v="0"]{border-color:var(--no);color:var(--no)}
 .sg-hh{white-space:normal}.sg-hh table{border-collapse:collapse;margin:8px 0;font-size:14px}.sg-hh td,.sg-hh th{border:1px solid var(--line-2);padding:4px 8px}.sg-hh img,.sg-hh svg{max-width:100%;height:auto}
 .sg-wh{margin-top:6px}.sg-wh summary{cursor:pointer;font-size:13.5px;font-weight:800;color:var(--ink-3)}.sg-wh .h{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink-2)}
 .sg-note{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:18px 0 96px}
@@ -46,7 +46,7 @@
 .x-kan div{display:flex;align-items:center;gap:8px}
 .x-kan b{flex:0 0 28px;font-size:15px;color:var(--ink-3);text-align:center}
 .x-kan .x-in{padding:10px 12px}
-.x-kan .x-in.ok{border-color:var(--ink)} .x-kan .x-in.no{border-color:var(--accent)}
+.x-kan .x-in.ok{border-color:var(--ink)} .x-kan .x-in.no{border-color:var(--no)}
 .x-fix{appearance:none;border:0;background:none;color:var(--ink-3);font:600 13px/1.4 var(--sans);text-decoration:underline;padding:8px 0 0;cursor:pointer}
 /* 소방 계산기 단추(1011) */
 .sg-cx{display:grid;gap:8px;margin:0 0 14px}
@@ -67,6 +67,7 @@
 <script src="js/judge.js"></script>
 <script src="js/gstore.js"></script>
 <script src="js/sgx.js?v=1025b"></script>
+<script src="js/tera-pad.js"></script>
 <script src="js/hwa.js?v=1011"></script>
 <script>
 (function 시작(){
@@ -208,7 +209,8 @@
       else 입력='<label for="in0">답</label><input class="x-in" id="in0" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="'+(x.t==="calc"?"수":"답")+'"><p class="x-rule">'+(x.t==="calc"?"단위는 붙여도 되고 빼도 됩니다.":"한글·영문 둘 다 받습니다. 띄어쓰기·대소문자는 보지 않습니다.")+'</p>';
       아래='<div class="x-ansbox">'+입력+'</div><div id="res"></div><button class="b main" id="go">'+(모의세트?"다음":"채점")+'</button>';
     }
-    el("stage").innerHTML=위+아래;
+    el("stage").innerHTML=위+'<div class="padslot"></div>'+아래;
+    GS.풀이창(document.querySelector(".padslot"), x.q||"", "", x.id, (x.p||"")+(x.kw?" · "+x.kw:""), x.t==="calc"||x.tp&&계산가능(x)||(x.cx&&x.cx.length)||x.t==="code"&&false);
     if(x.schema&&el("sch")) SGX.스키마표(x).then(function(h){el("sch").innerHTML=h;}).catch(function(){});
     if(!자동(x)){
       if(모의세트){ el("go").textContent="다음"; el("go").onclick=function(){ 답모음[i]=[el("memo").value]; 결과[i]=-1; i++; 그리기(); }; }
@@ -376,6 +378,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script src="js/supa.config.js"></script>
-<script src="js/research.js" data-service="gisa"></script>
 </body></html>

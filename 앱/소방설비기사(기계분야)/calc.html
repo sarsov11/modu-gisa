@@ -44,7 +44,7 @@
 .ct-f select.g{width:100%;font-size:14px}
 .ct-f .w:has(select.g){flex-direction:column}
 .ct-f input.x{text-align:right}
-.ct-f.miss input{border-color:var(--accent)}
+.ct-f.miss input{border-color:var(--no)}
 .ct-f .ut{flex:0 0 auto;align-self:center;font-size:13.5px;color:var(--ink-3);min-width:36px}
 .ct-mode{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
 .ct-mode button{appearance:none;font:inherit;font-weight:800;font-size:15px;padding:12px 6px;border-radius:var(--r2);border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink-3);cursor:pointer}
@@ -69,8 +69,8 @@
 .ct-s .tf button{flex:1;background:var(--surface-2);color:var(--ink)}
 .ct-s .ct-vd{margin-top:10px;font-weight:800;font-size:14.5px}
 .ct-s .ct-vd.정답{color:var(--ink)} .ct-s .ct-vd.정답::before{content:"● "}
-.ct-s .ct-vd.오답,.ct-s .ct-vd.단위,.ct-s .ct-vd.근접{color:var(--accent)} .ct-s .ct-vd.오답::before{content:"✕ "} .ct-s .ct-vd.단위::before,.ct-s .ct-vd.근접::before{content:"△ "}
-.ct-s.ok{border-color:var(--ink)} .ct-s.no{border-color:var(--accent)}
+.ct-s .ct-vd.오답,.ct-s .ct-vd.단위,.ct-s .ct-vd.근접{color:var(--no)} .ct-s .ct-vd.오답::before{content:"✕ "} .ct-s .ct-vd.단위::before,.ct-s .ct-vd.근접::before{content:"△ "}
+.ct-s.ok{border-color:var(--ink)} .ct-s.no{border-color:var(--no)}
 .ct-skip{font-size:13.5px;color:var(--ink-3);line-height:1.6;margin:4px 2px}
 .ct-sum{border:1.5px solid var(--ink);border-radius:var(--r2);padding:14px 16px;margin:6px 0 14px;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .ct-sum b{font-family:var(--mono);font-size:22px}
@@ -106,13 +106,13 @@ details.ct-in .b.main{margin-top:10px}
 .ct-s .eq sup{font-size:.7em}
 .ct-s input.bx{font:inherit;font-family:var(--mono);font-weight:800;font-size:17px;width:4.6em;min-width:0;text-align:center;padding:4px 4px;margin:0 2px;border:2px solid var(--ink);border-radius:9px;background:var(--surface);color:var(--ink);vertical-align:middle;box-sizing:border-box}
 .ct-s input.bx.ok{border-color:#0F7B4F;color:#0F7B4F;background:#ECF7F1}
-.ct-s input.bx.ng{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.ct-s input.bx.ng{border-color:var(--no);color:var(--no);background:color-mix(in srgb,var(--no) 8%,var(--surface))}
 .ct-s input.bx.shown{border-style:dashed;color:var(--ink-2)}
 .ct-s .ct-btn{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 .ct-s .ct-btn button{appearance:none;font:inherit;font-weight:800;font-size:15px;border-radius:10px;padding:11px 0;cursor:pointer;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink)}
 .ct-s .ct-btn button.c{background:var(--ink);color:var(--bg)}
 .ct-s .fb{margin-top:8px;font-size:14.5px;line-height:1.6}
-.ct-s .fb b.ok{color:#0F7B4F} .ct-s .fb b.ng{color:var(--accent)}
+.ct-s .fb b.ok{color:#0F7B4F} .ct-s .fb b.ng{color:var(--no)}
 .ct-s.ct-tf .fb{margin-top:10px}
 .ct-lawd{margin-top:8px} .ct-lawd summary{cursor:pointer;font-size:13.5px;font-weight:800;color:var(--ink-2)}
 .ct-law{margin:8px 0 0;padding:0;list-style:none;font-size:14px;line-height:1.6;color:var(--ink-2)}
@@ -132,6 +132,7 @@ details.ct-in .b.main{margin-top:10px}
 </head><body>
 <div class="page">
   <div class="hd"><h1 id="ttl">계산기</h1></div>
+  <div class="padslot" id="pslot"></div>
   <div class="ct-seg" id="seg"><a href="calc.html" data-tab="type">유형별 풀이</a><a href="calc.html?tab=kp" data-tab="kp">공학용 계산기</a></div>
   <div id="stage"></div>
 </div>
@@ -140,10 +141,12 @@ details.ct-in .b.main{margin-top:10px}
 <script src="js/gcalc.js"></script>
 <script src="js/judge.js"></script>
 <script src="js/gstore.js"></script>
+<script src="js/tera-pad.js"></script>
 <script src="js/calc.js"></script>
 <script>
 (function(){
   GS.내비("silgi.html");
+  GS.풀이창(document.getElementById("pslot"), "", "", "calc", "계산기", true);
   var CF=window.CF||{계산기:[],유형:{}}, SG=window.SG||{문항:[]}, C=window.CALC, e=GS.esc, P=new URLSearchParams(location.search);
   function el(x){return document.getElementById(x);}
   var 계들=CF.계산기, 표={}; 계들.forEach(function(c){표[c.id]=c;});
@@ -503,6 +506,4 @@ details.ct-in .b.main{margin-top:10px}
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1009a" defer></script>
-<script src="js/supa.config.js"></script>
-<script src="js/research.js" data-service="gisa"></script>
 </body></html>

@@ -136,7 +136,7 @@
   var 노트장=장들.length&&장들[0].노트;
   if(F&&F.pt&&F.pt.length) 장들=[{fig:"A"}].concat(F.pt.map(function(_,j){return {fig:"C",j:j};}), 장들);
   function el(x){return document.getElementById(x);}
-  if(!장들.length){ el("stage").innerHTML='<p style="color:var(--ink-3)">문장 없음 · <a href="tree.html">개념트리</a></p>'; return; }
+  if(!장들.length){ el("stage").innerHTML='<p style="color:var(--ink-3)">문장 없음 · <a href="tree.html">합격 지도</a></p>'; return; }
   el("eb").textContent=(t.s||"")+" · "+(t.g||"")+"급"+(노트장?" · 기출 확인 문장":"");
   el("ttl").textContent=t.n||"";
   var i=0;
@@ -154,9 +154,9 @@
         ((GS.옥수(k)>0&&(!다음||다음.k!==k||다음.종류!=="ox"))?'<a class="b sm" href="ox.html?k='+encodeURIComponent(k)+'">O·X</a>':'')+
         (R.완료?'<button class="b sm" id="more">한 세트 더</button>':'')+
         (R.완료&&GS.있다("exam.html")?'<a class="b sm" href="exam.html">모의고사</a>':'')+
-        '<a class="b sm" href="index.html">홈</a></div>';
+        '<a class="b sm" href="index.html">오늘</a></div>';
     }
-    var 다음말=c.fig==="A"?"하나씩 보기":(c.fig==="C"&&c.j+1<F.pt.length?"다음 부분":"다음");
+    var 다음말=c.fig==="A"?"시작":(c.fig==="C"&&c.j+1<F.pt.length?"다음 부분":"다음");
     el("stage").innerHTML=(c.fig?그림장(c):
       '<div class="kc">'+(c.f?'<img src="img/'+e(c.f)+'" alt="">':'')+
         '<div class="in">'+
@@ -190,6 +190,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script src="js/supa.config.js"></script>
-<script src="js/research.js" data-service="gisa"></script>
 </body></html>

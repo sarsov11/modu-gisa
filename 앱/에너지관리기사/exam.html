@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/g.css">
 <link rel="stylesheet" href="css/q.css">
+<link rel="stylesheet" href="css/tera-q.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 </head><body>
 <div class="page">
@@ -19,6 +20,9 @@
 <script src="js/judge.js"></script>
 <script src="js/gstore.js"></script>
 <script src="js/qlib.js"></script>
+<script src="js/tera-q.js"></script>
+<script src="js/tera-pad.js"></script>
+<script src="js/qframe.js"></script>
 <script>
 (function(){
   var D=GS.D, e=GS.esc, M=QL.M, 유형=M.유형||GS.갈래||"기사";
@@ -53,14 +57,14 @@
     if(기록.length) h+='<div class="lab">최근 기록</div><div class="hist">'+기록.map(function(r){
       return '<div class="r"><span class="pl '+(r.합?"pass":"fail")+'">'+(r.합?"합격":"불합격")+'</span><span>'+e(r.t)+'</span><em>'+r.평균+'</em></div>';
     }).join("")+'</div>';
-    h+='<div class="b2"><a class="b" href="quiz.html">문제풀이</a><a class="b" href="index.html">홈</a></div>';
+    h+='<div class="b2"><a class="b" href="quiz.html">기출</a><a class="b" href="index.html">홈</a></div>';
     el("stage").innerHTML=h;
     el("st").onclick=function(){ 치르기(칸); };
   }
 
   /* 시험 */
   function 치르기(칸){
-    진행중=true;
+    진행중=true; GS.안쪽("모의고사",true);
     var 문제=[]; 칸.forEach(function(c,ci){ c.문제.forEach(function(x){ 문제.push({x:x,과목:ci,순:QL.보기섞기(x),고름:null}); }); });
     var 총=문제.length, 제한=분(총)*60, 시작=Date.now(), 끝났나=false, 지금=0, 표열림=false, 제출대기=false;
     var 바=document.querySelector(".gtabs"); if(바) 바.style.display="none";
@@ -70,30 +74,40 @@
 
     function 그리기(){
       var q=문제[지금], x=q.x, 과=칸[q.과목];
-      var 과내번호=문제.slice(0,지금).filter(function(z){return z.과목===q.과목;}).length+1;
-      var 과총=문제.filter(function(z){return z.과목===q.과목;}).length;
-      el("stage").innerHTML=
-        '<div class="stick"><span class="tm" id="tm">'+시간글(남음())+'</span><span class="pl">'+e(QL.이름(과.n))+' '+과내번호+'/'+과총+'</span>'+
-        '<span class="ct">'+답수()+' / '+총+'</span></div>'+
-        '<div style="height:14px"></div>'+
-        '<div class="qwrap"><div class="qtag"><b>'+(지금+1)+'번</b></div><p class="qstem">'+e(x.q)+'</p></div>'+
-        '<div class="ch" id="ch">'+q.순.map(function(o,j){
-          return '<button data-j="'+j+'"'+(q.고름===j?' aria-pressed="true"':'')+'><span class="n">'+QL.번호[j]+'</span><span>'+e(GS.깨끗(x.c[o]))+'</span></button>';
-        }).join("")+'</div>'+
-        '<div class="b2" style="margin-top:0"><button class="b" id="pv"'+(지금?'':' disabled')+'>이전</button>'+
-        '<button class="b main" id="nx">'+(지금+1>=총?'제출':'다음')+'</button></div>'+
-        '<div class="act" style="margin-top:14px"><button class="b" id="tb">문항표</button>'+
-        '<button class="b" id="sb">'+(제출대기?'미응답 '+(총-답수())+' · 제출 확정':'제출')+'</button></div>'+
-        (표열림?'<div class="lab">문항표</div><div class="grid">'+문제.map(function(z,j){
-          return '<button data-g="'+j+'" class="'+(z.고름!=null?"on ":"")+(j===지금?"cur":"")+'">'+(j+1)+'</button>';}).join("")+'</div>':'');
+      var t0=GS.테마맵[x.k]||null;
+      QF.펜숨김(); GS.안쪽(QL.이름(과.n),true);
+      GS.진행표시(시간글(남음()));
+      var 안=답수();
+      var 행=문제.map(function(z,j){
+        var 보=""; for(var c=0;c<z.x.c.length;c++) 보+='<i class="'+(z.고름===c?"is-on":"")+'">'+(c+1)+'</i>';
+        return '<div class="tq-omr-row'+(j===지금?" is-now":"")+(z.고름==null?" is-todo":"")+'" data-g="'+j+'"><span class="tq-qn">'+(j+1)+'번</span>'+보+'</div>';
+      }).join("");
+      el("stage").innerHTML='<div class="tq-wrap has-omr"><main>'+QF.진행(안,총)+QF.번호줄(지금+1)+
+        '<p class="tq-stem">'+e(x.q)+'</p>'+
+        '<div class="padslot"></div>'+
+        '<ul class="tq-choices" id="ch">'+q.순.map(function(o,j){
+          return '<li><button class="tq-choice'+(q.고름===j?' is-pick':'')+'" data-j="'+j+'"><span class="tq-n">'+(j+1)+'</span><span class="tq-t">'+e(GS.깨끗(x.c[o]))+'</span></button></li>';
+        }).join("")+'</ul></main>'+
+        '<aside class="tq-omr'+(표열림?' is-open':'')+'" id="omr"><span id="jp"></span>'+행+
+        '<div style="margin-top:12px"><button class="b" id="sb" style="width:100%">'+(제출대기?'미응답 '+(총-안)+' · 제출 확정':'지금 제출')+'</button></div></aside></div>';
+      QF.번호줄채우기(t0&&t0.g); QF.밑줄(document.querySelectorAll(".tq-stem,.tq-t"));
+      if(window.TERA_Q) TERA_Q.jump(el("jp"),{count:총-안,onClick:function(){ var j=문제.findIndex(function(z){return z.고름==null;}); if(j>=0){ 지금=j; 제출대기=false; 그리기(); window.scrollTo(0,0); } }});
+      var gtb=document.getElementById("gtb");
+      if(!gtb){ gtb=document.createElement("button"); gtb.id="gtb"; gtb.type="button"; gtb.className="gtb"; gtb.textContent="문항표";
+        var gi=document.querySelector(".g-in"); if(gi) gi.insertBefore(gtb,document.getElementById("gpr")); }
+      function 판열기(){ 표열림=!표열림; var o=el("omr"); if(o) o.classList.toggle("is-open",표열림); }
+      gtb.onclick=판열기;
+      GS.풀이창(document.querySelector(".padslot"), x.q+" "+(x.c||[]).join(" "), 과.n||x.s||"", x.id, QL.이름(과.n||x.s));
       document.querySelectorAll("#ch button").forEach(function(b){
         b.onclick=function(){ q.고름=Number(b.dataset.j); 제출대기=false; 그리기(); };
       });
-      el("pv").onclick=function(){ if(지금>0){ 지금--; 제출대기=false; 그리기(); window.scrollTo(0,0);} };
-      el("nx").onclick=function(){ if(지금+1<총){ 지금++; 제출대기=false; 그리기(); window.scrollTo(0,0);} else 제출하기(); };
-      el("tb").onclick=function(){ 표열림=!표열림; 그리기(); };
-      el("sb").onclick=제출하기;
-      document.querySelectorAll(".grid button").forEach(function(b){ b.onclick=function(){ 지금=Number(b.dataset.g); 그리기(); window.scrollTo(0,0); }; });
+      QF.바({도구:[{id:"pen",icon:"pen",글:"펜",fn:function(){ QF.펜(x.id); }}],
+        위치:String(지금+1),총:String(총),
+        이전:지금>0?function(){ 지금--; 제출대기=false; 그리기(); window.scrollTo(0,0); }:null,
+        번호판:판열기,다음글:(지금+1<총?"다음":"제출"),
+        다음:function(){ if(지금+1<총){ 지금++; 제출대기=false; 그리기(); window.scrollTo(0,0);} else 제출하기(); }});
+      if(el("sb")) el("sb").onclick=제출하기;
+      document.querySelectorAll(".tq-omr-row").forEach(function(r){ r.onclick=function(){ 지금=Number(r.dataset.g); 표열림=false; 그리기(); window.scrollTo(0,0); }; });
     }
     function 제출하기(){
       if(!제출대기 && 답수()<총){ 제출대기=true; 그리기(); return; }
@@ -101,13 +115,15 @@
     }
     var 타이머=setInterval(function(){
       if(끝났나) return clearInterval(타이머);
-      var t=el("tm"); if(!t) return;
-      var r=남음(); t.textContent=시간글(r); t.classList.toggle("low",r<=300);
+      var r=남음(); GS.진행표시(시간글(r)+" · "+(지금+1)+" / "+총);
+      var gp=document.getElementById("gpr"); if(gp) gp.classList.toggle("low",r<=300);
       if(r<=0) 채점();
     },1000);
 
     function 채점(){
       if(끝났나) return; 끝났나=true; 진행중=false; clearInterval(타이머);
+      var _g=document.getElementById("gtb"); if(_g) _g.remove(); QF.펜숨김(); var _b=document.getElementById("qf-bar"); if(_b) _b.remove(); document.body.classList.remove("has-tqbar");
+      GS.안쪽("",false); GS.진행표시("");
       var 과목들=칸.map(function(c,ci){
         var 내=문제.filter(function(z){return z.과목===ci;});
         var 맞=내.filter(function(z){return z.고름!=null && z.순[z.고름]===z.x.a-1;}).length;
@@ -142,7 +158,7 @@
       return '<div class="r'+(s.락?' lk2':'')+'"><b>'+e(QL.이름(s.n))+(s.락?'<span class="pl lock">과락</span>':'')+'</b><em>'+s.점+'점</em>'+
         '<div class="bar"><i style="width:'+Math.min(100,s.점)+'%"></i></div></div>';
     }).join("")+'</div>';
-    h+='<div class="act"><a class="b main" href="quiz.html?wrong=1">오답 모아풀기 <span style="margin-left:6px">'+QL.틀린것().length+'</span></a>'+
+    h+='<div class="act"><a class="b main" href="quiz.html?wrong=1">복습 <span style="margin-left:6px">'+QL.틀린것().length+'</span></a>'+
        '<div class="b2"><a class="b" href="exam.html">다시</a><a class="b" href="index.html">홈</a></div></div>';
     if(틀.length){
       h+='<div class="lab">오답</div>';
@@ -177,6 +193,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script src="js/supa.config.js"></script>
-<script src="js/research.js" data-service="gisa"></script>
 </body></html>

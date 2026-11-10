@@ -83,7 +83,7 @@
         var d = document.createElement("div"); d.className = "emb-sheet";
         d.innerHTML = '<div class="in"><div class="tp">' + TEMB.svg({ 상징: a.상징, 표: a.표, 색: a.색, 단계: a.단계, 크기: 96 }) + '<div><small>' + esc(a.과목) + ' ' + a.번 + '번' + (합격칸 && a.번 <= 합격칸 ? ' · ★ 자주 나옴' : '') + (a.부 ? ' · ' + esc(a.부) : '') + '</small><h3>' + esc(a.얻 ? a.칭호 : a.이름) + '</h3><small>' + esc(a.얻 ? a.한줄 : (o.조건글 || "")) + '</small></div></div>' +
           '<ul>' + (a.목록 || []).map(function (t) { return '<li>' + esc(t.n) + '<span>' + esc(t.v) + '</span></li>'; }).join("") + '</ul>' +
-          '<div class="go">' + (a.얻 ? '' : 도전단추(a, "도전하기", "p")) + '<button type="button" class="x">닫기</button></div></div>';
+          '<div class="go">' + (a.단계 >= 3 ? '' : 도전단추(a, a.얻 ? "금색 도전" : "도전하기", "p")) + '<button type="button" class="x">닫기</button></div></div>';
         d.addEventListener("click", function (ev) { if (ev.target === d || (ev.target.classList && ev.target.classList.contains("x"))) d.remove(); });
         var g = d.querySelector("[data-go]"); if (g) g.onclick = function () { d.remove(); a.도전(); };
         document.body.appendChild(d);
