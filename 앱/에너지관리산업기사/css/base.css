@@ -725,3 +725,78 @@ html body.inner .exbar{top:60px}
 /* 10절 — 「추천」 표시: 22px 알약 · 포인트 단색 · 흰 글자 800 11.5px. 한 화면에 하나만 */
 .recbadge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--pt,var(--cta));color:#fff;font:800 11.5px/1 var(--sans);letter-spacing:0;margin-left:8px;vertical-align:middle;white-space:nowrap;font-style:normal}
 html body.inner .stickgo.pre .btn{opacity:.4;cursor:default}
+/* ═══ 11-10 전 화면 정돈 — 값 덮개(자동) ═══ */
+.gc{border-radius:999px}
+:root[data-skin="diary"] body{font-size:16px}
+.logo{font-size:16px;font-weight:800}
+.logo .dot{border-radius:12px}
+.logo small{font-size:14px}
+.navlinks a.on::after{border-radius:12px}
+@media(max-width:880px){
+.logo{font-size:16px}
+.navlinks a{font-size:14px;border-radius:12px}
+}
+.btn.sm{font-size:16px;border-radius:12px}
+.card .hd h3{font-size:16px}
+.eyebrow{font-size:14px}
+.chip{font-size:14px;border-radius:12px}
+.tag{font-size:14px;border-radius:12px}
+.stat{border-radius:12px}
+.stat b{font-size:26px}
+.stat span{font-size:14px}
+.track{border-radius:999px}
+.track i{border-radius:999px}
+.notice{border-radius:12px;font-size:16px}
+.notice .ic{border-radius:12px;font-size:16px}
+.srcflag{font-size:14px;border-radius:12px}
+.phead .kicker{font-size:14px}
+.phead .sub{font-size:16px}
+.segs button{border-radius:12px}
+.pips i{border-radius:999px}
+.setscore{font-size:16px}
+.setscore b{font-size:20px}
+.timer .num{font-size:20px}
+.tbar{border-radius:999px}
+.tbar i{border-radius:999px}
+.result .big{font-size:26px}
+.result .big span{font-size:26px}
+.missed .r .k{font-size:14px}
+.missed .r .x{font-size:14px}
+.nextbar .ring b{font-size:14px}
+.nextbar .tx b{font-size:16px}
+.nextbar .tx span{font-size:14px}
+.nextbar .go .btn{font-size:16px}
+@media(max-width:640px){
+.nextbar .go .btn{font-size:16px}
+}
+.skinpick button{font-size:14px}
+.re{border-radius:12px}
+.remode{font-size:16px}
+.tile b .re,.tiles .re{font-size:14px}
+h1,h2,h3,h4{font-weight:800}
+.btn.sm{font-size:16px}
+.eyebrow,.kicker{font-size:14px}
+.chip{font-size:14px}
+.stat span{font-size:14px}
+@media(max-width:520px){
+body{font-size:16px}
+}
+.bdg{font-size:13px}
+h1,h2,h3,h4{font-weight:800!important}
+.nav .logo{font-size:16px}
+.nav .mk{border-radius:12px;font:800 14px/1 var(--sans)}
+html body .zs-fab,html body .nav .zs-fab{border-radius:999px!important;font:700 14px/1 var(--sans)!important}
+.btn{border-radius:14px}
+html body .ox button{border-radius:14px!important;font-weight:800!important}
+html body.inner .stickgo .btn{border-radius:14px;font-size:16px}
+.gc{font-size:13px}
+.phead h1{font-size:26px}
+/* 화면표준 14절 — 판: 흰 바탕 · 모서리 18 · 선 1px #E6E8EC · 그림자 없음 */
+html body .pan,html body .sec,html body .stat,html body .att,html body .rc-card,html body .card{border:1px solid #E6E8EC;box-shadow:none}
+html body .rc-card .go,html body .go{box-shadow:none}
+/* 색 — 포인트 색 한 가지(진하기만 다르게) + 회색. 딴색 칩 · 끝남 초록 · 청록 · 노랑 · 과목별 색을 모은다 */
+:root,:root[data-skin]{--mint:#B3141F;--mint-2:#E5202E;--mint-soft:rgba(229,32,46,.10);--amber:#9AA0A8;--fam-geo:#E5202E;--fam-soc:#8E1019;--fam-eth:#F08A91}
+.bdg-hard{background:rgba(229,32,46,.10);color:#B3141F;box-shadow:inset 0 0 0 1px rgba(229,32,46,.3)}
+.bdg-done{background:#F1F3F5;color:#3A3F47;box-shadow:inset 0 0 0 1px #D3D7DD}
+.scopenote{border:1px solid #E6E8EC;background:#fff}
+.scopenote a{color:#B3141F}

@@ -10,21 +10,21 @@
 <link rel="stylesheet" href="css/cheer.css">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
-  .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 18px;font-weight:900}
+  .hd h1{font-size:26px;letter-spacing:-.03em;margin:26px 0 18px;font-weight:800}
   .dr{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:12px}
   .sk{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   .fold .b+.b{margin-top:10px}
+  .sub{border-top:1px solid var(--line);padding:12px 0}.sub:first-child{border-top:0;padding-top:0}.sub summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--ink-2)}.sub p{margin:8px 0 0;font-size:13px;font-weight:500;line-height:1.55;color:var(--ink-3)}
 </style>
 </head><body>
 <div class="page">
   <div class="hd"><h1>설정</h1></div>
-  <!-- zzstrat --><div id="zs-slot" style="margin:0 0 14px"></div><script src="js/zzstrat.js?v=1021" defer></script><script src="js/strat.js?v=1021" defer></script><script>document.addEventListener("DOMContentLoaded",function(){if(window.ZZSTRAT&&window.GSTRAT_ID)ZZSTRAT.button(GSTRAT_ID,"#zs-slot");});</script><!-- /zzstrat --><details class="fold" open><summary>하루 목표</summary><div class="in">
+  <!-- zzstrat --><details class="fold" open><summary>공부</summary><div class="in" id="zs-slot"></div></details><script src="js/zzstrat.js?v=1021" defer></script><script src="js/strat.js?v=1021" defer></script><script src="js/strat-ui.js?v=1110" defer></script><script>document.addEventListener("DOMContentLoaded",function(){var s=document.getElementById("zs-slot");if(window.GSTRATUI&&window.GSTRAT_ID)GSTRATUI.줄(s,GSTRAT_ID,true);else if(s&&s.parentNode)s.parentNode.remove();});</script><!-- /zzstrat --><details class="fold" open><summary>하루 목표</summary><div class="in">
     <div class="tl" id="goal"></div>
   </div></details>
   <details class="fold" open><summary id="exlab">시험일</summary><div class="in">
     <div class="tl" id="exq"></div>
     <div class="dr"><input type="date" id="exam"><span class="rl" id="exdd"></span></div>
-    <p id="exnote" style="margin:10px 2px 0;font-size:14px;line-height:1.55;color:var(--ink-3)"></p>
   </div></details>
   <details class="fold" open><summary>진단</summary><div class="in">
     <a class="b" href="start.html?diag=1">진단 다시 하기</a>
@@ -36,12 +36,14 @@
   <details class="fold"><summary>정답 연출</summary><div class="in">
     <div class="sk" id="cheer"></div>
   </div></details>
-  <a class="b main" href="index.html" style="margin:6px 0 14px">시작</a>
   <details class="fold"><summary>기록</summary><div class="in">
-    <p style="margin:0 0 10px;font-size:14px;color:var(--ink-3)">기록은 이 기기·이 브라우저에만 저장됨. 다른 기기로 옮기려면 내보낸 파일을 거기서 가져오기. 이 종목 기록만 옮겨짐.</p>
     <button class="b" id="exp">기록 내보내기</button>
     <label class="b" style="display:inline-block">기록 가져오기<input type="file" id="imp" accept=".json,application/json" style="display:none"></label>
     <button class="b" id="reset">기록 전부 지우기</button>
+  </div></details>
+  <details class="fold"><summary>자료 출처</summary><div class="in">
+    <details class="sub"><summary>시험일</summary><p id="exnote"></p></details>
+    <details class="sub"><summary>기록 저장</summary><p>기록은 이 기기·이 브라우저에만 저장됨. 다른 기기로 옮기려면 내보낸 파일을 거기서 가져오기. 이 종목 기록만 옮겨짐.</p></details>
   </div></details>
 </div>
 <script src="js/gdata.js"></script>

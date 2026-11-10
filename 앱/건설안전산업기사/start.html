@@ -11,27 +11,27 @@
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
   .hd{padding:24px 2px 0}
-  .hd small{display:block;font-size:14.5px;color:var(--ink-3);font-weight:700}
-  .hd h1{font-size:27px;letter-spacing:-.04em;margin:6px 0 0;font-weight:900}
-  .prog{display:flex;gap:0;margin:20px 0 18px;height:4px;border-radius:4px;background:var(--surface-3);overflow:hidden}
+  .hd small{display:block;font-size:14px;color:var(--ink-3);font-weight:700}
+  .hd h1{font-size:26px;letter-spacing:-.04em;margin:6px 0 0;font-weight:800}
+  .prog{display:flex;gap:0;margin:20px 0 18px;height:4px;border-radius:999px;background:var(--surface-3);overflow:hidden}
   .prog i{flex:1;height:4px;background:transparent}
   .prog i.on,.prog i.ok,.prog i.no{background:var(--pt)}
   .dr{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:14px 0 0}
   .gap{height:18px}
   .qwrap{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line);padding:18px;margin-bottom:16px}
-  .qtag{display:flex;gap:8px;align-items:center;font-size:14.5px;color:var(--ink-3);margin-bottom:14px}
+  .qtag{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--ink-3);margin-bottom:14px}
   .qtag b{color:var(--accent);font-weight:800}
-  .qstem{font-size:17px;line-height:1.6;font-weight:600;margin:0 0 14px;letter-spacing:-.01em}
-  .qpick{border:1px solid var(--pt-line);border-radius:14px;padding:14px 16px;font-size:17px;line-height:1.6;font-weight:600;
+  .qstem{font-size:16px;line-height:1.6;font-weight:600;margin:0 0 14px;letter-spacing:-.01em}
+  .qpick{border:1px solid var(--pt-line);border-radius:14px;padding:14px 16px;font-size:16px;line-height:1.6;font-weight:600;
     background:var(--pt-soft)}
   .ox{display:grid;grid-template-columns:1fr 1fr;gap:11px}
   .ox{gap:10px}
   .ox button{appearance:none;height:64px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);
-    border-radius:16px;padding:0;font:inherit;font-size:26px;font-weight:900;cursor:pointer;line-height:1}
+    border-radius:14px;padding:0;font:inherit;font-size:26px;font-weight:800;cursor:pointer;line-height:1}
   .ox button:disabled{opacity:1;cursor:default;color:var(--ink-4)}
   .ox button[data-s="ok"]{border-color:#16B364;color:#16B364;background:color-mix(in srgb,#16B364 10%,#fff)}
   .ox button[data-s="no"]{border-color:#E5322D;color:#E5322D;background:color-mix(in srgb,#E5322D 8%,#fff)}
-  .vd{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900}
+  .vd{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800}
   .vd.no{color:var(--no)}
   .vd small{font-size:14px;color:var(--ink-3);font-weight:700}
   .nx{margin-top:12px}
@@ -81,7 +81,7 @@
       '<div class="tl" id="q">'+후.map(function(c){
         return '<button data-v="'+c[1]+'" aria-pressed="'+(일===c[1])+'">'+c[0]+'</button>';}).join("")+'</div>'+
       '<div class="dr"><input type="date" id="dt" value="'+e(일)+'"></div>'+
-      (기능?'':'<p id="dnote" style="margin:12px 2px 0;font-size:14px;line-height:1.55;color:var(--ink-3)">'+e(!일?"":(일===D.시험일?"2027년 일정은 공고 전이라 예상 날짜입니다"+(D.시험일근거?" (직전 시험: "+D.시험일근거+")":"")+". 공고가 나오면 직접 바꾸세요.":"직접 고른 날짜"))+'</p>')+
+      (기능?'':'<details class="sub" style="margin:12px 2px 0"><summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--ink-3)">예상 날짜 안내</summary><p id="dnote" style="margin:6px 0 0;font-size:13px;line-height:1.55;color:var(--ink-3)">'+e(!일?"":(일===D.시험일?"2027년 일정은 공고 전이라 예상 날짜입니다"+(D.시험일근거?" (직전 시험: "+D.시험일근거+")":"")+". 공고가 나오면 직접 바꾸세요.":"직접 고른 날짜"))+'</p></details>')+
       '<div class="gap"></div><button class="b main" id="go">다음</button>';
     document.querySelectorAll("#q button").forEach(function(b){
       b.onclick=function(){ 일=b.dataset.v; 일화면(); };
@@ -124,7 +124,7 @@
     var o=문제[번], q=(D.qs[o.q]||{}), t=GS.테마맵[o.k]||{};
     el("stage").innerHTML=
       '<div class="qwrap"><div class="qtag"><b>'+e(t.s||"")+'</b><span>'+(번+1)+' / '+문제.length+'</span></div>'+
-        '<p class="qstem">'+e(GS.깨끗(o.s))+'</p><div class="qpick">'+e(GS.깨끗(o.c))+'</div></div>'+
+        '<p class="qstem">'+e(GS.깨끗(o.s))+'</p><div class="qpick qopt-box">'+e(GS.깨끗(o.c))+'</div></div>'+
       '<div class="ox"><button data-v="1">O</button><button data-v="0">X</button></div><div id="vd"></div>'+
       '<button class="lnk" id="skip">건너뛰기</button>';
     document.querySelectorAll(".ox button").forEach(function(b){

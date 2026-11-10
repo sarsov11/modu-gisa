@@ -11,23 +11,24 @@
 <style>
 /* 1011 위험물산업기사 실기: 반응물을 보고 생성물·계수를 써서 자동 채점 */
 .page{padding-bottom:120px}
-.rx-q{font-size:22px;font-weight:900;letter-spacing:-.02em;margin:6px 0 4px;word-break:keep-all}
+.rx-q{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;word-break:keep-all}
 .rx-q small{display:block;font-size:13px;font-weight:600;color:var(--ink-3);margin-top:4px}
 .rx-in{width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);border-radius:var(--r3);background:var(--surface);color:var(--ink);font:700 20px/1.5 var(--sans);padding:12px 14px;margin:14px 0 8px;letter-spacing:.01em}
 .rx-in:focus{outline:none;border-color:var(--ink)}
 .rx-in.ok{border-color:var(--ink);background:var(--surface-2)} .rx-in.no{border-color:var(--accent)}
 .rx-pad{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:0 0 6px}
-.rx-pad button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:11px 0;font:800 16px/1 var(--sans);cursor:pointer;touch-action:manipulation}
+.rx-pad button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:12px;padding:11px 0;font:800 16px/1 var(--sans);cursor:pointer;touch-action:manipulation}
 .rx-pad button.op{background:var(--surface-3)}
 .rx-pad button.wide{grid-column:span 2}
+.rx-sub{border-top:1px solid var(--line);padding:12px 0}.rx-sub summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--ink-2)}.rx-sub .rx-tip{margin:8px 0 0}
 .rx-tip{font-size:13px;color:var(--ink-3);line-height:1.55;margin:4px 0 14px}
-.rx-res{border-radius:var(--r2);padding:14px 16px;margin:0 0 12px;font-size:15.5px;line-height:1.65;border:1.5px solid var(--line-2);background:var(--surface)}
+.rx-res{border-radius:var(--r2);padding:14px 16px;margin:0 0 12px;font-size:16px;line-height:1.65;border:1.5px solid var(--line-2);background:var(--surface)}
 .rx-res.ok{border-color:var(--ink)} .rx-res.no{border-color:var(--accent)}
-.rx-res b.eq{display:block;font-size:18px;margin:4px 0}
-.rx-res .rule{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-2);color:var(--ink-2);font-size:14.5px}
+.rx-res b.eq{display:block;font-size:20px;margin:4px 0}
+.rx-res .rule{margin-top:8px;padding-top:8px;border-top:1px solid var(--line-2);color:var(--ink-2);font-size:14px}
 .rx-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}
 .rx-grp{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line-2);border-radius:var(--r2);background:var(--surface);padding:14px;margin:0 0 8px;color:var(--ink);text-decoration:none}
-.rx-grp .nm{font-weight:900;font-size:16.5px;flex:1}
+.rx-grp .nm{font-weight:800;font-size:16px;flex:1}
 .rx-grp .nm small{display:block;font-weight:600;font-size:13px;color:var(--ink-3);margin-top:2px}
 .rx-grp .n{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 </style>
@@ -54,14 +55,14 @@
   function 고르기(){
     var 틀=RX.식.filter(function(x){var r=기록(x.id); return r&&r.v<2;}).length;
     var A=RX.식.filter(function(x){return x.등급==="A";});
-    var h='<p class="rx-tip" style="margin-top:14px">반응물을 보고 생성물과 계수를 직접 씁니다. 숫자는 원소 기호 바로 뒤에 오면 저절로 아래첨자(H₂O)가 되고, 맨 앞에 오면 계수(2H₂O)로 남습니다.</p>'+
+    var h='<details class="rx-sub" style="margin-top:14px"><summary>사용법</summary><p class="rx-tip">반응물을 보고 생성물과 계수를 직접 씁니다. 숫자는 원소 기호 바로 뒤에 오면 저절로 아래첨자(H₂O)가 되고, 맨 앞에 오면 계수(2H₂O)로 남습니다.</p></details>'+
       '<div class="pick"><a class="hot" href="banung.html?a=1&mix=1">자주 나온 식 <i>'+숙련(A)+'/'+A.length+'</i></a>'+
       '<a href="banung.html?mix=1">무작위 10</a><a href="banung.html?wrong=1">다시 볼 식 <i>'+틀+'</i></a></div><div class="lab">반응 종류</div>';
     h+=RX.묶음.map(function(g){
       var xs=RX.식.filter(function(x){return x.g===g.g;});
-      return '<a class="rx-grp" href="banung.html?g='+g.g+'"><span class="nm">'+e(g.이름)+'<small>'+e(g.요령)+'</small></span><span class="n">'+숙련(xs)+' / '+xs.length+'</span></a>';
+      return '<a class="rx-grp" href="banung.html?g='+g.g+'"><span class="nm">'+e(g.이름)+'<small class="rx-note">'+e(g.요령)+'</small></span><span class="n">'+숙련(xs)+' / '+xs.length+'</span></a>';
     }).join("");
-    h+='<p class="rx-tip">자주 나온 식은 2019~2025 실기 23회 기출에 6회 이상 나온 것입니다. <a href="silgi.html">실기 기출로 돌아가기</a></p>';
+    h+='<details class="rx-sub"><summary>자료 출처</summary><p class="rx-tip">자주 나온 식은 2019~2025 실기 23회 기출에 6회 이상 나온 것입니다.</p></details><a class="b" href="silgi.html">실기 기출</a>';
     el("stage").innerHTML=h;
   }
   if(!묶 && !등급 && !오답 && !섞) return 고르기();

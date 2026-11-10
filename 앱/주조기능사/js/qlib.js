@@ -40,16 +40,18 @@
   /* 선지 섞기 → { 순: 보이는 칸 → 원래 선지 번호(0~3) } */
   function 보기섞기(x) { return 섞기([0, 1, 2, 3]); }
 
-  function 기록(id, 맞) {
+  function 기록(id, 맞, 확신) {
     var S = GS.S; S.기출 = S.기출 || {};
     var r = S.기출[id] || { n: 0 };
     r.n++; r.맞 = 맞 ? 1 : 0; r.t = GS.오늘();
+    if (확신 === "half") r.h = 1; else if (확신 === "sure") delete r.h;   /* 헷갈림으로 푼 문항은 맞혀도 복습에 든다 */
     S.기출[id] = r;
   }
   function 틀린것() {
     var S = GS.S.기출 || {};
-    return Object.keys(S).filter(function (id) { return S[id].맞 === 0 && 맵[id]; });
+    return Object.keys(S).filter(function (id) { return (S[id].맞 === 0 || S[id].h === 1) && 맵[id]; });
   }
+  function 헷갈림(id) { var r = (GS.S.기출 || {})[id]; return !!(r && r.h === 1); }
 
   /* 한 번 풀 문제 n개 — 안 푼 것 → 틀린 것 → 나머지, 같은 발문 한 번만, 법령 옛 기출·출제기준 밖은 맨 뒤 */
   function 뽑기(풀, n) {
@@ -84,5 +86,5 @@
   function 이름(s) { return s === "과목 구분 없음" ? "전체" : s; }
 
   window.QL = { Q: Q, S: G.S, M: G.M, 맵: 맵, 번호: 번호, 밖: 밖, 섞기: 섞기, 보기섞기: 보기섞기, 기록: 기록,
-    틀린것: 틀린것, 뽑기: 뽑기, 점수: 점수, 판정: 판정, 마크: 마크, 이름: 이름, 키: 키 };
+    틀린것: 틀린것, 헷갈림: 헷갈림, 뽑기: 뽑기, 점수: 점수, 판정: 판정, 마크: 마크, 이름: 이름, 키: 키 };
 })();

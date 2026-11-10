@@ -8,9 +8,9 @@
 .x-code ol{list-style:none;margin:0;padding:10px 0;max-height:62vh;overflow:auto;counter-reset:none}
 .x-code li{display:flex;align-items:flex-start;min-height:21px;padding:0 10px 0 0;border-left:3px solid transparent}
 .x-code li.on{background:var(--chi);border-left-color:var(--chl)}
-.x-ln{flex:0 0 30px;text-align:right;padding-right:10px;color:var(--cln);font:500 12.5px/21px ui-monospace,Consolas,"D2Coding",monospace;user-select:none}
-.x-code code{flex:1;white-space:pre;color:var(--cink);font:500 13.5px/21px ui-monospace,Consolas,"D2Coding",monospace;overflow-x:visible}
-.x-iv{flex:0 0 auto;font:700 12px/21px ui-monospace,Consolas,monospace;color:var(--chl);font-style:normal;padding-left:8px;white-space:nowrap}
+.x-ln{flex:0 0 30px;text-align:right;padding-right:10px;color:var(--cln);font:500 13px/21px ui-monospace,Consolas,"D2Coding",monospace;user-select:none}
+.x-code code{flex:1;white-space:pre;color:var(--cink);font:500 14px/21px ui-monospace,Consolas,"D2Coding",monospace;overflow-x:visible}
+.x-iv{flex:0 0 auto;font:700 13px/21px ui-monospace,Consolas,monospace;color:var(--chl);font-style:normal;padding-left:8px;white-space:nowrap}
 .x-code ol{overflow-x:auto}
 .x-kw{color:var(--ckw);font-weight:700}.x-st{color:var(--cst)}.x-nu{color:var(--cnu)}.x-cm{color:var(--ccm);font-style:italic}.x-fn{color:var(--cfn)}
 
@@ -21,53 +21,53 @@
   font:500 16px/1.55 ui-monospace,Consolas,"D2Coding",monospace;padding:12px 14px;resize:vertical}
 .x-in.sql{min-height:110px}
 .x-in:focus{outline:none;border-color:var(--ink)}
-.x-rule{font-size:12.5px;line-height:1.55;color:var(--ink-3);margin:6px 2px 0}
+.x-rule{font-size:13px;line-height:1.55;color:var(--ink-3);margin:6px 2px 0}
 
 /* 채점 결과 */
 .x-res{border-radius:var(--r2);padding:14px 16px;margin:0 0 14px;border:1.5px solid var(--line-2);background:var(--surface)}
-.x-res.ok{border-color:var(--ink)}
+.x-res.ok{border-color:#16B364}
 .x-res.no{border-color:var(--no)}
-.x-res h3{margin:0 0 8px;font-size:16px;font-weight:900}
+.x-res h3{margin:0 0 8px;font-size:16px;font-weight:800}
 .x-res.no h3{color:var(--no)}
 .x-cmp{width:100%;border-collapse:collapse;font:500 14px/1.5 ui-monospace,Consolas,monospace}
 .x-cmp td,.x-cmp th{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:top;white-space:pre-wrap;word-break:break-all}
-.x-cmp th{font:800 12px/1.4 var(--sans);color:var(--ink-3)}
+.x-cmp th{font:800 13px/1.4 var(--sans);color:var(--ink-3)}
 .x-cmp tr.bad td:nth-child(2){color:var(--no);font-weight:800}
-.x-h{margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7;color:var(--ink-2);word-break:keep-all}
+.x-h{margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2);font-size:16px;line-height:1.7;color:var(--ink-2);word-break:keep-all}
 
 /* 따라가기 */
 .x-trace{margin:12px 0 0;display:grid;gap:10px}
 .x-frame{font-size:13px;color:var(--ink-3)}
-.x-frame span{display:inline-block;font-weight:800;color:var(--ink);background:var(--surface-3);border-radius:99px;padding:3px 10px;margin-right:6px}
+.x-frame span{display:inline-block;font-weight:800;color:var(--ink);background:var(--surface-3);border-radius:999px;padding:3px 10px;margin-right:6px}
 .x-vars{width:100%;border-collapse:collapse;font:500 14px/1.45 ui-monospace,Consolas,monospace;border:1px solid var(--line-2);border-radius:var(--r3);overflow:hidden}
-.x-vars th{font:800 12px/1.4 var(--sans);color:var(--ink-3);text-align:left;padding:7px 10px;background:var(--surface-2)}
+.x-vars th{font:800 13px/1.4 var(--sans);color:var(--ink-3);text-align:left;padding:7px 10px;background:var(--surface-2)}
 .x-vars td{padding:7px 10px;border-top:1px solid var(--line);word-break:break-all}
 .x-vars td:first-child{width:34%;color:var(--ink-2);font-weight:700}
 .x-vars tr.x-ch td{background:rgba(255,196,0,.18)}
-.x-vars tr.x-ch td:last-child{font-weight:900}
+.x-vars tr.x-ch td:last-child{font-weight:800}
 .x-none{color:var(--ink-4);font-family:var(--sans)}
 .x-out{border:1px solid var(--line-2);border-radius:var(--r3);padding:8px 12px;background:var(--surface-2)}
-.x-out b{display:block;font-size:12px;color:var(--ink-3);margin-bottom:2px}
-.x-out pre{margin:0;min-height:21px;font:600 14.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;color:var(--ink)}
+.x-out b{display:block;font-size:13px;color:var(--ink-3);margin-bottom:2px}
+.x-out pre{margin:0;min-height:21px;font:600 14px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;color:var(--ink)}
 .x-bar{display:flex;align-items:center;gap:6px;margin:12px 0 0}
 .x-bar button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r3);
-  font:800 15px/1 var(--sans);padding:12px 12px;cursor:pointer;min-width:44px}
+  font:800 16px/1 var(--sans);padding:12px 12px;cursor:pointer;min-width:44px}
 .x-bar .x-next{flex:1;white-space:nowrap;background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .x-cnt{font:700 13px/1 var(--sans);color:var(--ink-3);font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
 
 /* SQL 표 */
 .x-tbl{margin:12px 0 0;overflow-x:auto}
-.x-tbl b{display:block;font-size:13.5px;margin:0 0 4px}
+.x-tbl b{display:block;font-size:14px;margin:0 0 4px}
 .x-tbl table{border-collapse:collapse;font-size:14px;min-width:60%}
 .x-tbl th,.x-tbl td{border:1px solid var(--line-2);padding:5px 9px;text-align:left;white-space:nowrap}
 .x-tbl th{background:var(--surface-2);font-weight:800}
 .x-sqlrun{display:flex;gap:8px;margin:8px 0 0}
 .x-sqlrun button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);border-radius:var(--r3);font:700 14px/1 var(--sans);padding:10px 12px;cursor:pointer}
-.x-err{color:var(--no);font:600 13.5px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;margin:6px 0 0}
-@media (max-width:420px){.x-code code{font-size:12.5px}.x-ln{flex-basis:24px;padding-right:7px}}
+.x-err{color:var(--no);font:600 14px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;margin:6px 0 0}
+@media (max-width:420px){.x-code code{font-size:13px}.x-ln{flex-basis:24px;padding-right:7px}}
 /* 1025 보기검수 — 한 줄에 몰린 보기 항목을 하나씩 세운다 · 「항목: 값」 표는 칸 안에서 줄바꿈 */
-.x-bogi{display:flex;flex-wrap:wrap;gap:6px 8px;margin:8px 0 4px;padding:10px 12px;border:1px solid var(--line-2);border-radius:10px;background:var(--surface-2);font-weight:600}
-.x-bogi>b{flex-basis:100%;font-size:13.5px;font-weight:800;margin:0 0 2px}
+.x-bogi{display:flex;flex-wrap:wrap;gap:6px 8px;margin:8px 0 4px;padding:10px 12px;border:1px solid var(--line-2);border-radius:12px;background:var(--surface-2);font-weight:600}
+.x-bogi>b{flex-basis:100%;font-size:14px;font-weight:800;margin:0 0 2px}
 .x-bogi>span{display:block;flex:1 1 100%;line-height:1.5}
 .x-kv td,.x-kv th{white-space:normal}
 .x-kv th{font-weight:700;background:var(--surface-2)}

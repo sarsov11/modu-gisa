@@ -12,34 +12,34 @@
   /* 2026-11-10 화면표준 3절 — 날짜 줄 → 오늘 카드(+시작) → 숫자 두 칸 → 출석 → 목록 */
   .dtl{padding:18px 2px 14px}
   .dtl small{display:block;font-size:13px;font-weight:600;color:var(--ink-4)}
-  .dtl h1{font-size:30px;line-height:1.15;font-weight:900;letter-spacing:-.04em;margin:6px 0 0;color:var(--ink)}
+  .dtl h1{font-size:26px;line-height:1.15;font-weight:800;letter-spacing:-.04em;margin:6px 0 0;color:var(--ink)}
   .dtl h1 .exg{font-size:13px;font-weight:700;color:var(--ink-4);letter-spacing:0;margin-left:6px}
   .today{padding:20px 18px 18px}
-  .today h2{font-size:20px;font-weight:900;letter-spacing:-.03em;margin:0;color:var(--ink)}
-  .today .sum{font-size:13.5px;font-weight:600;color:var(--ink-3);margin:4px 0 0;line-height:1.5}
-  .today .pbar{height:4px;border-radius:4px;background:var(--surface-3);overflow:hidden;margin:14px 0 6px}
-  .today .pbar i{display:block;height:100%;background:var(--pt);border-radius:4px;transition:width .4s}
+  .today h2{font-size:20px;font-weight:800;letter-spacing:-.03em;margin:0;color:var(--ink)}
+  .today .sum{font-size:14px;font-weight:600;color:var(--ink-3);margin:4px 0 0;line-height:1.5}
+  .today .pbar{height:4px;border-radius:999px;background:var(--surface-3);overflow:hidden;margin:14px 0 6px}
+  .today .pbar i{display:block;height:100%;background:var(--pt);border-radius:999px;transition:width .4s}
   .steps{list-style:none;margin:8px 0 16px;padding:0;display:grid;gap:6px}
   .steps li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:8px 10px;border-radius:14px}
   .steps li.now{background:var(--pt-soft)}
-  .steps .c{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--ink-3);font:800 14px/1 inherit}
+  .steps .c{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--ink-3);font-weight:800;font-size:14px;line-height:1}
   .steps li.now .c{background:var(--pt);color:#fff}
   .steps li.dn .c{background:var(--surface-3);color:var(--ink-4)}
-  .steps b{display:block;font-size:15px;font-weight:800;letter-spacing:-.02em;color:var(--ink);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .steps b{display:block;font-size:16px;font-weight:800;letter-spacing:-.02em;color:var(--ink);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .steps li.dn b{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--ink-4)}
-  .steps small{display:block;font-size:12.5px;font-weight:600;color:var(--ink-3);margin-top:2px;line-height:1.4}
+  .steps small{display:block;font-size:13px;font-weight:600;color:var(--ink-3);margin-top:2px;line-height:1.4}
   .steps small .now{color:var(--pt-ink);font-weight:800} .steps small .dn{color:var(--ink-4)}
   .steps .tm{font-size:13px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
   .today .flmore{margin:0 0 14px}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
   .stat{padding:16px 18px}
-  .stat b{display:block;font-size:22px;font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ink)}
-  .stat span{display:block;font-size:12.5px;font-weight:600;color:var(--ink-3);margin-top:2px}
+  .stat b{display:block;font-size:20px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .stat span{display:block;font-size:13px;font-weight:600;color:var(--ink-3);margin-top:2px}
   .att{padding:16px 18px;margin:0 0 12px}
   .att h3{font-size:16px;font-weight:800;margin:0 0 12px;letter-spacing:-.02em}
   .days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-  .days span{font-size:12px;font-weight:700;color:var(--ink-3)}
-  .days i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;margin:6px auto 0;background:var(--surface-3);font-style:normal;font:800 12px/1 inherit;color:var(--ink-4)}
+  .days span{font-size:13px;font-weight:700;color:var(--ink-3)}
+  .days i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;margin:6px auto 0;background:var(--surface-3);font-style:normal;font-weight:800;font-size:13px;line-height:1;color:var(--ink-4)}
   .days .on i{background:var(--pt);color:#fff} .days .td i{box-shadow:0 0 0 2px var(--pt-line)}
   .links{display:grid;gap:10px;margin:0 0 6px}
   .links a{display:grid;grid-template-columns:1fr 32px;gap:12px;align-items:center;padding:14px 16px;text-decoration:none;color:var(--ink)}
@@ -49,18 +49,18 @@
   .links .ar svg{width:16px;height:16px}
   .links .wn{margin-left:6px}
   .gm{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0 2px 6px}
-  .gm b{font-size:34px;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-  .gm span{font-size:15px;color:var(--ink-3);font-weight:700}
-  .gm i.up{font-style:normal;font-weight:900;font-size:15px;color:#0F7B4F}
-  .gm i.dn{font-style:normal;font-weight:900;font-size:15px;color:var(--no)}
+  .gm b{font-size:34px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  .gm span{font-size:16px;color:var(--ink-3);font-weight:700}
+  .gm i.up{font-style:normal;font-weight:800;font-size:16px;color:var(--pt-2)}
+  .gm i.dn{font-style:normal;font-weight:800;font-size:16px;color:var(--ink-3)}
   .sr{padding:11px 0;border-top:1px solid var(--line)}
   .sr:first-child{border-top:0}
   .sr .t{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-  .sr .t .sn{font-size:15.5px;font-weight:800;letter-spacing:-.02em;margin-right:auto;min-width:0}
+  .sr .t .sn{font-size:16px;font-weight:800;letter-spacing:-.02em;margin-right:auto;min-width:0}
   .sr .t b{font-size:16px;font-variant-numeric:tabular-nums}
   .sr .bar{margin-top:7px}
 </style>
-</head><body><noscript><p style="padding:24px;font-size:15px">이 앱은 JavaScript를 켜야 열린다.</p></noscript>
+</head><body><noscript><p style="padding:24px;font-size:16px">이 앱은 JavaScript를 켜야 열린다.</p></noscript>
 <div class="page">
   <div class="dtl"><small id="date"></small><h1 id="dd"></h1></div>
   <section class="pan today" id="today">
@@ -130,7 +130,7 @@
   var 비율=R.items.length?Math.min(100,Math.round(R.done.length*100/R.items.length)):0;
   var 목표=R.예상분>=60 ? Math.floor(R.예상분/60)+"시간"+(R.예상분%60?" "+R.예상분%60+"분":"") : R.예상분+"분";
   document.getElementById("th").textContent="오늘 "+목표;
-  document.getElementById("ts").textContent=(t?"지금 "+t.n+" · ":"")+"테마 "+끝줄수+"/"+줄.length+(R.완료?" 끝":"")+" · 오늘 공부 "+R.실제분+"분";
+  document.getElementById("ts").textContent="테마 "+끝줄수+"/"+줄.length+(R.완료?" 끝":"")+" · 오늘 공부 "+R.실제분+"분";
   document.getElementById("pb").style.width=비율+"%";
   document.getElementById("flow").innerHTML=
     '<ul class="steps">'+보일.map(function(z){return 줄HTML(z,줄.indexOf(z)+1);}).join("")+'</ul>'+
@@ -194,4 +194,4 @@
 })();
 </script>
 <script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:15px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script></body></html>
+<script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:16px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script></body></html>

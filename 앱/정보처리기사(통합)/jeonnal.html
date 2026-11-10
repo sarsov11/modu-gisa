@@ -12,29 +12,29 @@
 body{background:var(--bg)}
 .page{padding-bottom:60px}
 .top{display:flex;align-items:center;gap:10px;padding:18px 2px 0}
-.top a{font-size:14.5px;font-weight:800;color:var(--ink-3);text-decoration:none}
-h1{font-size:26px;letter-spacing:-.04em;margin:10px 0 4px;font-weight:900}
-.lead{font-size:14.5px;color:var(--ink-3);margin:0 0 6px;line-height:1.55}
-h2{font-size:18px;margin:26px 0 10px;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
-h2 i{font-style:normal;font-size:12.5px;font-weight:800;padding:4px 9px;border-radius:99px;color:#fff;background:var(--c)}
-.tp{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:13px 14px;margin:0 0 9px}
-.tp b{display:block;font-size:15.5px;letter-spacing:-.02em;line-height:1.45}
+.top a{font-size:14px;font-weight:800;color:var(--ink-3);text-decoration:none}
+h1{font-size:26px;letter-spacing:-.04em;margin:10px 0 4px;font-weight:800}
+.lead{font-size:14px;color:var(--ink-3);margin:0 0 6px;line-height:1.55}
+h2{font-size:20px;margin:26px 0 10px;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
+h2 i{font-style:normal;font-size:13px;font-weight:800;padding:4px 9px;border-radius:999px;color:#fff;background:var(--c)}
+.tp{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin:0 0 9px}
+.tp b{display:block;font-size:16px;letter-spacing:-.02em;line-height:1.45}
 .tp p{margin:5px 0 0;font-size:14px;line-height:1.6;color:var(--ink-2)}
-.tp pre{margin:8px 0 0;padding:10px 12px;border-radius:10px;background:#16181D;color:#E6E8EE;font:13px/1.55 ui-monospace,Consolas,"D2Coding",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.tp pre{margin:8px 0 0;padding:10px 12px;border-radius:12px;background:#16181D;color:#E6E8EE;font:13px/1.55 ui-monospace,Consolas,"D2Coding",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
 .tp pre em{font-style:normal;color:#7EE2A8}
 .tp label{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:800;color:var(--ink-3);cursor:pointer}
-table.sq{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+table.sq{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 table.sq th,table.sq td{padding:8px 10px;border-top:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.5}
 table.sq tr:first-child th,table.sq tr:first-child td{border-top:0}
 table.sq th{width:34%;font-weight:800;color:var(--ink-2);background:var(--bg)}
 table.sq code{font:12.5px/1.5 ui-monospace,Consolas,monospace;word-break:keep-all;overflow-wrap:anywhere}
-.go{display:flex;justify-content:center;margin:26px 0 0;padding:15px;border-radius:14px;background:var(--cta,var(--accent));color:#fff;font-weight:900;font-size:16.5px;text-decoration:none}
+.go{display:flex;justify-content:center;margin:26px 0 0;padding:15px;border-radius:14px;background:var(--cta,var(--accent));color:#fff;font-weight:800;font-size:16px;text-decoration:none}
 </style>
 </head><body>
 <div class="page">
   <div class="top"><a href="index.html">← 홈</a></div>
   <h1>시험 전날 볼 것</h1>
-  <p class="lead">코드 문제에서 자주 틀리는 실행 결과와 SQL 문법을 모았습니다. 까만 상자 안 결과는 직접 실행해서 얻은 값입니다.</p>
+  <details class="lead-sub"><summary style="cursor:pointer;font-size:14px;font-weight:700">자료 출처</summary><p class="lead">코드 문제에서 자주 틀리는 실행 결과와 SQL 문법을 모았습니다. 까만 상자 안 결과는 직접 실행해서 얻은 값입니다.</p></details>
 
   <h2 style="--c:#E5484D"><i>Java</i>자주 틀리는 실행 결과</h2>
   <div class="tp"><b>부모 타입 변수에 자식 객체: 메서드는 자식 것, 필드·static 메서드는 부모 것</b>

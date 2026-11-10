@@ -57,7 +57,7 @@
     if(기록.length) h+='<div class="lab">최근 기록</div><div class="hist">'+기록.map(function(r){
       return '<div class="r"><span class="pl '+(r.합?"pass":"fail")+'">'+(r.합?"합격":"불합격")+'</span><span>'+e(r.t)+'</span><em>'+r.평균+'</em></div>';
     }).join("")+'</div>';
-    h+='<div class="b2"><a class="b" href="quiz.html">기출</a><a class="b" href="index.html">홈</a></div>';
+    h+='<div class="b2"><a class="b" href="quiz.html">기출</a><a class="b" href="index.html">오늘</a></div>';
     el("stage").innerHTML=h;
     el("st").onclick=function(){ 치르기(칸); };
   }
@@ -65,7 +65,7 @@
   /* 시험 */
   function 치르기(칸){
     진행중=true; GS.안쪽("모의고사",true);
-    var 문제=[]; 칸.forEach(function(c,ci){ c.문제.forEach(function(x){ 문제.push({x:x,과목:ci,순:QL.보기섞기(x),고름:null}); }); });
+    var 문제=[]; 칸.forEach(function(c,ci){ c.문제.forEach(function(x){ 문제.push({x:x,과목:ci,순:QL.보기섞기(x),고름:null,헷:false}); }); });
     var 총=문제.length, 제한=분(총)*60, 시작=Date.now(), 끝났나=false, 지금=0, 표열림=false, 제출대기=false;
     var 바=document.querySelector(".gtabs"); if(바) 바.style.display="none";
     function 남음(){ return Math.max(0,제한-Math.floor((Date.now()-시작)/1000)); }
@@ -101,7 +101,7 @@
       document.querySelectorAll("#ch button").forEach(function(b){
         b.onclick=function(){ q.고름=Number(b.dataset.j); 제출대기=false; 그리기(); };
       });
-      QF.바({도구:[{id:"pen",icon:"pen",글:"펜",fn:function(){ QF.펜(x.id); }}],
+      QF.바({도구:[{id:"conf",icon:"help",글:"헷갈림",켜짐:q.헷,fn:function(){ q.헷=!q.헷; 그리기(); }},{id:"pen",icon:"pen",글:"펜",fn:function(){ QF.펜(x.id); }}],
         위치:String(지금+1),총:String(총),
         이전:지금>0?function(){ 지금--; 제출대기=false; 그리기(); window.scrollTo(0,0); }:null,
         번호판:판열기,다음글:(지금+1<총?"다음":"제출"),
@@ -135,7 +135,7 @@
       var 쓴분=Math.max(1,Math.round((Date.now()-시작)/60000));
       /* 절반 넘게 비운 제출은 비운 문항을 오답 기록으로 남기지 않는다 — 1문항만 풀고 낸 시험이 99개 오답이 되던 것(2026-10-13 외부 검수 부가) */
       var 반영=답수()*2>=총;
-      문제.forEach(function(z){ if(z.고름==null && !반영) return; QL.기록(z.x.id, z.고름!=null && z.순[z.고름]===z.x.a-1); });
+      문제.forEach(function(z){ if(z.고름==null && !반영) return; QL.기록(z.x.id, z.고름!=null && z.순[z.고름]===z.x.a-1, z.헷?"half":"sure"); });
       /* 답:답한 문항 수 — 절반 미만이면 합격 가늠에서 뺀다(GS.시험성적, 2026-10-11 외부 검수) */
       var rec={t:GS.오늘(), ts:Date.now(), 종목:D.종목, 유형:유형, 합:판.합, 평균:판.평균, 총맞:총맞, 총문:총, 답:답수(), 분:쓴분,
                통과선:판.통과선, 과락선:판.과락선, 과목:과목들};
@@ -159,14 +159,14 @@
         '<div class="bar"><i style="width:'+Math.min(100,s.점)+'%"></i></div></div>';
     }).join("")+'</div>';
     h+='<div class="act"><a class="b main" href="quiz.html?wrong=1">복습 <span style="margin-left:6px">'+QL.틀린것().length+'</span></a>'+
-       '<div class="b2"><a class="b" href="exam.html">다시</a><a class="b" href="index.html">홈</a></div></div>';
+       '<div class="b2"><a class="b" href="exam.html">다시</a><a class="b" href="index.html">오늘</a></div></div>';
     if(틀.length){
       h+='<div class="lab">오답</div>';
       h+=틀.map(function(z,j){
         var x=z.x, t=GS.테마맵[x.k];
         var 맞칸=z.순.indexOf(x.a-1);
         return '<details class="fold"><summary>'+(j+1)+' · '+e(QL.이름(x.s))+(z.고름==null?' <span class="pl" style="margin-left:6px">무응답</span>':'')+'</summary><div class="in">'+
-          '<p class="qstem" style="font-size:15.5px">'+e(x.q)+'</p>'+
+          '<p class="qstem" style="font-size:16px">'+e(x.q)+'</p>'+
           '<div class="ch" style="margin-top:12px">'+z.순.map(function(o,c){
             var cls=c===맞칸?"ans":(c===z.고름?"wrong":"");
             return '<button disabled class="'+cls+'"><span class="n">'+QL.번호[c]+'</span><span>'+e(GS.깨끗(x.c[o]))+'</span></button>';

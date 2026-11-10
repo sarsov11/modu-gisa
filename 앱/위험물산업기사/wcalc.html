@@ -12,19 +12,20 @@
 /* 1011 위험물산업기사 실기: 지정수량 배수·소요단위. 물질을 고르면 품명·지정수량이 자동으로 붙고 풀이 줄이 그대로 나온다 */
 .page{padding-bottom:120px}
 .wc-seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:14px 0}
-.wc-seg button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);padding:12px 6px;font:800 15px/1.2 var(--sans);cursor:pointer}
+.wc-seg button{appearance:none;border:1.5px solid var(--line-2);background:var(--surface-2);color:var(--ink);border-radius:var(--r3);padding:12px 6px;font:800 16px/1.2 var(--sans);cursor:pointer}
 .wc-seg button.on{border-color:var(--ink);background:var(--surface)}
 .wc-row{display:grid;grid-template-columns:1fr 92px 40px;gap:6px;align-items:center;margin:0 0 8px}
-.wc-row select,.wc-row input,.wc-f input,.wc-f select{width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);font:600 15.5px/1.3 var(--sans);padding:11px 8px}
+.wc-row select,.wc-row input,.wc-f input,.wc-f select{width:100%;box-sizing:border-box;border:1.5px solid var(--line-2);border-radius:12px;background:var(--surface);color:var(--ink);font:600 16px/1.3 var(--sans);padding:11px 8px}
 .wc-row .u{font-size:14px;color:var(--ink-3);text-align:center}
-.wc-row small{grid-column:1/-1;margin:-4px 2px 0;font-size:12.5px;color:var(--ink-3)}
+.wc-row small{grid-column:1/-1;margin:-4px 2px 0;font-size:13px;color:var(--ink-3)}
 .wc-x{appearance:none;border:0;background:none;color:var(--ink-3);font-size:20px;cursor:pointer}
-.wc-add{appearance:none;width:100%;border:1.5px dashed var(--line-2);background:none;color:var(--ink-2);border-radius:10px;padding:11px;font:700 15px var(--sans);cursor:pointer;margin:2px 0 14px}
-.wc-out{border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--surface);padding:14px 16px;margin:6px 0 14px;font-size:15.5px;line-height:1.8}
-.wc-out .big{font-size:24px;font-weight:900;letter-spacing:-.02em}
+.wc-add{appearance:none;width:100%;border:1.5px dashed var(--line-2);background:none;color:var(--ink-2);border-radius:12px;padding:11px;font:700 16px var(--sans);cursor:pointer;margin:2px 0 14px}
+.wc-out{border:1.5px solid var(--ink);border-radius:var(--r2);background:var(--surface);padding:14px 16px;margin:6px 0 14px;font-size:16px;line-height:1.8}
+.wc-out .big{font-size:26px;font-weight:800;letter-spacing:-.02em}
 .wc-out .ln{font-variant-numeric:tabular-nums;color:var(--ink-2)}
 .wc-f{display:grid;gap:6px;margin:0 0 10px}
-.wc-f label{font-size:13.5px;font-weight:700;color:var(--ink-3)}
+.wc-f label{font-size:14px;font-weight:700;color:var(--ink-3)}
+.wc-sub{border-top:1px solid var(--line);padding:12px 0}.wc-sub summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--ink-2)}.wc-sub .wc-tip{margin:8px 0 0}
 .wc-tip{font-size:13px;color:var(--ink-3);line-height:1.6;margin:4px 0 12px}
 .wc-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 18px}
 .wc-tbl th,.wc-tbl td{border-bottom:1px solid var(--line-2);padding:7px 4px;text-align:left}
@@ -64,7 +65,7 @@
       '<div class="ln">'+(합>=1?"지정수량 이상: 위험물안전관리법 규제 대상(제조소등 허가)":"지정수량 미만: 시·도 조례로 규제")+'</div></div>';
   }
   function 배수(){
-    var h='<p class="wc-tip">같은 장소에 여러 물질이 있으면 물질마다 저장량 ÷ 지정수량을 구해 모두 더합니다. 고른 물질의 품명·지정수량은 법령 표대로 붙습니다.</p>';
+    var h='<details class="wc-sub"><summary>사용법</summary><p class="wc-tip">같은 장소에 여러 물질이 있으면 물질마다 저장량 ÷ 지정수량을 구해 모두 더합니다. 고른 물질의 품명·지정수량은 법령 표대로 붙습니다.</p></details>';
     h+=줄들.map(function(r,i){
       var x=r.k!==""?고를것[+r.k]:null;
       return '<div class="wc-row"><select data-i="'+i+'" data-f="k">'+옵션()+'</select>'+
@@ -82,7 +83,7 @@
       if(t.dataset.del!=null){ 줄들.splice(+t.dataset.del,1); if(!줄들.length) 줄들.push({k:"",q:""}); 배수(); } };
   }
   function 소요(){
-    var h='<p class="wc-tip">소요단위는 소화설비를 얼마나 둘지 정하는 기준입니다. 건축물은 연면적으로, 위험물은 지정수량의 10배를 1단위로 셉니다. 둘 다 있으면 더합니다.</p>'+
+    var h='<details class="wc-sub"><summary>사용법</summary><p class="wc-tip">소요단위는 소화설비를 얼마나 둘지 정하는 기준입니다. 건축물은 연면적으로, 위험물은 지정수량의 10배를 1단위로 셉니다. 둘 다 있으면 더합니다.</p></details>'+
       '<div class="wc-f"><label>건축물</label><select id="kind"><option value="100,50">제조소·취급소</option><option value="150,75">저장소</option></select></div>'+
       '<div class="wc-f"><label>외벽</label><select id="fire"><option value="0">내화구조</option><option value="1">내화구조가 아님</option></select></div>'+
       '<div class="wc-f"><label>연면적(m²) · 옥외 공작물은 수평투영면적</label><input id="A" inputmode="decimal" placeholder="예: 300"></div>'+

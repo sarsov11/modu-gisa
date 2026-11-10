@@ -23,23 +23,23 @@
     color:var(--ink-3);margin-bottom:14px}
   .qtag b{color:var(--pt-ink,var(--accent));font-weight:800}
   .qtag>span:not(.src){font-variant-numeric:tabular-nums}
-  .qtag .src{margin-left:auto;height:26px;padding:0 10px;border-radius:99px;background:var(--surface-2);
-    display:inline-flex;align-items:center;font-size:12.5px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
-  .qstem{font-size:17px;line-height:1.6;font-weight:600;margin:0 0 14px;letter-spacing:-.02em}
+  .qtag .src{margin-left:auto;height:26px;padding:0 10px;border-radius:999px;background:var(--surface-2);
+    display:inline-flex;align-items:center;font-size:13px;font-weight:700;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .qstem{font-size:16px;line-height:1.6;font-weight:600;margin:0 0 14px;letter-spacing:-.02em}
   .qpick{border:1px solid var(--pt-line,var(--accent));border-radius:14px;padding:14px 16px;
     background:var(--pt-soft,color-mix(in srgb,var(--accent) 8%,transparent))}
-  .qpick .tx{font-size:17px;line-height:1.6;font-weight:600;letter-spacing:-.02em}
+  .qpick .tx{font-size:16px;line-height:1.6;font-weight:600;letter-spacing:-.02em}
 
   /* 확신 — 고르지 않아도 O·X 가 바로 눌린다(안 고르면 확실 아님으로 기록) */
   .conf{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 12px}
   .conf span{grid-column:1/-1;font-size:13px;color:var(--ink-3);font-weight:700}
   .conf button{appearance:none;height:44px;border:1.5px solid var(--line-2);background:var(--surface);
-    color:var(--ink-2);border-radius:12px;padding:0 6px;font:inherit;font-size:14.5px;
+    color:var(--ink-2);border-radius:12px;padding:0 6px;font:inherit;font-size:14px;
     font-weight:700;cursor:pointer}
   .conf button[aria-pressed="true"]{border-color:var(--pt,var(--accent));background:var(--pt-soft,var(--surface-2));color:var(--pt-ink,var(--ink))}
   .ox{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .ox button{appearance:none;height:64px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);
-    border-radius:16px;padding:0;font:inherit;font-size:26px;font-weight:900;cursor:pointer;line-height:1}
+    border-radius:14px;padding:0;font:inherit;font-size:26px;font-weight:800;cursor:pointer;line-height:1}
   .ox button:disabled{opacity:1;cursor:default;color:var(--ink-4)}
   .ox button.pick{border-color:var(--ink);background:var(--surface);color:var(--ink)}
   .ox button[data-s="ok"]{border-color:#16B364;color:#16B364;background:color-mix(in srgb,#16B364 10%,#fff);opacity:1}
@@ -50,27 +50,27 @@
   .verdict.bad{background:color-mix(in srgb,#E5322D 6%,#fff)}
   .verdict.warn{background:color-mix(in srgb,var(--amber) 10%,#fff)}
   .verdict .top{display:flex;align-items:center;gap:9px;margin-bottom:6px}
-  .verdict .mark{font-size:15px;font-weight:800;line-height:1.3}
+  .verdict .mark{font-size:16px;font-weight:800;line-height:1.3}
   .verdict.good .mark{color:#0F7B4F} .verdict.bad .mark{color:#E5322D} .verdict.warn .mark{color:var(--amber)}
-  .verdict .kind{font-size:12.5px;color:var(--ink-3);border:1px solid var(--line-2);border-radius:99px;
+  .verdict .kind{font-size:13px;color:var(--ink-3);border:1px solid var(--line-2);border-radius:999px;
     padding:2px 9px;font-weight:800;background:#fff}
   /* 원래 기출 — 정답이 어느 것이었는지 같이 보여 준다(해설이 없는 자리를 기출이 채운다) */
-  .orig{margin-top:4px;padding-top:10px;border-top:1px solid var(--line-2);font-size:15px;line-height:1.7}
+  .orig{margin-top:4px;padding-top:10px;border-top:1px solid var(--line-2);font-size:16px;line-height:1.7}
   .orig p{margin:10px 0 6px;font-weight:600}
   .orig ol{margin:0;padding-left:22px}
   .orig li.ans{font-weight:800}
-  .orig li.ans::after{content:"  ← 기출 정답";color:var(--pt-ink,var(--accent));font-weight:800;font-size:13.5px}
+  .orig li.ans::after{content:"  ← 기출 정답";color:var(--pt-ink,var(--accent));font-weight:800;font-size:14px}
   .orig li.mine{text-decoration:underline;text-decoration-color:var(--line-3)}
   .next{position:fixed;left:50%;transform:translateX(-50%);width:100%;max-width:720px;padding:0 20px;margin:0;
     bottom:calc(12px + env(safe-area-inset-bottom));z-index:30}
   .page{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 
   .done{text-align:center;padding:30px 4px}
-  .done h2{font-size:24px;margin:0 0 18px;letter-spacing:-.03em}
+  .done h2{font-size:26px;margin:0 0 18px;letter-spacing:-.03em}
   .tally{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px}
   .tally div{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line);padding:14px 6px}
-  .tally b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
-  .tally span{font-size:12.5px;font-weight:600;color:var(--ink-3)}
+  .tally b{display:block;font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+  .tally span{font-size:13px;font-weight:600;color:var(--ink-3)}
   .done .b2{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
 </style>
 </head><body>
@@ -184,8 +184,8 @@
       '<div class="verdict '+(ok?"good":"bad")+'">'+
         '<div class="top"><span class="mark">'+(ok?"○ 정답":"✕ 오답")+'</span>'+
           '<span class="kind">'+e(판.label||판.kind)+'</span></div>'+
-        (o.e&&GS.oxMap[o.e]?'<div class="why" style="font-size:14.5px;line-height:1.55;margin:0 0 8px;font-weight:700"><span style="color:var(--accent);font-weight:900">O ▸</span> '+e(깨(GS.oxMap[o.e].c))+'</div>':'')+
-        '<div class="orig"><p style="font-size:12.5px;color:var(--ink-3);margin:0 0 4px">원래 기출과 정답(해설 없음)</p><p>'+e(깨(q.q))+'</p><ol>'+선지+'</ol></div>'+
+        (o.e&&GS.oxMap[o.e]?'<div class="why tq-exp-why" style="font-size:14px;line-height:1.55;margin:0 0 8px;font-weight:700"><span style="color:var(--accent);font-weight:800">O ▸</span> '+e(깨(GS.oxMap[o.e].c))+'</div>':'')+
+        '<div class="orig tq-exp-orig"><p style="font-size:13px;color:var(--ink-3);margin:0 0 4px">원래 기출과 정답(해설 없음)</p><p>'+e(깨(q.q))+'</p><ol>'+선지+'</ol></div>'+
         '<span class="tq-ans">정답 : '+(o.a?"O":"X")+(o.d?' · 기출 '+o.d+'회':'')+'</span>'+
         (window.TerraBeta&&TerraBeta.report?'<button type="button" class="b sm" id="rp" style="margin-top:8px">이 문항 신고</button>':'')+
       '</div>';
