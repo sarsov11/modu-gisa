@@ -293,8 +293,6 @@ html body .tm-t.tm-on{box-shadow:0 0 0 3px var(--pt) inset}
 html body .tl button{white-space:nowrap}
 
 /* 합격 지도 3판(1110): 공용 g.css 의 .b(단추)·i 규칙이 지도 범례·과목 막대를 키우거나 비우는 것을 되돌림 */
-html body .tm-key i{display:inline-block;width:26px;height:10px;min-height:0;border-radius:999px;background:linear-gradient(90deg,var(--pf) 60%,#EFF1F4 0)}
-html body .tm-key i.b{width:26px;height:5px;min-height:0;background:linear-gradient(90deg,var(--p) 70%,#EFF1F4 0)}
 html body .tm-lh i{display:block;height:6px;border-radius:999px;background:#EFF1F4}
 html body .tm-lh i u{border-radius:999px;background:var(--p)}
 html body .tm-all i{border-radius:999px;background:#EFF1F4}
