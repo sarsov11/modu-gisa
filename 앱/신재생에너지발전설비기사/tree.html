@@ -166,7 +166,7 @@
     var 남={}, 남차례=[];
     D.테마.forEach(function(t){ if(!쓸만(t)||쓴[t.k]) return; if(!남[t.s]){ 남[t.s]=[]; 남차례.push(t.s); } 남[t.s].push(t); });
     /* 기준 밖 테마는 과목마다 줄을 따로 두지 않고 맨 아래 한 줄로 모은다(과목 이름이 단원) */
-    var 밖칸=남차례.map(function(s,si){ var c=칸("x"+si,s,남[s]); c.tier="C"; return c; });
+    var 밖칸=남차례.map(function(s,si){ var c=칸("x"+si,s,남[s]); c.tier="C"; c.avg=0; return c; });   /* 기준 밖은 문항 수로 치지 않는다: 지금 할 단원 추천과 전체 문항 합에서 빠진다 */
     if(밖칸.length) groups.push({name:"출제기준 밖", nodes:밖칸});
   } else {
     배율=1/Math.max(1,회수);
