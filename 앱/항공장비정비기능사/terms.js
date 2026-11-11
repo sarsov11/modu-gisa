@@ -1,0 +1,1 @@
+(window.TNQ=window.TNQ||[]).push({"terms":{"동적 가로안정":{"d":"비행기가 가로 방향 교란을 받은 뒤 시간에 따라 변하는 안정 특성을 다루는 개념이에요.","r":[]}},"notes":{}});if(window.DIAGRAM&&DIAGRAM.tnFlush)DIAGRAM.tnFlush();if(window.TERA_Q&&TERA_Q.terms)TERA_Q.terms({"동적 가로안정":{"d":"비행기가 가로 방향 교란을 받은 뒤 시간에 따라 변하는 안정 특성을 다루는 개념이에요.","r":[]}});
