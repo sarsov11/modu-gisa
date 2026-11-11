@@ -5,8 +5,8 @@
 <title>합격 지도 — 모두의 금속재료기사</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/base.css?v=1111h">
+<link rel="stylesheet" href="css/g.css?v=1111h">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
   /* 개념트리(1002) — 통사 스킬트리 문법: 위는 과목 지도(가운데 종목 → 과목), 아래는 과목 › 중분류 › 테마 가지 */
@@ -84,11 +84,11 @@
   <div id="tmap"></div>
   <div id="hexwrap" style="display:none;margin:18px 0 4px"></div>
 </div>
-<script src="js/gdata.js"></script>
-<script src="js/gstore.js"></script>
-<script src="js/gquiz.js"></script>
-<script src="js/emblem.js?v=1023b"></script><script src="js/tier.js?v=1023b"></script><script src="js/hextree.js?v=1023b"></script><script src="js/embboard.js?v=1101a"></script><script src="js/titles.js?v=1101a"></script>
-<script src="js/tera-map.js?v=1111d"></script>
+<script src="js/gdata.js?v=1111h"></script>
+<script src="js/gstore.js?v=1111h"></script>
+<script src="js/gquiz.js?v=1111h"></script>
+<script src="js/emblem.js?v=1111h"></script><script src="js/tier.js?v=1111h"></script><script src="js/hextree.js?v=1111h"></script><script src="js/embboard.js?v=1111h"></script><script src="js/titles.js?v=1111h"></script>
+<script src="js/tera-map.js?v=1112a"></script>
 <script>
 /* 합격 지도(화면표준 11절) — 줄 = 그 종목의 필기 과목, 칸 = 과목별 핵심 파트(세부항목, 26칸을 넘으면 대단원으로 묶음), 눌러서 나오는 판에 테마별 진척.
    avg = 테마의 해마다 문항 수(D.테마[].u, 실제 기출에서 나온 값) · pct = 내 숙련(GS.숙련). 지어낸 값 없음. */
@@ -117,16 +117,47 @@
       if(sj.밖) return;
       var 과전체=[]; sj.m.forEach(function(m){ m.s.forEach(function(x){ 과전체=과전체.concat((x.t||[]).map(function(k){return GS.테마맵[k];}).filter(쓸만)); }); });
       배율=과목배율(과전체,sj.q);
-      var 세부=[], 대=[];
+      /* 단원 묶음(11-12 대표님 「전력공학 26개·전기기기 7개, 3배 차이라 S·A·B·C 도 이상해짐」 → 「과목별 15개 정도가 표준, 10~20개. 기능사처럼 범위가 작으면 10개 미만도 괜찮음」):
+         단원 = 출제기준 세부항목. 세부항목이 20개 이하면 그대로 쓴다(작은 시험은 10개 미만이 될 수 있다).
+         20개를 넘으면 열다섯 칸을 주요항목의 출제 비중대로 나눠 주고, 주요항목마다 그 칸 수만큼 세부항목을 큰 것부터 꺼낸다. 남는 세부항목은 「주요항목 · 그 밖」 한 칸으로 묶는다.
+         세부항목이 10개 미만이어도 테마가 15개 이상이면 큰 세부항목을 테마로 나눈다. 테마까지 적은 과목(범위가 작은 기능사 등)은 그대로 둔다. */
+      var 주=[], 세부전체=0;
       sj.m.forEach(function(m,mi){
-        var mts=[];
+        var subs=[], mts=[];
         m.s.forEach(function(x,xi){
           var ts=(x.t||[]).map(function(k){return GS.테마맵[k];}).filter(쓸만);
-          if(ts.length){ 세부.push(칸("s"+si+"."+mi+"."+xi,x.n,ts)); mts=mts.concat(ts); }
+          if(ts.length){ subs.push({id:"s"+si+"."+mi+"."+xi,n:x.n,ts:ts,c:ts.reduce(function(a,t){return a+(t.c||0);},0)}); mts=mts.concat(ts); }
         });
-        if(mts.length) 대.push(칸("s"+si+"."+mi,m.n,mts));
+        if(mts.length){ 주.push({id:"s"+si+"."+mi,n:m.n,ts:mts,subs:subs,c:mts.reduce(function(a,t){return a+(t.c||0);},0)}); 세부전체+=subs.length; }
       });
-      var nodes=세부.length<=26?세부:대;
+      var nodes=[], 테마본={}, 테마수=0;
+      주.forEach(function(m){ m.ts.forEach(function(t){ if(!테마본[t.k]){ 테마본[t.k]=1; 테마수++; } }); });
+      if(세부전체<10 && 테마수>=15){
+        /* 출제기준 세부항목이 몇 개 안 되는데 내용은 많은 과목(예: 건축계획 5개): 열다섯 칸을 세부항목의 출제 비중대로 나눠 주고, 칸을 둘 이상 받은 세부항목은 테마를 큰 것부터 꺼낸다 */
+        var 총0=주.reduce(function(a,m){return a+m.c;},0)||1;
+        주.forEach(function(m){ m.subs.forEach(function(x){
+          var 칸수=Math.max(1,Math.round(15*x.c/총0)), tt=x.ts.slice().sort(function(a,b){return (b.c||0)-(a.c||0);});
+          if(칸수<=1 || tt.length<=1){ nodes.push(칸(x.id,x.n,x.ts)); return; }
+          if(tt.length<=칸수){ tt.forEach(function(t,i){ nodes.push(칸(x.id+".t"+i,t.n,[t])); }); return; }
+          tt.slice(0,칸수-1).forEach(function(t,i){ nodes.push(칸(x.id+".t"+i,t.n,[t])); });
+          nodes.push(칸(x.id+".r",x.n+" · 그 밖",tt.slice(칸수-1)));
+        }); });
+      } else if(세부전체<=20){
+        주.forEach(function(m){ m.subs.forEach(function(x){ nodes.push(칸(x.id,x.n,x.ts)); }); });
+      } else {
+        var 총=주.reduce(function(a,m){return a+m.c;},0)||1;
+        주.forEach(function(m){
+          var 칸수=Math.max(1,Math.round(15*m.c/총)), ss=m.subs.slice().sort(function(a,b){return b.c-a.c;});
+          if(ss.length<=칸수){ ss.forEach(function(x){ nodes.push(칸(x.id,x.n,x.ts)); }); return; }
+          if(칸수<=1){ nodes.push(칸(m.id,m.n,m.ts)); return; }
+          ss.slice(0,칸수-1).forEach(function(x){ nodes.push(칸(x.id,x.n,x.ts)); });
+          var 남=[]; ss.slice(칸수-1).forEach(function(x){ 남=남.concat(x.ts); });
+          nodes.push(칸(m.id+".r",(주.length>1?m.n+" · ":"")+"그 밖",남));
+        });
+      }
+      /* 등급은 과목 안에서 매긴다: 많이 나오는 순으로 S 20%(적어도 하나) · A 30% · B 30% · C 나머지. 시험 전체 순위로 매기면 단원이 큰 과목이 S 를 다 가져간다 */
+      (function(){ var o2=nodes.slice().sort(function(a,b){return b.avg-a.avg;}), n=o2.length, s1=Math.max(1,Math.round(n*.2)), a1=Math.round(n*.3), b1=Math.round(n*.3);
+        o2.forEach(function(x,i){ x.tier=!(x.avg>0)?"C":i<s1?"S":i<s1+a1?"A":i<s1+a1+b1?"B":"C"; }); })();
       if(nodes.length) groups.push({name:sj.n, weight:(sj.q>0?sj.q:0), nodes:nodes});
     });
     /* 출제기준에 배정되지 않았지만 이 종목 기출에 있는 과목(예: 건축관계법규)도 줄로 넣는다 — 그 시험의 모든 과목이 보이게 */
@@ -134,12 +165,9 @@
     배율=1/Math.max(1,회수);   /* 출제기준 밖 테마는 보정하지 않는다 */
     var 남={}, 남차례=[];
     D.테마.forEach(function(t){ if(!쓸만(t)||쓴[t.k]) return; if(!남[t.s]){ 남[t.s]=[]; 남차례.push(t.s); } 남[t.s].push(t); });
-    남차례.forEach(function(s,si){
-      var ts=남[s].slice().sort(function(a,b){ return (b.u||0)-(a.u||0) || (a.k<b.k?-1:1); });
-      var nodes=ts.slice(0,25).map(function(t,i){ return 칸("x"+si+"."+i,t.n,[t]); });
-      if(ts.length>25) nodes.push(칸("x"+si+".r","나머지",ts.slice(25)));
-      groups.push({name:s+" · 기준 밖", nodes:nodes});
-    });
+    /* 기준 밖 테마는 과목마다 줄을 따로 두지 않고 맨 아래 한 줄로 모은다(과목 이름이 단원) */
+    var 밖칸=남차례.map(function(s,si){ var c=칸("x"+si,s,남[s]); c.tier="C"; return c; });
+    if(밖칸.length) groups.push({name:"출제기준 밖", nodes:밖칸});
   } else {
     배율=1/Math.max(1,회수);
     var 과={}, 차례=[];
@@ -157,7 +185,7 @@
   window.TMAP_DATA=groups;   /* 검산용: 줄마다 avg 합 */
   var dd=GS.디데이();
   TERA_MAP.mount(document.getElementById("tmap"),{
-    title:"합격 지도", sub:D.별칭||D.종목, dday:dd==null?"":(dd>0?"D-"+dd:(dd===0?"D-DAY":"")), unit:"문항", groups:groups, mark:"tier",
+    title:"합격 지도", sub:D.별칭||D.종목, dday:dd==null?"":(dd>0?"D-"+dd:(dd===0?"D-DAY":"")), unit:"문항", groups:groups, mark:"tier", look:"list",
     onLeaf:function(l){ location.href=주소(l.k); },
     onStart:function(n){
       var 다음=n.leaves.filter(function(l){return l.pct<80;})[0]||n.leaves[0];
@@ -223,7 +251,7 @@
   if(location.hash==="#emb") wrap.scrollIntoView({block:"start"});
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
-<script src="js/zzcoach.js?v=1009a" defer></script>
+<script src="js/zzsfx.js?v=1111h" defer></script><script src="js/zzajan.js?v=1111h" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzcoach.js?v=1111h" defer></script>
 
 </body></html>

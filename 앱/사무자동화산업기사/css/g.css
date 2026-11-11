@@ -117,12 +117,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
    base.css 는 통사 정본이라 건드리지 않고 여기서 화이트 스킨만 덮는다(다른 스킨은 그대로). */
 :root{--no:var(--accent);--pt:var(--accent);--pt-2:var(--accent);--pt-soft:color-mix(in srgb,var(--accent) 10%,var(--surface));--pt-line:color-mix(in srgb,var(--accent) 45%,var(--surface));--pt-ink:var(--accent)}
 :root[data-skin="white"]{
-  --pt:#E8590C; --pt-2:#C2410C; --pt-3:#9A3412; --pt-soft:rgba(232,89,12,.10); --pt-line:rgba(232,89,12,.40);
+  --pt:#0F766E; --pt-2:#0B5F59; --pt-3:#0B4F4A; --pt-soft:rgba(15,118,110,.10); --pt-line:#7FB8B2;
   --accent:var(--pt); --bg-1:#FFFFFF;
   --cta:var(--pt); --cta-2:var(--pt-2); --cta-3:var(--pt-3); --cta-soft:var(--pt-soft); --cta-line:var(--pt-line); --cta-ink:#fff;
   --mint:var(--pt); --mint-2:var(--pt-2); --mint-soft:var(--pt-soft);
   --no:#E5322D; --ok:#16B364;
-  --pt-ink:color-mix(in srgb,var(--pt) 78%,#111419);
+  --pt-ink:#0B4F4A;
   --sans:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
   --r1:12px; --r2:14px; --r3:18px;   /* 판 18 · 작은 판·입력 14 (화면표준 0절) */
 }
@@ -297,3 +297,28 @@ html body .tm-lh i{display:block;height:6px;border-radius:999px;background:#EFF1
 html body .tm-lh i u{border-radius:999px;background:var(--p)}
 html body .tm-all i{border-radius:999px;background:#EFF1F4}
 html body .tm-all i u{border-radius:999px;background:var(--p)}
+
+/* ═══ 2026-11-11 청록 단일톤(대표님 「다 청록색으로 통일」 · 화면표준 16절) — 색은 청록 하나, 구분은 진하기로만. 정답 초록 · 오답 빨강만 남긴다 ═══
+   base.css 는 통사 정본이라 건드리지 않고 여기서 덮는다. html:root 로 써야 base.css 의 :root[data-skin] 값에 이긴다. */
+html:root,html:root[data-skin="white"]{--pt:#0F766E;--pt-2:#0B5F59;--pt-3:#0B4F4A;--pt-soft:rgba(15,118,110,.10);--pt-line:#7FB8B2;--pt-ink:#0B4F4A;
+  --accent:#0F766E;--cta:#0F766E;--cta-2:#0B5F59;--cta-3:#0B4F4A;--cta-soft:rgba(15,118,110,.10);--cta-line:#7FB8B2;--cta-ink:#fff;
+  --mint:#0F766E;--mint-2:#0B5F59;--mint-soft:rgba(15,118,110,.10);
+  --red:#0F766E;--red-2:#0B5F59;--red-3:#0B4F4A;--red-soft:rgba(15,118,110,.08);--red-line:#7FB8B2;
+  --lv3:#0F766E;--lv2:#7FB8B2;--lv1:#DCE7E5;--core:#0F766E;--core-glow:#0F766E;--neb-1:rgba(15,118,110,.07);
+  --fam-geo:#0F766E;--fam-soc:#0B4F4A;--fam-eth:#7FB8B2;
+  --ink:#12302D;--ink-1:#12302D;--line:#DCE7E5;--no:#E5322D;--ok:#16B364}
+html:root[data-skin="white"] .pips i.no{background:var(--no)}
+html:root[data-skin="white"] .missed .r .x{color:var(--no)}
+html:root[data-skin="white"] ::selection{background:rgba(15,118,110,.16)}
+html:root .bdg-hard{background:rgba(15,118,110,.10);color:#0B4F4A;box-shadow:inset 0 0 0 1px rgba(15,118,110,.3)}
+/* 공용 부품(tera-map · tera-q)이 박아 둔 먹색 · 남청 회색을 이 앱에서만 청록 먹색 계열로 덮는다(부품 파일은 그대로) */
+html:root .tm{color:var(--ink)}
+html:root .tm-t.tm-on{box-shadow:0 0 0 3px #0B4F4A inset}
+html:root .tm-dt .tm-t.tm-on{background:#0B4F4A}
+html:root{--tq-ink:#12302D;--tq-ink2:#2E4A47;--tq-sub:#4A615F;--tq-line:#DCE7E5;--tq-fill:#EEF5F4}
+html:root .tq-badge,html:root .tq-coach p,html:root .tq-tool{color:#3F5A57}
+html:root .tq-meta .tq-no,html:root .tq-icon,html:root .tq-tabs button:not(.is-on),html:root .tq-tabs a:not(.is-on){color:#5A7370}
+/* 설정 「자료 출처」 안쪽 접힘 줄(.sub)이 바깥 .fold summary 의 안쪽 여백 17px 18px 을 물려받아 36px 삐져나왔다 — 안쪽 줄은 여백을 0 으로 */
+html:root .fold .sub summary{padding:0;min-height:24px;font-size:14px;font-weight:700;color:var(--ink-2)}
+/* 닫힌 접힘 안쪽 상자는 화면에 없는데도 레이아웃이 남아 검사기가 삐져나옴으로 셌다 — 닫혔을 땐 아예 빼 둔다 */
+html:root .fold:not([open]) > .in{display:none}

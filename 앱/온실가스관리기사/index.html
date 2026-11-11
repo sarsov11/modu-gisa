@@ -5,8 +5,8 @@
 <title>모두의 온실가스관리기사</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/g.css">
+<link rel="stylesheet" href="css/base.css?v=1111h">
+<link rel="stylesheet" href="css/g.css?v=1111h">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
   /* 2026-11-10 화면표준 3절 — 날짜 줄 → 오늘 카드(+시작) → 숫자 두 칸 → 출석 → 목록 */
@@ -82,10 +82,10 @@
   <div class="lab" id="slab">과목</div>
   <div class="fold" style="padding:6px 18px 8px"><div id="subj"></div></div>
 </div>
-<script src="js/gdata.js"></script>
-<script src="js/gstore.js"></script>
+<script src="js/gdata.js?v=1111h"></script>
+<script src="js/gstore.js?v=1111h"></script>
 <script>/* 합격 가늠은 문제풀이 기록을 과목별로 센다 — 기록이 있을 때만 문제 자료를 불러온다 */
-(function(){ var 기=(GS.S.기출||{}); if(Object.keys(기).length && !window.GQ){ document.write('<script src="js/gquiz.js"><\/script>'); } })();</script>
+(function(){ var 기=(GS.S.기출||{}); if(Object.keys(기).length && !window.GQ){ document.write('<script src="js/gquiz.js?v=1111h"><\/script>'); } })();</script>
 <script>
 (function(){
   if(!GS.S.시작){ location.replace("start.html"+location.search+location.hash); return; }
@@ -193,5 +193,5 @@
 
 })();
 </script>
-<script src="js/zzsfx.js?v=1009a" defer></script><script src="js/zzajan.js?v=1013a" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
+<script src="js/zzsfx.js?v=1111h" defer></script><script src="js/zzajan.js?v=1111h" defer></script><script src="https://sarsov11.github.io/terra-learning/beta/beta.js" data-app="gisa" defer></script>
 <script>window.addEventListener("load",function(){if(!window.GS||!window.GD){var p=document.querySelector(".page");if(p)p.insertAdjacentHTML("afterbegin","<p style=\"padding:16px 0;font-size:16px\">필요한 파일을 불러오지 못했다. 새로고침 후에도 같으면 설정의 문항 신고로 알려 달라.</p>");}});</script></body></html>

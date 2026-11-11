@@ -12,76 +12,76 @@
 :root{
   /* 바탕 */
   /* 2026-10-24 대표님: 검은 바탕은 검정+하늘색(흰 바탕은 흰색+빨강). 바탕을 남색 쪽 검정으로 */
-  --bg:#070B14;
-  --bg-2:#0A1020;
-  --surface:#0F1626;
-  --surface-2:#131C2F;
-  --surface-3:#1A243833;
+  --bg:#071413;
+  --bg-2:#0A201E;
+  --surface:#0F2624;
+  --surface-2:#132F2D;
+  --surface-3:#1A383633;
 
   /* 선 */
-  --line:#1F2B42;
-  --line-2:#2B3D5C;
-  --line-3:#3A4E70;
+  --line:#1F423F;
+  --line-2:#2B5C58;
+  --line-3:#3A706C;
 
   /* 글자 */
   --ink:#EEF3FB;
-  --ink-2:#B3C1D8;
-  --ink-3:#93A2BC;
-  --ink-4:#8392AD;
+  --ink-2:#B3D8D5;
+  --ink-3:#93BCB9;
+  --ink-4:#83ADAA;
 
   /* 강조 — 빨강은 지금·중요·오답에만 */
-  --red:#E5484D;
-  --red-2:#FF6369;
-  --red-3:#B0353A;
-  --red-soft:rgba(229,72,77,.13);
-  --red-line:rgba(229,72,77,.36);
+  --red:#0F766E;
+  --red-2:#7FB8B2;
+  --red-3:#0B5F59;
+  --red-soft:rgba(15,118,110,.13);
+  --red-line:rgba(15,118,110,.36);
 
   /* 성취 — 밝기 계단 */
   --lv3:#EDF1F6;   /* 완성 임박 */
   --lv2:#8A929C;   /* 진행 중 */
-  --lv1:#3A4048;   /* 미착수 */
+  --lv1:#3A4847;   /* 미착수 */
 
   /* 등급 */
-  --core:#E5484D;  /* 핵심 */
+  --core:#0F766E;  /* 핵심 */
   --deep:#9AA3AE;  /* 심화 */
-  --ref:#5A616A;   /* 참고 */
+  --ref:#5A6A69;   /* 참고 */
 
   /* 갈래 — 스킬트리·차트가 함께 쓴다 */
-  --fam-geo:#4FC3E8;
-  --fam-soc:#F5CC4A;
-  --fam-eth:#B48CF2;
+  --fam-geo:#6ACDC5;
+  --fam-soc:#70CFC7;
+  --fam-eth:#9FDFDA;
   --mint:#2FE0CE;
   /* ── 화면이 쓰는데 없던 색 (2026-09-02 채움) ──
      정의가 없으면 값이 빈 문자열이 되어 그 자리가 투명해진다.
      학부모 리포트 달력이 색칠되지 않던 것이 그 탓이었다. */
-  --card:#0F1626;          /* 카드 바탕 — surface 보다 살짝 푸르게 */
-  --card-2:#141D31;
+  --card:#0F2624;          /* 카드 바탕 — surface 보다 살짝 푸르게 */
+  --card-2:#14312F;
   --ink-1:#F2F5FA;         /* ink 보다 한 단계 밝게 */
   --mint-soft:rgba(47,224,206,.13);
   --mint-2:#6FF0E2;
-  --amber:#E8A33D;
-  --accent:#8FDCF5;
-  --bg-1:#0A0D13;
+  --amber:#5CC9C0;
+  --accent:#A3E0DB;
+  --bg-1:#0A1312;
   /* 주 단추·지금 여기 표시 — 기본 스킨은 빨강. 종이 스킨은 파랑(오답 빨강과 갈라 둔다) */
   /* 밤은 하늘색 단추에 검은 글씨(2026-10-24). 흰 스킨이 빨강으로 되돌린다. 빨강(--red)은 오답·임박에 그대로 */
-  --cta:#4FC3E8; --cta-2:#8FDCF5; --cta-3:#2A9CC4; --cta-soft:rgba(79,195,232,.13); --cta-line:rgba(79,195,232,.40); --cta-ink:#04121A;
+  --cta:#6ACDC5; --cta-2:#A3E0DB; --cta-3:#2AC4B7; --cta-soft:rgba(106,205,197,.13); --cta-line:rgba(106,205,197,.40); --cta-ink:#081615;
   /* 기후 판정 그래프(drill.html) 축·도시 점 — 스킨마다 drill.html 이 덮어쓴다 */
-  --citydim:#20313C; --axis:#333C47; --axis-ink:#545B64;
+  --citydim:#203C3A; --axis:#334745; --axis-ink:#546463;
   --sans:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
 
 
   /* 무대 — 스킬트리 밤하늘, 지도 바탕 */
-  --stage:#070B14;
-  --stage-2:#0C1424;
-  --stage-line:#2B3D5C;
+  --stage:#071413;
+  --stage-2:#0C2422;
+  --stage-line:#2B5C58;
   --stage-ink:#DEE8F8;
-  --stage-ink-2:#A9BEDF;
-  --star:#CFE0FF;
-  --neb-1:rgba(66,110,190,.18);
-  --neb-2:rgba(150,80,200,.14);
-  --core-glow:#4E7BD6;      /* 무대 한가운데 빛. 빨강은 강조색이라 여기 쓰지 않는다 */
+  --stage-ink-2:#A9DFDB;
+  --star:#DBF3F1;
+  --neb-1:rgba(66,190,180,.18);
+  --neb-2:rgba(83,198,188,.14);
+  --core-glow:#5BC8BF;      /* 무대 한가운데 빛. 빨강은 강조색이라 여기 쓰지 않는다 */
   --crop:#EDE9E3;          /* 기출 크롭(흰 종이)이 화면에서 튀지 않게 깔아 주는 바탕 */
-  --nav-bg:rgba(7,11,20,.86);
+  --nav-bg:rgba(7,20,19,.86);
 
   --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px;
 
@@ -104,28 +104,28 @@
 /* ── 모눈 노트 — 크림 종이에 잉크 한 색 ── */
 :root[data-skin="note"]{
   --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line); --cta-ink:#fff;   /* 밤만 하늘색(2026-10-24) */
-  --card:#FFFDF7; --card-2:#FBF6EA; --ink-1:#1A1712;
-  --mint-soft:rgba(46,125,107,.12); --mint-2:#1F5A4C; --amber:#B5791C;
-  --accent:#B0353A; --bg-1:#FFFDF7;
+  --card:#FFFDF7; --card-2:#FBF6EA; --ink-1:#121A19;
+  --mint-soft:rgba(46,125,107,.12); --mint-2:#1F5A4C; --amber:#1DB4A7;
+  --accent:#0B5F59; --bg-1:#FFFDF7;
   --sans:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
 
   --bg:#F6F2E7; --bg-2:#EFEADC; --surface:#FFFDF7; --surface-2:#F7F3E7;
   --surface-3:#EDE7D5;
-  --line:#DED6C1; --line-2:#CDC3A9; --line-3:#B5A987;
-  --ink:#1F2B44; --ink-2:#3D4A63; --ink-3:#545968; --ink-4:#64685F;
+  --line:#C1DEDC; --line-2:#A9CDCA; --line-3:#87B5B1;
+  --ink:#1F4441; --ink-2:#3D6360; --ink-3:#546866; --ink-4:#64685F;
 
-  --red:#C2452F; --red-2:#A93A26; --red-3:#8C2F1E;
-  --red-soft:rgba(194,69,47,.10); --red-line:rgba(194,69,47,.38);
+  --red:#0F766E; --red-2:#0B5F59; --red-3:#0B4F4A;
+  --red-soft:rgba(15,118,110,.10); --red-line:rgba(15,118,110,.38);
 
-  --lv3:#2F5AA8; --lv2:#7C93BE; --lv1:#D8D2C0;
-  --core:#C2452F; --deep:#5B6B8C; --ref:#95998F;
+  --lv3:#2FA89E; --lv2:#7CBEB9; --lv1:#D8D2C0;
+  --core:#0F766E; --deep:#5B8C88; --ref:#95998F;
 
-  --fam-geo:#2F5AA8; --fam-soc:#B07A1E; --fam-eth:#6B4E9E; --mint:#2E7D6B;
+  --fam-geo:#2FA89E; --fam-soc:#1EB0A4; --fam-eth:#4E9E97; --mint:#2E7D6B;
 
-  --stage:#FBF8EF; --stage-2:#FFFDF7; --stage-line:#CFC6AE;
-  --stage-ink:#1F2B44; --stage-ink-2:#6E7488; --star:#CFC6AE;
-  --neb-1:rgba(47,90,168,.05); --neb-2:rgba(107,78,158,.045);
-  --core-glow:#2F5AA8;
+  --stage:#FBF8EF; --stage-2:#FFFDF7; --stage-line:#AECFCC;
+  --stage-ink:#1F4441; --stage-ink-2:#6E8886; --star:#AECFCC;
+  --neb-1:rgba(47,168,158,.05); --neb-2:rgba(78,158,151,.045);
+  --core-glow:#2FA89E;
   --crop:#F1ECDD;
   --nav-bg:rgba(246,242,231,.92);
 
@@ -134,38 +134,38 @@
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
   --tw:900; --tls:-.01em;
   --r1:7px; --r2:11px; --r3:15px;
-  --shadow:0 1px 0 rgba(120,110,85,.18), 0 10px 26px -20px rgba(80,70,45,.5);
+  --shadow:0 1px 0 rgba(85,120,117,.18), 0 10px 26px -20px rgba(45,80,77,.5);
   /* 공책 모눈 */
   --paper:linear-gradient(var(--bg) 0 0) padding-box,
-          repeating-linear-gradient(0deg,transparent 0 21px,rgba(120,110,85,.13) 21px 22px),
-          repeating-linear-gradient(90deg,transparent 0 21px,rgba(120,110,85,.09) 21px 22px);
+          repeating-linear-gradient(0deg,transparent 0 21px,rgba(85,120,117,.13) 21px 22px),
+          repeating-linear-gradient(90deg,transparent 0 21px,rgba(85,120,117,.09) 21px 22px);
 }
 
 /* ── 젤리 파스텔 — 연하되 흐리지 않게 ── */
 :root[data-skin="jelly"]{
   --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line); --cta-ink:#fff;   /* 밤만 하늘색(2026-10-24) */
-  --card:#FFF6FA; --card-2:#FFEDF4; --ink-1:#1E1620;
-  --mint-soft:rgba(25,183,155,.14); --mint-2:#0E8E77; --amber:#E09A2B;
-  --accent:#FF6369; --bg-1:#FFF6FA;
+  --card:#FFF6FA; --card-2:#FFEDF4; --ink-1:#16201F;
+  --mint-soft:rgba(25,183,155,.14); --mint-2:#0E8E77; --amber:#49C2B8;
+  --accent:#7FB8B2; --bg-1:#FFF6FA;
   --sans:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
 
   --bg:#FFF6FA; --bg-2:#FFECF4; --surface:#FFFFFF; --surface-2:#FFF4F9;
   --surface-3:#FFE4EF;
-  --line:#F6D6E4; --line-2:#EFB9D0; --line-3:#E294B6;
-  --ink:#33232C; --ink-2:#57414E; --ink-3:#695661; --ink-4:#7D6170;
+  --line:#DAF2F0; --line-2:#BEEAE6; --line-3:#99DDD7;
+  --ink:#233332; --ink-2:#415755; --ink-3:#566967; --ink-4:#617D7B;
 
-  --red:#F0417E; --red-2:#DC2E6C; --red-3:#C22159;
-  --red-soft:rgba(240,65,126,.11); --red-line:rgba(240,65,126,.42);
+  --red:#65CCC3; --red-2:#48C2B8; --red-3:#21C2B5;
+  --red-soft:rgba(101,204,195,.11); --red-line:rgba(101,204,195,.42);
 
-  --lv3:#F0417E; --lv2:#F79CC0; --lv1:#F3DCE5;
-  --core:#F0417E; --deep:#8E62D8; --ref:#A88F9C;
+  --lv3:#65CCC3; --lv2:#AFE4E0; --lv1:#F3DCE5;
+  --core:#65CCC3; --deep:#6CCEC6; --ref:#8FA8A6;
 
-  --fam-geo:#20BCD4; --fam-soc:#FFAE2B; --fam-eth:#9B63EE; --mint:#19B79B;
+  --fam-geo:#20BCD4; --fam-soc:#60CAC1; --fam-eth:#7DD4CD; --mint:#19B79B;
 
-  --stage:#FFFAFC; --stage-2:#FFFFFF; --stage-line:#F0C4D8;
-  --stage-ink:#33232C; --stage-ink-2:#8B7280; --star:#F9BAD4;
-  --neb-1:rgba(255,150,190,.18); --neb-2:rgba(150,190,255,.16);
-  --core-glow:#7FB2F0;
+  --stage:#FFFAFC; --stage-2:#FFFFFF; --stage-line:#C8ECE9;
+  --stage-ink:#233332; --stage-ink-2:#728B89; --star:#C7ECE9;
+  --neb-1:rgba(176,229,224,.18); --neb-2:rgba(176,229,224,.16);
+  --core-glow:#94DBD5;
   --crop:#FBF3F6;
   --nav-bg:rgba(255,246,250,.92);
 
@@ -174,36 +174,36 @@
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
   --tw:900; --tls:-.015em;
   --r1:15px; --r2:21px; --r3:28px;
-  --shadow:0 3px 0 rgba(226,148,182,.35), 0 16px 34px -20px rgba(200,110,150,.5);
+  --shadow:0 3px 0 rgba(153,221,215,.35), 0 16px 34px -20px rgba(110,200,193,.5);
   --paper:none;
 }
 
 /* ── 화이트 미니멀 — 백지에 얇은 선, 강조는 빨강 하나 ── */
 :root[data-skin="white"]{
   --cta:var(--red); --cta-2:var(--red-2); --cta-3:var(--red-3); --cta-soft:var(--red-soft); --cta-line:var(--red-line); --cta-ink:#fff;   /* 밤만 하늘색(2026-10-24) */
-  --card:#FFFFFF; --card-2:#F6F7F9; --ink-1:#0B0C0E;
-  --mint-soft:rgba(229,32,46,.10); --mint-2:#B0353A; --amber:#B5791C;
-  --accent:#E5202E; --bg-1:#FFFFFF;
+  --card:#FFFFFF; --card-2:#F6F7F9; --ink-1:#0B0E0E;
+  --mint-soft:rgba(15,118,110,.10); --mint-2:#0B5F59; --amber:#1DB4A7;
+  --accent:#0F766E; --bg-1:#FFFFFF;
   --sans:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
 
   --bg:#FFFFFF; --bg-2:#FAFAFB; --surface:#FFFFFF; --surface-2:#F7F8FA;
   --surface-3:#EFF1F4;
   --line:#E6E8EC; --line-2:#D3D7DD; --line-3:#B4BAC3;
-  --ink:#111419; --ink-2:#333941; --ink-3:#5A5F67; --ink-4:#5F6670;   /* 2026-09-24 대표님 판정: 보조 글씨 명암비 4.5 이상(옛 --ink-4 #949AA3 = 2.83) */
+  --ink:#111918; --ink-2:#334140; --ink-3:#5A6766; --ink-4:#5F706F;   /* 2026-09-24 대표님 판정: 보조 글씨 명암비 4.5 이상(옛 --ink-4 #949AA3 = 2.83) */
 
-  --red:#E5202E; --red-2:#C8101D; --red-3:#A50C17;
-  --red-soft:rgba(229,32,46,.07); --red-line:rgba(229,32,46,.40);
+  --red:#0F766E; --red-2:#0B5F59; --red-3:#0B4F4A;
+  --red-soft:rgba(15,118,110,.07); --red-line:rgba(15,118,110,.40);
 
-  --lv3:#E5202E; --lv2:#9AA1AB; --lv1:#E6E8EC;
-  --core:#E5202E; --deep:#6B717A; --ref:#949AA3;
+  --lv3:#0F766E; --lv2:#9AA1AB; --lv1:#E6E8EC;
+  --core:#0F766E; --deep:#6B7A79; --ref:#949AA3;
 
   /* 흑백에 빨강 하나. 갈래는 색이 아니라 그 빨강의 진하기로 가른다. */
-  --fam-geo:#E5202E; --fam-soc:#8E1420; --fam-eth:#FF6A74; --mint:#E5202E;
+  --fam-geo:#0F766E; --fam-soc:#0B4F4A; --fam-eth:#7FB8B2; --mint:#0F766E;
 
   --stage:#FFFFFF; --stage-2:#FFFFFF; --stage-line:#DEE1E6;
-  --stage-ink:#111419; --stage-ink-2:#6B717A; --star:#E6E8EC;
-  --neb-1:rgba(229,32,46,.07); --neb-2:rgba(17,20,25,.03);
-  --core-glow:#E5202E;
+  --stage-ink:#111918; --stage-ink-2:#6B7A79; --star:#E6E8EC;
+  --neb-1:rgba(15,118,110,.07); --neb-2:rgba(17,25,24,.03);
+  --core-glow:#0F766E;
   --crop:#F4F4F6;
   --nav-bg:rgba(255,255,255,.92);
 
@@ -212,39 +212,39 @@
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
   --tw:900; --tls:-.05em;
   --r1:5px; --r2:8px; --r3:12px;
-  --shadow:0 1px 2px rgba(17,20,25,.05), 0 10px 24px -18px rgba(17,20,25,.28);
+  --shadow:0 1px 2px rgba(17,25,24,.05), 0 10px 24px -18px rgba(17,25,24,.28);
   --paper:none;
 }
 
 /* ── 종이 — 모두의 수학 「모눈 노트」 그대로 (2026-09-16). 크림 종이·흰 카드·파란 단추·Pretendard ── */
 :root[data-skin="paper"]{
   --cta-ink:#fff;
-  --card:#FFFFFF; --card-2:#F3F0E8; --ink-1:#161A24;
-  --mint-soft:rgba(31,122,82,.12); --mint-2:#1F7A52; --amber:#B7791F;
-  --accent:#2F5BEA; --bg-1:#FFFFFF;
+  --card:#FFFFFF; --card-2:#F3F0E8; --ink-1:#162423;
+  --mint-soft:rgba(31,122,114,.12); --mint-2:#1F7A72; --amber:#1FB7AA;
+  --accent:#53C6BC; --bg-1:#FFFFFF;
   --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
 
   --bg:#FAF8F3; --bg-2:#F3F0E8; --surface:#FFFFFF; --surface-2:#F3F0E8;
   --surface-3:#ECE8DE;
-  --line:#E6E1D6; --line-2:#D9D3C5; --line-3:#BDB6A6;
-  --ink:#171B24; --ink-2:#2B3140; --ink-3:#545A67; --ink-4:#626774;   /* 2026-09-18 대표님 "글씨가 회색이라 흐릿" — 본문을 검정에 가깝게 */
+  --line:#E6E1D6; --line-2:#D9D3C5; --line-3:#A6BDBB;
+  --ink:#172423; --ink-2:#2B403E; --ink-3:#546765; --ink-4:#627472;   /* 2026-09-18 대표님 "글씨가 회색이라 흐릿" — 본문을 검정에 가깝게 */
 
   /* 빨강은 오답·경고에만 (수학의 retry 주황빨강) */
-  --red:#C2410C; --red-2:#A8380A; --red-3:#8C2E08;
-  --red-soft:rgba(194,65,12,.10); --red-line:rgba(194,65,12,.38);
+  --red:#1DB1A5; --red-2:#19998E; --red-3:#157F76;
+  --red-soft:rgba(29,177,165,.10); --red-line:rgba(29,177,165,.38);
   /* 주 단추는 파랑 */
-  --cta:#2F5BEA; --cta-2:#2448C9; --cta-3:#1B3AA8; --cta-soft:#E8EEFF; --cta-line:rgba(47,91,234,.38);
+  --cta:#53C6BC; --cta-2:#24C9BB; --cta-3:#1BA89C; --cta-soft:#E8EEFF; --cta-line:rgba(83,198,188,.38);
   --citydim:#B9C4D0; --axis:#C9C3B5; --axis-ink:#8A8F9C;
 
-  --lv3:#2F5BEA; --lv2:#8FA5E8; --lv1:#E0DCD0;
-  --core:#C2410C; --deep:#5B6170; --ref:#8A8F9C;
+  --lv3:#53C6BC; --lv2:#9ADDD8; --lv1:#E0DCD0;
+  --core:#1DB1A5; --deep:#5B706E; --ref:#8A8F9C;
 
-  --fam-geo:#2563EB; --fam-soc:#B45309; --fam-eth:#9333EA; --mint:#0F766E;
+  --fam-geo:#4DC3BA; --fam-soc:#1AA397; --fam-eth:#56C7BD; --mint:#0F766E;
 
   --stage:#FFFFFF; --stage-2:#FAF8F3; --stage-line:#E6E1D6;
-  --stage-ink:#1F2430; --stage-ink-2:#8A8F9C; --star:#E6E1D6;
-  --neb-1:rgba(47,91,234,.06); --neb-2:rgba(147,51,234,.04);
-  --core-glow:#2F5BEA;
+  --stage-ink:#1F302F; --stage-ink-2:#8A8F9C; --star:#E6E1D6;
+  --neb-1:rgba(83,198,188,.06); --neb-2:rgba(86,199,189,.04);
+  --core-glow:#53C6BC;
   --crop:#F3F0E8;
   --nav-bg:rgba(250,248,243,.9);
 
@@ -253,10 +253,10 @@
   --mono:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;   /* 2026-09-16 숫자도 굵은 본문 글꼴 — 게임 HUD 문법 */
   --tw:900; --tls:-.035em;
   --r1:10px; --r2:14px; --r3:18px;
-  --shadow:0 1px 0 rgba(31,36,48,.04);
+  --shadow:0 1px 0 rgba(31,48,47,.04);
   /* 옅은 모눈 28px */
-  --paper:linear-gradient(rgba(31,36,48,.035) 1px,transparent 1px),
-          linear-gradient(90deg,rgba(31,36,48,.035) 1px,transparent 1px);
+  --paper:linear-gradient(rgba(31,48,47,.035) 1px,transparent 1px),
+          linear-gradient(90deg,rgba(31,48,47,.035) 1px,transparent 1px);
 }
 :root[data-skin="paper"] body{background-size:28px 28px;background-attachment:fixed;letter-spacing:-.01em}
 :root[data-skin="paper"] .card{border:1px solid var(--line);box-shadow:var(--shadow)}
@@ -424,7 +424,7 @@ html,body{overflow-x:hidden}/* 지면 가로 넘침 막기 */
 .pips i{width:22px;height:6px;border-radius:99px;background:var(--lv1);display:block;
   transition:background .2s}
 .pips i.ok{background:#2FE0CE}
-.pips i.no{background:var(--red)}
+.pips i.no{background:var(--wrong)}
 .pips i.now{background:var(--ink-2)}
 .setscore{font-family:var(--mono);font-size:15px;color:var(--ink-3);font-weight:800}
 .setscore b{color:var(--ink);font-size:21px;font-weight:600;letter-spacing:-.03em}
@@ -450,7 +450,7 @@ html,body{overflow-x:hidden}/* 지면 가로 넘침 막기 */
   background:var(--surface);font-size:16px}
 .missed .r .c{font-weight:700;color:var(--ink);flex:0 0 128px}
 .missed .r .k{font-family:var(--mono);font-size:14.5px;color:var(--ink-3);font-weight:800}
-.missed .r .x{margin-left:auto;font-family:var(--mono);font-size:14.5px;color:var(--red-2);font-weight:800}
+.missed .r .x{margin-left:auto;font-family:var(--mono);font-size:14.5px;color:var(--wrong-2);font-weight:800}
 
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.001ms !important;transition-duration:.001ms !important}
@@ -590,12 +590,12 @@ body .ox button[data-s="ok"]{ color:#1F9D5B; } body .ox button[data-s="no"]{ col
 .bdg-new{--mk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1l2.6 7.4L22 11l-7.4 2.6L12 21l-2.6-7.4L2 11l7.4-2.6zM19 16l1 2.6 2.6 1-2.6 1L19 23l-1-2.4-2.6-1 2.6-1z'/%3E%3C/svg%3E")}
 /* 킬러 — 불꽃 */
 .bdg-hard{--mk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 1s1 3.5-1.5 6.5C9.6 9.8 7 12 7 15.5A5.5 5.5 0 0 0 12.5 21 6.5 6.5 0 0 0 19 14.5c0-3.4-2-5.6-3-6.5.2 1.9-.6 3.2-1.6 3.6.6-3.8-.2-7.6-1.4-10.6z'/%3E%3C/svg%3E");
-  background:#FFF0E6;color:#D2531C;box-shadow:inset 0 0 0 1px rgba(210,83,28,.3)}
+  background:#FFF0E6;color:#21CDBE;box-shadow:inset 0 0 0 1px rgba(33,205,190,.3)}
 /* 복습 — 돌아오는 화살 */
 .bdg-again{--mk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 4a8 8 0 0 1 7.7 5.9l-2 .5A6 6 0 0 0 6.3 9H9v2H3V5h2v2.4A8 8 0 0 1 12 4zm-7.7 10.1l2-.5A6 6 0 0 0 17.7 15H15v-2h6v6h-2v-2.4A8 8 0 0 1 4.3 14.1z'/%3E%3C/svg%3E")}
 /* 끝 — 체크 */
 .bdg-done{--mk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
-  background:#E7F6EC;color:#1E7A3E;box-shadow:inset 0 0 0 1px rgba(30,122,62,.3)}
+  background:#E7F6EC;color:#1E7A72;box-shadow:inset 0 0 0 1px rgba(30,122,114,.3)}
 /* 잠김 — 자물쇠 */
 .bdg-lock{--mk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 2a5 5 0 0 1 5 5v3h1.5A1.5 1.5 0 0 1 20 11.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20.5v-9A1.5 1.5 0 0 1 5.5 10H7V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v3h6V7a3 3 0 0 0-3-3z'/%3E%3C/svg%3E");
   background:var(--surface-3,#eee);color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--line-2)}
@@ -613,8 +613,8 @@ h1,h2,h3,h4{font-weight:900!important}
    ═══════════════════════════════════════════════════════════════════════════ */
 :root{--pt:var(--cta);--pt-2:var(--cta-2);--pt-soft:var(--cta-soft);--pt-line:var(--cta-line);--pt-ink:var(--cta)}
 :root[data-skin="white"]{
-  --pt:#E5202E; --pt-2:#C8101D; --pt-soft:rgba(229,32,46,.10); --pt-line:rgba(229,32,46,.40);
-  --pt-ink:color-mix(in srgb,#E5202E 78%,#111419);
+  --pt:#0F766E; --pt-2:#0B5F59; --pt-soft:rgba(15,118,110,.10); --pt-line:rgba(15,118,110,.40);
+  --pt-ink:color-mix(in srgb,#0F766E 78%,#111918);
   --no:#E5322D; --ok:#16B364;
   --sans:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
   --kr:var(--sans); --title:var(--sans);
@@ -622,7 +622,7 @@ h1,h2,h3,h4{font-weight:900!important}
 }
 html,body{overflow-x:clip}
 body{font-family:var(--sans,var(--kr))}
-.pan{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+.pan{border:0;border-radius:18px;background:var(--surface);box-shadow:0 1px 2px rgba(17,25,24,.05),0 0 0 1px var(--line)}
 
 /* 머리띠 — 56px · 표식 28 · 오른쪽 격자 36 */
 .nav{height:56px;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid var(--line)}
@@ -710,7 +710,7 @@ html body.inner .gorow.stickgo{position:fixed;left:50%;transform:translateX(-50%
   bottom:calc(12px + env(safe-area-inset-bottom,0px));background:none;z-index:60;flex-wrap:nowrap;gap:12px}
 html body.inner .stickgo .btn{flex:1;height:54px;min-height:54px;border-radius:16px;font-size:16.5px;font-weight:800;padding:0 18px;justify-content:center}
 html body.inner .stickgo .hint,html body.inner .stickgo .gohint{flex:none;font-size:13px;font-weight:700;color:var(--ink-3)}
-html body.inner .qcard,html body.inner .side .card{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(17,20,25,.05),0 0 0 1px var(--line)}
+html body.inner .qcard,html body.inner .side .card{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(17,25,24,.05),0 0 0 1px var(--line)}
 @media(max-width:959px){
   html body.inner .cols{grid-template-columns:1fr}
   html body.inner .side{display:grid;grid-template-columns:1fr;gap:12px;margin-top:4px}
@@ -795,8 +795,12 @@ html body.inner .stickgo .btn{border-radius:14px;font-size:16px}
 html body .pan,html body .sec,html body .stat,html body .att,html body .rc-card,html body .card{border:1px solid #E6E8EC;box-shadow:none}
 html body .rc-card .go,html body .go{box-shadow:none}
 /* 색 — 포인트 색 한 가지(진하기만 다르게) + 회색. 딴색 칩 · 끝남 초록 · 청록 · 노랑 · 과목별 색을 모은다 */
-:root,:root[data-skin]{--mint:#B3141F;--mint-2:#E5202E;--mint-soft:rgba(229,32,46,.10);--amber:#9AA0A8;--fam-geo:#E5202E;--fam-soc:#8E1019;--fam-eth:#F08A91}
-.bdg-hard{background:rgba(229,32,46,.10);color:#B3141F;box-shadow:inset 0 0 0 1px rgba(229,32,46,.3)}
-.bdg-done{background:#F1F3F5;color:#3A3F47;box-shadow:inset 0 0 0 1px #D3D7DD}
+:root,:root[data-skin]{--wrong:#E5322D;--wrong-2:#C42A25;--wrong-soft:rgba(229,50,45,.10);--wrong-line:rgba(229,50,45,.38)}
+:root,:root[data-skin]{--mint:#0B5F59;--mint-2:#0F766E;--mint-soft:rgba(15,118,110,.10);--amber:#9AA0A8;--fam-geo:#0F766E;--fam-soc:#0B4F4A;--fam-eth:#7FB8B2}
+.bdg-hard{background:rgba(15,118,110,.10);color:#0B5F59;box-shadow:inset 0 0 0 1px rgba(15,118,110,.3)}
+.bdg-done{background:#F1F3F5;color:#3A4746;box-shadow:inset 0 0 0 1px #D3D7DD}
 .scopenote{border:1px solid #E6E8EC;background:#fff}
-.scopenote a{color:#B3141F}
+.scopenote a{color:#0B5F59}
+
+/* 2026-11-11 색은 청록 하나 (화면표준 16절) — 어느 스킨이든 포인트는 같은 청록, 진하기로만 구분한다 */
+:root,:root[data-skin]{--pt:#0F766E;--pt-2:#0B5F59;--pt-soft:rgba(15,118,110,.10);--pt-line:rgba(15,118,110,.40);--pt-ink:#0B4F4A;--cta:#0F766E;--cta-2:#0B5F59;--cta-3:#0B4F4A;--cta-soft:rgba(15,118,110,.10);--cta-line:rgba(15,118,110,.40);--accent:#0F766E;--red:#0F766E;--red-2:#0B5F59;--red-3:#0B4F4A;--red-soft:rgba(15,118,110,.10);--red-line:rgba(15,118,110,.38)}

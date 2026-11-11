@@ -1,4 +1,5 @@
-/* 3.3(11-11): 폰·태블릿 카드 두 칸을 CSS columns 에서 grid 로 바꿈 — columns + column-span 은 ① 크롬에서 펼친 추천 카드가 윗 카드에 붙어 고리(3px)가 덮고 ② 아이폰 사파리(웹킷)에서는 오른쪽 칸이 아래로 밀리고 빈 카드가 생겼다. 겹침검사.py 로 13개 앱 크롬·웹킷 확인.
+/* 3.5(11-12): look:"list" 추가 — 지금 할 단원 세 줄 + 과목 접기 → 단원 줄 → 세부(대표님 「난잡하다 · 나안으로」). 다른 look 은 그대로.
+ * 3.3(11-11): 폰·태블릿 카드 두 칸을 CSS columns 에서 grid 로 바꿈 — columns + column-span 은 ① 크롬에서 펼친 추천 카드가 윗 카드에 붙어 고리(3px)가 덮고 ② 아이폰 사파리(웹킷)에서는 오른쪽 칸이 아래로 밀리고 빈 카드가 생겼다. 겹침검사.py 로 13개 앱 크롬·웹킷 확인.
  * 테라러닝 합격 지도 3판(11-10 저녁: 파트 카드 안에 세부 단원을 전부 펼친다. 대표님 「훨씬 더 상세하게 나와야 함」. detail:false 를 주면 2판 타일 격자) · 2판 — 시험 한 개의 전체 구조·진척·중요도·추천 순서를 한 장에 (2026-11-10 허브)
  *   1판(고리 칸 + 범례 줄 + 추천 띠)은 대표님 「직관적으로 눈에 안 들어옴. 조잡해 보임」 → 표시를 덜어 냄.
  *   타일 크기는 전부 같다(대표님 「타일이 넓을수록은 안 됨. 디자인 통일성 위배」).
@@ -18,7 +19,7 @@
  * 색: 앱의 --pt(없으면 --t-app, --cta). 클래스는 전부 tm- 로 시작한다(앱 css 와 겹치지 않게).
  */
 (function () {
-  if (window.TERA_MAP && window.TERA_MAP.version >= 3.3) return;
+  if (window.TERA_MAP && window.TERA_MAP.version >= 3.5) return;
   var d = document, styled = false;
   var CSS = [
     ".tm{--p:var(--pt,var(--t-app,var(--cta,#E5202E)));--pi:color-mix(in srgb,var(--p) 80%,#111419);--pf:color-mix(in srgb,var(--p) 20%,#fff);",
@@ -93,7 +94,10 @@
     ".tm-dt .tm-t{height:auto;min-height:52px;padding-top:8px;padding-bottom:8px}",
     "@media(max-width:959px){.tm-dt .tm-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-items:start;columns:auto}.tm-dt .tm-c{margin:0}.tm-dt .tm-c.tm-crec,.tm-dt .tm-c.tm-cfirst{grid-column:1/-1}",
 ".tm-dt .tm-c:not(.tm-crec):not(.tm-cfirst) .tm-ll{display:none}.tm-dt .tm-q{display:none}.tm-dt .tm-crec .tm-q,.tm-dt .tm-cfirst .tm-q{display:inline}",
-    " .tm-dt .tm-lh b{font-size:16px}.tm-dt .tm-lh i{max-width:none}.tm-key{flex-wrap:wrap}}",
+    " .tm-dt .tm-lh b{font-size:16px}.tm-dt .tm-lh i{max-width:none}.tm-key{flex-wrap:wrap}",
+    // 3.4: 과목 이름이 길고 「출제 · 진척」 글자가 붙으면 머리 줄이 화면보다 넓어져 옆으로 밀렸다(지게차 390px 에서 13px). 칸은 줄어들 수 있게, 머리 줄은 꺾이게 한다
+    " .tm-lanes,.tm-dt .tm-lanes{min-width:0}.tm-lane,.tm-dt .tm-lane{grid-template-columns:minmax(0,1fr);min-width:0}",
+    " .tm-lh,.tm-dt .tm-lh{flex-wrap:wrap;row-gap:4px;min-width:0}.tm-lh b,.tm-dt .tm-lh b{white-space:normal;min-width:0;word-break:keep-all;overflow-wrap:anywhere}.tm-lh i,.tm-dt .tm-lh i{min-width:60px}}",
     /* 고른 타일 판 */
     ".tm-pv{position:fixed;z-index:2147480000;right:16px;top:76px;bottom:16px;width:340px;border-radius:18px;background:#fff;box-shadow:0 26px 60px -28px rgba(17,20,25,.34),0 0 0 1px #E6E8EC;padding:18px;display:none;flex-direction:column;gap:12px}",
     ".tm-pv.tm-open{display:flex}",
@@ -108,7 +112,33 @@
     "@media(max-width:959px){.tm-top h2{font-size:20px}.tm-next{margin-left:0;width:100%}.tm-all{max-width:none}",
     " .tm-lane{grid-template-columns:1fr;gap:8px}.tm-lh{display:flex;align-items:center;gap:10px;padding:0}.tm-lh b{font-size:16px}.tm-lh span{margin:0;white-space:nowrap}.tm-lh i{flex:1;margin:0}",
     " .tm-row{grid-template-columns:1fr 1fr}.tm-t{height:54px}.tm-board .tm-lh{padding:0 4px 10px}",
-    " .tm-pv{left:0;right:0;top:auto;bottom:0;width:auto;max-height:70vh;border-radius:18px 22px 0 0}}"
+    " .tm-pv{left:0;right:0;top:auto;bottom:0;width:auto;max-height:70vh;border-radius:18px 22px 0 0}}",
+    /* 3.5 look:"list" — 지금 할 단원 세 줄 + 과목은 접어 두고 누르면 단원 줄이 펼쳐진다 */
+    ".tm-list{max-width:720px}",
+    ".tml-sum{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:#F6F7F9;margin-bottom:18px}",
+    ".tml-sum b{font-weight:800;font-size:22px;line-height:1;font-variant-numeric:tabular-nums}.tml-sum em{color:#5F6670;font-size:13px;font-weight:700;white-space:nowrap}",
+    ".tml-bar{flex:1;min-width:0;height:8px;border-radius:8px;background:#E3E6EB;overflow:hidden;display:block}.tml-bar u{display:block;height:100%;background:var(--p);border-radius:8px}",
+    ".tml-h{font-weight:800;font-size:14px;line-height:1.3;color:#5F6670;margin:22px 2px 10px}",
+    ".tml-todo{border:1px solid #E6E9EE;border-radius:14px;overflow:hidden}",
+    ".tml-do{display:grid;grid-template-columns:16px 24px minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;height:48px;padding:0 14px;border:0;border-top:1px solid #E6E9EE;background:#fff;text-align:left}",
+    ".tml-do:first-child{border-top:0;height:54px;background:var(--p);color:#fff}.tml-do:first-child .tml-tier{background:#fff;color:var(--pi)}.tml-do:first-child small,.tml-do:first-child em{color:#fff}",
+    ".tml-do>i{font-weight:800;font-size:15px}.tml-do>.tml-x{min-width:0;display:flex;align-items:baseline;gap:8px}.tml-do b{flex:0 1 auto;max-width:72%;font-weight:800;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
+    ".tml-do small{flex:1 1 0;min-width:0;font-weight:700;font-size:12px;color:#5F6670;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tml-do em{font-weight:800;font-size:13px;color:#5F6670;white-space:nowrap}",
+    ".tml-tier{flex:none;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:12px;line-height:1;color:#fff;background:var(--p)}",
+    ".tml-tier.tml-A{background:color-mix(in srgb,var(--p) 70%,#fff)}.tml-tier.tml-B{background:color-mix(in srgb,var(--p) 32%,#fff);color:var(--pi)}.tml-tier.tml-C{background:#ECEFF3;color:#6B727C}",
+    ".tml-star{flex:none;width:34px;font-size:11px;line-height:1;color:var(--p);letter-spacing:-.05em;white-space:nowrap}",
+    ".tml-g{display:flex;align-items:center;gap:10px;width:100%;min-height:56px;padding:10px 4px;border:0;border-bottom:1px solid #E6E9EE;background:none;text-align:left}",
+    ".tml-g b{font-weight:800;font-size:16px;line-height:1.25}.tml-g small{font-weight:700;font-size:13px;color:#5F6670;white-space:nowrap}.tml-g .tml-bar{max-width:90px;margin-left:auto}",
+    ".tml-g em{width:38px;text-align:right;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}.tml-g>i{color:#9AA1AB;font-weight:800;transition:transform .15s}.tml-g[aria-expanded=true]>i{transform:rotate(180deg)}",
+    ".tml-r{display:grid;grid-template-columns:auto minmax(0,1fr) auto 52px 12px;align-items:center;gap:10px;width:100%;min-height:50px;padding:8px 2px;border:0;border-bottom:1px solid #E6E9EE;background:none;text-align:left}",
+    ".tml-r b{font-weight:700;font-size:15px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tml-r small{font-weight:700;font-size:12px;color:#5F6670;white-space:nowrap}",
+    ".tml-r .tml-bar{height:6px}.tml-r>i{color:#9AA1AB;font-weight:800;transition:transform .15s}.tml-r[aria-expanded=true]>i{transform:rotate(90deg)}",
+    ".tml-r.tml-next{background:var(--pf);border-radius:10px;border-bottom-color:transparent;padding-left:8px;padding-right:8px}.tml-r.tml-dim{opacity:.5}",
+    ".tml-lv{padding:4px 2px 12px 36px;border-bottom:1px solid #E6E9EE}",
+    ".tml-lf{display:flex;justify-content:space-between;gap:10px;width:100%;padding:8px 0;border:0;background:none;text-align:left;font-weight:500;font-size:14px;line-height:1.35;color:#3A414B}",
+    ".tml-lf em{flex:none;font-weight:700;font-size:12px;color:var(--pi)}",
+    ".tml-go{margin-top:8px;width:100%;height:46px;border:0;border-radius:12px;background:var(--p);color:#fff;font-weight:800;font-size:15px}",
+    "@media(prefers-reduced-motion:reduce){.tml-g>i,.tml-r>i{transition:none}}"
   ].join("");
 
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
@@ -150,6 +180,50 @@
     var tot = 0, got = 0;
     all.forEach(function (x) { var a = W(x.n); tot += a; got += a * (x.n.pct || 0) / 100; });
     var whole = tot ? Math.round(got / tot * 100) : 0;
+
+    /* 3.5 look:"list" */
+    if (o.look === "list") {
+      var Lst = { fold: {}, open: {} };
+      var qtx = function (n) { if (noAvg || !(n.avg > 0)) return ""; var v = n.avg; return v >= .95 ? "해마다 " + Math.round(v) + unit : v >= .45 ? "2년에 1" + unit : "가끔 출제"; };
+      var mk = function (x) { return tiers ? '<span class="tml-tier tml-' + x.tier + '">' + x.tier + "</span>" : stars ? '<span class="tml-star">' + "★★★".slice(0, x.star) + "</span>" : "<span></span>"; };
+      var bar = function (p) { return '<span class="tml-bar"><u style="width:' + Math.round(p) + '%"></u></span>'; };
+      var rowsOf = function (g) {
+        return g.nodes.map(function (n) { return all.filter(function (y) { return y.n === n; })[0]; })
+          .sort(function (a, b) { return W(b.n) - W(a.n); }).map(function (x) {
+            var id = all.indexOf(x), op = !!Lst.open[id], L = x.n.leaves || [];
+            var s = '<button type="button" class="tml-r' + (x.order === 1 ? " tml-next" : "") + (x.n.dim ? " tml-dim" : "") + '" data-n="' + id + '" aria-expanded="' + op + '">' + mk(x) +
+              "<b>" + esc(x.n.name) + "</b><small>" + esc(qtx(x.n)) + "</small>" + bar(x.n.pct || 0) + "<i>›</i></button>";
+            if (op) s += '<div class="tml-lv">' + L.map(function (l, i) { return '<button type="button" class="tml-lf" data-n="' + id + '" data-l="' + i + '">' + esc(l.name) + ((l.pct || 0) >= 80 ? "<em>완료</em>" : "") + "</button>"; }).join("") +
+              '<button type="button" class="tml-go" data-go="' + id + '">이 단원 풀기</button></div>';
+            return s;
+          }).join("");
+      };
+      var draw = function () {
+        var s = '<div class="tm-top"><h2>' + esc(o.title || "합격 지도") + (o.sub ? "<small>" + esc(o.sub) + "</small>" : "") + "</h2>" + (o.dday ? '<span class="tm-dd" style="margin-left:auto">' + esc(o.dday) + "</span>" : "") + "</div>" +
+          '<div class="tml-sum"><b>' + whole + "%</b>" + bar(whole) + (noAvg ? "" : "<em>" + num(Math.round(tot)) + esc(unit) + " 중 " + num(Math.round(got)) + esc(unit) + "만큼</em>") + "</div>";
+        if (rec.length) s += '<div class="tml-h">지금 할 단원</div><div class="tml-todo">' + rec.map(function (x, i) {
+          return '<button type="button" class="tml-do" data-go="' + all.indexOf(x) + '"><i>' + (i + 1) + "</i>" + mk(x) + '<span class="tml-x"><b>' + esc(x.n.name) + "</b>" + (G.length > 1 ? "<small>" + esc(x.g.name) + "</small>" : "") + "</span><em>" + (i === 0 ? "시작 ›" : esc(qtx(x.n))) + "</em></button>";
+        }).join("") + "</div>";
+        s += '<div class="tml-h">' + (G.length > 1 ? "과목별로 보기" : "단원") + "</div>";
+        G.forEach(function (g, gi) {
+          if (G.length < 2) { s += rowsOf(g); return; }
+          var ga = g.nodes.reduce(function (a, n) { return a + W(n); }, 0), gp = ga ? g.nodes.reduce(function (a, n) { return a + W(n) * (n.pct || 0); }, 0) / ga : 0, op = !!Lst.fold[gi];
+          s += '<button type="button" class="tml-g" data-g="' + gi + '" aria-expanded="' + op + '"><b>' + esc(g.name) + "</b><small>단원 " + g.nodes.length + "개</small>" + bar(gp) + "<em>" + Math.round(gp) + "%</em><i>⌄</i></button>" + (op ? rowsOf(g) : "");
+        });
+        host.innerHTML = s;
+      };
+      host.classList.add("tm", "tm-list"); draw();
+      host.onclick = function (e) {
+        var t = e.target.closest("button"); if (!t || !host.contains(t)) return;
+        if (t.dataset.go != null) { var x = all[+t.dataset.go]; (o.onStart || o.onNode || function () {})(x.n, x.g.src); return; }
+        if (t.dataset.l != null) { var y = all[+t.dataset.n], lf = (y.n.leaves || [])[+t.dataset.l]; if (o.onLeaf && lf) o.onLeaf(lf, y.n, y.g.src); return; }
+        if (t.dataset.g != null) Lst.fold[t.dataset.g] = !Lst.fold[t.dataset.g];
+        else if (t.dataset.n != null) Lst.open[t.dataset.n] = !Lst.open[t.dataset.n];
+        else return;
+        draw();
+      };
+      return { recommend: rec.map(function (x) { return x.n; }), whole: whole };
+    }
 
     var h = '<div class="tm-top"><h2>' + esc(o.title || "합격 지도") + (o.sub ? "<small>" + esc(o.sub) + "</small>" : "") + "</h2>" +
       (o.dday ? '<span class="tm-dd">' + esc(o.dday) + "</span>" : "") +
@@ -218,5 +292,5 @@
     return { recommend: rec.map(function (x) { return x.n; }), whole: whole };
   }
 
-  window.TERA_MAP = { mount: mount, version: 3.3 };
+  window.TERA_MAP = { mount: mount, version: 3.5 };
 })();

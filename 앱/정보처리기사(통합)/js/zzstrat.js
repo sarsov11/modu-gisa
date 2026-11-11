@@ -21,7 +21,7 @@
   var LANG = (function () { var l = (D.documentElement.getAttribute("lang") || "ko").toLowerCase(); return l.indexOf("ja") === 0 ? "ja" : l.indexOf("en") === 0 ? "en" : "ko"; })();
   var L = {
     ko: { btn: "합격전략", next: "다음", end: "닫기", skip: "건너뛰기", close: "닫기", tour: "짚어 보기", abs: "절대평가", rel: "상대평가",
-      line: "합격선", goal: "목표", cut: "최근 합격선", bonus: "가산점", fail: "과락", sum: "과목 목표를 더하면", subj: "과목", strat: "전략", def: "면과락", base: "기본",
+      line: "합격선", goal: "목표", cut: "최근 합격선", bonus: "가산점", fail: "과락", sum: "과목 목표를 더하면", subj: "과목", strat: "전략", def: "방어", base: "기본",
       why: "왜", hold: "여기까지는 맞힌다", drop: "버려도 되는 문항", ex: "기출로 보기", must: "필수", fight: "승부", skipq: "버림", ans: "정답", order: "시험장에서",
       rate: "합격률", writ: "필기", prac: "실기", vid: "근거 영상", src: "출처", rep: "반복 출제", newq: "신출", range: "범위", start: "시작",
       pick: "목표 고르기", replay: "처음부터 듣기", gcut: "등급컷", passz: "합격", failz: "불합격", tiers: "공부 범위", m_all: "공부", m_lite: "간단히", m_guess: "찍기", pt: "점" },
@@ -441,7 +441,7 @@
   function pickHTML(d, g) {
     var c = d.선택 || []; if (!c.length) return "";
     var max = num((d.합격선 || {}).만점);
-    var o = '<section data-zs="pick"><h2>' + L.pick + '</h2><div class="picks">';
+    var o = '<section data-zs="pick"><h2>' + (c.length === 1 ? L.goal : L.pick) + '</h2><div class="picks">';
     c.forEach(function (x) {
       o += '<button type="button" class="pk' + (x.id === g ? ' on' : '') + '" data-g="' + esc(x.id) + '"><span class="ck"></span><div class="pn">' + esc(x.이름) + '</div>';
       if (num(x.목표) > 0) o += '<div class="pg">' + num(x.목표) + '<small> / ' + (max || "") + '</small></div>';
@@ -575,7 +575,7 @@
     var sst = D.createElement("style"); sst.textContent = css + themeVars(d) +
       (LANG === "ja" ? "\n#zs,#zs *,#zst,#zst *{word-break:normal!important;line-break:strict;overflow-wrap:anywhere}" : ""); SR.appendChild(sst);
     var box = D.createElement("div"); box.id = "zs"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true"); box.setAttribute("aria-label", L.btn);
-    var g = getGoal(id); if (g && !choice(d, g)) g = null;
+    if ((d.선택 || []).length === 1) setGoal(id, d.선택[0].id);   /* 11-12: 선택지가 하나면 묻지 않는다 */ var g = getGoal(id); if (g && !choice(d, g)) g = null;
     box.innerHTML = build(d, g); SR.appendChild(box);
     cur = { id: id, ov: D.documentElement.style.overflow }; D.documentElement.style.overflow = "hidden";
     box.addEventListener("click", function (e) {
@@ -755,9 +755,9 @@
     function finish(toBrief) { mark(id); close(); if (toBrief) setTimeout(function () { open(id); }, RM ? 0 : 220); if (opt.onClose) try { opt.onClose(); } catch (e) { } }
     function endScreen() {
       ended = true; bar.style.width = "100%"; nx.style.visibility = "hidden";
-      var g = getGoal(id), o = "";
+      var one = picks && d.선택.length === 1; if (one) setGoal(id, d.선택[0].id); var g = getGoal(id), o = "";
       if (picks) {
-        o += '<p class="ln in">' + fmtLine(LANG === "ko" ? "어디까지 노릴지 고르세요." : LANG === "ja" ? "目標を選んでください。" : "Pick your target.") + '</p><div class="pks">';
+        o += '<p class="ln in">' + fmtLine(one ? (LANG === "ko" ? "목표는 이렇게 잡습니다." : LANG === "ja" ? "目標はこちらです。" : "Your target.") : (LANG === "ko" ? "어디까지 노릴지 고르세요." : LANG === "ja" ? "目標を選んでください。" : "Pick your target.")) + '</p><div class="pks">';
         d.선택.forEach(function (c) { o += '<button type="button" class="pk' + (c.id === g ? ' on' : '') + '" data-g="' + esc(c.id) + '"><b>' + esc(c.이름) + (num(c.목표) > 0 ? ' · ' + num(c.목표) + ((d.합격선 || {}).단위 != null ? d.합격선.단위 : L.pt) : '') + '</b>' + (c.설명 ? '<span>' + esc(lead(c.설명)) + '</span>' : '') + '</button>'; });
         o += '</div>';
       }

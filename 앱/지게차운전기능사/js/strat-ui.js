@@ -2,26 +2,26 @@
    열린 Shadow DOM 안에 덮개 style 을 넣고, 떠 있는 알약은 쓰지 않는다(오늘 목록 줄 · 설정 줄로 연다).  2026-11-10 */
 window.ZZSTRAT_THEME = "light";   /* 검은 화면 이야기 대신 흰 화면(화면표준 14절) */
   (function(){
-    var P="#E8590C", PI="#C2410C", PS="rgba(232,89,12,.10)";
+    var P="#0F766E", PI="#0B4F4A", PS="rgba(15,118,110,.10)";
     var 덮개=[
-      "#zs,#zst,#zsy{--zs-bg:#FFFFFF;--zs-card:#FFFFFF;--zs-line:#E6E8EC;--zs-red:"+P+";--zs-blue:#F4A06B;--zs-gold:#7C818C;--zs-soft:#F1F3F6;--zs-tx:#111419;--zs-sub:#5F6670}",
+      "#zs,#zst,#zsy{--zs-bg:#FFFFFF;--zs-card:#FFFFFF;--zs-line:#DCE7E5;--zs-red:"+P+";--zs-blue:#4E9A93;--zs-gold:#7C818C;--zs-soft:#F1F3F6;--zs-tx:#12302D;--zs-sub:#5F6670}",
       "#zs .top .t{letter-spacing:0;font-size:13px}#zs .top button{border-radius:12px}",
       "#zs section{border-radius:18px;box-shadow:none}",
       "#zs .chip{border-radius:999px;background:#F1F3F6;color:#333941}#zs .chip.r{background:"+PS+";color:"+PI+"}",
       "#zs .pk{border:1px solid #E6E8EC;border-radius:14px;background:#FFFFFF}#zs .pk.on{border-color:"+P+";background:"+PS+";box-shadow:none}",
-      "#zs .tg{border-radius:999px;font-size:11.5px}#zs .tg.a{background:"+P+";color:#fff}#zs .tg.l{background:rgba(232,89,12,.16);color:"+PI+";border:0}#zs .tg.g{background:#F1F3F6;color:#5F6670;border:0}",
+      "#zs .tg{border-radius:999px;font-size:11.5px}#zs .tg.a{background:"+P+";color:#fff}#zs .tg.l{background:rgba(15,118,110,.16);color:"+PI+";border:0}#zs .tg.g{background:#F1F3F6;color:#5F6670;border:0}",
       "#zs .sc,#zs .sc.s,#zs .sc.d{border:1px solid #E6E8EC;border-radius:14px}#zs .sc.on{background:#FFFFFF}#zs .sc .rb{border-radius:999px}",
-      "#zs .sc.s .rb,#zs .sc.s .bar b{background:"+P+"}#zs .sc.d .rb,#zs .sc.d .bar b{background:#F4A06B}#zs .sc.b .bar b{background:#B4BAC3}",
+      "#zs .sc.s .rb,#zs .sc.s .bar b{background:"+P+"}#zs .sc.d .rb,#zs .sc.d .bar b{background:#4E9A93}#zs .sc.b .bar b{background:#B4BAC3}",
       "#zs .det{border-radius:14px}#zs .vl i{background:"+P+";border-radius:50%}",
-      "#zs .gauge .fl{background:rgba(232,89,12,.14)}#zs .stack i.s{background:"+P+"}#zs .stack i.d{background:#F4A06B}#zs .stack i.b{background:#B4BAC3}",
+      "#zs .gauge .fl{background:rgba(15,118,110,.14)}#zs .stack i.s{background:"+P+"}#zs .stack i.d{background:#4E9A93}#zs .stack i.b{background:#B4BAC3}",
       "#zs .gp b{background:"+P+";border-radius:12px}#zs .gp::after{background:"+P+"}#zs .gb .gline b{border-radius:12px}",
       "#zs .gc .cd{border:1px solid #E6E8EC;border-radius:14px}",
-      "#zs .gc .cd:nth-child(1){--c:"+P+"!important}#zs .gc .cd:nth-child(2){--c:#F08A4B!important}#zs .gc .cd:nth-child(3){--c:#F5B58A!important}#zs .gc .cd:nth-child(n+4){--c:#9CA3AF!important}",
+      "#zs .gc .cd:nth-child(1){--c:"+P+"!important}#zs .gc .cd:nth-child(2){--c:#3A8A83!important}#zs .gc .cd:nth-child(3){--c:#8CC4BE!important}#zs .gc .cd:nth-child(n+4){--c:#9CA3AF!important}",
       "#zs .gc .cg{border-radius:999px}#zs .hit{border-radius:14px}",
       "#zs .q li.a::before{background:"+P+";border-color:"+P+"}#zs .q .st.f{color:"+PI+";border-color:"+PI+"}#zs .q{border-radius:14px}",
       "#zs .go{background:"+P+";border-radius:12px}#zst .nx{background:"+P+";border-radius:12px}#zst .hole{border-radius:14px}#zst .bub{border-radius:18px}",
       "#zsy .nx{background:"+P+"}#zsy .pg i{background:"+P+"}#zsy .pk{border:1px solid #E6E8EC}#zsy .pk.on{border-color:"+P+";box-shadow:none}",
-      "#zsy{background:#FFFFFF}#zsy .ln{color:#111419}#zsy .ln b{color:"+P+"}#zsy.B .ln.old{color:#B4BAC3}#zsy .pg{background:#EFF1F4}#zsy .nx{color:#fff}",
+      "#zsy{background:#FFFFFF}#zsy .ln{color:#12302D}#zsy .ln b{color:"+P+"}#zsy.B .ln.old{color:#B4BAC3}#zsy .pg{background:#EFF1F4}#zsy .nx{color:#fff}",
       "#zsy .end button{border:1px solid "+P+";color:"+PI+"}#zsy .end .main{background:"+P+";color:#fff}"
     ].join("\n");
     function 글(root){ var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false), n; while((n=w.nextNode())){ if(n.nodeValue.indexOf("합격전략")>=0) n.nodeValue=n.nodeValue.replace(/합격전략/g,"합격 전략"); } }
