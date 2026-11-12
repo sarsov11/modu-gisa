@@ -28,6 +28,7 @@ button.red{background:var(--red);border-color:var(--red);color:#fff}
 .tabs a{padding:12px 0;text-align:center;font-size:12px;color:var(--ink-4);text-decoration:none;font-weight:700}
 .tabs a.on{color:var(--red-2)}
 </style>
+<link rel="stylesheet" href="css/login.css">
 </head><body>
 <div class="wrap">
   <div class="brand">설정</div>
@@ -103,8 +104,12 @@ button.red{background:var(--red);border-color:var(--red);color:#fff}
   document.getElementById('note').innerHTML=
     '문항 '+ (G.문항||[]).length +'개 · '+ (G.과목||[]).length +'과목<br>'+
     '개념 갈래는 큐넷 출제기준 '+(G.적용||'')+' 기준입니다.<br>'+
-    '기록은 이 브라우저에만 저장됩니다. 서버로 보내지 않습니다.';
+    '로그인하지 않으면 기록은 이 기기에만 남습니다. 로그인하면 계정에 저장됩니다.';
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
+<script src="js/supa.config.js"></script>
+<script src="js/auth.js?v=09644262" data-service="gisa" data-prefixes="modugisa2."></script>
+<script src="js/loginui.js?v=d6aeb6b4"></script>
+<script src="js/loginslot.js?v=709f0ec2"></script>
 </body></html>
