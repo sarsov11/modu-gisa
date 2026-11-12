@@ -4,7 +4,7 @@ window.ZZSTRAT_THEME = "light";   /* 검은 화면 이야기 대신 흰 화면(�
   (function(){
     var P="#0F766E", PI="#0B4F4A", PS="rgba(15,118,110,.10)";
     var 덮개=[
-      "#zs,#zst,#zsy{--zs-bg:#FFFFFF;--zs-card:#FFFFFF;--zs-line:#DCE7E5;--zs-red:"+P+";--zs-blue:#4E9A93;--zs-gold:#7C818C;--zs-soft:#F1F3F6;--zs-tx:#12302D;--zs-sub:#5F6670}",
+      "#zs,#zst,#zsy{--zs-bg:#FFFFFF;--zs-card:#FFFFFF;--zs-line:#E5E7EB;--zs-red:"+P+";--zs-blue:#4E9A93;--zs-gold:#7C818C;--zs-soft:#F1F3F6;--zs-tx:#111419;--zs-sub:#5F6670}",
       "#zs .top .t{letter-spacing:0;font-size:13px}#zs .top button{border-radius:12px}",
       "#zs section{border-radius:18px;box-shadow:none}",
       "#zs .chip{border-radius:999px;background:#F1F3F6;color:#333941}#zs .chip.r{background:"+PS+";color:"+PI+"}",
@@ -21,7 +21,7 @@ window.ZZSTRAT_THEME = "light";   /* 검은 화면 이야기 대신 흰 화면(�
       "#zs .q li.a::before{background:"+P+";border-color:"+P+"}#zs .q .st.f{color:"+PI+";border-color:"+PI+"}#zs .q{border-radius:14px}",
       "#zs .go{background:"+P+";border-radius:12px}#zst .nx{background:"+P+";border-radius:12px}#zst .hole{border-radius:14px}#zst .bub{border-radius:18px}",
       "#zsy .nx{background:"+P+"}#zsy .pg i{background:"+P+"}#zsy .pk{border:1px solid #E6E8EC}#zsy .pk.on{border-color:"+P+";box-shadow:none}",
-      "#zsy{background:#FFFFFF}#zsy .ln{color:#12302D}#zsy .ln b{color:"+P+"}#zsy.B .ln.old{color:#B4BAC3}#zsy .pg{background:#EFF1F4}#zsy .nx{color:#fff}",
+      "#zsy{background:#FFFFFF}#zsy .ln{color:#111419}#zsy .ln b{color:"+P+"}#zsy.B .ln.old{color:#B4BAC3}#zsy .pg{background:#EFF1F4}#zsy .nx{color:#fff}",
       "#zsy .end button{border:1px solid "+P+";color:"+PI+"}#zsy .end .main{background:"+P+";color:#fff}"
     ].join("\n");
     function 글(root){ var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false), n; while((n=w.nextNode())){ if(n.nodeValue.indexOf("합격전략")>=0) n.nodeValue=n.nodeValue.replace(/합격전략/g,"합격 전략"); } }

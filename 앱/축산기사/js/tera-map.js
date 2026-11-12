@@ -159,7 +159,7 @@
         return m;
       });
     });
-    var all = [], unit = o.unit || "문제";
+    var all = [], unit = o.unit || "문제", per = o.per || "해마다", per2 = o.per2 || "2년에 1";
     G.forEach(function (g) { g.nodes.forEach(function (n) { all.push({ n: n, g: g }); }); });
     var noAvg = !all.some(function (x) { return x.n.avg > 0; });
     var mark = noAvg ? "" : o.mark || (o.tiers ? "tier" : "");   // "tier" = S·A·B·C(기술·NCS·자격·중개사) · "star" = 별 1~3개(대입·공무원·전문직)
@@ -184,7 +184,7 @@
     /* 3.5 look:"list" */
     if (o.look === "list") {
       var Lst = { fold: {}, open: {} };
-      var qtx = function (n) { if (noAvg || !(n.avg > 0)) return ""; var v = n.avg; return v >= .95 ? "해마다 " + Math.round(v) + unit : v >= .45 ? "2년에 1" + unit : "가끔 출제"; };
+      var qtx = function (n) { if (noAvg || !(n.avg > 0)) return ""; var v = n.avg; return v >= .95 ? per + " " + Math.round(v) + unit : v >= .45 ? per2 + unit : "가끔 출제"; };
       var mk = function (x) { return tiers ? '<span class="tml-tier tml-' + x.tier + '">' + x.tier + "</span>" : stars ? '<span class="tml-star">' + "★★★".slice(0, x.star) + "</span>" : "<span></span>"; };
       var bar = function (p) { return '<span class="tml-bar"><u style="width:' + Math.round(p) + '%"></u></span>'; };
       var rowsOf = function (g) {
@@ -200,7 +200,7 @@
       };
       var draw = function () {
         var s = '<div class="tm-top"><h2>' + esc(o.title || "합격 지도") + (o.sub ? "<small>" + esc(o.sub) + "</small>" : "") + "</h2>" + (o.dday ? '<span class="tm-dd" style="margin-left:auto">' + esc(o.dday) + "</span>" : "") + "</div>" +
-          '<div class="tml-sum"><b>' + whole + "%</b>" + bar(whole) + (noAvg ? "" : "<em>" + num(Math.round(tot)) + esc(unit) + " 중 " + num(Math.round(got)) + esc(unit) + "만큼</em>") + "</div>";
+          '<div class="tml-sum"><b>' + whole + "%</b>" + bar(whole) + (noAvg ? "" : "<em>" + (o.per ? esc(per) + " " : "") + num(Math.round(tot)) + esc(unit) + " 중 " + num(Math.round(got)) + esc(unit) + "만큼</em>") + "</div>";
         if (rec.length) s += '<div class="tml-h">지금 할 단원</div><div class="tml-todo">' + rec.map(function (x, i) {
           return '<button type="button" class="tml-do" data-go="' + all.indexOf(x) + '"><i>' + (i + 1) + "</i>" + mk(x) + '<span class="tml-x"><b>' + esc(x.n.name) + "</b>" + (G.length > 1 ? "<small>" + esc(x.g.name) + "</small>" : "") + "</span><em>" + (i === 0 ? "시작 ›" : esc(qtx(x.n))) + "</em></button>";
         }).join("") + "</div>";
@@ -208,7 +208,7 @@
         G.forEach(function (g, gi) {
           if (G.length < 2) { s += rowsOf(g); return; }
           var ga = g.nodes.reduce(function (a, n) { return a + W(n); }, 0), gp = ga ? g.nodes.reduce(function (a, n) { return a + W(n) * (n.pct || 0); }, 0) / ga : 0, op = !!Lst.fold[gi];
-          s += '<button type="button" class="tml-g" data-g="' + gi + '" aria-expanded="' + op + '"><b>' + esc(g.name) + "</b><small>단원 " + g.nodes.length + "개</small>" + bar(gp) + "<em>" + Math.round(gp) + "%</em><i>⌄</i></button>" + (op ? rowsOf(g) : "");
+          s += '<button type="button" class="tml-g" data-g="' + gi + '" aria-expanded="' + op + '"><b>' + esc(g.name) + "</b><small>" + (ga > 0 && !noAvg ? esc(per) + " " + num(Math.round(ga)) + esc(unit) : "단원 " + g.nodes.length + "개") + "</small>" + bar(gp) + "<em>" + Math.round(gp) + "%</em><i>⌄</i></button>" + (op ? rowsOf(g) : "");
         });
         host.innerHTML = s;
       };
@@ -231,7 +231,7 @@
       (rec.length ? '<span class="tm-next">' + rec.map(function (x, i) {
         return (i ? "<s>›</s>" : "") + '<button data-id="' + all.indexOf(x) + '"><i class="tm-no">' + (i + 1) + "</i>" + esc(x.n.name) + "</button>";
       }).join("") + "</span>" : "") + "</div>";
-    if (detail) h += '<div class="tm-key"><span><i></i>진척</span>' + (lmax ? '<span><i class="tm-kb"></i>시험 비중 · 해마다 ' + esc(unit) + "</span>" : "") + "</div>";
+    if (detail) h += '<div class="tm-key"><span><i></i>진척</span>' + (lmax ? '<span><i class="tm-kb"></i>시험 비중 · ' + esc(per) + ' ' + esc(unit) + "</span>" : "") + "</div>";
     h += '<div class="tm-lanes">';
     G.forEach(function (g) {
       var ga = g.nodes.reduce(function (s, n) { return s + W(n); }, 0);
@@ -244,7 +244,7 @@
         var cls = "tm-t" + (p >= 80 ? " tm-done" : "") + (n.dim ? " tm-dim" : "") + (x.order ? " tm-rec" : "") + (x.order === 1 ? " tm-first" : "");
         if (detail) h += '<div class="tm-c' + (x.order === 1 ? " tm-cfirst" : x.order ? " tm-crec" : "") + (n.dim ? " tm-cdim" : "") + '">';
         h += '<button class="' + cls + '" data-id="' + all.indexOf(x) + '" style="--v:' + (p >= 80 ? 100 : p) + '"' +
-          ' title="' + esc(n.name) + (noAvg ? "" : " · 해마다 " + num(n.avg) + esc(unit)) + " · 진척 " + p + '%">' +
+          ' title="' + esc(n.name) + (noAvg ? "" : " · " + per + " " + num(n.avg) + esc(unit)) + " · 진척 " + p + '%">' +
           (x.order ? '<i class="tm-no">' + x.order + "</i>" : tiers ? '<i class="tm-tier tm-' + x.tier + '">' + x.tier + "</i>" : "") +
           '<span class="tm-tx"><span class="tm-nm">' + esc(n.name) + "</span>" +
           (stars ? '<span class="tm-st"><b>' + "★★★".slice(0, x.star) + "</b>" + "★★★".slice(x.star) + "</span>" : "") + "</span>" +
@@ -254,7 +254,7 @@
           var L = n.leaves || [], id = all.indexOf(x);
           h += '<div class="tm-ll">' + L.slice(0, CAP).map(function (l, i) {
             var q = Math.round(l.pct || 0), w = lmax && l.avg > 0 ? Math.max(8, Math.round(l.avg / lmax * 100)) : 0;
-            return '<button class="tm-l' + (lmax && l.avg >= lmax * .5 ? " tm-hot" : "") + (q >= 80 ? " tm-ld" : "") + '" data-n="' + id + '" data-l="' + i + '" style="--v:' + q + '" title="' + esc(l.name) + (l.avg > 0 ? " · 해마다 " + num(l.avg) + esc(unit) : "") + " · 진척 " + q + '%"><span>' + esc(l.name) + "</span>" +
+            return '<button class="tm-l' + (lmax && l.avg >= lmax * .5 ? " tm-hot" : "") + (q >= 80 ? " tm-ld" : "") + '" data-n="' + id + '" data-l="' + i + '" style="--v:' + q + '" title="' + esc(l.name) + (l.avg > 0 ? " · " + per + " " + num(l.avg) + esc(unit) : "") + " · 진척 " + q + '%"><span>' + esc(l.name) + "</span>" +
               (lmax ? '<i><u style="width:' + w + '%"></u></i>' : "") + "<em>" + (q >= 80 ? "✓" : lmax && l.avg > 0 ? num(l.avg) : q ? q + "%" : "") + "</em></button>";
           }).join("") + (L.length > CAP ? '<button class="tm-l tm-more" data-id="' + id + '">+' + (L.length - CAP) + "</button>" : "") + "</div></div>";
         }
@@ -272,7 +272,7 @@
       host.querySelectorAll(".tm-t").forEach(function (b) { b.classList.toggle("tm-on", all[+b.dataset.id] === x); });
       pv.innerHTML = '<div class="tm-h">' + (tiers ? '<i class="tm-tier tm-' + x.tier + '">' + x.tier + "</i>" : "") + "<b>" + esc(n.name) + '</b><button class="tm-x" aria-label="닫기">×</button></div>' +
         '<div class="tm-k"><div><b>' + Math.round(n.pct || 0) + "%</b><span>진척</span></div>" +
-        (noAvg ? "" : "<div><b>" + (n.avg > 0 ? num(n.avg) : "–") + "</b><span>해마다 " + esc(unit) + "</span></div>") +
+        (noAvg ? "" : "<div><b>" + (n.avg > 0 ? num(n.avg) : "–") + "</b><span>" + esc(per) + " " + esc(unit) + "</span></div>") +
         (x.order ? "<div><b>" + x.order + "</b><span>추천 순서</span></div>" : "") + "</div>" +
         '<div class="tm-ls">' + L.map(function (l, i) { var q = Math.round(l.pct || 0); return '<button class="tm-lf" data-l="' + i + '" style="--v:' + q + '">' + esc(l.name) + "<em>" + q + "%</em></button>"; }).join("") + "</div>" +
         '<button class="tm-go">시작</button>';

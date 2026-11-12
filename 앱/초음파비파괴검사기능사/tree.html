@@ -2,11 +2,12 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>합격 지도 — 모두의 초음파비파괴검사기능사</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <link rel="stylesheet" href="css/base.css?v=1111h">
-<link rel="stylesheet" href="css/g.css?v=1111h">
+<link rel="stylesheet" href="css/g.css?v=1112k">
 <script>try{var _s=localStorage.getItem("modugisa2.skin")||"white";document.documentElement.dataset.skin=_s;}catch(e){document.documentElement.dataset.skin="white";}</script>
 <style>
   /* 개념트리(1002) — 통사 스킬트리 문법: 위는 과목 지도(가운데 종목 → 과목), 아래는 과목 › 중분류 › 테마 가지 */
@@ -88,7 +89,7 @@
 <script src="js/gstore.js?v=1111h"></script>
 <script src="js/gquiz.js?v=1111h"></script>
 <script src="js/emblem.js?v=1111h"></script><script src="js/tier.js?v=1111h"></script><script src="js/hextree.js?v=1111h"></script><script src="js/embboard.js?v=1111h"></script><script src="js/titles.js?v=1111h"></script>
-<script src="js/tera-map.js?v=1112a"></script>
+<script src="js/tera-map.js?v=1112b"></script>
 <script>
 /* 합격 지도(화면표준 11절) — 줄 = 그 종목의 필기 과목, 칸 = 과목별 핵심 파트(세부항목, 26칸을 넘으면 대단원으로 묶음), 눌러서 나오는 판에 테마별 진척.
    avg = 테마의 해마다 문항 수(D.테마[].u, 실제 기출에서 나온 값) · pct = 내 숙련(GS.숙련). 지어낸 값 없음. */
@@ -119,7 +120,7 @@
       배율=과목배율(과전체,sj.q);
       /* 단원 묶음(11-12 대표님 「전력공학 26개·전기기기 7개, 3배 차이라 S·A·B·C 도 이상해짐」 → 「과목별 15개 정도가 표준, 10~20개. 기능사처럼 범위가 작으면 10개 미만도 괜찮음」):
          단원 = 출제기준 세부항목. 세부항목이 20개 이하면 그대로 쓴다(작은 시험은 10개 미만이 될 수 있다).
-         20개를 넘으면 열다섯 칸을 주요항목의 출제 비중대로 나눠 주고, 주요항목마다 그 칸 수만큼 세부항목을 큰 것부터 꺼낸다. 남는 세부항목은 「주요항목 · 그 밖」 한 칸으로 묶는다.
+         20개를 넘으면 열다섯 칸을 주요항목의 출제 비중대로 나눠 주고, 주요항목마다 그 칸 수만큼 세부항목을 큰 것부터 꺼낸다. 칸 수보다 세부항목이 많으면 출제기준 순서대로 이웃한 것끼리 비슷한 크기로 묶고 「가장 큰 세부항목 외」로 부른다(「그 밖」 칸 없음).
          세부항목이 10개 미만이어도 테마가 15개 이상이면 큰 세부항목을 테마로 나눈다. 테마까지 적은 과목(범위가 작은 기능사 등)은 그대로 둔다. */
       var 주=[], 세부전체=0;
       sj.m.forEach(function(m,mi){
@@ -139,8 +140,10 @@
           var 칸수=Math.max(1,Math.round(15*x.c/총0)), tt=x.ts.slice().sort(function(a,b){return (b.c||0)-(a.c||0);});
           if(칸수<=1 || tt.length<=1){ nodes.push(칸(x.id,x.n,x.ts)); return; }
           if(tt.length<=칸수){ tt.forEach(function(t,i){ nodes.push(칸(x.id+".t"+i,t.n,[t])); }); return; }
-          tt.slice(0,칸수-1).forEach(function(t,i){ nodes.push(칸(x.id+".t"+i,t.n,[t])); });
-          nodes.push(칸(x.id+".r",x.n+" · 그 밖",tt.slice(칸수-1)));
+          /* 「그 밖」 칸을 만들지 않는다(11-12 대표님): 테마를 큰 것부터 가장 가벼운 묶음에 넣어 칸수만큼 비슷한 크기로 나눈다. 이름은 묶음에서 가장 큰 테마 + 「외」 */
+          var 묶=[]; for(var bi=0;bi<칸수;bi++) 묶.push({c:0,ts:[]});
+          tt.forEach(function(t){ var m0=묶[0]; 묶.forEach(function(b){ if(b.c<m0.c) m0=b; }); m0.ts.push(t); m0.c+=(t.c||0)||0.01; });
+          묶.forEach(function(b,i){ if(b.ts.length) nodes.push(칸(x.id+".t"+i,b.ts[0].n+(b.ts.length>1?" 외":""),b.ts)); });
         }); });
       } else if(세부전체<=20){
         주.forEach(function(m){ m.subs.forEach(function(x){ nodes.push(칸(x.id,x.n,x.ts)); }); });
@@ -150,9 +153,17 @@
           var 칸수=Math.max(1,Math.round(15*m.c/총)), ss=m.subs.slice().sort(function(a,b){return b.c-a.c;});
           if(ss.length<=칸수){ ss.forEach(function(x){ nodes.push(칸(x.id,x.n,x.ts)); }); return; }
           if(칸수<=1){ nodes.push(칸(m.id,m.n,m.ts)); return; }
-          ss.slice(0,칸수-1).forEach(function(x){ nodes.push(칸(x.id,x.n,x.ts)); });
-          var 남=[]; ss.slice(칸수-1).forEach(function(x){ 남=남.concat(x.ts); });
-          nodes.push(칸(m.id+".r",(주.length>1?m.n+" · ":"")+"그 밖",남));
+          /* 「그 밖」 칸을 만들지 않는다(11-12 대표님 「고쳐」): 출제기준 순서대로 이웃한 세부항목을 칸수만큼 비슷한 크기로 묶는다. 이름은 묶음에서 가장 큰 세부항목 + 「외」 */
+          var 순=m.subs, 전=m.c||1, 누=0, 묶2=[[]];
+          순.forEach(function(x,xi){
+            var 지금=묶2[묶2.length-1], 남은것=순.length-xi, 남은칸=칸수-묶2.length;
+            if(지금.length && 남은칸>0 && (누>=전*묶2.length/칸수 || 남은것<=남은칸)){ 지금=[]; 묶2.push(지금); }
+            지금.push(x); 누+=x.c;
+          });
+          묶2.forEach(function(b,i){
+            var 큰=b.slice().sort(function(a,c){return c.c-a.c;})[0], ts=[]; b.forEach(function(x){ ts=ts.concat(x.ts); });
+            nodes.push(칸(m.id+".b"+i,큰.n+(b.length>1?" 외":""),ts));
+          });
         });
       }
       /* 등급은 과목 안에서 매긴다: 많이 나오는 순으로 S 20%(적어도 하나) · A 30% · B 30% · C 나머지. 시험 전체 순위로 매기면 단원이 큰 과목이 S 를 다 가져간다 */
@@ -185,7 +196,7 @@
   window.TMAP_DATA=groups;   /* 검산용: 줄마다 avg 합 */
   var dd=GS.디데이();
   TERA_MAP.mount(document.getElementById("tmap"),{
-    title:"합격 지도", sub:D.별칭||D.종목, dday:dd==null?"":(dd>0?"D-"+dd:(dd===0?"D-DAY":"")), unit:"문항", groups:groups, mark:"tier", look:"list",
+    title:"합격 지도", sub:D.별칭||D.종목, dday:dd==null?"":(dd>0?"D-"+dd:(dd===0?"D-DAY":"")), unit:"문항", per:"한 회", per2:"2회에 1", groups:groups, mark:"tier", look:"list",
     onLeaf:function(l){ location.href=주소(l.k); },
     onStart:function(n){
       var 다음=n.leaves.filter(function(l){return l.pct<80;})[0]||n.leaves[0];
